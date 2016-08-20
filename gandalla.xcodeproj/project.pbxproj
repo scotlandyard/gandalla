@@ -56,6 +56,7 @@
 		DAA6A3EB1D69184300F2565B /* VMainAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3B81D69184300F2565B /* VMainAlert.swift */; };
 		DAA6A3EC1D69184300F2565B /* VMainLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3B91D69184300F2565B /* VMainLoader.swift */; };
 		DAA6A3ED1D69184300F2565B /* VMainShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3BA1D69184300F2565B /* VMainShadow.swift */; };
+		E4B7B97FC5CC4CDDD05C1E52 /* Pods_gandalla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB6363C319D194C1D235EF34 /* Pods_gandalla.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F2DBF6A5322CF98D13C1607 /* Pods-gandalla.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gandalla.release.xcconfig"; path = "Pods/Target Support Files/Pods-gandalla/Pods-gandalla.release.xcconfig"; sourceTree = "<group>"; };
+		7071DB846720A600ABE48F7F /* Pods-gandalla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gandalla.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gandalla/Pods-gandalla.debug.xcconfig"; sourceTree = "<group>"; };
+		BB6363C319D194C1D235EF34 /* Pods_gandalla.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gandalla.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAA6A3711D69184300F2565B /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DAA6A3721D69184300F2565B /* ui.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ui.xcassets; sourceTree = "<group>"; };
 		DAA6A3741D69184300F2565B /* CategoryMKAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryMKAnnotationView.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B7B97FC5CC4CDDD05C1E52 /* Pods_gandalla.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +147,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6029ADBB29469C9C705FCC9E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7071DB846720A600ABE48F7F /* Pods-gandalla.debug.xcconfig */,
+				4F2DBF6A5322CF98D13C1607 /* Pods-gandalla.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BB054FCB8FDBC48862860CF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB6363C319D194C1D235EF34 /* Pods_gandalla.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DAA6A3701D69184300F2565B /* Asset */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +387,8 @@
 			children = (
 				DADABA6F1D6914A8002637E8 /* gandalla */,
 				DADAB9661D6912AE002637E8 /* Products */,
+				6029ADBB29469C9C705FCC9E /* Pods */,
+				BB054FCB8FDBC48862860CF3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -400,9 +424,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DADAB9851D6912AE002637E8 /* Build configuration list for PBXNativeTarget "gandalla" */;
 			buildPhases = (
+				3B764203362B66A271613D44 /* 📦 Check Pods Manifest.lock */,
 				DADAB9611D6912AE002637E8 /* Sources */,
 				DADAB9621D6912AE002637E8 /* Frameworks */,
 				DADAB9631D6912AE002637E8 /* Resources */,
+				25A231E174BBB36CFB5C554B /* 📦 Embed Pods Frameworks */,
+				032A881DF3B15C566CD4D7D2 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -489,6 +516,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		032A881DF3B15C566CD4D7D2 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gandalla/Pods-gandalla-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		25A231E174BBB36CFB5C554B /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gandalla/Pods-gandalla-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B764203362B66A271613D44 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DADAB9611D6912AE002637E8 /* Sources */ = {
@@ -659,6 +734,7 @@
 		};
 		DADAB9861D6912AE002637E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7071DB846720A600ABE48F7F /* Pods-gandalla.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -673,6 +749,7 @@
 		};
 		DADAB9871D6912AE002637E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F2DBF6A5322CF98D13C1607 /* Pods-gandalla.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
