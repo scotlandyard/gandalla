@@ -29,7 +29,6 @@
 		DAA6A3CE1D69184300F2565B /* DManagerSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A38A1D69184300F2565B /* DManagerSaver.swift */; };
 		DAA6A3CF1D69184300F2565B /* DGandallaModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A38C1D69184300F2565B /* DGandallaModel.xcdatamodeld */; };
 		DAA6A3D01D69184300F2565B /* DGandallaLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3901D69184300F2565B /* DGandallaLike.swift */; };
-		DAA6A3D11D69184300F2565B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAA6A3911D69184300F2565B /* Info.plist */; };
 		DAA6A3D21D69184300F2565B /* MCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3941D69184300F2565B /* MCreate.swift */; };
 		DAA6A3D31D69184300F2565B /* MMainNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3971D69184300F2565B /* MMainNav.swift */; };
 		DAA6A3D41D69184300F2565B /* MMainNavItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3981D69184300F2565B /* MMainNavItem.swift */; };
@@ -50,7 +49,6 @@
 		DAA6A3E31D69184300F2565B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAA6A3A91D69184300F2565B /* Localizable.strings */; };
 		DAA6A3E41D69184300F2565B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAA6A3AB1D69184300F2565B /* LaunchScreen.storyboard */; };
 		DAA6A3E51D69184300F2565B /* gandallaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3AD1D69184300F2565B /* gandallaTests.swift */; };
-		DAA6A3E61D69184300F2565B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAA6A3AE1D69184300F2565B /* Info.plist */; };
 		DAA6A3E71D69184300F2565B /* VCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3B11D69184300F2565B /* VCreate.swift */; };
 		DAA6A3E81D69184300F2565B /* VMainBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3B41D69184300F2565B /* VMainBar.swift */; };
 		DAA6A3E91D69184300F2565B /* VMainBarBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3B51D69184300F2565B /* VMainBarBack.swift */; };
@@ -478,10 +476,8 @@
 			files = (
 				DAA6A3BB1D69184300F2565B /* brand.xcassets in Resources */,
 				DAA6A3E31D69184300F2565B /* Localizable.strings in Resources */,
-				DAA6A3E61D69184300F2565B /* Info.plist in Resources */,
 				DAA6A3BC1D69184300F2565B /* ui.xcassets in Resources */,
 				DAA6A3E41D69184300F2565B /* LaunchScreen.storyboard in Resources */,
-				DAA6A3D11D69184300F2565B /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +667,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.gandalla;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9750832a-a948-4f48-aa3a-37e3b5e2aca8";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -684,6 +681,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.gandalla;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "16130e7f-96c2-410c-8f8e-1507bcb3fe45";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -691,7 +689,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = gandallaTests/Info.plist;
+				INFOPLIST_FILE = gandalla/Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.gandallaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -703,7 +701,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = gandallaTests/Info.plist;
+				INFOPLIST_FILE = gandalla/Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.gandallaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
