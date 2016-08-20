@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216B1D691BAA006323FE /* FAnalytics.swift */; };
+		DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216E1D691BAA006323FE /* FDatabase.swift */; };
+		DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216F1D691BAA006323FE /* FDatabaseModel.swift */; };
+		DA92217C1D691BAA006323FE /* FDatabaseModelPoem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9221711D691BAA006323FE /* FDatabaseModelPoem.swift */; };
+		DA92217D1D691BAA006323FE /* FDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9221721D691BAA006323FE /* FDatabaseModelUser.swift */; };
+		DA92217E1D691BAA006323FE /* FMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9221741D691BAA006323FE /* FMain.swift */; };
+		DA92217F1D691BAA006323FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA9221751D691BAA006323FE /* GoogleService-Info.plist */; };
+		DA9221801D691BAA006323FE /* FStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9221771D691BAA006323FE /* FStorage.swift */; };
+		DA9221811D691BAA006323FE /* FStoragePoem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9221781D691BAA006323FE /* FStoragePoem.swift */; };
 		DAA6A3BB1D69184300F2565B /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAA6A3711D69184300F2565B /* brand.xcassets */; };
 		DAA6A3BC1D69184300F2565B /* ui.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAA6A3721D69184300F2565B /* ui.xcassets */; };
 		DAA6A3BD1D69184300F2565B /* CategoryMKAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3741D69184300F2565B /* CategoryMKAnnotationView.swift */; };
@@ -73,6 +82,15 @@
 		4F2DBF6A5322CF98D13C1607 /* Pods-gandalla.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gandalla.release.xcconfig"; path = "Pods/Target Support Files/Pods-gandalla/Pods-gandalla.release.xcconfig"; sourceTree = "<group>"; };
 		7071DB846720A600ABE48F7F /* Pods-gandalla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gandalla.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gandalla/Pods-gandalla.debug.xcconfig"; sourceTree = "<group>"; };
 		BB6363C319D194C1D235EF34 /* Pods_gandalla.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gandalla.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA92216B1D691BAA006323FE /* FAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAnalytics.swift; sourceTree = "<group>"; };
+		DA92216E1D691BAA006323FE /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
+		DA92216F1D691BAA006323FE /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
+		DA9221711D691BAA006323FE /* FDatabaseModelPoem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelPoem.swift; sourceTree = "<group>"; };
+		DA9221721D691BAA006323FE /* FDatabaseModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUser.swift; sourceTree = "<group>"; };
+		DA9221741D691BAA006323FE /* FMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMain.swift; sourceTree = "<group>"; };
+		DA9221751D691BAA006323FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DA9221771D691BAA006323FE /* FStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FStorage.swift; sourceTree = "<group>"; };
+		DA9221781D691BAA006323FE /* FStoragePoem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FStoragePoem.swift; sourceTree = "<group>"; };
 		DAA6A3711D69184300F2565B /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DAA6A3721D69184300F2565B /* ui.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ui.xcassets; sourceTree = "<group>"; };
 		DAA6A3741D69184300F2565B /* CategoryMKAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryMKAnnotationView.swift; sourceTree = "<group>"; };
@@ -162,6 +180,70 @@
 				BB6363C319D194C1D235EF34 /* Pods_gandalla.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA9221691D691BAA006323FE /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				DA92216A1D691BAA006323FE /* Analytics */,
+				DA92216C1D691BAA006323FE /* Database */,
+				DA9221731D691BAA006323FE /* Main */,
+				DA9221761D691BAA006323FE /* Storage */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		DA92216A1D691BAA006323FE /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				DA92216B1D691BAA006323FE /* FAnalytics.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		DA92216C1D691BAA006323FE /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				DA92216D1D691BAA006323FE /* Base */,
+				DA9221701D691BAA006323FE /* Models */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		DA92216D1D691BAA006323FE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DA92216E1D691BAA006323FE /* FDatabase.swift */,
+				DA92216F1D691BAA006323FE /* FDatabaseModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		DA9221701D691BAA006323FE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DA9221711D691BAA006323FE /* FDatabaseModelPoem.swift */,
+				DA9221721D691BAA006323FE /* FDatabaseModelUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DA9221731D691BAA006323FE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DA9221741D691BAA006323FE /* FMain.swift */,
+				DA9221751D691BAA006323FE /* GoogleService-Info.plist */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DA9221761D691BAA006323FE /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				DA9221771D691BAA006323FE /* FStorage.swift */,
+				DA9221781D691BAA006323FE /* FStoragePoem.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		DAA6A3701D69184300F2565B /* Asset */ = {
@@ -404,6 +486,7 @@
 		DADABA6F1D6914A8002637E8 /* gandalla */ = {
 			isa = PBXGroup;
 			children = (
+				DA9221691D691BAA006323FE /* Firebase */,
 				DAA6A3701D69184300F2565B /* Asset */,
 				DAA6A3731D69184300F2565B /* Category */,
 				DAA6A37E1D69184300F2565B /* Controller */,
@@ -503,6 +586,7 @@
 			files = (
 				DAA6A3BB1D69184300F2565B /* brand.xcassets in Resources */,
 				DAA6A3E31D69184300F2565B /* Localizable.strings in Resources */,
+				DA92217F1D691BAA006323FE /* GoogleService-Info.plist in Resources */,
 				DAA6A3BC1D69184300F2565B /* ui.xcassets in Resources */,
 				DAA6A3E41D69184300F2565B /* LaunchScreen.storyboard in Resources */,
 			);
@@ -581,16 +665,20 @@
 				DAA6A3D81D69184300F2565B /* MMainNavItemStateNone.swift in Sources */,
 				DAA6A3CE1D69184300F2565B /* DManagerSaver.swift in Sources */,
 				DAA6A3E01D69184300F2565B /* MMainTransitionReplace.swift in Sources */,
+				DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */,
+				DA9221801D691BAA006323FE /* FStorage.swift in Sources */,
 				DAA6A3C91D69184300F2565B /* CMainController.swift in Sources */,
 				DAA6A3C11D69184300F2565B /* CategoryNSNotification.swift in Sources */,
 				DAA6A3CA1D69184300F2565B /* CMainParent.swift in Sources */,
 				DAA6A3D51D69184300F2565B /* MMainNavItemCreate.swift in Sources */,
 				DAA6A3D61D69184300F2565B /* MMainNavItemState.swift in Sources */,
 				DAA6A3E71D69184300F2565B /* VCreate.swift in Sources */,
+				DA9221811D691BAA006323FE /* FStoragePoem.swift in Sources */,
 				DAA6A3C71D69184300F2565B /* CCreate.swift in Sources */,
 				DAA6A3BE1D69184300F2565B /* CategoryNSDate.swift in Sources */,
 				DAA6A3C41D69184300F2565B /* CategoryUIFont.swift in Sources */,
 				DAA6A3ED1D69184300F2565B /* VMainShadow.swift in Sources */,
+				DA92217C1D691BAA006323FE /* FDatabaseModelPoem.swift in Sources */,
 				DAA6A3BF1D69184300F2565B /* CategoryNSFileManager.swift in Sources */,
 				DAA6A3C01D69184300F2565B /* CategoryNSManagerdObject.swift in Sources */,
 				DAA6A3C81D69184300F2565B /* CMain.swift in Sources */,
@@ -602,9 +690,13 @@
 				DAA6A3DB1D69184300F2565B /* MMainNavPosPushed.swift in Sources */,
 				DAA6A3DF1D69184300F2565B /* MMainTransitionPush.swift in Sources */,
 				DAA6A3CB1D69184300F2565B /* DManager.swift in Sources */,
+				DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */,
 				DAA6A3CD1D69184300F2565B /* DManagerModelGandalla.swift in Sources */,
+				DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */,
 				DAA6A3C61D69184300F2565B /* CategoryUIViewController.swift in Sources */,
+				DA92217D1D691BAA006323FE /* FDatabaseModelUser.swift in Sources */,
 				DAA6A3E91D69184300F2565B /* VMainBarBack.swift in Sources */,
+				DA92217E1D691BAA006323FE /* FMain.swift in Sources */,
 				DAA6A3BD1D69184300F2565B /* CategoryMKAnnotationView.swift in Sources */,
 				DAA6A3E21D69184300F2565B /* MMainTransitionScrollRight.swift in Sources */,
 				DAA6A3E81D69184300F2565B /* VMainBar.swift in Sources */,
