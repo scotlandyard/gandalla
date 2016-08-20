@@ -1,2 +1,1 @@
-# gandalla
-Escuadron Gandalla
+# Escuadron Gandalla
