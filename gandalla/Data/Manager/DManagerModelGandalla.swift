@@ -1,9 +1,9 @@
 import Foundation
 import CoreData
 
-class DManagerModelPokePass:DManagerModel
+class DManagerModelGandalla:DManagerModel
 {
-    private let kModelName:String = "DPokePassModel"
+    private let kModelName:String = "DGandallaModel"
     
     init()
     {

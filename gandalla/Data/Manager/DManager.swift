@@ -3,10 +3,10 @@ import Foundation
 class DManager
 {
     static let sharedInstance = DManager()
-    let managerPokePass:DManagerModelPokePass
+    let managerGandalla:DManagerModelGandalla
     
     private init()
     {
-        managerPokePass = DManagerModelPokePass()
+        managerGandalla = DManagerModelGandalla()
     }
 }
