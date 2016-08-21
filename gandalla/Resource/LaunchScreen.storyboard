@@ -19,8 +19,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="bRA-3N-09w" userLabel="image">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escuadron Gandalla" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLt-Sk-X84">
-                                <rect key="frame" x="0.0" y="396" width="600" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escuadron Gandalla" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLt-Sk-X84">
+                                <rect key="frame" x="0.0" y="130" width="600" height="470"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -30,8 +30,12 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bRA-3N-09w" secondAttribute="trailing" id="1BZ-D6-1vj"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="bRA-3N-09w" secondAttribute="bottom" id="1uw-yQ-QL8"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="oLt-Sk-X84" secondAttribute="bottom" id="3Ad-Nv-HrH"/>
+                            <constraint firstItem="oLt-Sk-X84" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="110" id="Ez9-4F-YhR"/>
                             <constraint firstItem="bRA-3N-09w" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="SLv-3A-jSH"/>
+                            <constraint firstAttribute="trailing" secondItem="oLt-Sk-X84" secondAttribute="trailing" id="Y1L-yi-N1b"/>
                             <constraint firstItem="bRA-3N-09w" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="lTl-J2-hm4"/>
+                            <constraint firstItem="oLt-Sk-X84" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ncq-ga-XvJ"/>
                         </constraints>
                     </view>
                 </viewController>
