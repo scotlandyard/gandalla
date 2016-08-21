@@ -21,6 +21,20 @@ class MMainNavItem
         return item
     }
     
+    class func Liked(index:Int) -> MMainNavItem
+    {
+        let item:MMainNavItem = MMainNavItemLiked(index:index)
+        
+        return item
+    }
+    
+    class func Champions(index:Int) -> MMainNavItem
+    {
+        let item:MMainNavItem = MMainNavItemChampions(index:index)
+        
+        return item
+    }
+    
     init(image:String, index:Int)
     {
         self.image = image

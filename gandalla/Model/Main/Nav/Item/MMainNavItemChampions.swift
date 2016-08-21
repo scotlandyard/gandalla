@@ -1,9 +1,18 @@
-//
-//  MMainNavItemChampions.swift
-//  gandalla
-//
-//  Created by zero on 8/21/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MMainNavItemChampions:MMainNavItem
+{
+    private let kImage:String = "navigationChampions"
+    
+    init(index:Int)
+    {
+        super.init(image:kImage, index:index)
+    }
+    
+    override func controller() -> UIViewController
+    {
+        let news:CNews = CNews()
+        
+        return news
+    }
+}
