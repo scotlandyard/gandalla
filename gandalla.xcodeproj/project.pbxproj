@@ -66,6 +66,7 @@
 		DAA6A3EB1D69184300F2565B /* VMainAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3B81D69184300F2565B /* VMainAlert.swift */; };
 		DAA6A3EC1D69184300F2565B /* VMainLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3B91D69184300F2565B /* VMainLoader.swift */; };
 		DAA6A3ED1D69184300F2565B /* VMainShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3BA1D69184300F2565B /* VMainShadow.swift */; };
+		DAD713CF1D6A0B67007ABB0C /* VNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713CE1D6A0B67007ABB0C /* VNews.swift */; };
 		E4B7B97FC5CC4CDDD05C1E52 /* Pods_gandalla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB6363C319D194C1D235EF34 /* Pods_gandalla.framework */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +145,7 @@
 		DAA6A3B81D69184300F2565B /* VMainAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainAlert.swift; sourceTree = "<group>"; };
 		DAA6A3B91D69184300F2565B /* VMainLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainLoader.swift; sourceTree = "<group>"; };
 		DAA6A3BA1D69184300F2565B /* VMainShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainShadow.swift; sourceTree = "<group>"; };
+		DAD713CE1D6A0B67007ABB0C /* VNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNews.swift; sourceTree = "<group>"; };
 		DADAB9651D6912AE002637E8 /* gandalla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gandalla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADAB97C1D6912AE002637E8 /* test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -432,6 +434,7 @@
 		DAA6A3AF1D69184300F2565B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DAD713CD1D6A0B5E007ABB0C /* News */,
 				DAA6A3B01D69184300F2565B /* Create */,
 				DAA6A3B21D69184300F2565B /* Main */,
 			);
@@ -473,6 +476,14 @@
 				DAA6A3BA1D69184300F2565B /* VMainShadow.swift */,
 			);
 			path = Generic;
+			sourceTree = "<group>";
+		};
+		DAD713CD1D6A0B5E007ABB0C /* News */ = {
+			isa = PBXGroup;
+			children = (
+				DAD713CE1D6A0B67007ABB0C /* VNews.swift */,
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 		DADAB95C1D6912AE002637E8 = {
@@ -676,6 +687,7 @@
 				DAA6A3CE1D69184300F2565B /* DManagerSaver.swift in Sources */,
 				DAA6A3E01D69184300F2565B /* MMainTransitionReplace.swift in Sources */,
 				DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */,
+				DAD713CF1D6A0B67007ABB0C /* VNews.swift in Sources */,
 				DA9221801D691BAA006323FE /* FStorage.swift in Sources */,
 				DAA6A3C91D69184300F2565B /* CMainController.swift in Sources */,
 				DAA6A3C11D69184300F2565B /* CategoryNSNotification.swift in Sources */,
