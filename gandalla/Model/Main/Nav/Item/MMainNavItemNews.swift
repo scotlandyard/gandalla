@@ -2,7 +2,7 @@ import UIKit
 
 class MMainNavItemNews:MMainNavItem
 {
-    private let kImage:String = "navigationCreate"
+    private let kImage:String = "navigationNews"
     
     init(index:Int)
     {
