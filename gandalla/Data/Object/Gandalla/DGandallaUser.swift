@@ -1,15 +1,14 @@
 import Foundation
 import CoreData
 
-@objc(DGandallaLike)
-class DGandallaLike:NSManagedObject
+@objc(DGandallaUser)
+class DGandallaUser:NSManagedObject
 {
-    @NSManaged var latitude:Double
-    @NSManaged var longitude:Double
-    @NSManaged var locationProject:DPokePassProject?
+    @NSManaged var userId:String
+    @NSManaged var likedGandaller:[DGandallaGandaller]
     
     override class func entityName() -> String
     {
-        return "Location"
+        return "User"
     }
 }
