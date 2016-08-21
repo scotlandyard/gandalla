@@ -8,14 +8,12 @@ class MMainNav
     init()
     {
         var items:[MMainNavItem] = []
-        let itemSettings:MMainNavItem = MMainNavItem.Settings(items.count)
-        items.append(itemSettings)
-        let itemProjects:MMainNavItem = MMainNavItem.Projects(items.count)
-        items.append(itemProjects)
+        let itemNews:MMainNavItem = MMainNavItem.News(items.count)
+        items.append(itemNews)
         let itemCreate:MMainNavItem = MMainNavItem.Create(items.count)
         items.append(itemCreate)
         self.items = items
-        selectItem(itemProjects)
+        selectItem(itemNews)
     }
     
     //MARK: public
