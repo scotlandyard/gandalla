@@ -2,26 +2,12 @@ import Foundation
 
 class FDatabaseModelUser:FDatabaseModel
 {
-    let name:String
-    let kKeyName:String = "name"
+    let created:NSTimeInterval
+    let kKeyCreated:String = "created"
     
     init()
     {
-        name = ""
-    }
-    
-    init(snapshot:AnyObject?)
-    {
-        let json:[String:AnyObject]? = snapshot as? [String:AnyObject]
-        
-        if json != nil
-        {
-            name = json![kKeyName] as! String
-        }
-        else
-        {
-            name = ""
-        }
+        created = NSDate().timeIntervalSince1970
     }
     
     //MARK: public
@@ -29,7 +15,7 @@ class FDatabaseModelUser:FDatabaseModel
     func modelJson() -> [String:AnyObject]
     {
         let dict:[String:AnyObject] = [
-            kKeyName:name
+            kKeyCreated:created
         ]
         
         return dict

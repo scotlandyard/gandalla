@@ -9,13 +9,6 @@ class FDatabase
     init()
     {
         reference = FIRDatabase.database().reference()
-        
-        let userReference:FIRDatabaseReference = reference.child("pedro")
-        userReference.observeSingleEventOfType(FIRDataEventType.Value, withBlock:
-        { (snap) in
-            
-            print("value:::: \(snap.value)")
-        })
     }
     
     //MARK: public -
@@ -23,8 +16,11 @@ class FDatabase
     
     func createUser() -> String
     {
-        let newUser:FIRDatabaseReference = reference.child("pedro").childByAutoId()
+        let fUser:FDatabaseModelUser = FDatabaseModelUser()
+        let fUserJson:[String:AnyObject] = fUser.modelJson()
+        let newUser:FIRDatabaseReference = reference.child(kReferenceUser).childByAutoId()
         let newUserId:String = newUser.key
+        newUser.setValue(fUserJson)
         
         return newUserId
     }
