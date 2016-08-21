@@ -15,7 +15,7 @@ class CMainParent:UIViewController
     weak var layoutBottomTemporal:NSLayoutConstraint?
     weak var shadow:VMainShadow?
     var previous:UIViewController?
-    private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.LightContent
+    private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.Default
     
     override func viewDidLoad()
     {
