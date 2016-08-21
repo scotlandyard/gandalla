@@ -11,7 +11,7 @@ class VMainBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     weak var layoutBackRight:NSLayoutConstraint!
     private let model:MMainNav
     private var pos:MMainNavPos
-    private let kButtonWidth:CGFloat = 70
+    private let kButtonWidth:CGFloat = 75
     
     init(controllerParent:CMainParent)
     {
