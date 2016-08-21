@@ -3,7 +3,7 @@ import Foundation
 class MUser
 {
     static let sharedInstance = MUser()
-    var dbUser:DGandallaUser?
+    var dbUser:DGandallaUser!
     
     private init()
     {
