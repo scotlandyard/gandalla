@@ -7,9 +7,9 @@ class MMainNavItem
     private(set) var state:MMainNavItemState
     weak var cell:VMainBarCell?
     
-    class func Projects(index:Int) -> MMainNavItem
+    class func News(index:Int) -> MMainNavItem
     {
-        let item:MMainNavItem = MMainNavItemProjects(index:index)
+        let item:MMainNavItem = MMainNavItemNews(index:index)
         
         return item
     }
@@ -17,13 +17,6 @@ class MMainNavItem
     class func Create(index:Int) -> MMainNavItem
     {
         let item:MMainNavItem = MMainNavItemCreate(index:index)
-        
-        return item
-    }
-    
-    class func Settings(index:Int) -> MMainNavItem
-    {
-        let item:MMainNavItem = MMainNavItemSettings(index:index)
         
         return item
     }
@@ -56,7 +49,7 @@ class MMainNavItem
     
     func controller() -> UIViewController
     {
-        let controller:UIViewController = CProjects()
+        let controller:UIViewController = CMainController()
         
         return controller
     }
