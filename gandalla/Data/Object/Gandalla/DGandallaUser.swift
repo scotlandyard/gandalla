@@ -1,8 +1,8 @@
 import Foundation
 import CoreData
 
-@objc(DPokePassLocation)
-class DPokePassLocation:NSManagedObject
+@objc(DGandallaLike)
+class DGandallaLike:NSManagedObject
 {
     @NSManaged var latitude:Double
     @NSManaged var longitude:Double

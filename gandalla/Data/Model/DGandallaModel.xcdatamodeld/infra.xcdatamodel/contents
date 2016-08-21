@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Automatic">
-    <entity name="Location" representedClassName="DPokePassLocation" syncable="YES">
-        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="locationProject" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="projectLocations" inverseEntity="Project" syncable="YES"/>
+    <entity name="Gandaller" syncable="YES">
+        <attribute name="gandallerid" attributeType="String" defaultValueString="x" syncable="YES"/>
+        <relationship name="userLiked" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="likedGandaller" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Project" representedClassName="DPokePassProject" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="projectLocations" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Location" inverseName="locationProject" inverseEntity="Location" syncable="YES"/>
-    </entity>
-    <entity name="Settings" representedClassName="DPokePassSettings" syncable="YES">
-        <attribute name="measures" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    <entity name="User" syncable="YES">
+        <attribute name="userid" attributeType="String" defaultValueString="a" syncable="YES"/>
+        <relationship name="likedGandaller" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Gandaller" inverseName="userLiked" inverseEntity="Gandaller" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Location" positionX="-54" positionY="-9" width="128" height="90"/>
-        <element name="Project" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="Settings" positionX="-63" positionY="18" width="128" height="60"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Gandaller" positionX="-54" positionY="0" width="128" height="75"/>
     </elements>
 </model>

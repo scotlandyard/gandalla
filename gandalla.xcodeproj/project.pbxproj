@@ -39,7 +39,7 @@
 		DAA6A3CD1D69184300F2565B /* DManagerModelGandalla.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3891D69184300F2565B /* DManagerModelGandalla.swift */; };
 		DAA6A3CE1D69184300F2565B /* DManagerSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A38A1D69184300F2565B /* DManagerSaver.swift */; };
 		DAA6A3CF1D69184300F2565B /* DGandallaModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A38C1D69184300F2565B /* DGandallaModel.xcdatamodeld */; };
-		DAA6A3D01D69184300F2565B /* DGandallaLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3901D69184300F2565B /* DGandallaLike.swift */; };
+		DAA6A3D01D69184300F2565B /* DGandallaUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3901D69184300F2565B /* DGandallaUser.swift */; };
 		DAA6A3D21D69184300F2565B /* MCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3941D69184300F2565B /* MCreate.swift */; };
 		DAA6A3D31D69184300F2565B /* MMainNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3971D69184300F2565B /* MMainNav.swift */; };
 		DAA6A3D41D69184300F2565B /* MMainNavItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3981D69184300F2565B /* MMainNavItem.swift */; };
@@ -115,7 +115,7 @@
 		DAA6A3891D69184300F2565B /* DManagerModelGandalla.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManagerModelGandalla.swift; sourceTree = "<group>"; };
 		DAA6A38A1D69184300F2565B /* DManagerSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManagerSaver.swift; sourceTree = "<group>"; };
 		DAA6A38D1D69184300F2565B /* infra.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = infra.xcdatamodel; sourceTree = "<group>"; };
-		DAA6A3901D69184300F2565B /* DGandallaLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGandallaLike.swift; sourceTree = "<group>"; };
+		DAA6A3901D69184300F2565B /* DGandallaUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGandallaUser.swift; sourceTree = "<group>"; };
 		DAA6A3911D69184300F2565B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAA6A3941D69184300F2565B /* MCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreate.swift; sourceTree = "<group>"; };
 		DAA6A3971D69184300F2565B /* MMainNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainNav.swift; sourceTree = "<group>"; };
@@ -352,7 +352,7 @@
 		DAA6A38F1D69184300F2565B /* Gandalla */ = {
 			isa = PBXGroup;
 			children = (
-				DAA6A3901D69184300F2565B /* DGandallaLike.swift */,
+				DAA6A3901D69184300F2565B /* DGandallaUser.swift */,
 			);
 			path = Gandalla;
 			sourceTree = "<group>";
@@ -729,7 +729,7 @@
 				DAA6A3CC1D69184300F2565B /* DManagerModel.swift in Sources */,
 				DAA6A3EA1D69184300F2565B /* VMainBarCell.swift in Sources */,
 				DAA6A3C31D69184300F2565B /* CategoryUIColor.swift in Sources */,
-				DAA6A3D01D69184300F2565B /* DGandallaLike.swift in Sources */,
+				DAA6A3D01D69184300F2565B /* DGandallaUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
