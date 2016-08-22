@@ -6,7 +6,7 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     weak var spinner:VMainLoader?
     weak var collection:UICollectionView!
     private let kInterLine:CGFloat = 1
-    private let kCellHeight:CGFloat = 45
+    private let kCellHeight:CGFloat = 50
     private let kCollectionBottom:CGFloat = 40
     private let kHeaderHeight:CGFloat = 68
     

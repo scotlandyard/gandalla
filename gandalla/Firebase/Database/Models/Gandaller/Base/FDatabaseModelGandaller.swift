@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class FDatabaseModelGandaller:FDatabaseModel
 {
@@ -122,5 +122,12 @@ class FDatabaseModelGandaller:FDatabaseModel
         ]
         
         return json
+    }
+    
+    func statusColor() -> UIColor
+    {
+        let color:UIColor = UIColor.clearColor()
+        
+        return color
     }
 }

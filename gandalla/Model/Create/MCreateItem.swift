@@ -15,6 +15,6 @@ class MCreateItem
     
     func config(cell:VCreateCell)
     {
-        
+        cell.imageStatus.tintColor = fModel.statusColor()
     }
 }
