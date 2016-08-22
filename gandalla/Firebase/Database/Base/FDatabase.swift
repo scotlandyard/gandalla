@@ -5,6 +5,7 @@ class FDatabase
 {
     private let reference:FIRDatabaseReference
     private let kReferenceUser:String = "user"
+    private let kReferenceGandaller:String = "gandaller"
     
     init()
     {
@@ -23,5 +24,21 @@ class FDatabase
         newUser.setValue(fUserJson)
         
         return newUserId
+    }
+    
+    //MARK: gandallers
+    
+    func listenGandaller(snapBlock:((FIRDataSnapshot) -> Void)) -> UInt
+    {
+        let gandallerReference:FIRDatabaseReference = reference.child(kReferenceGandaller)
+        let handler:UInt = gandallerReference.observeEventType(FIRDataEventType.Value, withBlock:snapBlock)
+        
+        return handler
+    }
+    
+    func stopListeningGandaller(handler:UInt)
+    {
+        let gandallerReference:FIRDatabaseReference = reference.child(kReferenceGandaller)
+        gandallerReference.removeObserverWithHandle(handler)
     }
 }
