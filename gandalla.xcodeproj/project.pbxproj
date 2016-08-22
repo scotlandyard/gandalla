@@ -15,6 +15,8 @@
 		DA13F3761D6B450F008AF28A /* FDatabaseModelNewsSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F36E1D6B450F008AF28A /* FDatabaseModelNewsSocial.swift */; };
 		DA13F3771D6B450F008AF28A /* FDatabaseModelNewsVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F36F1D6B450F008AF28A /* FDatabaseModelNewsVideo.swift */; };
 		DA13F3781D6B450F008AF28A /* FDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3711D6B450F008AF28A /* FDatabaseModelUser.swift */; };
+		DA13F37A1D6B551D008AF28A /* VCreateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3791D6B551D008AF28A /* VCreateCell.swift */; };
+		DA13F37C1D6B55CD008AF28A /* VCreateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F37B1D6B55CD008AF28A /* VCreateHeader.swift */; };
 		DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216B1D691BAA006323FE /* FAnalytics.swift */; };
 		DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216E1D691BAA006323FE /* FDatabase.swift */; };
 		DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216F1D691BAA006323FE /* FDatabaseModel.swift */; };
@@ -103,6 +105,8 @@
 		DA13F36E1D6B450F008AF28A /* FDatabaseModelNewsSocial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelNewsSocial.swift; sourceTree = "<group>"; };
 		DA13F36F1D6B450F008AF28A /* FDatabaseModelNewsVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelNewsVideo.swift; sourceTree = "<group>"; };
 		DA13F3711D6B450F008AF28A /* FDatabaseModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUser.swift; sourceTree = "<group>"; };
+		DA13F3791D6B551D008AF28A /* VCreateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateCell.swift; sourceTree = "<group>"; };
+		DA13F37B1D6B55CD008AF28A /* VCreateHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateHeader.swift; sourceTree = "<group>"; };
 		DA92216B1D691BAA006323FE /* FAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAnalytics.swift; sourceTree = "<group>"; };
 		DA92216E1D691BAA006323FE /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
 		DA92216F1D691BAA006323FE /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
@@ -484,6 +488,8 @@
 			isa = PBXGroup;
 			children = (
 				DAA6A3B11D69184300F2565B /* VCreate.swift */,
+				DA13F37B1D6B55CD008AF28A /* VCreateHeader.swift */,
+				DA13F3791D6B551D008AF28A /* VCreateCell.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -767,6 +773,7 @@
 				DAD713E01D6A1361007ABB0C /* MMainNavItemCreate.swift in Sources */,
 				DAA6A3DC1D69184300F2565B /* MMainTransition.swift in Sources */,
 				DAA6A3EC1D69184300F2565B /* VMainLoader.swift in Sources */,
+				DA13F37C1D6B55CD008AF28A /* VCreateHeader.swift in Sources */,
 				DAA6A3CE1D69184300F2565B /* DManagerSaver.swift in Sources */,
 				DAA6A3E01D69184300F2565B /* MMainTransitionReplace.swift in Sources */,
 				DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */,
@@ -791,6 +798,7 @@
 				DAA6A3C41D69184300F2565B /* CategoryUIFont.swift in Sources */,
 				DAA6A3ED1D69184300F2565B /* VMainShadow.swift in Sources */,
 				DA13F3781D6B450F008AF28A /* FDatabaseModelUser.swift in Sources */,
+				DA13F37A1D6B551D008AF28A /* VCreateCell.swift in Sources */,
 				DAD713D11D6A11FC007ABB0C /* DGandallaGandaller.swift in Sources */,
 				DAA6A3BF1D69184300F2565B /* CategoryNSFileManager.swift in Sources */,
 				DAA6A3C01D69184300F2565B /* CategoryNSManagerdObject.swift in Sources */,
