@@ -25,10 +25,18 @@ class FDatabaseModelGandallerSocial
         let rawFacebook:String? = json[FDatabaseModelGandallerSocial.Facebook.rawValue] as? String
         let rawTwitter:String? = json[FDatabaseModelGandallerSocial.Twitter.rawValue] as? String
         let rawInstagram:String? = json[FDatabaseModelGandallerSocial.Instagram.rawValue] as? String
+        let rawHashtags:[String] = json[FDatabaseModelGandallerSocial.Hashtags.rawValue] as! [String]
         
         facebook = rawFacebook
         twitter = rawTwitter
         instagram = rawInstagram
+        hashtags = []
+        
+        for rawHashtag:String in rawHashtags
+        {
+            let hashtag:FDatabaseModelGandallerSocialHashtag = FDatabaseModelGandallerSocialHashtag(tag:rawHashtag)
+            hashtags.append(hashtag)
+        }
     }
     
     //MARK: public
