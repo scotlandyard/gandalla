@@ -1,9 +1,11 @@
-//
-//  FDatabaseModelGandallerSocialHashtag.swift
-//  gandalla
-//
-//  Created by zero on 8/22/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class FDatabaseModelGandallerSocialHashtag
+{
+    let tag:String
+    
+    init(tag:String)
+    {
+        self.tag = tag
+    }
+}

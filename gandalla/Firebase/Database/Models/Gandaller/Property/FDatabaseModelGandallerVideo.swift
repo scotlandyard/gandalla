@@ -1,9 +1,11 @@
-//
-//  FDatabaseModelGandallerVideo.swift
-//  gandalla
-//
-//  Created by zero on 8/22/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class FDatabaseModelGandallerVideo
+{
+    let url:String
+    
+    init(url:String)
+    {
+        self.url = url
+    }
+}
