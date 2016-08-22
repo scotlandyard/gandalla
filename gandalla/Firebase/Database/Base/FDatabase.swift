@@ -30,7 +30,10 @@ class FDatabase
     
     func createGandaller()
     {
-        
+        let fGandaller:FDatabaseModelGandaller = FDatabaseModelGandallerPaused()
+        let fGandallerJson:[String:AnyObject] = fGandaller.modelJson()
+        let newGandaller:FIRDatabaseReference = reference.child(kReferenceGandaller).childByAutoId()
+        newGandaller.setValue(fGandallerJson)
     }
     
     func listenGandaller(snapBlock:((FIRDataSnapshot) -> Void)) -> UInt

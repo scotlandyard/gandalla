@@ -31,6 +31,8 @@ class CCreate:CMainController
         FMain.sharedInstance.database.listenGandaller()
         { [weak self] (snapshot) in
          
+            print("received snapshot")
+            
             let json:[String:AnyObject]? = snapshot.value as? [String:AnyObject]
             
             if json == nil
@@ -69,6 +71,12 @@ class CCreate:CMainController
     
     func createGandaller()
     {
+        viewCreate.showLoading()
         
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            FMain.sharedInstance.database.createGandaller()
+        }
     }
 }
