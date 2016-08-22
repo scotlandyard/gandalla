@@ -3,7 +3,11 @@ import Foundation
 class FDatabaseModelUser:FDatabaseModel
 {
     let created:NSTimeInterval
-    let kKeyCreated:String = "created"
+    
+    enum FDatabaseModelUserKey:String
+    {
+        case Created = "created"
+    }
     
     init()
     {
@@ -15,7 +19,7 @@ class FDatabaseModelUser:FDatabaseModel
     func modelJson() -> [String:AnyObject]
     {
         let dict:[String:AnyObject] = [
-            kKeyCreated:created
+            FDatabaseModelUserKey.Created.rawValue:created
         ]
         
         return dict
