@@ -4,6 +4,7 @@ class CCreate:CMainController
 {
     weak var viewCreate:VCreate!
     let model:MCreate
+    var listenHandler:UInt?
     
     init()
     {
@@ -17,6 +18,14 @@ class CCreate:CMainController
         fatalError()
     }
     
+    deinit
+    {
+        if listenHandler != nil
+        {
+            FMain.sharedInstance.database.stopListeningGandaller(listenHandler!)
+        }
+    }
+    
     override func loadView()
     {
         let viewCreate:VCreate = VCreate(controller:self)
@@ -28,7 +37,7 @@ class CCreate:CMainController
     {
         super.viewDidLoad()
         
-        FMain.sharedInstance.database.listenGandaller()
+        listenHandler = FMain.sharedInstance.database.listenGandaller()
         { [weak self] (snapshot) in
             
             let json:[String:[String:AnyObject]]? = snapshot.value as? [String:[String:AnyObject]]

@@ -28,7 +28,8 @@ class MCreateItem
     
     func selected(controller:CCreate)
     {
-        let detail:CCreateDetail = CCreateDetail(model:self)
+        let detailModel:MCreateItemDetail = MCreateItemDetail(model:self)
+        let detail:CCreateDetail = CCreateDetail(model:detailModel)
         let transition:MMainTransition = MMainTransition.Push(fModel.name)
         controller.parent.pushController(detail, transition:transition)
     }

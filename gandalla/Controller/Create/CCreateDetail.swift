@@ -2,13 +2,19 @@ import UIKit
 
 class CCreateDetail:CMainController
 {
-    weak var model:MCreateItem!
+    let model:MCreateItemDetail
     weak var viewDetail:VCreateDetail!
     
-    convenience init(model:MCreateItem)
+    init(model:MCreateItemDetail)
     {
-        self.init()
         self.model = model
+        
+        super.init(nibName:nil, bundle:nil)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
     }
     
     override func loadView()
