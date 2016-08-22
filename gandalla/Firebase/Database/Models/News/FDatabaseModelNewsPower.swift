@@ -1,9 +1,13 @@
-//
-//  FDatabaseModelNewsPower.swift
-//  gandalla
-//
-//  Created by zero on 8/22/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class FDatabaseModelNewsPower:FDatabaseModelNews
+{
+    let power:String
+    
+    init(gandallerId:String, power:String)
+    {
+        let newsType:FDatabaseModelNewsType = FDatabaseModelNewsType.Power
+        self.power = power
+        super.init(newsType:newsType, gandallerId:gandallerId)
+    }
+}

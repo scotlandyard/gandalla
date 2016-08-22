@@ -2,9 +2,12 @@ import Foundation
 
 class FDatabaseModelNewsPicture:FDatabaseModelNews
 {
-    init(gandallerId:String)
+    let pictureId:String
+    
+    init(gandallerId:String, pictureId:String)
     {
         let newsType:FDatabaseModelNewsType = FDatabaseModelNewsType.Picture
+        self.pictureId = pictureId
         super.init(newsType:newsType, gandallerId:gandallerId)
     }
 }
