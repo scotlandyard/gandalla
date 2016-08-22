@@ -38,6 +38,17 @@ class FDatabaseModelGandaller:FDatabaseModel
         videos = []
     }
     
+    init(json:[String:AnyObject])
+    {
+        let rawStatus:Int = json[FDatabaseModelGandallerKey.Status.rawValue] as! Int
+        let rawCreated:NSTimeInterval = json[FDatabaseModelGandallerKey.Created.rawValue] as! NSTimeInterval
+        let rawName:String = json[FDatabaseModelGandallerKey.Name.rawValue] as! String
+        
+        status = FDatabaseModelGandallerStatus(rawValue:rawStatus)!
+        created = rawCreated
+        name = rawName
+    }
+    
     //MARK: public
     
     func modelJson() -> [String:AnyObject]

@@ -20,6 +20,19 @@ class FDatabaseModelGandallerSocial
         hashtags = []
     }
     
+    init(json:[String:AnyObject])
+    {
+        let rawFacebook:String? = json[FDatabaseModelGandallerSocial.Facebook.rawValue] as? String
+        let rawTwitter:String? = json[FDatabaseModelGandallerSocial.Twitter.rawValue] as? String
+        let rawInstagram:String? = json[FDatabaseModelGandallerSocial.Instagram.rawValue] as? String
+        
+        facebook = rawFacebook
+        twitter = rawTwitter
+        instagram = rawInstagram
+    }
+    
+    //MARK: public
+    
     func modelJson() -> [String:AnyObject]
     {
         var hashArray:[String] = []

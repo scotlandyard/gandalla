@@ -31,7 +31,7 @@ class CCreate:CMainController
         FMain.sharedInstance.database.listenGandaller()
         { [weak self] (snapshot) in
             
-            let json:[String:AnyObject]? = snapshot.value as? [String:AnyObject]
+            let json:[String:[String:AnyObject]]? = snapshot.value as? [String:[String:AnyObject]]
             
             if json == nil
             {
@@ -46,7 +46,7 @@ class CCreate:CMainController
     
     //MARK: private
     
-    private func gandallerUpdated(json:[String:AnyObject])
+    private func gandallerUpdated(json:[String:[String:AnyObject]])
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in

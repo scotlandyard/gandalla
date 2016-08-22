@@ -3,9 +3,11 @@ import UIKit
 class MCreateItem
 {
     let fModel:FDatabaseModelGandaller
+    let gandallerId:String
     
-    init(fModel:FDatabaseModelGandaller)
+    init(gandallerId:String, fModel:FDatabaseModelGandaller)
     {
+        self.gandallerId = gandallerId
         self.fModel = fModel
     }
     
