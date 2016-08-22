@@ -5,10 +5,10 @@ class FDatabaseModelNews:FDatabaseModel
     @objc enum FDatabaseModelNewsType:Int
     {
         case Joined
-        case NewPicture
-        case NewSuperPower
-        case NewVideo
-        case UpdatedSocial
+        case Picture
+        case Power
+        case Video
+        case Social
     }
     
     let created:NSTimeInterval
