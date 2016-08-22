@@ -35,6 +35,13 @@ class MMainNavItem
         return item
     }
     
+    class func Gandallers(index:Int) -> MMainNavItem
+    {
+        let item:MMainNavItem = MMainNavItemGandallers(index:index)
+        
+        return item
+    }
+    
     init(image:String, index:Int)
     {
         self.image = image
