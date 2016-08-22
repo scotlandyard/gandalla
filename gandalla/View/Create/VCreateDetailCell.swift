@@ -1,9 +1,16 @@
-//
-//  VCreateDetailCell.swift
-//  gandalla
-//
-//  Created by zero on 8/22/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VCreateDetailCell:UICollectionViewCell
+{
+    override init(frame:CGRect)
+    {
+        super.init(frame:frame)
+        clipsToBounds = true
+        backgroundColor = UIColor.whiteColor()
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+}

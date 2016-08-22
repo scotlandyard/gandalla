@@ -3,11 +3,9 @@ import UIKit
 class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CCreateDetail!
-    weak var spinner:VMainLoader?
     weak var collection:UICollectionView!
     private let kInterLine:CGFloat = 1
     private let kCollectionBottom:CGFloat = 40
-    private let kHeaderHeight:CGFloat = 68
     
     convenience init(controller:CCreateDetail)
     {
@@ -18,7 +16,7 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         self.controller = controller
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSizeMake(0, kHeaderHeight)
+        flow.headerReferenceSize = CGSizeZero
         flow.footerReferenceSize = CGSizeZero
         flow.sectionInset = UIEdgeInsetsMake(0, 0, kCollectionBottom, 0)
         flow.minimumLineSpacing = kInterLine
@@ -47,28 +45,13 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         collection.hidden = true
         self.collection = collection
         
-        let spinner:VMainLoader = VMainLoader()
-        self.spinner = spinner
-        
-        addSubview(spinner)
         addSubview(collection)
         
         let views:[String:AnyObject] = [
-            "spinner":spinner,
             "collection":collection]
         
         let metrics:[String:AnyObject] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[spinner]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[spinner]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[collection]-0-|",
             options:[],
@@ -90,34 +73,20 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     //MARK: private
     
-    private func modelAtIndex(index:NSIndexPath) -> MCreateItem
+    private func modelAtIndex(index:NSIndexPath) -> MCreateItemDetailProperty
     {
-        let item:MCreateItem = controller.model.items[index.item]
+        let item:MCreateItemDetailProperty = controller.model.properties[index.item]
         
         return item
-    }
-    
-    //MARK: public
-    
-    func showLoading()
-    {
-        spinner?.startAnimating()
-        collection.hidden = true
-    }
-    
-    func reload()
-    {
-        spinner?.stopAnimating()
-        collection.reloadData()
-        collection.hidden = false
     }
     
     //MARK: col del
     
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
+        let item:MCreateItemDetailProperty = modelAtIndex(indexPath)
         let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSizeMake(width, kCellHeight)
+        let size:CGSize = CGSizeMake(width, item.cellHeight)
         
         return size
     }
@@ -129,31 +98,18 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = controller.model.items.count
+        let count:Int = controller.model.properties.count
         
         return count
     }
     
-    func collectionView(collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, atIndexPath indexPath:NSIndexPath) -> UICollectionReusableView
-    {
-        let header:VCreateHeader = collectionView.dequeueReusableSupplementaryViewOfKind(
-            kind,
-            withReuseIdentifier:
-            VCreateHeader.reusableIdentifier(),
-            forIndexPath:indexPath) as! VCreateHeader
-        
-        header.config(controller)
-        
-        return header
-    }
-    
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
     {
-        let item:MCreateItem = modelAtIndex(indexPath)
-        let cell:VCreateCell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            VCreateCell.reusableIdentifier(),
+        let item:MCreateItemDetailProperty = modelAtIndex(indexPath)
+        let cell:VCreateDetailCell = collectionView.dequeueReusableCellWithReuseIdentifier(
+            item.reusableIdentifier,
             forIndexPath:
-            indexPath) as! VCreateCell
+            indexPath) as! VCreateDetailCell
         item.config(cell)
         
         return cell
