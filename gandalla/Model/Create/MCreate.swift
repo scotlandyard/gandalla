@@ -9,4 +9,11 @@ class MCreate
     {
         items = []
     }
+    
+    //MARK: public
+    
+    func update(json:[String:AnyObject])
+    {
+        
+    }
 }

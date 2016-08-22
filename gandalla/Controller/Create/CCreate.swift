@@ -23,4 +23,15 @@ class CCreate:CMainController
         self.viewCreate = viewCreate
         view = viewCreate
     }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        FMain.sharedInstance.database.listenGandaller()
+        { (snapshot) in
+            
+            
+        }
+    }
 }
