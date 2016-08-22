@@ -3,7 +3,7 @@ import UIKit
 class CCreate:CMainController
 {
     weak var viewCreate:VCreate!
-    let model:MCreate
+    var model:MCreate
     
     init()
     {
