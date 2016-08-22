@@ -2,7 +2,7 @@ import Foundation
 
 class FDatabaseModelNews:FDatabaseModel
 {
-    @objc enum FDatabaseModelNewsType:Int
+    enum FDatabaseModelNewsType:Int
     {
         case Joined
         case Picture
@@ -11,11 +11,21 @@ class FDatabaseModelNews:FDatabaseModel
         case Social
     }
     
-    let created:NSTimeInterval
-    let kKeyCreated:String = "created"
-    
-    init()
+    enum FDatabaseModelNewsKey:String
     {
+        case Type = "type"
+        case GandallerId = "gandaller_id"
+        case Created = "created"
+    }
+    
+    let type:FDatabaseModelNewsType
+    let gandallerId:String
+    let created:NSTimeInterval
+    
+    init(type:FDatabaseModelNewsType, gandallerId:String)
+    {
+        self.type = type
+        self.gandallerId = gandallerId
         created = NSDate().timeIntervalSince1970
     }
     
