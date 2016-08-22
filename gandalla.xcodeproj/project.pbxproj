@@ -18,6 +18,7 @@
 		DA13F37A1D6B551D008AF28A /* VCreateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3791D6B551D008AF28A /* VCreateCell.swift */; };
 		DA13F37C1D6B55CD008AF28A /* VCreateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F37B1D6B55CD008AF28A /* VCreateHeader.swift */; };
 		DA13F37E1D6B5708008AF28A /* MCreateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F37D1D6B5708008AF28A /* MCreateItem.swift */; };
+		DA13F3811D6B5B5A008AF28A /* FDatabaseModelGandaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3801D6B5B5A008AF28A /* FDatabaseModelGandaller.swift */; };
 		DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216B1D691BAA006323FE /* FAnalytics.swift */; };
 		DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216E1D691BAA006323FE /* FDatabase.swift */; };
 		DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216F1D691BAA006323FE /* FDatabaseModel.swift */; };
@@ -109,6 +110,7 @@
 		DA13F3791D6B551D008AF28A /* VCreateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateCell.swift; sourceTree = "<group>"; };
 		DA13F37B1D6B55CD008AF28A /* VCreateHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateHeader.swift; sourceTree = "<group>"; };
 		DA13F37D1D6B5708008AF28A /* MCreateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItem.swift; sourceTree = "<group>"; };
+		DA13F3801D6B5B5A008AF28A /* FDatabaseModelGandaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGandaller.swift; sourceTree = "<group>"; };
 		DA92216B1D691BAA006323FE /* FAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAnalytics.swift; sourceTree = "<group>"; };
 		DA92216E1D691BAA006323FE /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
 		DA92216F1D691BAA006323FE /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
@@ -235,6 +237,14 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		DA13F37F1D6B5B4B008AF28A /* Gandaller */ = {
+			isa = PBXGroup;
+			children = (
+				DA13F3801D6B5B5A008AF28A /* FDatabaseModelGandaller.swift */,
+			);
+			path = Gandaller;
+			sourceTree = "<group>";
+		};
 		DA9221691D691BAA006323FE /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +285,7 @@
 		DA9221701D691BAA006323FE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DA13F37F1D6B5B4B008AF28A /* Gandaller */,
 				DA13F3691D6B450F008AF28A /* News */,
 				DA13F3701D6B450F008AF28A /* User */,
 			);
@@ -831,6 +842,7 @@
 				DAA6A3C21D69184300F2565B /* CategoryUICollectionReusableView.swift in Sources */,
 				DAA6A3CC1D69184300F2565B /* DManagerModel.swift in Sources */,
 				DAA6A3EA1D69184300F2565B /* VMainBarCell.swift in Sources */,
+				DA13F3811D6B5B5A008AF28A /* FDatabaseModelGandaller.swift in Sources */,
 				DAA6A3C31D69184300F2565B /* CategoryUIColor.swift in Sources */,
 				DAA6A3D01D69184300F2565B /* DGandallaUser.swift in Sources */,
 				DAD713DE1D6A1361007ABB0C /* MMainNav.swift in Sources */,
