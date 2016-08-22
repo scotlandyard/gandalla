@@ -42,16 +42,39 @@ class FDatabaseModelGandaller:FDatabaseModel
     
     func modelJson() -> [String:AnyObject]
     {
-        let arraySocial:
+        let jsonSocial:[String:AnyObject] = social.modelJson()
+        var jsonImages:[String] = []
+        var jsonPowers:[String] = []
+        var jsonVideos:[String] = []
         
-        var dict:[String:AnyObject] = [
+        for image:FDatabaseModelGandallerImage in images
+        {
+            let imageId:String = image.imageid
+            jsonImages.append(imageId)
+        }
+        
+        for power:FDatabaseModelGandallerPower in powers
+        {
+            let name:String = power.name
+            jsonPowers.append(name)
+        }
+        
+        for video:FDatabaseModelGandallerVideo in videos
+        {
+            let url:String = video.url
+            jsonVideos.append(url)
+        }
+        
+        let json:[String:AnyObject] = [
+            FDatabaseModelGandallerKey.Status.rawValue:status.rawValue,
             FDatabaseModelGandallerKey.Name.rawValue:name,
             FDatabaseModelGandallerKey.Created.rawValue:created,
-            FDatabaseModelGandallerKey.Social.rawValue
+            FDatabaseModelGandallerKey.Social.rawValue:jsonSocial,
+            FDatabaseModelGandallerKey.Images.rawValue:jsonImages,
+            FDatabaseModelGandallerKey.Powers.rawValue:jsonPowers,
+            FDatabaseModelGandallerKey.Videos.rawValue:jsonVideos
         ]
         
-        social.modelJson(&dict)
-        
-        return dict
+        return json
     }
 }
