@@ -22,28 +22,35 @@ class FDatabaseModelGandaller:FDatabaseModel
     let status:FDatabaseModelGandallerStatus
     let created:NSTimeInterval
     var name:String
-    let social
-    var images:[]
-    var powers:[]
-    var videos:[]
+    let social:FDatabaseModelGandallerSocial
+    var images:[FDatabaseModelGandallerImage]
+    var powers:[FDatabaseModelGandallerPower]
+    var videos:[FDatabaseModelGandallerVideo]
     
     init(status:FDatabaseModelGandallerStatus)
     {
         self.status = status
-        name = ""
-        
         created = NSDate().timeIntervalSince1970
+        name = ""
+        social = FDatabaseModelGandallerSocial()
+        images = []
+        powers = []
+        videos = []
     }
     
     //MARK: public
     
     func modelJson() -> [String:AnyObject]
     {
-        let dict:[String:AnyObject] = [
-            FDatabaseModelNewsKey.NewsType.rawValue:newsType.rawValue,
-            FDatabaseModelNewsKey.GandallerId.rawValue:gandallerId,
-            FDatabaseModelNewsKey.Created.rawValue:created
+        let arraySocial:
+        
+        var dict:[String:AnyObject] = [
+            FDatabaseModelGandallerKey.Name.rawValue:name,
+            FDatabaseModelGandallerKey.Created.rawValue:created,
+            FDatabaseModelGandallerKey.Social.rawValue
         ]
+        
+        social.modelJson(&dict)
         
         return dict
     }
