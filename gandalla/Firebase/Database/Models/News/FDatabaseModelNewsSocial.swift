@@ -1,9 +1,10 @@
-//
-//  FDatabaseModelNewsSocial.swift
-//  gandalla
-//
-//  Created by zero on 8/22/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class FDatabaseModelNewsSocial:FDatabaseModelNews
+{
+    init(gandallerId:String)
+    {
+        let newsType:FDatabaseModelNewsType = FDatabaseModelNewsType.Social
+        super.init(newsType:newsType, gandallerId:gandallerId)
+    }
+}
