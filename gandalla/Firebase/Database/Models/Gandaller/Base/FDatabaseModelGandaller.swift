@@ -27,6 +27,30 @@ class FDatabaseModelGandaller:FDatabaseModel
     var powers:[FDatabaseModelGandallerPower]
     var videos:[FDatabaseModelGandallerVideo]
     
+    class func withJson(json:[String:AnyObject]) -> FDatabaseModelGandaller
+    {
+        let gandaller:FDatabaseModelGandaller
+        let rawStatus:Int = json[FDatabaseModelGandallerKey.Status.rawValue] as! Int
+        let status:FDatabaseModelGandallerStatus = FDatabaseModelGandallerStatus(rawValue:rawStatus)!
+        
+        switch status
+        {
+            case FDatabaseModelGandallerStatus.Active:
+            
+                gandaller = FDatabaseModelGandallerActive(json:json)
+                
+                break
+            
+            case FDatabaseModelGandallerStatus.Paused:
+                
+                gandaller = FDatabaseModelGandallerPaused(json:json)
+                
+                break
+        }
+        
+        return gandaller
+    }
+    
     init(status:FDatabaseModelGandallerStatus)
     {
         self.status = status
@@ -38,9 +62,8 @@ class FDatabaseModelGandaller:FDatabaseModel
         videos = []
     }
     
-    init(json:[String:AnyObject])
+    init(status:FDatabaseModelGandallerStatus, json:[String:AnyObject])
     {
-        let rawStatus:Int = json[FDatabaseModelGandallerKey.Status.rawValue] as! Int
         let rawCreated:NSTimeInterval = json[FDatabaseModelGandallerKey.Created.rawValue] as! NSTimeInterval
         let rawName:String = json[FDatabaseModelGandallerKey.Name.rawValue] as! String
         let rawSocial:[String:AnyObject]? = json[FDatabaseModelGandallerKey.Social.rawValue] as? [String:AnyObject]
@@ -48,7 +71,7 @@ class FDatabaseModelGandaller:FDatabaseModel
         let rawPowers:[String]? = json[FDatabaseModelGandallerKey.Powers.rawValue] as? [String]
         let rawVideos:[String]? = json[FDatabaseModelGandallerKey.Videos.rawValue] as? [String]
         
-        status = FDatabaseModelGandallerStatus(rawValue:rawStatus)!
+        self.status = status
         created = rawCreated
         name = rawName
         social = FDatabaseModelGandallerSocial(json:rawSocial)

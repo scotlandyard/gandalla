@@ -20,7 +20,7 @@ class MCreate
         for key:String in keys
         {
             let inJson:[String:AnyObject] = json[key]!
-            let fGandaller:FDatabaseModelGandaller = FDatabaseModelGandaller(json:inJson)
+            let fGandaller:FDatabaseModelGandaller = FDatabaseModelGandaller.withJson(inJson)
             let item:MCreateItem = MCreateItem(gandallerId:key, fModel:fGandaller)
             
             items.append(item)
