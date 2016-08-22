@@ -7,7 +7,7 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     weak var collection:UICollectionView!
     private let kCellHeight:CGFloat = 50
     private let kCollectionBottom:CGFloat = 40
-    private let kHeaderHeight:CGFloat = 70
+    private let kHeaderHeight:CGFloat = 58
     
     convenience init(controller:CCreate)
     {
@@ -99,10 +99,15 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     //MARK: public
     
+    func showLoading()
+    {
+        spinner?.startAnimating()
+        collection.hidden = true
+    }
+    
     func reload()
     {
         spinner?.stopAnimating()
-        spinner?.removeFromSuperview()
         collection.reloadData()
         collection.hidden = false
     }
