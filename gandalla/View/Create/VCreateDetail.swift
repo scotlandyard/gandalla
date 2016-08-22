@@ -110,22 +110,18 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             item.reusableIdentifier,
             forIndexPath:
             indexPath) as! VCreateDetailCell
-        item.config(cell)
+        item.config(controller, cell:cell)
         
         return cell
     }
     
-    func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
+    func collectionView(collectionView:UICollectionView, shouldDeselectItemAtIndexPath indexPath:NSIndexPath) -> Bool
     {
-        let item:MCreateItem = modelAtIndex(indexPath)
-        item.selected(controller)
-        
-        dispatch_after(
-            dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)),
-            dispatch_get_main_queue())
-        { [weak collectionView] in
-            
-            collectionView?.selectItemAtIndexPath(nil, animated:true, scrollPosition:UICollectionViewScrollPosition.None)
-        }
+        return false
+    }
+    
+    func collectionView(collectionView:UICollectionView, shouldSelectItemAtIndexPath indexPath:NSIndexPath) -> Bool
+    {
+        return false
     }
 }
