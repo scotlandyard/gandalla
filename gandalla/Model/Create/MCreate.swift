@@ -3,7 +3,7 @@ import CoreLocation
 
 class MCreate
 {
-    let items:[MCreateItem]
+    var items:[MCreateItem]
     
     init()
     {

@@ -3,6 +3,7 @@ import UIKit
 class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CCreate!
+    weak var spinner:VMainLoader?
     weak var collection:UICollectionView!
     private let kCellHeight:CGFloat = 50
     private let kCollectionBottom:CGFloat = 40
@@ -13,7 +14,7 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor.whiteColor()
+        backgroundColor = UIColor(white:0.96, alpha:1)
         self.controller = controller
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -43,7 +44,41 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
             UICollectionElementKindSectionHeader,
             withReuseIdentifier:
             VCreateHeader.reusableIdentifier())
+        collection.hidden = true
         self.collection = collection
+        
+        let spinner:VMainLoader = VMainLoader()
+        self.spinner = spinner
+        
+        addSubview(spinner)
+        addSubview(collection)
+        
+        let views:[String:AnyObject] = [
+            "spinner":spinner,
+            "collection":collection]
+        
+        let metrics:[String:AnyObject] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[collection]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[collection]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     override func layoutSubviews()
@@ -60,6 +95,16 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         let item:MCreateItem = controller.model.items[index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func reload()
+    {
+        spinner?.stopAnimating()
+        spinner?.removeFromSuperview()
+        collection.reloadData()
+        collection.hidden = false
     }
     
     //MARK: col del
