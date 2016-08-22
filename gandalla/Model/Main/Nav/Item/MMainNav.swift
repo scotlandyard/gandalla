@@ -14,6 +14,9 @@ class MMainNav
         
         let itemNews:MMainNavItem = MMainNavItem.News(items.count)
         items.append(itemNews)
+        
+        let itemGandallers:MMainNavItem = MMainNavItem.Gandallers(items.count)
+        items.append(itemGandallers)
 
         let itemChampions:MMainNavItem = MMainNavItem.Champions(items.count)
         items.append(itemChampions)
