@@ -28,6 +28,11 @@ class FDatabase
     
     //MARK: gandallers
     
+    func createGandaller()
+    {
+        
+    }
+    
     func listenGandaller(snapBlock:((FIRDataSnapshot) -> Void)) -> UInt
     {
         let gandallerReference:FIRDatabaseReference = reference.child(kReferenceGandaller)
