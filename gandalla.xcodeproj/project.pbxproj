@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		DA13F35C1D6B3F19008AF28A /* MMainNavItemGandallers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F35B1D6B3F19008AF28A /* MMainNavItemGandallers.swift */; };
+		DA13F35E1D6B4284008AF28A /* FDatabaseModelNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F35D1D6B4284008AF28A /* FDatabaseModelNews.swift */; };
 		DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216B1D691BAA006323FE /* FAnalytics.swift */; };
 		DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216E1D691BAA006323FE /* FDatabase.swift */; };
 		DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216F1D691BAA006323FE /* FDatabaseModel.swift */; };
-		DA92217C1D691BAA006323FE /* FDatabaseModelPoem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9221711D691BAA006323FE /* FDatabaseModelPoem.swift */; };
 		DA92217D1D691BAA006323FE /* FDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9221721D691BAA006323FE /* FDatabaseModelUser.swift */; };
 		DA92217E1D691BAA006323FE /* FMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9221741D691BAA006323FE /* FMain.swift */; };
 		DA92217F1D691BAA006323FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA9221751D691BAA006323FE /* GoogleService-Info.plist */; };
@@ -91,10 +91,10 @@
 		7071DB846720A600ABE48F7F /* Pods-gandalla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gandalla.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gandalla/Pods-gandalla.debug.xcconfig"; sourceTree = "<group>"; };
 		BB6363C319D194C1D235EF34 /* Pods_gandalla.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gandalla.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA13F35B1D6B3F19008AF28A /* MMainNavItemGandallers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainNavItemGandallers.swift; sourceTree = "<group>"; };
+		DA13F35D1D6B4284008AF28A /* FDatabaseModelNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelNews.swift; sourceTree = "<group>"; };
 		DA92216B1D691BAA006323FE /* FAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAnalytics.swift; sourceTree = "<group>"; };
 		DA92216E1D691BAA006323FE /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
 		DA92216F1D691BAA006323FE /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
-		DA9221711D691BAA006323FE /* FDatabaseModelPoem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelPoem.swift; sourceTree = "<group>"; };
 		DA9221721D691BAA006323FE /* FDatabaseModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUser.swift; sourceTree = "<group>"; };
 		DA9221741D691BAA006323FE /* FMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMain.swift; sourceTree = "<group>"; };
 		DA9221751D691BAA006323FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -238,8 +238,8 @@
 		DA9221701D691BAA006323FE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DA9221711D691BAA006323FE /* FDatabaseModelPoem.swift */,
 				DA9221721D691BAA006323FE /* FDatabaseModelUser.swift */,
+				DA13F35D1D6B4284008AF28A /* FDatabaseModelNews.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -733,6 +733,7 @@
 				DAD713E81D6A137A007ABB0C /* MMainNavItemNews.swift in Sources */,
 				DAD713DF1D6A1361007ABB0C /* MMainNavItem.swift in Sources */,
 				DAD713E01D6A1361007ABB0C /* MMainNavItemCreate.swift in Sources */,
+				DA13F35E1D6B4284008AF28A /* FDatabaseModelNews.swift in Sources */,
 				DAA6A3DC1D69184300F2565B /* MMainTransition.swift in Sources */,
 				DAA6A3EC1D69184300F2565B /* VMainLoader.swift in Sources */,
 				DAA6A3CE1D69184300F2565B /* DManagerSaver.swift in Sources */,
@@ -756,7 +757,6 @@
 				DAA6A3C41D69184300F2565B /* CategoryUIFont.swift in Sources */,
 				DAA6A3ED1D69184300F2565B /* VMainShadow.swift in Sources */,
 				DAD713D11D6A11FC007ABB0C /* DGandallaGandaller.swift in Sources */,
-				DA92217C1D691BAA006323FE /* FDatabaseModelPoem.swift in Sources */,
 				DAA6A3BF1D69184300F2565B /* CategoryNSFileManager.swift in Sources */,
 				DAA6A3C01D69184300F2565B /* CategoryNSManagerdObject.swift in Sources */,
 				DAA6A3C81D69184300F2565B /* CMain.swift in Sources */,
