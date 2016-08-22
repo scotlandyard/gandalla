@@ -20,17 +20,18 @@ class FDatabaseModelGandaller:FDatabaseModel
     }
     
     let status:FDatabaseModelGandallerStatus
-    let name:String
     let created:NSTimeInterval
+    var name:String
     let social
     var images:[]
     var powers:[]
     var videos:[]
     
-    init(newsType:FDatabaseModelNewsType, gandallerId:String)
+    init(status:FDatabaseModelGandallerStatus)
     {
-        self.newsType = newsType
-        self.gandallerId = gandallerId
+        self.status = status
+        name = ""
+        
         created = NSDate().timeIntervalSince1970
     }
     

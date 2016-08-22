@@ -21,6 +21,11 @@
 		DA13F3851D6B6713008AF28A /* FDatabaseModelGandaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3831D6B6713008AF28A /* FDatabaseModelGandaller.swift */; };
 		DA13F3871D6B6771008AF28A /* FDatabaseModelGandallerPaused.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3861D6B6771008AF28A /* FDatabaseModelGandallerPaused.swift */; };
 		DA13F3891D6B677A008AF28A /* FDatabaseModelGandallerActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3881D6B677A008AF28A /* FDatabaseModelGandallerActive.swift */; };
+		DA13F38B1D6B6AD3008AF28A /* FDatabaseModelGandallerSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F38A1D6B6AD3008AF28A /* FDatabaseModelGandallerSocial.swift */; };
+		DA13F38D1D6B6AE5008AF28A /* FDatabaseModelGandallerSocialHashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F38C1D6B6AE5008AF28A /* FDatabaseModelGandallerSocialHashtag.swift */; };
+		DA13F38F1D6B6B01008AF28A /* FDatabaseModelGandallerVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F38E1D6B6B01008AF28A /* FDatabaseModelGandallerVideo.swift */; };
+		DA13F3911D6B6C2F008AF28A /* FDatabaseModelGandallerPower.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3901D6B6C2F008AF28A /* FDatabaseModelGandallerPower.swift */; };
+		DA13F3931D6B6C3D008AF28A /* FDatabaseModelGandallerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3921D6B6C3D008AF28A /* FDatabaseModelGandallerImage.swift */; };
 		DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216B1D691BAA006323FE /* FAnalytics.swift */; };
 		DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216E1D691BAA006323FE /* FDatabase.swift */; };
 		DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216F1D691BAA006323FE /* FDatabaseModel.swift */; };
@@ -115,6 +120,11 @@
 		DA13F3831D6B6713008AF28A /* FDatabaseModelGandaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGandaller.swift; sourceTree = "<group>"; };
 		DA13F3861D6B6771008AF28A /* FDatabaseModelGandallerPaused.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGandallerPaused.swift; sourceTree = "<group>"; };
 		DA13F3881D6B677A008AF28A /* FDatabaseModelGandallerActive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGandallerActive.swift; sourceTree = "<group>"; };
+		DA13F38A1D6B6AD3008AF28A /* FDatabaseModelGandallerSocial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGandallerSocial.swift; sourceTree = "<group>"; };
+		DA13F38C1D6B6AE5008AF28A /* FDatabaseModelGandallerSocialHashtag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGandallerSocialHashtag.swift; sourceTree = "<group>"; };
+		DA13F38E1D6B6B01008AF28A /* FDatabaseModelGandallerVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGandallerVideo.swift; sourceTree = "<group>"; };
+		DA13F3901D6B6C2F008AF28A /* FDatabaseModelGandallerPower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGandallerPower.swift; sourceTree = "<group>"; };
+		DA13F3921D6B6C3D008AF28A /* FDatabaseModelGandallerImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGandallerImage.swift; sourceTree = "<group>"; };
 		DA92216B1D691BAA006323FE /* FAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAnalytics.swift; sourceTree = "<group>"; };
 		DA92216E1D691BAA006323FE /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
 		DA92216F1D691BAA006323FE /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
@@ -263,6 +273,11 @@
 		DA13F3841D6B6713008AF28A /* Property */ = {
 			isa = PBXGroup;
 			children = (
+				DA13F38A1D6B6AD3008AF28A /* FDatabaseModelGandallerSocial.swift */,
+				DA13F38C1D6B6AE5008AF28A /* FDatabaseModelGandallerSocialHashtag.swift */,
+				DA13F38E1D6B6B01008AF28A /* FDatabaseModelGandallerVideo.swift */,
+				DA13F3901D6B6C2F008AF28A /* FDatabaseModelGandallerPower.swift */,
+				DA13F3921D6B6C3D008AF28A /* FDatabaseModelGandallerImage.swift */,
 			);
 			path = Property;
 			sourceTree = "<group>";
@@ -801,6 +816,8 @@
 			files = (
 				DAA6A3E11D69184300F2565B /* MMainTransitionScrollLeft.swift in Sources */,
 				DAD713E61D6A1361007ABB0C /* MMainNavItemStateNone.swift in Sources */,
+				DA13F38F1D6B6B01008AF28A /* FDatabaseModelGandallerVideo.swift in Sources */,
+				DA13F3911D6B6C2F008AF28A /* FDatabaseModelGandallerPower.swift in Sources */,
 				DAA6A3EB1D69184300F2565B /* VMainAlert.swift in Sources */,
 				DAA6A3DD1D69184300F2565B /* MMainTransitionFade.swift in Sources */,
 				DAD713E81D6A137A007ABB0C /* MMainNavItemNews.swift in Sources */,
@@ -839,6 +856,7 @@
 				DA13F37A1D6B551D008AF28A /* VCreateCell.swift in Sources */,
 				DAD713D11D6A11FC007ABB0C /* DGandallaGandaller.swift in Sources */,
 				DAA6A3BF1D69184300F2565B /* CategoryNSFileManager.swift in Sources */,
+				DA13F3931D6B6C3D008AF28A /* FDatabaseModelGandallerImage.swift in Sources */,
 				DAA6A3C01D69184300F2565B /* CategoryNSManagerdObject.swift in Sources */,
 				DAA6A3C81D69184300F2565B /* CMain.swift in Sources */,
 				DA13F35C1D6B3F19008AF28A /* MMainNavItemGandallers.swift in Sources */,
@@ -858,10 +876,12 @@
 				DA9221881D6A0B0D006323FE /* CNews.swift in Sources */,
 				DAA6A3E91D69184300F2565B /* VMainBarBack.swift in Sources */,
 				DA92217E1D691BAA006323FE /* FMain.swift in Sources */,
+				DA13F38D1D6B6AE5008AF28A /* FDatabaseModelGandallerSocialHashtag.swift in Sources */,
 				DAA6A3BD1D69184300F2565B /* CategoryMKAnnotationView.swift in Sources */,
 				DA13F3741D6B450F008AF28A /* FDatabaseModelNewsPicture.swift in Sources */,
 				DAA6A3E21D69184300F2565B /* MMainTransitionScrollRight.swift in Sources */,
 				DAA6A3E81D69184300F2565B /* VMainBar.swift in Sources */,
+				DA13F38B1D6B6AD3008AF28A /* FDatabaseModelGandallerSocial.swift in Sources */,
 				DAA6A3DE1D69184300F2565B /* MMainTransitionPop.swift in Sources */,
 				DAA6A3C21D69184300F2565B /* CategoryUICollectionReusableView.swift in Sources */,
 				DAA6A3CC1D69184300F2565B /* DManagerModel.swift in Sources */,
