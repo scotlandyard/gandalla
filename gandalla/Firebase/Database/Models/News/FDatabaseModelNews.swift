@@ -16,6 +16,9 @@ class FDatabaseModelNews:FDatabaseModel
         case NewsType = "news_type"
         case GandallerId = "gandaller_id"
         case Created = "created"
+        case PictureId = "picture_id"
+        case Power = "power"
+        case Url = "url"
     }
     
     let newsType:FDatabaseModelNewsType

@@ -10,4 +10,12 @@ class FDatabaseModelNewsVideo:FDatabaseModelNews
         self.url = url
         super.init(newsType:newsType, gandallerId:gandallerId)
     }
+    
+    override func modelJson() -> [String:AnyObject]
+    {
+        var json:[String:AnyObject] = super.modelJson()
+        json[FDatabaseModelNewsKey.Url.rawValue] = url
+        
+        return json
+    }
 }

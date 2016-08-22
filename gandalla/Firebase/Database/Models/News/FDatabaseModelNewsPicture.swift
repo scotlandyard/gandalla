@@ -10,4 +10,12 @@ class FDatabaseModelNewsPicture:FDatabaseModelNews
         self.pictureId = pictureId
         super.init(newsType:newsType, gandallerId:gandallerId)
     }
+    
+    override func modelJson() -> [String:AnyObject]
+    {
+        var json:[String:AnyObject] = super.modelJson()
+        json[FDatabaseModelNewsKey.PictureId.rawValue] = pictureId
+        
+        return json
+    }
 }
