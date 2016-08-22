@@ -43,10 +43,10 @@ class FDatabaseModelGandaller:FDatabaseModel
         let rawStatus:Int = json[FDatabaseModelGandallerKey.Status.rawValue] as! Int
         let rawCreated:NSTimeInterval = json[FDatabaseModelGandallerKey.Created.rawValue] as! NSTimeInterval
         let rawName:String = json[FDatabaseModelGandallerKey.Name.rawValue] as! String
-        let rawSocial:[String:AnyObject] = json[FDatabaseModelGandallerKey.Social.rawValue] as! [String:AnyObject]
-        let rawImages:[String] = json[FDatabaseModelGandallerKey.Images.rawValue] as! [String]
-        let rawPowers:[String] = json[FDatabaseModelGandallerKey.Powers.rawValue] as! [String]
-        let rawVideos:[String] = json[FDatabaseModelGandallerKey.Videos.rawValue] as! [String]
+        let rawSocial:[String:AnyObject]? = json[FDatabaseModelGandallerKey.Social.rawValue] as? [String:AnyObject]
+        let rawImages:[String]? = json[FDatabaseModelGandallerKey.Images.rawValue] as? [String]
+        let rawPowers:[String]? = json[FDatabaseModelGandallerKey.Powers.rawValue] as? [String]
+        let rawVideos:[String]? = json[FDatabaseModelGandallerKey.Videos.rawValue] as? [String]
         
         status = FDatabaseModelGandallerStatus(rawValue:rawStatus)!
         created = rawCreated
@@ -56,22 +56,31 @@ class FDatabaseModelGandaller:FDatabaseModel
         powers = []
         videos = []
         
-        for rawImage:String in rawImages
+        if rawImages != nil
         {
-            let image:FDatabaseModelGandallerImage = FDatabaseModelGandallerImage(imageid:rawImage)
-            images.append(image)
+            for rawImage:String in rawImages!
+            {
+                let image:FDatabaseModelGandallerImage = FDatabaseModelGandallerImage(imageid:rawImage)
+                images.append(image)
+            }
         }
         
-        for rawPower:String in rawPowers
+        if rawPowers != nil
         {
-            let power:FDatabaseModelGandallerPower = FDatabaseModelGandallerPower(name:rawPower)
-            powers.append(power)
+            for rawPower:String in rawPowers!
+            {
+                let power:FDatabaseModelGandallerPower = FDatabaseModelGandallerPower(name:rawPower)
+                powers.append(power)
+            }
         }
         
-        for rawVideo:String in rawVideos
+        if rawVideos != nil
         {
-            let video:FDatabaseModelGandallerVideo = FDatabaseModelGandallerVideo(url:rawVideo)
-            videos.append(video)
+            for rawVideo:String in rawVideos!
+            {
+                let video:FDatabaseModelGandallerVideo = FDatabaseModelGandallerVideo(url:rawVideo)
+                videos.append(video)
+            }
         }
     }
     

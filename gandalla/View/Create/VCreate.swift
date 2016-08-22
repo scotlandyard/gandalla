@@ -5,9 +5,10 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     weak var controller:CCreate!
     weak var spinner:VMainLoader?
     weak var collection:UICollectionView!
-    private let kCellHeight:CGFloat = 35
+    private let kInterLine:CGFloat = 1
+    private let kCellHeight:CGFloat = 45
     private let kCollectionBottom:CGFloat = 40
-    private let kHeaderHeight:CGFloat = 58
+    private let kHeaderHeight:CGFloat = 68
     
     convenience init(controller:CCreate)
     {
@@ -21,7 +22,7 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         flow.headerReferenceSize = CGSizeMake(0, kHeaderHeight)
         flow.footerReferenceSize = CGSizeZero
         flow.sectionInset = UIEdgeInsetsMake(0, 0, kCollectionBottom, 0)
-        flow.minimumLineSpacing = 0
+        flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.Vertical
         

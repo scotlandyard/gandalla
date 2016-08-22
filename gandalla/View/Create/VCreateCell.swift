@@ -43,4 +43,34 @@ class VCreateCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    override var selected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var highlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if selected || highlighted
+        {
+            alpha = 0.1
+        }
+        else
+        {
+            alpha = 1
+        }
+    }
 }
