@@ -19,6 +19,8 @@
 		DA13F37C1D6B55CD008AF28A /* VCreateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F37B1D6B55CD008AF28A /* VCreateHeader.swift */; };
 		DA13F37E1D6B5708008AF28A /* MCreateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F37D1D6B5708008AF28A /* MCreateItem.swift */; };
 		DA13F3851D6B6713008AF28A /* FDatabaseModelGandaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3831D6B6713008AF28A /* FDatabaseModelGandaller.swift */; };
+		DA13F3871D6B6771008AF28A /* FDatabaseModelGandallerPaused.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3861D6B6771008AF28A /* FDatabaseModelGandallerPaused.swift */; };
+		DA13F3891D6B677A008AF28A /* FDatabaseModelGandallerActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3881D6B677A008AF28A /* FDatabaseModelGandallerActive.swift */; };
 		DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216B1D691BAA006323FE /* FAnalytics.swift */; };
 		DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216E1D691BAA006323FE /* FDatabase.swift */; };
 		DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216F1D691BAA006323FE /* FDatabaseModel.swift */; };
@@ -111,6 +113,8 @@
 		DA13F37B1D6B55CD008AF28A /* VCreateHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateHeader.swift; sourceTree = "<group>"; };
 		DA13F37D1D6B5708008AF28A /* MCreateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItem.swift; sourceTree = "<group>"; };
 		DA13F3831D6B6713008AF28A /* FDatabaseModelGandaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGandaller.swift; sourceTree = "<group>"; };
+		DA13F3861D6B6771008AF28A /* FDatabaseModelGandallerPaused.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGandallerPaused.swift; sourceTree = "<group>"; };
+		DA13F3881D6B677A008AF28A /* FDatabaseModelGandallerActive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGandallerActive.swift; sourceTree = "<group>"; };
 		DA92216B1D691BAA006323FE /* FAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAnalytics.swift; sourceTree = "<group>"; };
 		DA92216E1D691BAA006323FE /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
 		DA92216F1D691BAA006323FE /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
@@ -250,6 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				DA13F3831D6B6713008AF28A /* FDatabaseModelGandaller.swift */,
+				DA13F3861D6B6771008AF28A /* FDatabaseModelGandallerPaused.swift */,
+				DA13F3881D6B677A008AF28A /* FDatabaseModelGandallerActive.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -817,6 +823,7 @@
 				DAD713E51D6A1361007ABB0C /* MMainNavItemStateActive.swift in Sources */,
 				DA9221801D691BAA006323FE /* FStorage.swift in Sources */,
 				DAA6A3C91D69184300F2565B /* CMainController.swift in Sources */,
+				DA13F3871D6B6771008AF28A /* FDatabaseModelGandallerPaused.swift in Sources */,
 				DA13F37E1D6B5708008AF28A /* MCreateItem.swift in Sources */,
 				DA13F3721D6B450F008AF28A /* FDatabaseModelNews.swift in Sources */,
 				DA13F3771D6B450F008AF28A /* FDatabaseModelNewsVideo.swift in Sources */,
@@ -839,6 +846,7 @@
 				DAA6A3C51D69184300F2565B /* CategoryUILocalNotification.swift in Sources */,
 				DAA6A3CF1D69184300F2565B /* DGandallaModel.xcdatamodeld in Sources */,
 				DAA6A3DF1D69184300F2565B /* MMainTransitionPush.swift in Sources */,
+				DA13F3891D6B677A008AF28A /* FDatabaseModelGandallerActive.swift in Sources */,
 				DAA6A3CB1D69184300F2565B /* DManager.swift in Sources */,
 				DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */,
 				DAA6A3CD1D69184300F2565B /* DManagerModelGandalla.swift in Sources */,
