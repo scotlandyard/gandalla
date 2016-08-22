@@ -5,7 +5,7 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     weak var controller:CCreate!
     weak var spinner:VMainLoader?
     weak var collection:UICollectionView!
-    private let kCellHeight:CGFloat = 50
+    private let kCellHeight:CGFloat = 35
     private let kCollectionBottom:CGFloat = 40
     private let kHeaderHeight:CGFloat = 58
     
