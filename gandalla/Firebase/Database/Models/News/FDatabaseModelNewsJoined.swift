@@ -1,9 +1,10 @@
-//
-//  FDatabaseModelNewsJoined.swift
-//  gandalla
-//
-//  Created by zero on 8/22/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class FDatabaseModelNewsJoined:FDatabaseModelNews
+{
+    init(gandallerId:String)
+    {
+        let newsType:FDatabaseModelNewsType = FDatabaseModelNewsType.Joined
+        super.init(newsType:newsType, gandallerId:gandallerId)
+    }
+}
