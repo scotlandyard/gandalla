@@ -2,6 +2,15 @@ import Foundation
 
 class FDatabaseModelNews:FDatabaseModel
 {
+    @objc enum FDatabaseModelNewsType:Int
+    {
+        case Joined
+        case NewPicture
+        case NewSuperPower
+        case NewVideo
+        case UpdatedSocial
+    }
+    
     let created:NSTimeInterval
     let kKeyCreated:String = "created"
     
