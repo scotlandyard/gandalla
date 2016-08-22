@@ -13,18 +13,18 @@ class FDatabaseModelNews:FDatabaseModel
     
     enum FDatabaseModelNewsKey:String
     {
-        case Type = "type"
+        case NewsType = "news_type"
         case GandallerId = "gandaller_id"
         case Created = "created"
     }
     
-    let type:FDatabaseModelNewsType
+    let newsType:FDatabaseModelNewsType
     let gandallerId:String
     let created:NSTimeInterval
     
-    init(type:FDatabaseModelNewsType, gandallerId:String)
+    init(newsType:FDatabaseModelNewsType, gandallerId:String)
     {
-        self.type = type
+        self.newsType = newsType
         self.gandallerId = gandallerId
         created = NSDate().timeIntervalSince1970
     }
@@ -34,7 +34,9 @@ class FDatabaseModelNews:FDatabaseModel
     func modelJson() -> [String:AnyObject]
     {
         let dict:[String:AnyObject] = [
-            kKeyCreated:created
+            FDatabaseModelNewsKey.NewsType.rawValue:newsType.rawValue,
+            FDatabaseModelNewsKey.GandallerId.rawValue:gandallerId,
+            FDatabaseModelNewsKey.Created.rawValue:created
         ]
         
         return dict
