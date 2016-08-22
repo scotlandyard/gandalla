@@ -38,7 +38,7 @@ class VCreateCell:UICollectionViewCell
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[imageStatus(25)]-0-[labelName]-10-|",
+            "H:|-0-[imageStatus(30)]-0-[labelName]-10-|",
             options:[],
             metrics:metrics,
             views:views))

@@ -1,24 +1,3 @@
-"MCreateOptionsItemSave_title"="Save";
-"MCreateOptionsItemClear_title"="Clear";
-"MCreateOptionsItemSave_alertTitle"="Save";
-"MCreateOptionsItemSave_alertMessage"="Project name";
-"MCreateOptionsItemSave_cancel"="Cancel";
-"MCreateOptionsItemSave_accept"="Accept";
-"MCreateOptionsItemSave_noName"="Unnamed project";
-"MCreateOptionsItemSave_empty"="Add at least 1 point";
-"MProjectsDetailSectionSpeed_title"="Speed";
-"MProjectsDetailItemSpeedSlowWalk_title"="Slow walk";
-"MProjectsDetailItemSpeedWalk_title"="Walking";
-"MProjectsDetailItemSpeedRun_title"="Running";
-"MProjectsDetailItemSpeedVehicle_title"="Vehicle";
-"MSettingsMenuItemMetricsOptionInternational_name"="International";
-"MSettingsMenuItemMetricsOptionUs_name"="US";
-
-"CMainController_saved"="Project saved!";
-
-"VProjectsHeader_label"="No projects created";
-"VProjectsDetailFooter_label"="Export";
-"VSettingsCellMetrics_label"="Metrics";
-"VCreateFinder_fieldPlaceholder"="Search";
-"VCreateFinder_searchButton"="Search";
 "VCreateHeader_button"="Add Gandaller";
+
+"MCreateItem_noName"="Unnamed";

@@ -159,4 +159,10 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         
         return cell
     }
+    
+    func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
+    {
+        let item:MCreateItem = modelAtIndex(indexPath)
+        item.selected(controller)
+    }
 }

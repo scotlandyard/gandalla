@@ -16,7 +16,7 @@ class FDatabaseModelGandallerPaused:FDatabaseModelGandaller
     
     override func statusColor() -> UIColor
     {
-        let color:UIColor = UIColor(white:0.8, alpha:1)
+        let color:UIColor = UIColor(white:0.88, alpha:1)
         
         return color
     }

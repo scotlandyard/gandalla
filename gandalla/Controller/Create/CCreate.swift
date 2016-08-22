@@ -35,6 +35,7 @@ class CCreate:CMainController
             
             if json == nil
             {
+                self?.model.clear()
                 self?.updateFinished()
             }
             else

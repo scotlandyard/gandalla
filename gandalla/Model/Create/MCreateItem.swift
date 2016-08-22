@@ -15,6 +15,19 @@ class MCreateItem
     
     func config(cell:VCreateCell)
     {
+        var gandallerName:String = fModel.name
+        
+        if gandallerName.isEmpty
+        {
+            gandallerName = NSLocalizedString("MCreateItem_noName", comment:"")
+        }
+        
         cell.imageStatus.tintColor = fModel.statusColor()
+        cell.labelName.text = gandallerName
+    }
+    
+    func selected(controller:CCreate)
+    {
+        
     }
 }

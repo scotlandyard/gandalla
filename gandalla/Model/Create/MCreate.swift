@@ -3,7 +3,7 @@ import CoreLocation
 
 class MCreate
 {
-    var items:[MCreateItem]
+    private(set) var items:[MCreateItem]
     
     init()
     {
@@ -27,5 +27,10 @@ class MCreate
         }
         
         self.items = items
+    }
+    
+    func clear()
+    {
+        items = []
     }
 }
