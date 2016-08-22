@@ -5,6 +5,7 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     weak var controller:CCreateDetail!
     weak var collection:UICollectionView!
     private let kInterLine:CGFloat = 1
+    private let kHeaderHeight:CGFloat = 30
     private let kCollectionBottom:CGFloat = 40
     
     convenience init(controller:CCreateDetail)
@@ -16,7 +17,7 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         self.controller = controller
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSizeZero
+        flow.headerReferenceSize = CGSizeMake(0, kHeaderHeight)
         flow.footerReferenceSize = CGSizeZero
         flow.sectionInset = UIEdgeInsetsMake(0, 0, kCollectionBottom, 0)
         flow.minimumLineSpacing = kInterLine
@@ -73,9 +74,17 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     //MARK: private
     
-    private func modelAtIndex(index:NSIndexPath) -> MCreateItemDetailProperty
+    private func sectionAtIndex(index:NSIndexPath) -> MCreateItemDetailProperty
     {
-        let item:MCreateItemDetailProperty = controller.model.properties[index.item]
+        let section:MCreateItemDetailProperty = controller.model.properties[index.section]
+        
+        return section
+    }
+    
+    private func modelAtIndex(index:NSIndexPath) -> MCreateItemDetailPropertyItem
+    {
+        let section:MCreateItemDetailProperty = sectionAtIndex(index)
+        let item:MCreateItemDetailPropertyItem = section.items[index.item]
         
         return item
     }
@@ -84,30 +93,47 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
-        let item:MCreateItemDetailProperty = modelAtIndex(indexPath)
+        let section:MCreateItemDetailProperty = sectionAtIndex(indexPath)
         let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSizeMake(width, item.cellHeight)
+        let size:CGSize = CGSizeMake(width, section.cellHeight)
         
         return size
     }
     
     func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
     {
-        return 1
-    }
-    
-    func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
-    {
         let count:Int = controller.model.properties.count
         
         return count
     }
     
+    func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model.properties[section].items.count
+        
+        return count
+    }
+    
+    func collectionView(collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, atIndexPath indexPath:NSIndexPath) -> UICollectionReusableView
+    {
+        let section:MCreateItemDetailProperty = sectionAtIndex(indexPath)
+        let header:VCreateDetailHeader = collectionView.dequeueReusableSupplementaryViewOfKind(
+            kind,
+            withReuseIdentifier:
+            VCreateDetailHeader.reusableIdentifier(),
+            forIndexPath:indexPath) as! VCreateDetailHeader
+        
+        header.config(section)
+        
+        return header
+    }
+    
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
     {
-        let item:MCreateItemDetailProperty = modelAtIndex(indexPath)
+        let section:MCreateItemDetailProperty = sectionAtIndex(indexPath)
+        let item:MCreateItemDetailPropertyItem = modelAtIndex(indexPath)
         let cell:VCreateDetailCell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            item.reusableIdentifier,
+            section.reusableIdentifier,
             forIndexPath:
             indexPath) as! VCreateDetailCell
         item.config(controller, cell:cell)

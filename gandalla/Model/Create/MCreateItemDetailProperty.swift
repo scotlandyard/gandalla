@@ -2,20 +2,14 @@ import UIKit
 
 class MCreateItemDetailProperty
 {
-    weak var controller:CCreateDetail!
     let reusableIdentifier:String
     let cellHeight:CGFloat
+    var items:[MCreateItemDetailPropertyItem]
     
-    init(reusableIdentifier:String, cellHeight:CGFloat)
+    init(reusableIdentifier:String, cellHeight:CGFloat, items:[MCreateItemDetailPropertyItem])
     {
         self.reusableIdentifier = reusableIdentifier
         self.cellHeight = cellHeight
-    }
-    
-    //MARK: public
-    
-    func config(controller:CCreateDetail, cell:VCreateDetailCell)
-    {
-        self.controller = controller
+        self.items = items
     }
 }
