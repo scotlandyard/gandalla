@@ -16,10 +16,11 @@ class VMainBarBack:UIView
         
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named:"genericBack"), forState:UIControlState.Normal)
+        button.setImage(UIImage(named:"genericBack")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState:UIControlState.Normal)
         button.imageView?.contentMode = UIViewContentMode.Center
         button.imageView?.clipsToBounds = true
         button.imageEdgeInsets = UIEdgeInsetsMake(20, 0, 0, 25)
+        button.tintColor = UIColor.blackColor()
         button.addTarget(self, action:#selector(self.actionBack(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         self.button = button
         
@@ -29,7 +30,7 @@ class VMainBarBack:UIView
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = NSTextAlignment.Center
         label.font = UIFont.bold(15)
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.blackColor()
         self.label = label
         
         addSubview(button)

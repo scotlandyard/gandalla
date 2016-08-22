@@ -164,5 +164,13 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     {
         let item:MCreateItem = modelAtIndex(indexPath)
         item.selected(controller)
+        
+        dispatch_after(
+            dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)),
+            dispatch_get_main_queue())
+        { [weak collectionView] in
+            
+            collectionView?.selectItemAtIndexPath(nil, animated:true, scrollPosition:UICollectionViewScrollPosition.None)
+        }
     }
 }

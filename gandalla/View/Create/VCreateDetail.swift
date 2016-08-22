@@ -8,7 +8,7 @@ class VCreateDetail:UIView
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.whiteColor()
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
     }
