@@ -27,6 +27,7 @@
 		DA13F3911D6B6C2F008AF28A /* FDatabaseModelGandallerPower.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3901D6B6C2F008AF28A /* FDatabaseModelGandallerPower.swift */; };
 		DA13F3931D6B6C3D008AF28A /* FDatabaseModelGandallerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3921D6B6C3D008AF28A /* FDatabaseModelGandallerImage.swift */; };
 		DA13F3951D6BACBE008AF28A /* CCreateDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3941D6BACBE008AF28A /* CCreateDetail.swift */; };
+		DA13F3971D6BAF01008AF28A /* VCreateDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F3961D6BAF01008AF28A /* VCreateDetail.swift */; };
 		DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216B1D691BAA006323FE /* FAnalytics.swift */; };
 		DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216E1D691BAA006323FE /* FDatabase.swift */; };
 		DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216F1D691BAA006323FE /* FDatabaseModel.swift */; };
@@ -127,6 +128,7 @@
 		DA13F3901D6B6C2F008AF28A /* FDatabaseModelGandallerPower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGandallerPower.swift; sourceTree = "<group>"; };
 		DA13F3921D6B6C3D008AF28A /* FDatabaseModelGandallerImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGandallerImage.swift; sourceTree = "<group>"; };
 		DA13F3941D6BACBE008AF28A /* CCreateDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCreateDetail.swift; sourceTree = "<group>"; };
+		DA13F3961D6BAF01008AF28A /* VCreateDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateDetail.swift; sourceTree = "<group>"; };
 		DA92216B1D691BAA006323FE /* FAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAnalytics.swift; sourceTree = "<group>"; };
 		DA92216E1D691BAA006323FE /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
 		DA92216F1D691BAA006323FE /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 				DAA6A3B11D69184300F2565B /* VCreate.swift */,
 				DA13F37B1D6B55CD008AF28A /* VCreateHeader.swift */,
 				DA13F3791D6B551D008AF28A /* VCreateCell.swift */,
+				DA13F3961D6BAF01008AF28A /* VCreateDetail.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -868,6 +871,7 @@
 				DAA6A3C51D69184300F2565B /* CategoryUILocalNotification.swift in Sources */,
 				DAA6A3CF1D69184300F2565B /* DGandallaModel.xcdatamodeld in Sources */,
 				DAA6A3DF1D69184300F2565B /* MMainTransitionPush.swift in Sources */,
+				DA13F3971D6BAF01008AF28A /* VCreateDetail.swift in Sources */,
 				DA13F3891D6B677A008AF28A /* FDatabaseModelGandallerActive.swift in Sources */,
 				DAA6A3CB1D69184300F2565B /* DManager.swift in Sources */,
 				DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */,
