@@ -9,11 +9,13 @@ class MCreateItemDetail
     {
         let fModel:FDatabaseModelGandaller = model.fModel
         let propertyStatus:MCreateItemDetailPropertyStatus = MCreateItemDetailPropertyStatus(fModel:fModel)
+        let propertyStarted:MCreateItemDetailPropertyStarted = MCreateItemDetailPropertyStarted(fModel:fModel)
         let propertyName:MCreateItemDetailPropertyName = MCreateItemDetailPropertyName(fModel:fModel)
         gandallerId = model.gandallerId
         
         properties = [
             propertyStatus,
+            propertyStarted,
             propertyName
         ]
     }

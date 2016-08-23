@@ -6,3 +6,4 @@
 "MCreateItem_noName"="Unnamed";
 "MCreateItemDetailPropertyStatus_name"="Status";
 "MCreateItemDetailPropertyName_name"="Name";
+"MCreateItemDetailPropertyStarted_name"="Started";
