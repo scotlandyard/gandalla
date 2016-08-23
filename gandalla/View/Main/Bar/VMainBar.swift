@@ -11,12 +11,16 @@ class VMainBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     weak var layoutBackRight:NSLayoutConstraint!
     private let model:MMainNav
     private var pos:MMainNavPos
+    private let barHeight:CGFloat
+    private let barMaxDelta:CGFloat
     private let kButtonWidth:CGFloat = 64
     
     init(controllerParent:CMainParent)
     {
         model = MMainNav()
         pos = MMainNavPos.Normal()
+        barHeight = controllerParent.kBarHeight
+        barMaxDelta = barHeight - controllerParent.kBarMinHeight
         
         super.init(frame:CGRectZero)
         backgroundColor = UIColor.main()
@@ -60,7 +64,7 @@ class VMainBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             "back":back]
         
         let metrics:[String:AnyObject] = [
-            "barHeight":controllerParent.kBarHeight]
+            "barHeight":barHeight]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:[collection(barHeight)]-0-|",
@@ -141,9 +145,8 @@ class VMainBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             if self != nil
             {
                 let currentHeight:CGFloat = self!.bounds.maxY
-                let deltaHeight:CGFloat = self!.controllerParent.kBarHeight - currentHeight
-                let maxDelta:CGFloat = self!.controllerParent.kBarHeight - self!.controllerParent.kBarMinHeight
-                let deltaPercent:CGFloat = deltaHeight / maxDelta
+                let deltaHeight:CGFloat = self!.barHeight - currentHeight
+                let deltaPercent:CGFloat = deltaHeight / self!.barMaxDelta
                 let alpha:CGFloat = 1 - deltaPercent
                 self!.collection.alpha = alpha
                 self!.back.alpha = alpha
