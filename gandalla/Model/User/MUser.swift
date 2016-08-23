@@ -11,25 +11,6 @@ class MUser
     
     //MARK: private
     
-    private func loadUser()
-    {
-        DManager.sharedInstance.managerGandalla.fetchManagedObjects(
-            DGandallaUser.self,
-            limit:1)
-        { (objects) in
-            
-            if objects.isEmpty
-            {
-                self.createUser()
-            }
-            else
-            {
-                self.dbUser = objects.first
-                self.userLoaded()
-            }
-        }
-    }
-    
     private func createUser()
     {
         DManager.sharedInstance.managerGandalla.createManagedObject(
@@ -46,26 +27,25 @@ class MUser
         let userId:String = FMain.sharedInstance.database.createUser()
         dbUser?.userId = userId
         DManager.sharedInstance.managerGandalla.saver.save(false)
-        
-        self.userLoaded()
-    }
-    
-    private func userLoaded()
-    {
-        print("userid \(dbUser!.userId)")
     }
     
     //MARK: public
     
     func load()
     {
-        if dbUser == nil
-        {
-            loadUser()
-        }
-        else
-        {
-            userLoaded()
+        DManager.sharedInstance.managerGandalla.fetchManagedObjects(
+            DGandallaUser.self,
+            limit:1)
+        { (objects) in
+            
+            if objects.isEmpty
+            {
+                self.createUser()
+            }
+            else
+            {
+                self.dbUser = objects.first
+            }
         }
     }
 }
