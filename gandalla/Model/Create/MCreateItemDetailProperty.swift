@@ -7,6 +7,11 @@ class MCreateItemDetailProperty
     let cellHeight:CGFloat
     var items:[MCreateItemDetailPropertyItem]
     
+    init(fModel:FDatabaseModelGandaller)
+    {
+        fatalError()
+    }
+    
     init(name:String, reusableIdentifier:String, cellHeight:CGFloat, items:[MCreateItemDetailPropertyItem])
     {
         self.name = name
