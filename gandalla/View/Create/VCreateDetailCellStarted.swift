@@ -20,7 +20,7 @@ class VCreateDetailCellStarted:VCreateDetailCell
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.bold(16)
         label.textColor = UIColor(white:0.4, alpha:1)
-        label.text = NSLocalizedString("", comment:"")
+        label.text = NSLocalizedString("VCreateDetailCellStarted_label", comment:"")
         
         addSubview(label)
         addSubview(check)
