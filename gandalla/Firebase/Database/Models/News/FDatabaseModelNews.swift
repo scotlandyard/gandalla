@@ -25,11 +25,58 @@ class FDatabaseModelNews:FDatabaseModel
     let gandallerId:String
     let created:NSTimeInterval
     
+    class func withJson(json:[String:AnyObject]) -> FDatabaseModelNews
+    {
+        let news:FDatabaseModelNews
+        let rawNewsType:Int = json[FDatabaseModelNewsKey.NewsType.rawValue] as! Int
+        let newsType:FDatabaseModelNewsType = FDatabaseModelNewsType(rawValue:rawNewsType)!
+        
+        switch newsType
+        {
+            case FDatabaseModelNewsType.Joined:
+                
+                news = FDatabaseModelNewsJoined(json:json)
+                
+                break
+            
+            case FDatabaseModelNewsType.Picture:
+                
+                news = FDatabaseModelNewsPicture(json:json)
+                
+                break
+                
+            case FDatabaseModelNewsType.Power:
+                
+                news = FDatabaseModelNewsPower(json:json)
+                
+                break
+                
+            case FDatabaseModelNewsType.Social:
+                
+                news = FDatabaseModelNewsSocial(json:json)
+                
+                break
+                
+            case FDatabaseModelNewsType.Video:
+                
+                news = FDatabaseModelNewsVideo(json:json)
+                
+                break
+        }
+        
+        return news
+    }
+    
     init(newsType:FDatabaseModelNewsType, gandallerId:String)
     {
         self.newsType = newsType
         self.gandallerId = gandallerId
         created = NSDate().timeIntervalSince1970
+    }
+    
+    init(newsType:FDatabaseModelNewsType, json:[String:AnyObject])
+    {
+        
     }
     
     //MARK: public

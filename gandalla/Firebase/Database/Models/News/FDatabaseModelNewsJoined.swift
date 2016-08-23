@@ -7,4 +7,10 @@ class FDatabaseModelNewsJoined:FDatabaseModelNews
         let newsType:FDatabaseModelNewsType = FDatabaseModelNewsType.Joined
         super.init(newsType:newsType, gandallerId:gandallerId)
     }
+    
+    init(json:[String:AnyObject])
+    {
+        let newsType:FDatabaseModelNewsType = FDatabaseModelNewsType.Joined
+        super.init(newsType:newsType, json:json)
+    }
 }

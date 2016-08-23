@@ -39,7 +39,7 @@ class VCreateDetailCellStatus:VCreateDetailCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-5-[segmented]-23-|",
+            "V:[segmented(32)]-23-|",
             options:[],
             metrics:metrics,
             views:views))

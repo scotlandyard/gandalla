@@ -2,7 +2,7 @@ import UIKit
 
 class MCreateItemDetailPropertyStatus:MCreateItemDetailProperty
 {
-    private let kCellHeight:CGFloat = 60
+    private let kCellHeight:CGFloat = 124
     
     override init(fModel:FDatabaseModelGandaller)
     {

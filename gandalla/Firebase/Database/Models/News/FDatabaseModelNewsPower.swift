@@ -11,6 +11,13 @@ class FDatabaseModelNewsPower:FDatabaseModelNews
         super.init(newsType:newsType, gandallerId:gandallerId)
     }
     
+    init(json:[String:AnyObject])
+    {
+        let newsType:FDatabaseModelNewsType = FDatabaseModelNewsType.Power
+        power = json[FDatabaseModelNewsKey.Power.rawValue] as! String
+        super.init(newsType:newsType, json:json)
+    }
+    
     override func modelJson() -> [String:AnyObject]
     {
         var json:[String:AnyObject] = super.modelJson()

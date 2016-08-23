@@ -20,6 +20,8 @@ class CNews:CMainController
     
     deinit
     {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        
         if listenHandler != nil
         {
             FMain.sharedInstance.database.stopListeningParent(FDatabase.FDatabaseReference.News, handler:listenHandler!)
@@ -37,6 +39,8 @@ class CNews:CMainController
     {
         super.viewDidLoad()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallersUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+        
         listenHandler = FMain.sharedInstance.database.listenParent(FDatabase.FDatabaseReference.News)
         { [weak self] (snapshot) in
             
@@ -49,10 +53,45 @@ class CNews:CMainController
         }
     }
     
+    //MARK: notified
+    
+    func notifiedGandallersUpdated(sender notification:NSNotification)
+    {
+        
+    }
+    
     //MARK: private
     
     private func newsReceived(json:[String:[String:AnyObject]])
     {
+        let keys:[String] = Array(json.keys)
         
+        for key:String in keys
+        {
+            let inJson:[String:AnyObject] = json[key]!
+            let fNews:FDatabaseModelNews = FDatabaseModelNews
+            let fGandaller:FDatabaseModelGandaller = FDatabaseModelGandaller.withJson(inJson)
+            var inGandaller:MGandallerItem?
+            
+            for gandaller:MGandallerItem in newItems
+            {
+                if gandaller.gandallerId == key
+                {
+                    inGandaller = gandaller
+                    
+                    break
+                }
+            }
+            
+            if inGandaller == nil
+            {
+                let newGandaller:MGandallerItem = MGandallerItem(gandallerId:key, fModel:fGandaller)
+                newItems.append(newGandaller)
+            }
+            else
+            {
+                inGandaller!.fModel = fGandaller
+            }
+        }
     }
 }
