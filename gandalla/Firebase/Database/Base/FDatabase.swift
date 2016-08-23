@@ -49,4 +49,10 @@ class FDatabase
         let gandallerReference:FIRDatabaseReference = reference.child(kReferenceGandaller)
         gandallerReference.removeObserverWithHandle(handler)
     }
+    
+    func updateGandaller(gandallerId:String, property:String, value:AnyObject)
+    {
+        let propertyReference:FIRDatabaseReference = reference.child(kReferenceGandaller).child(gandallerId).child(property)
+        propertyReference.setValue(value)
+    }
 }
