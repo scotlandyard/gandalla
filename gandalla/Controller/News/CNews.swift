@@ -22,9 +22,9 @@ class CNews:CMainController
     {
         if listenHandler != nil
         {
-            FMain.sharedInstance.database.stopListeningGandaller(listenHandler!)
+            FMain.sharedInstance.database.stopListeningParent(FDatabase.FDatabaseReference.News, handler:listenHandler!)
         }
-    }
+    }/*
     
     override func loadView()
     {
@@ -85,5 +85,5 @@ class CNews:CMainController
         {
             FMain.sharedInstance.database.createGandaller()
         }
-    }
+    }*/
 }
