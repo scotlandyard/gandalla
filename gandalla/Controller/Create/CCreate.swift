@@ -22,7 +22,7 @@ class CCreate:CMainController
     {
         if listenHandler != nil
         {
-            FMain.sharedInstance.database.stopListeningGandaller(listenHandler!)
+            FMain.sharedInstance.database.stopListeningParent(FDatabase.FDatabaseReference.Gandaller, handler:listenHandler!)
         }
     }
     
@@ -37,7 +37,7 @@ class CCreate:CMainController
     {
         super.viewDidLoad()
         
-        listenHandler = FMain.sharedInstance.database.listenGandaller()
+        listenHandler = FMain.sharedInstance.database.listenParent(FDatabase.FDatabaseReference.Gandaller)
         { [weak self] (snapshot) in
             
             let json:[String:[String:AnyObject]]? = snapshot.value as? [String:[String:AnyObject]]
@@ -83,7 +83,9 @@ class CCreate:CMainController
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         {
-            FMain.sharedInstance.database.createGandaller()
+            let fGandaller:FDatabaseModelGandaller = FDatabaseModelGandallerPaused()
+            let json:[String:AnyObject] = fGandaller.modelJson()
+            FMain.sharedInstance.database.createChild(FDatabase.FDatabaseReference.Gandaller, json:json)
         }
     }
 }
