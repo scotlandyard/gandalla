@@ -83,5 +83,6 @@ class MGandaller
     {
         items = newGandallers
         
+        NSNotificationCenter.defaultCenter().postNotificationName(NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
     }
 }
