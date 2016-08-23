@@ -14,7 +14,9 @@ class FDatabaseModelNewsVideo:FDatabaseModelNews
     init(json:[String:AnyObject])
     {
         let newsType:FDatabaseModelNewsType = FDatabaseModelNewsType.Video
-        url = json[FDatabaseModelNewsKey.Url.rawValue] as! String
+        let rawUrl:String = json[FDatabaseModelNewsKey.Url.rawValue] as! String
+        url = rawUrl
+        
         super.init(newsType:newsType, json:json)
     }
     

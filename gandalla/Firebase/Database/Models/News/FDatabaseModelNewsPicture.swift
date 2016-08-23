@@ -14,7 +14,9 @@ class FDatabaseModelNewsPicture:FDatabaseModelNews
     init(json:[String:AnyObject])
     {
         let newsType:FDatabaseModelNewsType = FDatabaseModelNewsType.Picture
-        pictureId = json[FDatabaseModelNewsKey.PictureId.rawValue] as! String
+        let rawPictureId:String = json[FDatabaseModelNewsKey.PictureId.rawValue] as! String
+        pictureId = rawPictureId
+        
         super.init(newsType:newsType, json:json)
     }
     

@@ -14,7 +14,9 @@ class FDatabaseModelNewsPower:FDatabaseModelNews
     init(json:[String:AnyObject])
     {
         let newsType:FDatabaseModelNewsType = FDatabaseModelNewsType.Power
-        power = json[FDatabaseModelNewsKey.Power.rawValue] as! String
+        let rawPower:String = json[FDatabaseModelNewsKey.Power.rawValue] as! String
+        power = rawPower
+        
         super.init(newsType:newsType, json:json)
     }
     

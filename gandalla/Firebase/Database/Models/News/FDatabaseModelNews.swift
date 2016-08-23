@@ -76,7 +76,12 @@ class FDatabaseModelNews:FDatabaseModel
     
     init(newsType:FDatabaseModelNewsType, json:[String:AnyObject])
     {
+        self.newsType = newsType
+        let rawGandallerId:String = json[FDatabaseModelNewsKey.GandallerId.rawValue] as! String
+        let rawCreated:NSTimeInterval = json[FDatabaseModelNewsKey.Created.rawValue] as! NSTimeInterval
         
+        gandallerId = rawGandallerId
+        created = rawCreated
     }
     
     //MARK: public
