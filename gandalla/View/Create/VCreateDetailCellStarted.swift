@@ -3,53 +3,56 @@ import UIKit
 class VCreateDetailCellStarted:VCreateDetailCell
 {
     weak var check:UISwitch!
+    weak var layoutCheckLeft:NSLayoutConstraint!
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
+        backgroundColor = UIColor.clearColor()
         
         let check:UISwitch = UISwitch()
         check.translatesAutoresizingMaskIntoConstraints = false
         check.onTintColor = UIColor.complement()
         self.check = check
         
-        let label:UILabel = UILabel()
-        label.userInteractionEnabled = false
-        label.backgroundColor = UIColor.clearColor()
-        label.userInteractionEnabled = false
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.bold(16)
-        label.textColor = UIColor(white:0.4, alpha:1)
-        label.text = NSLocalizedString("VCreateDetailCellStarted_label", comment:"")
-        
-        addSubview(label)
         addSubview(check)
         
         let views:[String:AnyObject] = [
-            "check":check,
-            "label":label]
+            "check":check]
         
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[label(150)]-0-[check]-20-|",
+            "V:|-10-[check]",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-20-[check]",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-20-[label(26)]",
-            options:[],
-            metrics:metrics,
-            views:views))
+        
+        layoutCheckLeft = NSLayoutConstraint(
+            item:check,
+            attribute:NSLayoutAttribute.Left,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Left,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutCheckLeft)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let checkWidth:CGFloat = check.bounds.maxX
+        let remain:CGFloat = width - checkWidth
+        let margin:CGFloat = remain / 2.0
+        layoutCheckLeft.constant = margin
+        
+        super.layoutSubviews()
     }
 }

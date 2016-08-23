@@ -616,9 +616,9 @@
 				DA13F3981D6BB20C008AF28A /* VCreateDetailCell.swift */,
 				DA13F39E1D6BC1F4008AF28A /* VCreateDetailCellText.swift */,
 				DA13F3A01D6BC204008AF28A /* VCreateDetailCellStatus.swift */,
+				DA155ADD1D6C96F6000C8C85 /* VCreateDetailCellStarted.swift */,
 				DA13F3A21D6BC20C008AF28A /* VCreateDetailCellImage.swift */,
 				DA13F3A61D6BC439008AF28A /* VCreateDetailCellList.swift */,
-				DA155ADD1D6C96F6000C8C85 /* VCreateDetailCellStarted.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";

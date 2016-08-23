@@ -20,7 +20,7 @@ class MCreateItemDetailPropertyItemStatus:MCreateItemDetailPropertyItem
     
     //MARK: actions
     
-    @objc func actionSegmented(sender segmented:UISegmentedControl)
+    func actionSegmented(sender segmented:UISegmentedControl)
     {
         let gandallerId:String = controller.model.gandallerId
         let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Status.rawValue

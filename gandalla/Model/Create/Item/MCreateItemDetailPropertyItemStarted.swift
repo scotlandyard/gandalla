@@ -12,21 +12,32 @@ class MCreateItemDetailPropertyItemStarted:MCreateItemDetailPropertyItem
     override func config(controller:CCreateDetail, cell:VCreateDetailCell)
     {
         super.config(controller, cell:cell)
-        /*
-        let cellStatus:VCreateDetailCellStatus = cell as! VCreateDetailCellStatus
-        cellStatus.segmented.selectedSegmentIndex = status.rawValue
-        cellStatus.segmented.addTarget(self, action:#selector(self.actionSegmented(sender:)), forControlEvents:UIControlEvents.ValueChanged)*/
+        
+        let cellStarted:VCreateDetailCellStarted = cell as! VCreateDetailCellStarted
+        cellStarted.check.setOn(started, animated:false)
+        
+        if started
+        {
+            cellStarted.check.userInteractionEnabled = false
+        }
+        else
+        {
+            cellStarted.check.addTarget(self, action:#selector(self.actionCheck(sender:)), forControlEvents:UIControlEvents.ValueChanged)
+        }
     }
     
     //MARK: actions
-    /*
-    @objc func actionSegmented(sender segmented:UISegmentedControl)
+    
+    func actionCheck(sender check:UISwitch)
     {
-        let gandallerId:String = controller.model.gandallerId
-        let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Status.rawValue
-        let segmentedSelected:Int = segmented.selectedSegmentIndex
-        status = FDatabaseModelGandaller.FDatabaseModelGandallerStatus(rawValue:segmentedSelected)!
-        
-        FMain.sharedInstance.database.updateGandaller(gandallerId, property:property, value:segmentedSelected)
-    }*/
+        if check.on
+        {
+            check.userInteractionEnabled = false
+            let gandallerId:String = controller.model.gandallerId
+            let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Started.rawValue
+            started = true
+            
+            FMain.sharedInstance.database.updateGandaller(gandallerId, property:property, value:started)
+        }
+    }
 }
