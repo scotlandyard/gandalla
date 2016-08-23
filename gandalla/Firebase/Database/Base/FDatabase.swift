@@ -17,8 +17,7 @@ class FDatabase
         reference = FIRDatabase.database().reference()
     }
     
-    //MARK: public -
-    //MARK: global
+    //MARK: public
     
     func listenParent(parent:FDatabaseReference, snapBlock:((FIRDataSnapshot) -> Void)) -> UInt
     {
@@ -36,61 +35,20 @@ class FDatabase
         parentReference.removeObserverWithHandle(handler)
     }
     
-    //MARK: user
-    
-    func createUser() -> String
+    func createChild(parent:FDatabaseReference, json:[String:AnyObject]) -> String
     {
-        let fUser:FDatabaseModelUser = FDatabaseModelUser()
-        let fUserJson:[String:AnyObject] = fUser.modelJson()
-        let parentName:String = FDatabaseReference.User.rawValue
-        let newUser:FIRDatabaseReference = reference.child(parentName).childByAutoId()
-        let newUserId:String = newUser.key
-        newUser.setValue(fUserJson)
+        let parentName:String = parent.rawValue
+        let childReference:FIRDatabaseReference = reference.child(parentName).childByAutoId()
+        let childId:String = childReference.key
+        childReference.setValue(json)
         
-        return newUserId
+        return childId
     }
     
-    //MARK: gandallers
-    
-    func createGandaller()
+    func updateProperty(parent:FDatabaseReference, childId:String, property:String, value:AnyObject)
     {
-        let fGandaller:FDatabaseModelGandaller = FDatabaseModelGandallerPaused()
-        let fGandallerJson:[String:AnyObject] = fGandaller.modelJson()
-        let parentName:String = FDatabaseReference.Gandaller.rawValue
-        let newGandaller:FIRDatabaseReference = reference.child(parentName).childByAutoId()
-        newGandaller.setValue(fGandallerJson)
-    }
-    
-    func listenGandaller(snapBlock:((FIRDataSnapshot) -> Void)) -> UInt
-    {
-        let parentName:String = FDatabaseReference.Gandaller.rawValue
-        let gandallerReference:FIRDatabaseReference = reference.child(parentName)
-        let handler:UInt = gandallerReference.observeEventType(FIRDataEventType.Value, withBlock:snapBlock)
-        
-        return handler
-    }
-    
-    func stopListeningGandaller(handler:UInt)
-    {
-        let parentName:String = FDatabaseReference.Gandaller.rawValue
-        let gandallerReference:FIRDatabaseReference = reference.child(parentName)
-        gandallerReference.removeObserverWithHandle(handler)
-    }
-    
-    func updateGandaller(gandallerId:String, property:String, value:AnyObject)
-    {
-        let parentName:String = FDatabaseReference.Gandaller.rawValue
-        let propertyReference:FIRDatabaseReference = reference.child(parentName).child(gandallerId).child(property)
+        let parentName:String = parent.rawValue
+        let propertyReference:FIRDatabaseReference = reference.child(parentName).child(childId).child(property)
         propertyReference.setValue(value)
-    }
-    
-    //MARK: news
-    
-    func createNews(fNews:FDatabaseModelNews)
-    {
-        let fNewsJson:[String:AnyObject] = fNews.modelJson()
-        let parentName:String = FDatabaseReference.News.rawValue
-        let newNews:FIRDatabaseReference = reference.child(parentName).childByAutoId()
-        newNews.setValue(fNewsJson)
     }
 }
