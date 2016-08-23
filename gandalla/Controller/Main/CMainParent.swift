@@ -13,6 +13,7 @@ class CMainParent:UIViewController
     weak var layoutRightTemporal:NSLayoutConstraint?
     weak var layoutTopTemporal:NSLayoutConstraint?
     weak var layoutBottomTemporal:NSLayoutConstraint?
+    weak var layoutBarHeight:NSLayoutConstraint!
     weak var shadow:VMainShadow?
     var previous:UIViewController?
     private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.Default
@@ -21,8 +22,40 @@ class CMainParent:UIViewController
     {
         super.viewDidLoad()
         
+        let bar:VMainBar = VMainBar(controllerParent:self)
+        self.bar = bar
+        
+        view.addSubview(bar)
+        
+        let views:[String:AnyObject] = [
+            "bar":bar]
+        
+        let metrics:[String:AnyObject] = [
+            "barHeight":kBarHeight]
+        
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[bar]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[bar]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        
+        layoutBarHeight = NSLayoutConstraint(
+            item:bar,
+            attribute:NSLayoutAttribute.Height,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.NotAnAttribute,
+            multiplier:1,
+            constant:kBarHeight)
+        
+        view.addConstraint(layoutBarHeight)
+        
         let news:CNews = CNews()
-        loadBar()
         pushController(news, transition:MMainTransition.Replace())
         MUser.sharedInstance.load()
         MGandaller.sharedInstance.load()
@@ -50,31 +83,6 @@ class CMainParent:UIViewController
     {
         statusBarStyle = UIStatusBarStyle.Default
         setNeedsStatusBarAppearanceUpdate()
-    }
-    
-    func loadBar()
-    {
-        let bar:VMainBar = VMainBar(controllerParent:self)
-        self.bar = bar
-        
-        view.addSubview(bar)
-        
-        let views:[String:AnyObject] = [
-            "bar":bar]
-        
-        let metrics:[String:AnyObject] = [
-            "barHeight":kBarHeight]
-        
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[bar]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[bar(barHeight)]",
-            options:[],
-            metrics:metrics,
-            views:views))
     }
     
     func pushController(controller:UIViewController, transition:MMainTransition)

@@ -59,15 +59,16 @@ class VMainBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             "collection":collection,
             "back":back]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:AnyObject] = [
+            "barHeight":controllerParent.kBarHeight]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[collection]-0-|",
+            "V:|-0-[collection(barHeight)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[back]-0-|",
+            "V:|-0-[back(barHeight)]",
             options:[],
             metrics:metrics,
             views:views))
