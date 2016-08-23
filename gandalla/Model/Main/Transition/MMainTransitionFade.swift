@@ -11,25 +11,14 @@ class MMainTransitionFade:MMainTransition
     
     override func positionBefore()
     {
-        let barHeight:CGFloat
-        
-        if parent.bar == nil
-        {
-            barHeight = 0
-        }
-        else
-        {
-            barHeight = parent.kBarHeight
-        }
-        
         parent.layoutTopTemporal = NSLayoutConstraint(
             item:next.view,
             attribute:NSLayoutAttribute.Top,
             relatedBy:NSLayoutRelation.Equal,
-            toItem:parent.view,
-            attribute:NSLayoutAttribute.Top,
+            toItem:parent.bar,
+            attribute:NSLayoutAttribute.Bottom,
             multiplier:1,
-            constant:barHeight)
+            constant:0)
         parent.layoutBottomTemporal = NSLayoutConstraint(
             item:next.view,
             attribute:NSLayoutAttribute.Bottom,

@@ -15,16 +15,15 @@ class MMainTransitionPop:MMainTransition
         parent.view.bringSubviewToFront(current!.view)
         
         let width:CGFloat = current!.view.bounds.maxX / -2.0
-        let barHeight:CGFloat = parent.kBarHeight
         
         parent.layoutTopTemporal = NSLayoutConstraint(
             item:next.view,
             attribute:NSLayoutAttribute.Top,
             relatedBy:NSLayoutRelation.Equal,
-            toItem:parent.view,
-            attribute:NSLayoutAttribute.Top,
+            toItem:parent.bar,
+            attribute:NSLayoutAttribute.Bottom,
             multiplier:1,
-            constant:barHeight)
+            constant:0)
         parent.layoutBottomTemporal = NSLayoutConstraint(
             item:next.view,
             attribute:NSLayoutAttribute.Bottom,

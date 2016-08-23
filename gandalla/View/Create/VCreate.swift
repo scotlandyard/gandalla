@@ -115,6 +115,18 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     //MARK: col del
     
+    func scrollViewDidScroll(scrollView:UIScrollView)
+    {
+        var offsetY:CGFloat = -scrollView.contentOffset.y
+        
+        if offsetY < controller.parent.kBarMinHeight
+        {
+            offsetY = controller.parent.kBarMinHeight
+        }
+        
+        controller.parent.layoutBarHeight.constant = offsetY
+    }
+    
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
         let width:CGFloat = collectionView.bounds.maxX

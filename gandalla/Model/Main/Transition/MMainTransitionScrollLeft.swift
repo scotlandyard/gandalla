@@ -12,7 +12,6 @@ class MMainTransitionScrollLeft:MMainTransition
     override func positionBefore()
     {
         let width:CGFloat
-        let barHeight:CGFloat
         
         if current == nil
         {
@@ -23,23 +22,14 @@ class MMainTransitionScrollLeft:MMainTransition
             width = -current!.view.bounds.maxX
         }
         
-        if parent.bar == nil
-        {
-            barHeight = 0
-        }
-        else
-        {
-            barHeight = parent.kBarHeight
-        }
-        
         parent.layoutTopTemporal = NSLayoutConstraint(
             item:next.view,
             attribute:NSLayoutAttribute.Top,
             relatedBy:NSLayoutRelation.Equal,
-            toItem:parent.view,
-            attribute:NSLayoutAttribute.Top,
+            toItem:parent.bar,
+            attribute:NSLayoutAttribute.Bottom,
             multiplier:1,
-            constant:barHeight)
+            constant:0)
         parent.layoutBottomTemporal = NSLayoutConstraint(
             item:next.view,
             attribute:NSLayoutAttribute.Bottom,

@@ -3,7 +3,8 @@ import UIKit
 class CMainParent:UIViewController
 {
     let kBarHeight:CGFloat = 64
-    weak var bar:VMainBar?
+    let kBarMinHeight:CGFloat = 20
+    weak var bar:VMainBar!
     weak var current:UIViewController?
     weak var layoutLeft:NSLayoutConstraint?
     weak var layoutRight:NSLayoutConstraint?
