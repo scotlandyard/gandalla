@@ -3,12 +3,12 @@ import UIKit
 class CNews:CMainController
 {
     weak var viewNews:VNews!
-    let model:mnew
+    let model:MNews
     var listenHandler:UInt?
     
     init()
     {
-        model = MCreate()
+        model = MNews()
         
         super.init(nibName:nil, bundle:nil)
     }

@@ -18,6 +18,24 @@ class FDatabase
     }
     
     //MARK: public -
+    //MARK: global
+    
+    func listenParent(parent:FDatabaseReference, snapBlock:((FIRDataSnapshot) -> Void)) -> UInt
+    {
+        let parentName:String = parent.rawValue
+        let parentReference:FIRDatabaseReference = reference.child(parentName)
+        let handler:UInt = parentReference.observeEventType(FIRDataEventType.Value, withBlock:snapBlock)
+        
+        return handler
+    }
+    
+    func stopListeningParent(parent:FDatabaseReference, handler:UInt)
+    {
+        let parentName:String = parent.rawValue
+        let parentReference:FIRDatabaseReference = reference.child(parentName)
+        parentReference.removeObserverWithHandle(handler)
+    }
+    
     //MARK: user
     
     func createUser() -> String
