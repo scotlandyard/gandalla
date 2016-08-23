@@ -26,8 +26,8 @@ class MMainTransitionScrollRight:MMainTransition
             item:next.view,
             attribute:NSLayoutAttribute.Top,
             relatedBy:NSLayoutRelation.Equal,
-            toItem:parent.bar,
-            attribute:NSLayoutAttribute.Bottom,
+            toItem:parent.view,
+            attribute:NSLayoutAttribute.Top,
             multiplier:1,
             constant:0)
         parent.layoutBottomTemporal = NSLayoutConstraint(

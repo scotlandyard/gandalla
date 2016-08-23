@@ -90,14 +90,12 @@ class CMainParent:UIViewController
     {
         transition.prepare(self, current:current, next:controller)
         addChildViewController(controller)
-        view.addSubview(controller.view)
+        view.insertSubview(controller.view, belowSubview:bar)
         transition.positionBefore()
         
         if current == nil
         {
             transition.positionAfter()
-            
-            view.addSubview(controller.view)
             controller.didMoveToParentViewController(self)
             current = controller
         }
@@ -136,5 +134,17 @@ class CMainParent:UIViewController
             let transition:MMainTransition = MMainTransition.Pop()
             pushController(controller, transition:transition)
         }
+    }
+    
+    func scrollDidScroll(scroll:UIScrollView)
+    {
+        var offsetY:CGFloat = kBarHeight - scroll.contentOffset.y
+        
+        if offsetY < kBarMinHeight
+        {
+            offsetY = kBarMinHeight
+        }
+        
+        layoutBarHeight.constant = offsetY
     }
 }

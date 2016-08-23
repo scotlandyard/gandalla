@@ -18,8 +18,10 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         backgroundColor = UIColor(white:0.96, alpha:1)
         self.controller = controller
         
+        let compositeHeaderHeight:CGFloat = kHeaderHeight + controller.parent.kBarHeight
+        
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSizeMake(0, kHeaderHeight)
+        flow.headerReferenceSize = CGSizeMake(0, compositeHeaderHeight)
         flow.footerReferenceSize = CGSizeZero
         flow.sectionInset = UIEdgeInsetsMake(0, 0, kCollectionBottom, 0)
         flow.minimumLineSpacing = kInterLine
@@ -117,11 +119,14 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     func scrollViewDidScroll(scrollView:UIScrollView)
     {
-        var offsetY:CGFloat = -scrollView.contentOffset.y
+        let barHeight:CGFloat = controller.parent.kBarHeight
+        let barMinHeight:CGFloat = controller.parent.kBarMinHeight
         
-        if offsetY < controller.parent.kBarMinHeight
+        var offsetY:CGFloat = barHeight - scrollView.contentOffset.y
+        
+        if offsetY < barMinHeight
         {
-            offsetY = controller.parent.kBarMinHeight
+            offsetY = barMinHeight
         }
         
         controller.parent.layoutBarHeight.constant = offsetY

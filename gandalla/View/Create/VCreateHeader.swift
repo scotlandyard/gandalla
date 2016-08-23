@@ -34,7 +34,7 @@ class VCreateHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-10-[button]-20-|",
+            "V:[button(34)]-20-|",
             options:[],
             metrics:metrics,
             views:views))
