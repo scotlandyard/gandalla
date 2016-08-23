@@ -27,6 +27,6 @@ class MCreateItemDetailPropertyItemStatus:MCreateItemDetailPropertyItem
         let segmentedSelected:Int = segmented.selectedSegmentIndex
         status = FDatabaseModelGandaller.FDatabaseModelGandallerStatus(rawValue:segmentedSelected)!
         
-        FMain.sharedInstance.database.updateGandaller(gandallerId, property:property, value:segmentedSelected)
+        FMain.sharedInstance.database.updateProperty(FDatabase.FDatabaseReference.Gandaller, childId:gandallerId, property:property, value:segmentedSelected)
     }
 }

@@ -34,7 +34,7 @@ class MCreateItemDetailPropertyItemName:MCreateItemDetailPropertyItem, UITextFie
                 let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Name.rawValue
                 self?.name = name
                 
-                FMain.sharedInstance.database.updateGandaller(gandallerId, property:property, value:name)
+                FMain.sharedInstance.database.updateProperty(FDatabase.FDatabaseReference.Gandaller, childId:gandallerId, property:property, value:name)
             }
         }
     }
