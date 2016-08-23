@@ -8,29 +8,23 @@ class MCreate
     init()
     {
         items = []
+        update()
     }
     
     //MARK: public
     
-    func update(json:[String:[String:AnyObject]])
+    func update()
     {
         var items:[MCreateItem] = []
-        let keys:[String] = Array(json.keys)
+        let gandallerItems:[MGandallerItem] = MGandaller.sharedInstance.items
         
-        for key:String in keys
+        for item:MGandallerItem in gandallerItems
         {
-            let inJson:[String:AnyObject] = json[key]!
-            let fGandaller:FDatabaseModelGandaller = FDatabaseModelGandaller.withJson(inJson)
-            let item:MCreateItem = MCreateItem(gandallerId:key, fModel:fGandaller)
+            let item:MCreateItem = MCreateItem(gandaller:item)
             
             items.append(item)
         }
         
         self.items = items
-    }
-    
-    func clear()
-    {
-        items = []
     }
 }

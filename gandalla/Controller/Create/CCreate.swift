@@ -20,10 +20,7 @@ class CCreate:CMainController
     
     deinit
     {
-        if listenHandler != nil
-        {
-            FMain.sharedInstance.database.stopListeningParent(FDatabase.FDatabaseReference.Gandaller, handler:listenHandler!)
-        }
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func loadView()
@@ -37,42 +34,15 @@ class CCreate:CMainController
     {
         super.viewDidLoad()
         
-        listenHandler = FMain.sharedInstance.database.listenParent(FDatabase.FDatabaseReference.Gandaller)
-        { [weak self] (snapshot) in
-            
-            let json:[String:[String:AnyObject]]? = snapshot.value as? [String:[String:AnyObject]]
-            
-            if json == nil
-            {
-                self?.model.clear()
-                self?.updateFinished()
-            }
-            else
-            {
-                self?.gandallerUpdated(json!)
-            }
-        }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallers(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
     }
     
-    //MARK: private
+    //MARK: notified
     
-    private func gandallerUpdated(json:[String:[String:AnyObject]])
+    func notifiedGandallers(sender notification:NSNotification)
     {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
-        { [weak self] in
-            
-            self?.model.update(json)
-            self?.updateFinished()
-        }
-    }
-    
-    private func updateFinished()
-    {
-        dispatch_async(dispatch_get_main_queue())
-        { [weak self] in
-            
-            self?.viewCreate.reload()
-        }
+        model.update()
+        viewCreate.reload()
     }
     
     //MARK: public
@@ -86,6 +56,9 @@ class CCreate:CMainController
             let fGandaller:FDatabaseModelGandaller = FDatabaseModelGandallerPaused()
             let json:[String:AnyObject] = fGandaller.modelJson()
             FMain.sharedInstance.database.createChild(FDatabase.FDatabaseReference.Gandaller, json:json)
+            
+            let message:String = NSLocalizedString("CCreate_gandallerCreated", comment:"")
+            VMainAlert.Message(message)
         }
     }
 }

@@ -8,11 +8,6 @@ class MGandaller
     private init()
     {
         items = []
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
-        {
-            self.loadGandallers()
-        }
     }
     
     //MARK: private
@@ -84,5 +79,15 @@ class MGandaller
         items = newGandallers
         
         NSNotificationCenter.defaultCenter().postNotificationName(NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+    }
+    
+    //MARK: public
+    
+    func load()
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        {
+            self.loadGandallers()
+        }
     }
 }

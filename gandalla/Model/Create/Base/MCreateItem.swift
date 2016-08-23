@@ -2,13 +2,13 @@ import UIKit
 
 class MCreateItem
 {
-    let fModel:FDatabaseModelGandaller
+    weak var fModel:FDatabaseModelGandaller!
     let gandallerId:String
     
-    init(gandallerId:String, fModel:FDatabaseModelGandaller)
+    init(gandaller:MGandallerItem)
     {
-        self.gandallerId = gandallerId
-        self.fModel = fModel
+        gandallerId = gandaller.gandallerId
+        fModel = gandaller.fModel
     }
     
     //MARK: public

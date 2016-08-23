@@ -45,10 +45,10 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
             UICollectionElementKindSectionHeader,
             withReuseIdentifier:
             VCreateHeader.reusableIdentifier())
-        collection.hidden = true
         self.collection = collection
         
         let spinner:VMainLoader = VMainLoader()
+        spinner.stopAnimating()
         self.spinner = spinner
         
         addSubview(spinner)

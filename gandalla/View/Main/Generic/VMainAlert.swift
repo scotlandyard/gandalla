@@ -6,7 +6,7 @@ class VMainAlert:UIView
     private weak var layoutTop:NSLayoutConstraint!
     private weak var parentView:UIView?
     private let kAnimationDuration:NSTimeInterval = 0.2
-    private let kTimeOut:NSTimeInterval = 3
+    private let kTimeOut:NSTimeInterval = 2.5
     private let kAlertHeight:CGFloat = 64
     private let kLabelTop:CGFloat = 20
     

@@ -25,6 +25,7 @@ class CMainParent:UIViewController
         loadBar()
         pushController(news, transition:MMainTransition.Replace())
         MUser.sharedInstance.load()
+        MGandaller.sharedInstance.load()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle
