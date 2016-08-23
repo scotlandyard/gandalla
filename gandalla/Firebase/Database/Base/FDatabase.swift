@@ -4,8 +4,13 @@ import FirebaseDatabase
 class FDatabase
 {
     private let reference:FIRDatabaseReference
-    private let kReferenceUser:String = "user"
-    private let kReferenceGandaller:String = "gandaller"
+    
+    enum FDatabaseReference:String
+    {
+        case User = "user"
+        case Gandaller = "gandaller"
+        case News = "news"
+    }
     
     init()
     {
@@ -19,7 +24,8 @@ class FDatabase
     {
         let fUser:FDatabaseModelUser = FDatabaseModelUser()
         let fUserJson:[String:AnyObject] = fUser.modelJson()
-        let newUser:FIRDatabaseReference = reference.child(kReferenceUser).childByAutoId()
+        let parentName:String = FDatabaseReference.User.rawValue
+        let newUser:FIRDatabaseReference = reference.child(parentName).childByAutoId()
         let newUserId:String = newUser.key
         newUser.setValue(fUserJson)
         
@@ -32,13 +38,15 @@ class FDatabase
     {
         let fGandaller:FDatabaseModelGandaller = FDatabaseModelGandallerPaused()
         let fGandallerJson:[String:AnyObject] = fGandaller.modelJson()
-        let newGandaller:FIRDatabaseReference = reference.child(kReferenceGandaller).childByAutoId()
+        let parentName:String = FDatabaseReference.Gandaller.rawValue
+        let newGandaller:FIRDatabaseReference = reference.child(parentName).childByAutoId()
         newGandaller.setValue(fGandallerJson)
     }
     
     func listenGandaller(snapBlock:((FIRDataSnapshot) -> Void)) -> UInt
     {
-        let gandallerReference:FIRDatabaseReference = reference.child(kReferenceGandaller)
+        let parentName:String = FDatabaseReference.Gandaller.rawValue
+        let gandallerReference:FIRDatabaseReference = reference.child(parentName)
         let handler:UInt = gandallerReference.observeEventType(FIRDataEventType.Value, withBlock:snapBlock)
         
         return handler
@@ -46,13 +54,15 @@ class FDatabase
     
     func stopListeningGandaller(handler:UInt)
     {
-        let gandallerReference:FIRDatabaseReference = reference.child(kReferenceGandaller)
+        let parentName:String = FDatabaseReference.Gandaller.rawValue
+        let gandallerReference:FIRDatabaseReference = reference.child(parentName)
         gandallerReference.removeObserverWithHandle(handler)
     }
     
     func updateGandaller(gandallerId:String, property:String, value:AnyObject)
     {
-        let propertyReference:FIRDatabaseReference = reference.child(kReferenceGandaller).child(gandallerId).child(property)
+        let parentName:String = FDatabaseReference.Gandaller.rawValue
+        let propertyReference:FIRDatabaseReference = reference.child(parentName).child(gandallerId).child(property)
         propertyReference.setValue(value)
     }
 }
