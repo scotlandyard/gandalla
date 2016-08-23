@@ -33,19 +33,21 @@ class MCreateItemDetailPropertyItemStarted:MCreateItemDetailPropertyItem
         if check.on
         {
             check.userInteractionEnabled = false
+            let newValue:Bool = true
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
             { [weak self] in
                 
                 if self != nil
                 {
-                    self!.started = true
+                    self!.started = newValue
                     let gandallerId:String = self!.controller.model.gandallerId
                     let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Started.rawValue
                     let fNews:FDatabaseModelNewsJoined = FDatabaseModelNewsJoined(gandallerId:gandallerId)
+                    let newsJson:[String:AnyObject] = fNews.modelJson()
                     
-                    FMain.sharedInstance.database.updateGandaller(gandallerId, property:property, value:self!.started)
-                    FMain.sharedInstance.database.createNews(fNews)
+                    FMain.sharedInstance.database.updateProperty(FDatabase.FDatabaseReference.Gandaller, childId:gandallerId, property:property, value:newValue)
+                    FMain.sharedInstance.database.createChild(FDatabase.FDatabaseReference.News, json:newsJson)
                 }
             }
         }
