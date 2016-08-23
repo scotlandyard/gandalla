@@ -1,6 +1,6 @@
 import UIKit
 
-class MCreateItemDetailPropertyItem
+class MCreateItemDetailPropertyItem:NSObject
 {
     weak var controller:CCreateDetail!
     

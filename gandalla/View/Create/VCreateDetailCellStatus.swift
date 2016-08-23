@@ -15,8 +15,8 @@ class VCreateDetailCellStatus:VCreateDetailCell
         let itemActive:String = NSLocalizedString("VCreateDetailCellStatus_itemActive", comment:"")
         let itemPaused:String = NSLocalizedString("VCreateDetailCellStatus_itemPaused", comment:"")
         let items:[String] = [
-            itemActive,
-            itemPaused
+            itemPaused,
+            itemActive
         ]
         
         let segmented:UISegmentedControl = UISegmentedControl(items:items)
