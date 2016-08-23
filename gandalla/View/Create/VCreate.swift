@@ -119,17 +119,7 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     func scrollViewDidScroll(scrollView:UIScrollView)
     {
-        let barHeight:CGFloat = controller.parent.kBarHeight
-        let barMinHeight:CGFloat = controller.parent.kBarMinHeight
-        
-        var offsetY:CGFloat = barHeight - scrollView.contentOffset.y
-        
-        if offsetY < barMinHeight
-        {
-            offsetY = barMinHeight
-        }
-        
-        controller.parent.layoutBarHeight.constant = offsetY
+        controller.parent.scrollDidScroll(scrollView)
     }
     
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize

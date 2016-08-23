@@ -106,6 +106,11 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     //MARK: col del
     
+    func scrollViewDidScroll(scrollView:UIScrollView)
+    {
+        controller.parent.scrollDidScroll(scrollView)
+    }
+    
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
         let section:MCreateItemDetailProperty = sectionAtIndex(indexPath)

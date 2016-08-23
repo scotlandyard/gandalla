@@ -140,6 +140,14 @@ class VMainBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             
             if self != nil
             {
+                let currentHeight:CGFloat = self!.bounds.maxY
+                let deltaHeight:CGFloat = self!.controllerParent.kBarHeight - currentHeight
+                let maxDelta:CGFloat = self!.controllerParent.kBarHeight - self!.controllerParent.kBarMinHeight
+                let deltaPercent:CGFloat = deltaHeight / maxDelta
+                let alpha:CGFloat = 1 - deltaPercent
+                self!.collection.alpha = alpha
+                self!.back.alpha = alpha
+                
                 let selected:Int = self!.model.current.index
                 let selectedIndexPath:NSIndexPath = NSIndexPath(forItem:selected, inSection:0)
                 self!.collection.scrollToItemAtIndexPath(selectedIndexPath, atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally, animated:true)
