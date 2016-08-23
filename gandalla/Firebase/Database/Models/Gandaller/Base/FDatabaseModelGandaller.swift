@@ -17,15 +17,17 @@ class FDatabaseModelGandaller:FDatabaseModel
         case Powers = "powers"
         case Videos = "videos"
         case Social = "social"
+        case Started = "started"
     }
     
     let status:FDatabaseModelGandallerStatus
     let created:NSTimeInterval
-    var name:String
+    let name:String
     let social:FDatabaseModelGandallerSocial
-    var images:[FDatabaseModelGandallerImage]
-    var powers:[FDatabaseModelGandallerPower]
-    var videos:[FDatabaseModelGandallerVideo]
+    let images:[FDatabaseModelGandallerImage]
+    let powers:[FDatabaseModelGandallerPower]
+    let videos:[FDatabaseModelGandallerVideo]
+    let started:Bool
     
     class func withJson(json:[String:AnyObject]) -> FDatabaseModelGandaller
     {
@@ -60,12 +62,14 @@ class FDatabaseModelGandaller:FDatabaseModel
         images = []
         powers = []
         videos = []
+        started = false
     }
     
     init(status:FDatabaseModelGandallerStatus, json:[String:AnyObject])
     {
         let rawCreated:NSTimeInterval = json[FDatabaseModelGandallerKey.Created.rawValue] as! NSTimeInterval
         let rawName:String = json[FDatabaseModelGandallerKey.Name.rawValue] as! String
+        let rawStarted:Bool = json[FDatabaseModelGandallerKey.Started.rawValue] as! Bool
         let rawSocial:[String:AnyObject]? = json[FDatabaseModelGandallerKey.Social.rawValue] as? [String:AnyObject]
         let rawImages:[String]? = json[FDatabaseModelGandallerKey.Images.rawValue] as? [String]
         let rawPowers:[String]? = json[FDatabaseModelGandallerKey.Powers.rawValue] as? [String]
@@ -74,10 +78,11 @@ class FDatabaseModelGandaller:FDatabaseModel
         self.status = status
         created = rawCreated
         name = rawName
+        started = rawStarted
         social = FDatabaseModelGandallerSocial(json:rawSocial)
-        images = []
-        powers = []
-        videos = []
+        var images:[FDatabaseModelGandallerImage] = []
+        var powers:[FDatabaseModelGandallerPower] = []
+        var videos:[FDatabaseModelGandallerVideo] = []
         
         if rawImages != nil
         {
@@ -105,6 +110,10 @@ class FDatabaseModelGandaller:FDatabaseModel
                 videos.append(video)
             }
         }
+        
+        self.images = images
+        self.powers = powers
+        self.videos = videos
     }
     
     //MARK: public
@@ -137,11 +146,12 @@ class FDatabaseModelGandaller:FDatabaseModel
         let json:[String:AnyObject] = [
             FDatabaseModelGandallerKey.Status.rawValue:status.rawValue,
             FDatabaseModelGandallerKey.Name.rawValue:name,
+            FDatabaseModelGandallerKey.Started.rawValue:started,
             FDatabaseModelGandallerKey.Created.rawValue:created,
             FDatabaseModelGandallerKey.Social.rawValue:jsonSocial,
             FDatabaseModelGandallerKey.Images.rawValue:jsonImages,
             FDatabaseModelGandallerKey.Powers.rawValue:jsonPowers,
-            FDatabaseModelGandallerKey.Videos.rawValue:jsonVideos
+            FDatabaseModelGandallerKey.Videos.rawValue:jsonVideos,
         ]
         
         return json
