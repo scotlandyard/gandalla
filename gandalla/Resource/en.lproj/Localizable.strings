@@ -1,3 +1,7 @@
 "VCreateHeader_button"="Add Gandaller";
+"VCreateDetailCellStatus_itemActive"="Active";
+"VCreateDetailCellStatus_itemPaused"="Paused";
 
 "MCreateItem_noName"="Unnamed";
+"MCreateItemDetailPropertyStatus_name"="Status";
+"MCreateItemDetailPropertyName_name"="Name";

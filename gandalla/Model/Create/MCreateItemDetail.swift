@@ -6,6 +6,12 @@ class MCreateItemDetail
     
     init(model:MCreateItem)
     {
-        properties = []
+        let propertyStatus:MCreateItemDetailPropertyStatus = MCreateItemDetailPropertyStatus()
+        let propertyName:MCreateItemDetailPropertyName = MCreateItemDetailPropertyName()
+        
+        properties = [
+            propertyStatus,
+            propertyName
+        ]
     }
 }

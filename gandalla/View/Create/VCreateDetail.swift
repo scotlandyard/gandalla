@@ -5,8 +5,8 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     weak var controller:CCreateDetail!
     weak var collection:UICollectionView!
     private let kInterLine:CGFloat = 1
-    private let kHeaderHeight:CGFloat = 30
-    private let kCollectionBottom:CGFloat = 40
+    private let kHeaderHeight:CGFloat = 40
+    private let kCollectionBottom:CGFloat = 30
     
     convenience init(controller:CCreateDetail)
     {
@@ -34,16 +34,27 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         collection.delegate = self
         collection.dataSource = self
         collection.registerClass(
-            VCreateCell.self,
+            VCreateDetailCellText.self,
             forCellWithReuseIdentifier:
-            VCreateCell.reusableIdentifier())
+            VCreateDetailCellText.reusableIdentifier())
         collection.registerClass(
-            VCreateHeader.self,
+            VCreateDetailCellStatus.self,
+            forCellWithReuseIdentifier:
+            VCreateDetailCellStatus.reusableIdentifier())
+        collection.registerClass(
+            VCreateDetailCellImage.self,
+            forCellWithReuseIdentifier:
+            VCreateDetailCellImage.reusableIdentifier())
+        collection.registerClass(
+            VCreateDetailCellList.self,
+            forCellWithReuseIdentifier:
+            VCreateDetailCellList.reusableIdentifier())
+        collection.registerClass(
+            VCreateDetailHeader.self,
             forSupplementaryViewOfKind:
             UICollectionElementKindSectionHeader,
             withReuseIdentifier:
-            VCreateHeader.reusableIdentifier())
-        collection.hidden = true
+            VCreateDetailHeader.reusableIdentifier())
         self.collection = collection
         
         addSubview(collection)
