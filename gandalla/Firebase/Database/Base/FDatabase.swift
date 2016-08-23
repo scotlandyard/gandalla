@@ -65,4 +65,14 @@ class FDatabase
         let propertyReference:FIRDatabaseReference = reference.child(parentName).child(gandallerId).child(property)
         propertyReference.setValue(value)
     }
+    
+    //MARK: news
+    
+    func createNews(fNews:FDatabaseModelNews)
+    {
+        let fNewsJson:[String:AnyObject] = fNews.modelJson()
+        let parentName:String = FDatabaseReference.News.rawValue
+        let newNews:FIRDatabaseReference = reference.child(parentName).childByAutoId()
+        newNews.setValue(fNewsJson)
+    }
 }
