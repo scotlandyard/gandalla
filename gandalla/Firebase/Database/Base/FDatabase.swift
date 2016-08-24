@@ -70,4 +70,12 @@ class FDatabase
         let subPropertyReference:FIRDatabaseReference = propertyReference.child(subChildId).child(subPropertyId)
         subPropertyReference.setValue(value)
     }
+    
+    func deleteSubProperty(parent:FDatabaseReference, childId:String, property:String, subChildId:String, subPropertyId:String)
+    {
+        let parentName:String = parent.rawValue
+        let propertyReference:FIRDatabaseReference = reference.child(parentName).child(childId).child(property)
+        let subPropertyReference:FIRDatabaseReference = propertyReference.child(subChildId).child(subPropertyId)
+        subPropertyReference.removeValue()
+    }
 }
