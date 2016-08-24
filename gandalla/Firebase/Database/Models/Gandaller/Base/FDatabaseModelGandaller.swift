@@ -73,7 +73,7 @@ class FDatabaseModelGandaller:FDatabaseModel
         let rawName:String = json[FDatabaseModelGandallerKey.Name.rawValue] as! String
         let rawStarted:Bool = json[FDatabaseModelGandallerKey.Started.rawValue] as! Bool
         let rawSocial:[String:AnyObject]? = json[FDatabaseModelGandallerKey.Social.rawValue] as? [String:AnyObject]
-        let rawImages:[[String:AnyObject]]? = json[FDatabaseModelGandallerKey.Images.rawValue] as? [[String:AnyObject]]
+        let rawImages:[String:[String:AnyObject]]? = json[FDatabaseModelGandallerKey.Images.rawValue] as? [String:[String:AnyObject]]
         let rawPowers:[String]? = json[FDatabaseModelGandallerKey.Powers.rawValue] as? [String]
         let rawVideos:[String]? = json[FDatabaseModelGandallerKey.Videos.rawValue] as? [String]
         
@@ -88,9 +88,12 @@ class FDatabaseModelGandaller:FDatabaseModel
         
         if rawImages != nil
         {
-            for rawImage:[String:AnyObject] in rawImages!
+            let rawImagesKeys:[String] = Array(rawImages!.keys)
+            
+            for rawImageKey:String in rawImagesKeys
             {
-                let image:FDatabaseModelGandallerImage = FDatabaseModelGandallerImage.withJson(rawImage)
+                let rawImage:[String:AnyObject] = rawImages![rawImageKey]!
+                let image:FDatabaseModelGandallerImage = FDatabaseModelGandallerImage.withJson(rawImage, imageId:rawImageKey)
                 images.append(image)
             }
         }
@@ -123,14 +126,15 @@ class FDatabaseModelGandaller:FDatabaseModel
     func modelJson() -> [String:AnyObject]
     {
         let jsonSocial:[String:AnyObject] = social.modelJson()
-        var jsonImages:[String] = []
+        var jsonImages:[String:[String:AnyObject]] = [:]
         var jsonPowers:[String] = []
         var jsonVideos:[String] = []
         
         for image:FDatabaseModelGandallerImage in images
         {
-            let imageId:String = image.imageid
-            jsonImages.append(imageId)
+            let imageId:String = image.imageId
+            let imageJson:[String:AnyObject] = image.modelJson()
+            jsonImages[imageId] = imageJson
         }
         
         for power:FDatabaseModelGandallerPower in powers

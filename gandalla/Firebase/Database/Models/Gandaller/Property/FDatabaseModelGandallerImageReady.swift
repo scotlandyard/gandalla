@@ -2,17 +2,10 @@ import Foundation
 
 class FDatabaseModelGandallerImageReady:FDatabaseModelGandallerImage
 {
-    init(imageid:String)
+    init(imageId:String)
     {
         let status:FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus = FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
         
-        super.init(imageid:imageid, status:status)
-    }
-    
-    init(json:[String:AnyObject])
-    {
-        let status:FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus = FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
-        
-        super.init(json:json, status:status)
+        super.init(imageId:imageId, status:status)
     }
 }

@@ -8,10 +8,10 @@ class FDatabaseModelGandallerImage
         case Ready
     }
     
-    let imageid:String
+    let imageId:String
     let status:FDatabaseModelGandallerImageStatus
     
-    class func withJson(json:[String:AnyObject]) -> FDatabaseModelGandallerImage
+    class func withJson(json:[String:AnyObject], imageId:String) -> FDatabaseModelGandallerImage
     {
         let image:FDatabaseModelGandallerImage
         let imageStatusKey:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageStatus.rawValue
@@ -22,13 +22,13 @@ class FDatabaseModelGandallerImage
         {
             case FDatabaseModelGandallerImageStatus.Waiting:
                 
-                image = FDatabaseModelGandallerImageWaiting(json:json)
+                image = FDatabaseModelGandallerImageWaiting(imageId:imageId)
                 
                 break
                 
             case FDatabaseModelGandallerImageStatus.Ready:
                 
-                image = FDatabaseModelGandallerImageReady(json:json)
+                image = FDatabaseModelGandallerImageReady(imageId:imageId)
                 
                 break
         }
@@ -36,16 +36,42 @@ class FDatabaseModelGandallerImage
         return image
     }
     
-    init(imageid:String, status:FDatabaseModelGandallerImageStatus)
+    init(imageId:String, status:FDatabaseModelGandallerImageStatus)
     {
-        self.imageid = imageid
+        self.imageId = imageId
         self.status = status
     }
     
-    init(json:[String:AnyObject], status:FDatabaseModelGandallerImageStatus)
+    //MARK: public
+    
+    func modelJson() -> [String:AnyObject]
     {
-        let imageIdKey:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageId.rawValue
-        self.imageid = json[imageIdKey] as! String
-        self.status = status
+        var json:[String:AnyObject] = [:]
+//        
+//        for hashtag:FDatabaseModelGandallerSocialHashtag in hashtags
+//        {
+//            let hashString:String = hashtag.tag
+//            hashArray.append(hashString)
+//        }
+//        
+//        var json:[String:AnyObject] = [:]
+//        json[FDatabaseModelGandallerSocial.Hashtags.rawValue] = hashArray
+//        
+//        if facebook != nil
+//        {
+//            json[FDatabaseModelGandallerSocial.Facebook.rawValue] = facebook!
+//        }
+//        
+//        if twitter != nil
+//        {
+//            json[FDatabaseModelGandallerSocial.Twitter.rawValue] = twitter!
+//        }
+//        
+//        if instagram != nil
+//        {
+//            json[FDatabaseModelGandallerSocial.Instagram.rawValue] = instagram!
+//        }
+        
+        return json
     }
 }
