@@ -64,33 +64,18 @@ class CNews:CMainController
     
     private func newsReceived(json:[String:[String:AnyObject]])
     {
+        let updates:NSMutableSet = NSMutableSet()
         let keys:[String] = Array(json.keys)
         
         for key:String in keys
         {
             let inJson:[String:AnyObject] = json[key]!
-            let fNews:FDatabaseModelNews = FDatabaseModelNews
-            let fGandaller:FDatabaseModelGandaller = FDatabaseModelGandaller.withJson(inJson)
-            var inGandaller:MGandallerItem?
+            let fNews:FDatabaseModelNews = FDatabaseModelNews.withJson(inJson)
+            let indexPath:NSIndexPath? = model.addNews(key, fModel:fNews)
             
-            for gandaller:MGandallerItem in newItems
+            if indexPath != nil
             {
-                if gandaller.gandallerId == key
-                {
-                    inGandaller = gandaller
-                    
-                    break
-                }
-            }
-            
-            if inGandaller == nil
-            {
-                let newGandaller:MGandallerItem = MGandallerItem(gandallerId:key, fModel:fGandaller)
-                newItems.append(newGandaller)
-            }
-            else
-            {
-                inGandaller!.fModel = fGandaller
+                updates.addObject(indexPath!)
             }
         }
     }
