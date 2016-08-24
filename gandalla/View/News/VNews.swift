@@ -109,8 +109,10 @@ class VNews:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
+        let item:MNewsItem = modelAtIndex(indexPath)
         let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSizeMake(width, kCellHeight)
+        let height:CGFloat = item.fModel.cellHeight()
+        let size:CGSize = CGSizeMake(width, height)
         
         return size
     }
