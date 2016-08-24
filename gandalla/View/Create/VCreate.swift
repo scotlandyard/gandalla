@@ -15,7 +15,7 @@ class VCreate:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor(white:0.96, alpha:1)
+        backgroundColor = UIColor.collectionBackground()
         self.controller = controller
         
         let compositeHeaderHeight:CGFloat = kHeaderHeight + controller.parent.kBarHeight

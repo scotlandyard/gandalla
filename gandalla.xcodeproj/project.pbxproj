@@ -59,6 +59,11 @@
 		DA9221881D6A0B0D006323FE /* CNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9221871D6A0B0D006323FE /* CNews.swift */; };
 		DAA5800D1D6D1A1C00EC941A /* MNewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5800C1D6D1A1C00EC941A /* MNewsItem.swift */; };
 		DAA5800F1D6D2A4400EC941A /* VNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5800E1D6D2A4400EC941A /* VNewsCell.swift */; };
+		DAA580111D6D2BBF00EC941A /* VNewsCellJoined.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA580101D6D2BBF00EC941A /* VNewsCellJoined.swift */; };
+		DAA580131D6D2BD100EC941A /* VNewsCellPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA580121D6D2BD100EC941A /* VNewsCellPicture.swift */; };
+		DAA580151D6D2BD900EC941A /* VNewsCellPower.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA580141D6D2BD900EC941A /* VNewsCellPower.swift */; };
+		DAA580171D6D2BE600EC941A /* VNewsCellSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA580161D6D2BE600EC941A /* VNewsCellSocial.swift */; };
+		DAA580191D6D2BEE00EC941A /* VNewsCellVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA580181D6D2BEE00EC941A /* VNewsCellVideo.swift */; };
 		DAA6A3BB1D69184300F2565B /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAA6A3711D69184300F2565B /* brand.xcassets */; };
 		DAA6A3BC1D69184300F2565B /* ui.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAA6A3721D69184300F2565B /* ui.xcassets */; };
 		DAA6A3BD1D69184300F2565B /* CategoryMKAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3741D69184300F2565B /* CategoryMKAnnotationView.swift */; };
@@ -180,6 +185,11 @@
 		DA9221871D6A0B0D006323FE /* CNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNews.swift; sourceTree = "<group>"; };
 		DAA5800C1D6D1A1C00EC941A /* MNewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNewsItem.swift; sourceTree = "<group>"; };
 		DAA5800E1D6D2A4400EC941A /* VNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNewsCell.swift; sourceTree = "<group>"; };
+		DAA580101D6D2BBF00EC941A /* VNewsCellJoined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNewsCellJoined.swift; sourceTree = "<group>"; };
+		DAA580121D6D2BD100EC941A /* VNewsCellPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNewsCellPicture.swift; sourceTree = "<group>"; };
+		DAA580141D6D2BD900EC941A /* VNewsCellPower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNewsCellPower.swift; sourceTree = "<group>"; };
+		DAA580161D6D2BE600EC941A /* VNewsCellSocial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNewsCellSocial.swift; sourceTree = "<group>"; };
+		DAA580181D6D2BEE00EC941A /* VNewsCellVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNewsCellVideo.swift; sourceTree = "<group>"; };
 		DAA6A3711D69184300F2565B /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DAA6A3721D69184300F2565B /* ui.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ui.xcassets; sourceTree = "<group>"; };
 		DAA6A3741D69184300F2565B /* CategoryMKAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryMKAnnotationView.swift; sourceTree = "<group>"; };
@@ -687,6 +697,11 @@
 			children = (
 				DAD713CE1D6A0B67007ABB0C /* VNews.swift */,
 				DAA5800E1D6D2A4400EC941A /* VNewsCell.swift */,
+				DAA580101D6D2BBF00EC941A /* VNewsCellJoined.swift */,
+				DAA580121D6D2BD100EC941A /* VNewsCellPicture.swift */,
+				DAA580141D6D2BD900EC941A /* VNewsCellPower.swift */,
+				DAA580161D6D2BE600EC941A /* VNewsCellSocial.swift */,
+				DAA580181D6D2BEE00EC941A /* VNewsCellVideo.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -951,6 +966,7 @@
 				DA13F3761D6B450F008AF28A /* FDatabaseModelNewsSocial.swift in Sources */,
 				DAD713E31D6A1361007ABB0C /* MMainNavPosPushed.swift in Sources */,
 				DAD713E51D6A1361007ABB0C /* MMainNavItemStateActive.swift in Sources */,
+				DAA580131D6D2BD100EC941A /* VNewsCellPicture.swift in Sources */,
 				DA9221801D691BAA006323FE /* FStorage.swift in Sources */,
 				DAA6A3C91D69184300F2565B /* CMainController.swift in Sources */,
 				DA155AEE1D6C9D89000C8C85 /* MCreateItemDetailPropertyItem.swift in Sources */,
@@ -969,6 +985,7 @@
 				DAA6A3ED1D69184300F2565B /* VMainShadow.swift in Sources */,
 				DA13F3781D6B450F008AF28A /* FDatabaseModelUser.swift in Sources */,
 				DA13F37A1D6B551D008AF28A /* VCreateCell.swift in Sources */,
+				DAA580171D6D2BE600EC941A /* VNewsCellSocial.swift in Sources */,
 				DAD713D11D6A11FC007ABB0C /* DGandallaGandaller.swift in Sources */,
 				DAA6A3BF1D69184300F2565B /* CategoryNSFileManager.swift in Sources */,
 				DA13F3931D6B6C3D008AF28A /* FDatabaseModelGandallerImage.swift in Sources */,
@@ -979,6 +996,7 @@
 				DA13F35C1D6B3F19008AF28A /* MMainNavItemGandallers.swift in Sources */,
 				DAA6A3C51D69184300F2565B /* CategoryUILocalNotification.swift in Sources */,
 				DAA6A3CF1D69184300F2565B /* DGandallaModel.xcdatamodeld in Sources */,
+				DAA580111D6D2BBF00EC941A /* VNewsCellJoined.swift in Sources */,
 				DAA6A3DF1D69184300F2565B /* MMainTransitionPush.swift in Sources */,
 				DA13F3971D6BAF01008AF28A /* VCreateDetail.swift in Sources */,
 				DA13F3891D6B677A008AF28A /* FDatabaseModelGandallerActive.swift in Sources */,
@@ -993,9 +1011,11 @@
 				DA13F3731D6B450F008AF28A /* FDatabaseModelNewsJoined.swift in Sources */,
 				DAA6A3C61D69184300F2565B /* CategoryUIViewController.swift in Sources */,
 				DA155AFD1D6CBA73000C8C85 /* MGandaller.swift in Sources */,
+				DAA580191D6D2BEE00EC941A /* VNewsCellVideo.swift in Sources */,
 				DAD713E11D6A1361007ABB0C /* MMainNavPos.swift in Sources */,
 				DAD713E41D6A1361007ABB0C /* MMainNavItemState.swift in Sources */,
 				DA9221881D6A0B0D006323FE /* CNews.swift in Sources */,
+				DAA580151D6D2BD900EC941A /* VNewsCellPower.swift in Sources */,
 				DA155AF21D6C9D89000C8C85 /* MCreateItemDetailPropertyName.swift in Sources */,
 				DAA6A3E91D69184300F2565B /* VMainBarBack.swift in Sources */,
 				DA92217E1D691BAA006323FE /* FMain.swift in Sources */,
