@@ -81,9 +81,19 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
             if fImage!.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Waiting
             {
                 let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
-                let imageId:String 
+                let gandallerId:String = controller.model.gandaller.gandallerId
+                let propertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Images.rawValue
+                let imageId:String = fImage!.imageId!
+                let subPropertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageStatus.rawValue
+                let activeImage:Bool = true
                 
-                FMain.sharedInstance.database.updateProperty(<#T##parent: FDatabase.FDatabaseReference##FDatabase.FDatabaseReference#>, childId: <#T##String#>, property: <#T##String#>, value: <#T##AnyObject#>)
+                FMain.sharedInstance.database.updateSubProperty(
+                    reference,
+                    childId:gandallerId,
+                    property:propertyId,
+                    subChildId:imageId,
+                    subPropertyId:subPropertyId,
+                    value:activeImage)
             }
         }
     }
