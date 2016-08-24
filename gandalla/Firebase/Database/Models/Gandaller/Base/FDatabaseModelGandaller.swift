@@ -73,7 +73,7 @@ class FDatabaseModelGandaller:FDatabaseModel
         let rawName:String = json[FDatabaseModelGandallerKey.Name.rawValue] as! String
         let rawStarted:Bool = json[FDatabaseModelGandallerKey.Started.rawValue] as! Bool
         let rawSocial:[String:AnyObject]? = json[FDatabaseModelGandallerKey.Social.rawValue] as? [String:AnyObject]
-        let rawImages:[String]? = json[FDatabaseModelGandallerKey.Images.rawValue] as? [String]
+        let rawImages:[[String:AnyObject]]? = json[FDatabaseModelGandallerKey.Images.rawValue] as? [[String:AnyObject]]
         let rawPowers:[String]? = json[FDatabaseModelGandallerKey.Powers.rawValue] as? [String]
         let rawVideos:[String]? = json[FDatabaseModelGandallerKey.Videos.rawValue] as? [String]
         
@@ -88,10 +88,10 @@ class FDatabaseModelGandaller:FDatabaseModel
         
         if rawImages != nil
         {
-            for rawImage:String in rawImages!
+            for rawImage:[String:AnyObject] in rawImages!
             {
-//                let image:FDatabaseModelGandallerImage = FDatabaseModelGandallerImage(imageid:rawImage)
-//                images.append(image)
+                let image:FDatabaseModelGandallerImage = FDatabaseModelGandallerImage.withJson(rawImage)
+                images.append(image)
             }
         }
         
