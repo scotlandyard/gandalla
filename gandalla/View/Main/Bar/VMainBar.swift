@@ -14,6 +14,7 @@ class VMainBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     private let barHeight:CGFloat
     private let barMaxDelta:CGFloat
     private let kButtonWidth:CGFloat = 64
+    private var currentWidth:CGFloat
     
     init(controllerParent:CMainParent)
     {
@@ -21,6 +22,7 @@ class VMainBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         pos = MMainNavPos.Normal()
         barHeight = controllerParent.kBarHeight
         barMaxDelta = barHeight - controllerParent.kBarMinHeight
+        currentWidth = 0
         
         super.init(frame:CGRectZero)
         backgroundColor = UIColor.main()
@@ -136,8 +138,25 @@ class VMainBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     override func layoutSubviews()
     {
-        collection.collectionViewLayout.invalidateLayout()
-        pos.adjust(self)
+        let width:CGFloat = bounds.maxX
+        
+        if currentWidth != width
+        {
+            currentWidth = width
+            collection.collectionViewLayout.invalidateLayout()
+            pos.adjust(self)
+            
+            dispatch_async(dispatch_get_main_queue())
+            { [weak self] in
+                
+                if self != nil
+                {
+                    let selected:Int = self!.model.current.index
+                    let selectedIndexPath:NSIndexPath = NSIndexPath(forItem:selected, inSection:0)
+                    self!.collection.scrollToItemAtIndexPath(selectedIndexPath, atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally, animated:true)
+                }
+            }
+        }
         
         dispatch_async(dispatch_get_main_queue())
         { [weak self] in
@@ -150,10 +169,6 @@ class VMainBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
                 let alpha:CGFloat = 1 - deltaPercent
                 self!.collection.alpha = alpha
                 self!.back.alpha = alpha
-                
-                let selected:Int = self!.model.current.index
-                let selectedIndexPath:NSIndexPath = NSIndexPath(forItem:selected, inSection:0)
-                self!.collection.scrollToItemAtIndexPath(selectedIndexPath, atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally, animated:true)
             }
         }
         
