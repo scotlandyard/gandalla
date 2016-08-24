@@ -1,6 +1,6 @@
 import UIKit
 
-class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImagePickerControllerDelegate
+class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     var image:UIImage?
     weak var cellImage:VCreateDetailCellImage!
@@ -15,6 +15,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         super.config(controller, cell:cell)
         cellImage = cell as! VCreateDetailCellImage
         cellImage.buttonImage.addTarget(self, action:#selector(self.actionEditImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        cellImage.picker.delegate = self
     }
     
     //MARK: actions
