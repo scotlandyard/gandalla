@@ -26,18 +26,18 @@ class VCreateDetailCellImage:VCreateDetailCell
         
         let views:[String:AnyObject] = [
             "buttonAdd":buttonAdd,
-            "buttomRemove":buttonRemove]
+            "buttonRemove":buttonRemove]
         
         let metrics:[String:AnyObject] = [
             "buttonSize":kButtonSize]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[buttonRemove(buttonSize)]",
+            "H:|-20-[buttonRemove(buttonSize)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[buttonAdd(buttonSize)]-0-|",
+            "H:[buttonAdd(buttonSize)]-20-|",
             options:[],
             metrics:metrics,
             views:views))
