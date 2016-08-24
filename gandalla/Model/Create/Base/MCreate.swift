@@ -16,13 +16,21 @@ class MCreate
     func update()
     {
         var items:[MCreateItem] = []
-        let gandallerItems:[MGandallerItem] = MGandaller.sharedInstance.items
+        let gandallerItems:[MGandallerItem] = Array(MGandaller.sharedInstance.items.values)
         
         for item:MGandallerItem in gandallerItems
         {
             let item:MCreateItem = MCreateItem(gandaller:item)
             
             items.append(item)
+        }
+        
+        items.sortInPlace
+        { (itemA, itemB) -> Bool in
+            
+            let before:Bool = itemA.fModel.created > itemB.fModel.created
+            
+            return before
         }
         
         self.items = items
