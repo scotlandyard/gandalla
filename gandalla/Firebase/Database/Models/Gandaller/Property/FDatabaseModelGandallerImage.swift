@@ -44,7 +44,8 @@ class FDatabaseModelGandallerImage
     
     init(json:[String:AnyObject], status:FDatabaseModelGandallerImageStatus)
     {
-        self.imageid = imageid
+        let imageIdKey:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageId.rawValue
+        self.imageid = json[imageIdKey] as! String
         self.status = status
     }
 }
