@@ -4,11 +4,15 @@ class MNews
 {
     var items:[MNewsItem]
     var lastTimestamp:NSTimeInterval
+    private let kDateFormat:String = "dd/MM/yy"
+    private let dateFormatter:NSDateFormatter
     
     init()
     {
         items = []
         lastTimestamp = 0
+        dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = kDateFormat
     }
     
     //MARK: public
@@ -20,6 +24,8 @@ class MNews
         
         if created > lastTimestamp
         {
+            let date:NSDate = NSDate(timeIntervalSince1970:created)
+            let dateString:String = dateFormatter.stringFromDate(date)
             let countItems:Int = items.count
             var addIndex:Int = countItems
             
@@ -35,7 +41,7 @@ class MNews
                 }
             }
             
-            let newItem:MNewsItem = MNewsItem(newsId:newsId, fModel:fModel)
+            let newItem:MNewsItem = MNewsItem(newsId:newsId, fModel:fModel, date:dateString)
             items.insert(newItem, atIndex:addIndex)
             indexPath = NSIndexPath(forItem:addIndex, inSection:0)
             

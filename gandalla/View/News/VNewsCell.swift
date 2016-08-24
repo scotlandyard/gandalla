@@ -3,6 +3,7 @@ import UIKit
 class VNewsCell:UICollectionViewCell
 {
     weak var labelGandaller:UILabel!
+    weak var labelDate:UILabel!
     weak var imageGandaller:UIImageView!
     private let kImageSize:CGFloat = 30
     
@@ -20,6 +21,15 @@ class VNewsCell:UICollectionViewCell
         labelGandaller.userInteractionEnabled = false
         self.labelGandaller = labelGandaller
         
+        let labelDate:UILabel = UILabel()
+        labelDate.translatesAutoresizingMaskIntoConstraints = false
+        labelDate.backgroundColor = UIColor.clearColor()
+        labelDate.font = UIFont.regular(12)
+        labelDate.textColor = UIColor(white:0.4, alpha:1)
+        labelDate.userInteractionEnabled = false
+        labelDate.textAlignment = NSTextAlignment.Right
+        self.labelDate = labelDate
+        
         let imageGandaller:UIImageView = UIImageView()
         imageGandaller.userInteractionEnabled = false
         imageGandaller.contentMode = UIViewContentMode.ScaleToFill
@@ -29,10 +39,12 @@ class VNewsCell:UICollectionViewCell
         
         addSubview(imageGandaller)
         addSubview(labelGandaller)
+        addSubview(labelDate)
         
         let views:[String:AnyObject] = [
             "labelGandaller":labelGandaller,
-            "imageGandaller":imageGandaller]
+            "imageGandaller":imageGandaller,
+            "labelDate":labelDate]
         
         let metrics:[String:AnyObject] = [
             "imageSize":kImageSize]
@@ -43,12 +55,22 @@ class VNewsCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:[labelDate(150)]-10-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-10-[imageGandaller(imageSize)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-10-[labelGandaller(imageSize)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[labelDate(14)]-10-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -94,6 +116,7 @@ class VNewsCell:UICollectionViewCell
     func config(model:MNewsItem)
     {
         labelGandaller.text = model.gandaller.fModel.name
+        labelDate.text = model.date
     }
     
     func selected(model:MNewsItem, controller:CNews)
