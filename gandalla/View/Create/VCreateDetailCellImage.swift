@@ -5,7 +5,7 @@ class VCreateDetailCellImage:VCreateDetailCell
     weak var image:UIImageView!
     weak var layoutRemoveLeft:NSLayoutConstraint!
     private let kButtonSize:CGFloat = 40
-    private let kImageWidth:CGFloat = 100
+    private let kImageWidth:CGFloat = 160
     private let kInterItem:CGFloat = 10
     private let itemsWidth:CGFloat
     
@@ -20,7 +20,15 @@ class VCreateDetailCellImage:VCreateDetailCell
         image.contentMode = UIViewContentMode.ScaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
+        image.backgroundColor = UIColor(white:0.9, alpha:1)
+        image.layer.cornerRadius = 4
         self.image = image
+        
+        let buttonImage:UIButton = UIButton()
+        buttonImage.translatesAutoresizingMaskIntoConstraints = false
+        buttonImage.setImage(UIImage(named:"createListImage"), forState:UIControlState.Normal)
+        buttonImage.imageView?.contentMode = UIViewContentMode.Center
+        buttonImage.imageView?.clipsToBounds = true
         
         let buttonRemove:UIButton = UIButton()
         buttonRemove.translatesAutoresizingMaskIntoConstraints = false
@@ -37,10 +45,12 @@ class VCreateDetailCellImage:VCreateDetailCell
         addSubview(buttonRemove)
         addSubview(buttonAdd)
         addSubview(image)
+        addSubview(buttonImage)
         
         let views:[String:AnyObject] = [
             "buttonAdd":buttonAdd,
             "buttonRemove":buttonRemove,
+            "buttonImage":buttonImage,
             "image":image]
         
         let metrics:[String:AnyObject] = [
@@ -54,7 +64,17 @@ class VCreateDetailCellImage:VCreateDetailCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:[buttonRemove]-(interItem)-[buttonImage(imageWidth)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[buttonRemove]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-(interItem)-[buttonImage]-(interItem)-|",
             options:[],
             metrics:metrics,
             views:views))

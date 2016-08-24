@@ -12,5 +12,6 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem
     override func config(controller:CCreateDetail, cell:VCreateDetailCell)
     {
         super.config(controller, cell:cell)
+        
     }
 }
