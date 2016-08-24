@@ -9,7 +9,6 @@ class FDatabase
     {
         case User = "user"
         case Gandaller = "gandaller"
-        case GandallerImage = "gandaller/images"
         case News = "news"
     }
     

@@ -132,9 +132,13 @@ class FDatabaseModelGandaller:FDatabaseModel
         
         for image:FDatabaseModelGandallerImage in images
         {
-            let imageId:String = image.imageId
-            let imageJson:[String:AnyObject] = image.modelJson()
-            jsonImages[imageId] = imageJson
+            let imageId:String? = image.imageId
+            
+            if imageId != nil
+            {
+                let imageJson:[String:AnyObject] = image.modelJson()
+                jsonImages[imageId!] = imageJson
+            }
         }
         
         for power:FDatabaseModelGandallerPower in powers
