@@ -10,7 +10,6 @@ class VCreateDetailCellStatus:VCreateDetailCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
         
         let itemActive:String = NSLocalizedString("VCreateDetailCellStatus_itemActive", comment:"")
         let itemPaused:String = NSLocalizedString("VCreateDetailCellStatus_itemPaused", comment:"")

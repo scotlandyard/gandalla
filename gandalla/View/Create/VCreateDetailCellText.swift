@@ -7,6 +7,7 @@ class VCreateDetailCellText:VCreateDetailCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
+        backgroundColor = UIColor.whiteColor()
         
         let color:UIColor = UIColor.blackColor()
         
