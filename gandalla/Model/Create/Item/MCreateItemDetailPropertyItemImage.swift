@@ -30,7 +30,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     
     func actionAddImage(sender button:UIButton)
     {
-        
+        controller.addImage()
     }
     
     func actionRemoveImage(sender button:UIButton)

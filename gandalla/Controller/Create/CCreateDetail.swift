@@ -35,6 +35,7 @@ class CCreateDetail:CMainController
     func notifiedGandallerUpdated(sender notification:NSNotification)
     {
         NSNotificationCenter.defaultCenter().removeObserver(self)
+        model.generate()
         viewDetail.hideLoading()
     }
     
