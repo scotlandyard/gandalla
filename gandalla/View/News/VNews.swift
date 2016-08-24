@@ -91,6 +91,13 @@ class VNews:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             views:views))
     }
     
+    override func layoutSubviews()
+    {
+        collection.collectionViewLayout.invalidateLayout()
+        
+        super.layoutSubviews()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:NSIndexPath) -> MNewsItem

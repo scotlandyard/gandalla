@@ -4,7 +4,7 @@ class VNewsCell:UICollectionViewCell
 {
     weak var labelGandaller:UILabel!
     weak var imageGandaller:UIImageView!
-    private let kImageSize:CGFloat = 30
+    private let kImageSize:CGFloat = 40
     
     override init(frame:CGRect)
     {
