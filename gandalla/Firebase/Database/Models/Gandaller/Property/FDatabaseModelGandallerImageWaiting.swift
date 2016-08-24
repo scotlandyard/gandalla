@@ -8,4 +8,11 @@ class FDatabaseModelGandallerImageWaiting:FDatabaseModelGandallerImage
         
         super.init(imageid:imageid, status:status)
     }
+    
+    init(json:[String:AnyObject])
+    {
+        let status:FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus = FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Waiting
+        
+        super.init(json:json, status:status)
+    }
 }

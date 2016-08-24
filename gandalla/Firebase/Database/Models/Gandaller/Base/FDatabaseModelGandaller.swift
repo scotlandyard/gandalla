@@ -89,8 +89,8 @@ class FDatabaseModelGandaller:FDatabaseModel
         {
             for rawImage:String in rawImages!
             {
-                let image:FDatabaseModelGandallerImage = FDatabaseModelGandallerImage(imageid:rawImage)
-                images.append(image)
+//                let image:FDatabaseModelGandallerImage = FDatabaseModelGandallerImage(imageid:rawImage)
+//                images.append(image)
             }
         }
         

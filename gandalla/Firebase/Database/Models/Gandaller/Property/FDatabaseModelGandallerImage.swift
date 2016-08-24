@@ -14,28 +14,35 @@ class FDatabaseModelGandallerImage
     class func withJson(json:[String:AnyObject]) -> FDatabaseModelGandallerImage
     {
         let image:FDatabaseModelGandallerImage
-        let rawStatus:Int = json[FDatabaseModelGandallerKey.Status.rawValue] as! Int
-        let status:FDatabaseModelGandallerStatus = FDatabaseModelGandallerStatus(rawValue:rawStatus)!
+        let imageStatusKey:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageStatus.rawValue
+        let rawStatus:Int = json[imageStatusKey] as! Int
+        let status:FDatabaseModelGandallerImageStatus = FDatabaseModelGandallerImageStatus(rawValue:rawStatus)!
         
         switch status
         {
-        case FDatabaseModelGandallerStatus.Active:
-            
-            gandaller = FDatabaseModelGandallerActive(json:json)
-            
-            break
-            
-        case FDatabaseModelGandallerStatus.Paused:
-            
-            gandaller = FDatabaseModelGandallerPaused(json:json)
-            
-            break
+            case FDatabaseModelGandallerImageStatus.Waiting:
+                
+                image = FDatabaseModelGandallerImageWaiting(json:json)
+                
+                break
+                
+            case FDatabaseModelGandallerImageStatus.Ready:
+                
+                image = FDatabaseModelGandallerImageReady(json:json)
+                
+                break
         }
         
-        return gandaller
+        return image
     }
     
     init(imageid:String, status:FDatabaseModelGandallerImageStatus)
+    {
+        self.imageid = imageid
+        self.status = status
+    }
+    
+    init(json:[String:AnyObject], status:FDatabaseModelGandallerImageStatus)
     {
         self.imageid = imageid
         self.status = status
