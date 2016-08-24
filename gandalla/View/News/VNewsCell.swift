@@ -4,7 +4,7 @@ class VNewsCell:UICollectionViewCell
 {
     weak var labelGandaller:UILabel!
     weak var imageGandaller:UIImageView!
-    private let kImageSize:CGFloat = 40
+    private let kImageSize:CGFloat = 30
     
     override init(frame:CGRect)
     {
@@ -16,7 +16,7 @@ class VNewsCell:UICollectionViewCell
         labelGandaller.translatesAutoresizingMaskIntoConstraints = false
         labelGandaller.backgroundColor = UIColor.clearColor()
         labelGandaller.font = UIFont.bold(12)
-        labelGandaller.textColor = UIColor(white:0.3, alpha:1)
+        labelGandaller.textColor = UIColor(white:0.2, alpha:1)
         labelGandaller.userInteractionEnabled = false
         self.labelGandaller = labelGandaller
         
@@ -38,7 +38,7 @@ class VNewsCell:UICollectionViewCell
             "imageSize":kImageSize]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-10-[imageGandaller(imageSize)]-0-[labelGandaller]-10-|",
+            "H:|-10-[imageGandaller(imageSize)]-5-[labelGandaller]-10-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -57,6 +57,36 @@ class VNewsCell:UICollectionViewCell
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override var selected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var highlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if selected || highlighted
+        {
+            alpha = 0.2
+        }
+        else
+        {
+            alpha = 1
+        }
     }
     
     //MARK: public
