@@ -42,9 +42,14 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
                 parentId:gandallerId,
                 childId:imageId!,
                 data:data)
-            { (error) in
+            { [weak self] (error) in
                 
+                self?.cellImage.hideLoading()
             }
+        }
+        else
+        {
+            cellImage.hideLoading()
         }
     }
     
@@ -58,6 +63,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         { [weak self] in
             
             self?.cellImage.image.image = self?.image
+            self?.cellImage.showLoading()
             self?.updaloadImage()
         }
     }

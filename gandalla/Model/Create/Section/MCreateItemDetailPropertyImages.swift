@@ -12,7 +12,7 @@ class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
         
         for fImage:FDatabaseModelGandallerImage in fModel.images
         {
-            let itemImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(image:nil)
+            let itemImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(fImage:fImage)
             items.append(itemImage)
         }
         

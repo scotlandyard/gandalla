@@ -49,14 +49,14 @@ class VCreateDetailCellImage:VCreateDetailCell
         buttonRemove.setImage(UIImage(named:"createListRemove"), forState:UIControlState.Normal)
         buttonRemove.imageView?.contentMode = UIViewContentMode.Center
         buttonRemove.imageView?.clipsToBounds = true
-        self.buttonAdd = buttonAdd
+        self.buttonRemove = buttonRemove
         
         let buttonAdd:UIButton = UIButton()
         buttonAdd.translatesAutoresizingMaskIntoConstraints = false
         buttonAdd.setImage(UIImage(named:"createListAdd"), forState:UIControlState.Normal)
         buttonAdd.imageView?.contentMode = UIViewContentMode.Center
         buttonAdd.imageView?.clipsToBounds = true
-        self.buttonRemove = buttonRemove
+        self.buttonAdd = buttonAdd
         
         addSubview(buttonRemove)
         addSubview(buttonAdd)
