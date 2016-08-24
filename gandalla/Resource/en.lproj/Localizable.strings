@@ -6,7 +6,7 @@
 "VCreateDetailCellStarted_label"="Started";
 "VNewsCellJoined_labelEvent"="Ingresó al Escuadrón";
 
-"MCreateItem_noName"="Unnamed";
+"MCreateItem_noName"="-";
 "MCreateItemDetailPropertyStatus_name"="Status";
 "MCreateItemDetailPropertyName_name"="Name";
 "MCreateItemDetailPropertyStarted_name"="Started";

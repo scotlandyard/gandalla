@@ -16,9 +16,6 @@ class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
             items.append(itemImage)
         }
         
-        let newImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(image:nil)
-        items.append(newImage)
-        
         super.init(name:name, reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, items:items)
     }
 }
