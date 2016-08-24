@@ -3,6 +3,7 @@ import UIKit
 class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CCreateDetail!
+    weak var spinner:VMainLoader!
     weak var collection:UICollectionView!
     private let kInterLine:CGFloat = 1
     private let kHeaderHeight:CGFloat = 40
@@ -15,6 +16,10 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.collectionBackground()
         self.controller = controller
+        
+        let spinner:VMainLoader = VMainLoader()
+        spinner.stopAnimating()
+        self.spinner = spinner
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSizeMake(0, kHeaderHeight)
@@ -62,9 +67,11 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         self.collection = collection
         
         addSubview(collection)
+        addSubview(spinner)
         
         let views:[String:AnyObject] = [
-            "collection":collection]
+            "collection":collection,
+            "spinner":spinner]
         
         let metrics:[String:AnyObject] = [:]
         
@@ -75,6 +82,16 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[collection]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[spinner]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -102,6 +119,28 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         let item:MCreateItemDetailPropertyItem = section.items[index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func showLoading()
+    {
+        dispatch_async(dispatch_get_main_queue())
+        { [weak self] in
+            
+            self?.spinner.startAnimating()
+            self?.collection.hidden = true
+        }
+    }
+    
+    func hideLoading()
+    {
+        dispatch_async(dispatch_get_main_queue())
+        { [weak self] in
+            
+            self?.spinner.stopAnimating()
+            self?.collection.hidden = false
+        }
     }
     
     //MARK: col del

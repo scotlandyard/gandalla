@@ -23,4 +23,16 @@ class CCreateDetail:CMainController
         self.viewDetail = viewDetail
         view = viewDetail
     }
+    
+    //MARK: public
+    
+    func addImage()
+    {
+        
+    }
+    
+    func removeImage(model:MCreateItemDetailPropertyItemImage)
+    {
+        
+    }
 }
