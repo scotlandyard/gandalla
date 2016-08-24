@@ -7,13 +7,11 @@ class MNewsItem
     let date:String
     weak var gandaller:MGandallerItem!
     
-    init(newsId:String, fModel:FDatabaseModelNews, date:String)
+    init(newsId:String, fModel:FDatabaseModelNews, date:String, gandaller:MGandallerItem)
     {
         self.newsId = newsId
         self.fModel = fModel
         self.date = date
-        
-        let gandallerId:String = fModel.gandallerId
-        gandaller = MGandaller.sharedInstance.items[gandallerId]
+        self.gandaller = gandaller
     }
 }
