@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class FDatabaseModelNews:FDatabaseModel
 {
@@ -95,5 +95,15 @@ class FDatabaseModelNews:FDatabaseModel
         ]
         
         return dict
+    }
+    
+    func cellHeight() -> CGFloat
+    {
+        return 0
+    }
+    
+    func reusableIdentifier() -> String
+    {
+        return ""
     }
 }

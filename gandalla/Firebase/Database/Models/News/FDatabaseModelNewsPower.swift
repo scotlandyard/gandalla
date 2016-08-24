@@ -1,8 +1,9 @@
-import Foundation
+import UIKit
 
 class FDatabaseModelNewsPower:FDatabaseModelNews
 {
     let power:String
+    private let kCellHeight:CGFloat = 80
     
     init(gandallerId:String, power:String)
     {
@@ -26,5 +27,17 @@ class FDatabaseModelNewsPower:FDatabaseModelNews
         json[FDatabaseModelNewsKey.Power.rawValue] = power
         
         return json
+    }
+    
+    override func cellHeight() -> CGFloat
+    {
+        return kCellHeight
+    }
+    
+    override func reusableIdentifier() -> String
+    {
+        let identifier:String = VNewsCellJoined.reusableIdentifier()
+        
+        return identifier
     }
 }
