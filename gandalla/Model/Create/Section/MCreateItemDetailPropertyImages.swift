@@ -8,10 +8,16 @@ class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
     {
         let name:String = NSLocalizedString("MCreateItemDetailPropertyImages_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellImage.reusableIdentifier()
-        let itemStarted:MCreateItemDetailPropertyItemStarted = MCreateItemDetailPropertyItemStarted(started:fModel.started)
-        let items:[MCreateItemDetailPropertyItem] = [
-            itemStarted
-        ]
+        var items:[MCreateItemDetailPropertyItem] = []
+        
+        for fImage:FDatabaseModelGandallerImage in fModel.images
+        {
+            let itemImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(image:nil)
+            items.append(itemImage)
+        }
+        
+        let newImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(image:nil)
+        items.append(newImage)
         
         super.init(name:name, reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, items:items)
     }
