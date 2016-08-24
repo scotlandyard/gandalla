@@ -46,31 +46,8 @@ class FDatabaseModelGandallerImage
     
     func modelJson() -> [String:AnyObject]
     {
-        var json:[String:AnyObject] = [:]
-//        
-//        for hashtag:FDatabaseModelGandallerSocialHashtag in hashtags
-//        {
-//            let hashString:String = hashtag.tag
-//            hashArray.append(hashString)
-//        }
-//        
-//        var json:[String:AnyObject] = [:]
-//        json[FDatabaseModelGandallerSocial.Hashtags.rawValue] = hashArray
-//        
-//        if facebook != nil
-//        {
-//            json[FDatabaseModelGandallerSocial.Facebook.rawValue] = facebook!
-//        }
-//        
-//        if twitter != nil
-//        {
-//            json[FDatabaseModelGandallerSocial.Twitter.rawValue] = twitter!
-//        }
-//        
-//        if instagram != nil
-//        {
-//            json[FDatabaseModelGandallerSocial.Instagram.rawValue] = instagram!
-//        }
+        let json:[String:AnyObject] = [
+            FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageStatus.rawValue:status.rawValue]
         
         return json
     }
