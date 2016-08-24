@@ -24,7 +24,7 @@ class VNewsCell:UICollectionViewCell
         let labelDate:UILabel = UILabel()
         labelDate.translatesAutoresizingMaskIntoConstraints = false
         labelDate.backgroundColor = UIColor.clearColor()
-        labelDate.font = UIFont.regular(12)
+        labelDate.font = UIFont.regular(11)
         labelDate.textColor = UIColor(white:0.4, alpha:1)
         labelDate.userInteractionEnabled = false
         labelDate.textAlignment = NSTextAlignment.Right
@@ -70,7 +70,7 @@ class VNewsCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[labelDate(14)]-10-|",
+            "V:[labelDate(14)]-8-|",
             options:[],
             metrics:metrics,
             views:views))
