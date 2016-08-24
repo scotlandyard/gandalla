@@ -4,9 +4,10 @@
 "VCreateDetailCellStatus_itemActive"="Active";
 "VCreateDetailCellStatus_itemPaused"="Paused";
 "VCreateDetailCellStarted_label"="Started";
-"VNewsCellJoined_labelEvent"="Ingresó al Escuadrón Gandalla";
+"VNewsCellJoined_labelEvent"="Ingresó al Escuadrón";
 
 "MCreateItem_noName"="Unnamed";
 "MCreateItemDetailPropertyStatus_name"="Status";
 "MCreateItemDetailPropertyName_name"="Name";
 "MCreateItemDetailPropertyStarted_name"="Started";
+"MCreateItemDetailPropertyImages_name"="Images";
