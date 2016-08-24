@@ -68,6 +68,34 @@ class CCreateDetail:CMainController
     
     func removeImage(model:MCreateItemDetailPropertyItemImage)
     {
+        viewDetail.showLoading()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
         
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            if self != nil
+            {
+                if model.fImage != nil
+                {
+                    if model.fImage!.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
+                    {
+                        
+                    }
+                    
+                    let parentReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
+                    let childId:String = self!.model.gandaller.gandallerId
+                    let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Images.rawValue
+                    let fImage:FDatabaseModelGandallerImage = FDatabaseModelGandallerImageWaiting()
+                    let imageJson:[String:AnyObject] = fImage.modelJson()
+                    
+                    FMain.sharedInstance.database.createSubChild(
+                        parentReference,
+                        childId:childId,
+                        property:property,
+                        json:imageJson)
+                }
+            }
+        }
     }
 }

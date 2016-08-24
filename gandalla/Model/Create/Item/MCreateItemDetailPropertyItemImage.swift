@@ -35,7 +35,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     
     func actionRemoveImage(sender button:UIButton)
     {
-        
+        controller.removeImage(self)
     }
     
     //MARK: private
