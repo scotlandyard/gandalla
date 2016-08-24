@@ -3,14 +3,14 @@ import FirebaseDatabase
 
 class FDatabase
 {
-    private let reference:FIRDatabaseReference
-    
     enum FDatabaseReference:String
     {
         case User = "user"
         case Gandaller = "gandaller"
         case News = "news"
     }
+    
+    private let reference:FIRDatabaseReference
     
     init()
     {

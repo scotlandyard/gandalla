@@ -3,6 +3,11 @@ import Firebase
 
 class FStorage
 {
+    enum FStorageReference:String
+    {
+        case Gandaller = "gandaller"
+    }
+    
     private let storage:FIRStorage
     private let storageReference:FIRStorageReference
     
@@ -12,32 +17,27 @@ class FStorage
         storageReference = storage.reference()
     }
     
+    //MARK: private
+    
+    private func asyncSaveData(reference:FStorageReference, parentId:String, childId:String, data:NSData, completionHandler:((error:String?) -> ()))
+    {
+        let parentReference:FIRStorageReference = storageReference.child(reference.rawValue).child(parentId)
+        let childReference:FIRStorageReference = parentReference.child(childId)
+        childReference.putData(data, metadata:nil)
+        { (metadata, error) in
+            
+            let errorString:String? = error?.localizedDescription
+            completionHandler(error:errorString)
+        }
+    }
+    
     //MARK: public
     
-    func savePoem(poemId:String, poem:NSData, completionHandler:((error:String?) -> ())?)
-    {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
-        {   
-            let fPoem:FStoragePoem = FStoragePoem()
-            fPoem.save(poemId, poem:poem, storage:self.storageReference, completionHandler:completionHandler)
-        }
-    }
-    
-    func deletePoem(poemId:String, completionHandler:((error:String?) -> ())?)
+    func saveData(reference:FStorageReference, parentId:String, childId:String, data:NSData, completionHandler:((error:String?) -> ()))
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         {
-            let fPoem:FStoragePoem = FStoragePoem()
-            fPoem.delete(poemId, storage:self.storageReference, completionHandler:completionHandler)
-        }
-    }
-    
-    func loadPoem(poemId:String, completionHandler:((poem:String?, error:String?) -> ())?)
-    {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
-        {
-            let fPoem:FStoragePoem = FStoragePoem()
-            fPoem.load(poemId, storage: self.storageReference, completionHandler:completionHandler)
+            self.asyncSaveData(reference, parentId:parentId, childId:childId, data:data, completionHandler:completionHandler)
         }
     }
 }
