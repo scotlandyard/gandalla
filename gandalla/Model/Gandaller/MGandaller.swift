@@ -3,11 +3,11 @@ import Foundation
 class MGandaller
 {
     static let sharedInstance = MGandaller()
-    private(set) var items:[MGandallerItem]
+    private(set) var items:[String:MGandallerItem]
     
     private init()
     {
-        items = []
+        items = [:]
     }
     
     //MARK: private
@@ -31,36 +31,18 @@ class MGandaller
     
     private func gandallersReceived(json:[String:[String:AnyObject]])
     {
-        var newItems:[MGandallerItem] = items.map
-        { (gandaller) -> MGandallerItem in
-            
-            let copy:MGandallerItem = gandaller.copy()
-            
-            return copy
-        }
-        
         let keys:[String] = Array(json.keys)
         
         for key:String in keys
         {
             let inJson:[String:AnyObject] = json[key]!
             let fGandaller:FDatabaseModelGandaller = FDatabaseModelGandaller.withJson(inJson)
-            var inGandaller:MGandallerItem?
-            
-            for gandaller:MGandallerItem in newItems
-            {
-                if gandaller.gandallerId == key
-                {
-                    inGandaller = gandaller
-                    
-                    break
-                }
-            }
+            let inGandaller:MGandallerItem? = items[key]
             
             if inGandaller == nil
             {
                 let newGandaller:MGandallerItem = MGandallerItem(gandallerId:key, fModel:fGandaller)
-                newItems.append(newGandaller)
+                items[key] = newGandaller
             }
             else
             {
@@ -70,14 +52,12 @@ class MGandaller
         
         dispatch_async(dispatch_get_main_queue())
         {
-            self.gandallersUpdated(newItems)
+            self.gandallersUpdated()
         }
     }
     
-    private func gandallersUpdated(newGandallers:[MGandallerItem])
+    private func gandallersUpdated()
     {
-        items = newGandallers
-        
         NSNotificationCenter.defaultCenter().postNotificationName(NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
     }
     
