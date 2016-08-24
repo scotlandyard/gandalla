@@ -78,22 +78,27 @@ class CCreateDetail:CMainController
             {
                 if model.fImage != nil
                 {
-                    if model.fImage!.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
-                    {
-                        
-                    }
-                    
                     let parentReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
                     let childId:String = self!.model.gandaller.gandallerId
+                    let imageId:String = model.fImage!.imageId!
                     let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Images.rawValue
-                    let fImage:FDatabaseModelGandallerImage = FDatabaseModelGandallerImageWaiting()
-                    let imageJson:[String:AnyObject] = fImage.modelJson()
                     
-                    FMain.sharedInstance.database.createSubChild(
+                    if model.fImage!.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
+                    {
+                        let parentStorageRereference:FStorage.FStorageReference = FStorage.FStorageReference.Gandaller
+                        
+                        FMain.sharedInstance.storage.deleteData(
+                            parentStorageRereference,
+                            parentId:childId,
+                            childId:imageId,
+                            completionHandler:nil)
+                    }
+                    
+                    FMain.sharedInstance.database.deleteSubChild(
                         parentReference,
                         childId:childId,
                         property:property,
-                        json:imageJson)
+                        subChildId:imageId)
                 }
             }
         }

@@ -68,7 +68,7 @@ class CCreate:CMainController
                 gandallerReference,
                 childId:gandallerId,
                 property:imagesProperty,
-                value:jsonImage)
+                json:jsonImage)
             
             let message:String = NSLocalizedString("CCreate_gandallerCreated", comment:"")
             VMainAlert.Message(message)

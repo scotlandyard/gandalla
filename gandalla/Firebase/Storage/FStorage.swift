@@ -31,7 +31,7 @@ class FStorage
         }
     }
     
-    private func asyncDeleteData(reference:FStorageReference, parentId:String, childId:String, completionHandler:((error:String?) -> ()))
+    private func asyncDeleteData(reference:FStorageReference, parentId:String, childId:String, completionHandler:((error:String?) -> ())?)
     {
         let parentReference:FIRStorageReference = storageReference.child(reference.rawValue).child(parentId)
         let childReference:FIRStorageReference = parentReference.child(childId)
@@ -39,7 +39,7 @@ class FStorage
         { (error) in
             
             let errorString:String? = error?.localizedDescription
-            completionHandler(error:errorString)
+            completionHandler?(error:errorString)
         }
     }
     
@@ -53,7 +53,7 @@ class FStorage
         }
     }
     
-    func deleteData(reference:FStorageReference, parentId:String, childId:String, completionHandler:((error:String?) -> ()))
+    func deleteData(reference:FStorageReference, parentId:String, childId:String, completionHandler:((error:String?) -> ())?)
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         {
