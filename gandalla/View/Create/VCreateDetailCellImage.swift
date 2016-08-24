@@ -26,6 +26,8 @@ class VCreateDetailCellImage:VCreateDetailCell
         image.clipsToBounds = true
         image.backgroundColor = UIColor(white:0.9, alpha:1)
         image.layer.cornerRadius = 4
+        image.layer.borderWidth = 1
+        image.layer.borderColor = UIColor(white:0, alpha:0.4).CGColor
         self.image = image
         
         let buttonImage:UIButton = UIButton()
