@@ -45,13 +45,13 @@ class FDatabase
         return childId
     }
     
-    func createSubChild(parent:FDatabaseReference, childId:String, property:String, value:AnyObject) -> String
+    func createSubChild(parent:FDatabaseReference, childId:String, property:String, json:[String:AnyObject]) -> String
     {
         let parentName:String = parent.rawValue
         let propertyReference:FIRDatabaseReference = reference.child(parentName).child(childId).child(property)
         let subChild:FIRDatabaseReference = propertyReference.childByAutoId()
         let subChildId:String = subChild.key
-        subChild.setValue(value)
+        subChild.setValue(json)
         
         return subChildId
     }
@@ -61,5 +61,13 @@ class FDatabase
         let parentName:String = parent.rawValue
         let propertyReference:FIRDatabaseReference = reference.child(parentName).child(childId).child(property)
         propertyReference.setValue(value)
+    }
+    
+    func updateSubProperty(parent:FDatabaseReference, childId:String, property:String, subChildId:String, subPropertyId:String, value:AnyObject)
+    {
+        let parentName:String = parent.rawValue
+        let propertyReference:FIRDatabaseReference = reference.child(parentName).child(childId).child(property)
+        let subPropertyReference:FIRDatabaseReference = propertyReference.child(subChildId).child(subPropertyId)
+        subPropertyReference.setValue(value)
     }
 }

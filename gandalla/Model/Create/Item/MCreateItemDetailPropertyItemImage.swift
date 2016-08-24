@@ -56,12 +56,35 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
                 data:data)
             { [weak self] (error) in
                 
+                if error == nil
+                {
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+                    { [weak self] in
+                        
+                        self?.changeImageStatus()
+                    }
+                }
+                
                 self?.cellImage.hideLoading()
             }
         }
         else
         {
             cellImage.hideLoading()
+        }
+    }
+    
+    private func changeImageStatus()
+    {
+        if fImage != nil
+        {
+            if fImage!.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Waiting
+            {
+                let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
+                let imageId:String 
+                
+                FMain.sharedInstance.database.updateProperty(<#T##parent: FDatabase.FDatabaseReference##FDatabase.FDatabaseReference#>, childId: <#T##String#>, property: <#T##String#>, value: <#T##AnyObject#>)
+            }
         }
     }
     
