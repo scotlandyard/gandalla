@@ -52,7 +52,7 @@ class CCreateDetail:CMainController
             if self != nil
             {
                 let parentReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
-                let childId:String = self!.model.gandallerId
+                let childId:String = self!.model.gandaller.gandallerId
                 let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Images.rawValue
                 let fImage:FDatabaseModelGandallerImage = FDatabaseModelGandallerImageWaiting()
                 let imageJson:[String:AnyObject] = fImage.modelJson()

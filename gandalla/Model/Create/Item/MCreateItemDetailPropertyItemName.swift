@@ -30,7 +30,7 @@ class MCreateItemDetailPropertyItemName:MCreateItemDetailPropertyItem, UITextFie
             
             if self != nil
             {
-                let gandallerId:String = self!.controller.model.gandallerId
+                let gandallerId:String = self!.controller.model.gandaller.gandallerId
                 let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Name.rawValue
                 self?.name = name
                 

@@ -22,7 +22,7 @@ class MCreateItemDetailPropertyItemStatus:MCreateItemDetailPropertyItem
     
     func actionSegmented(sender segmented:UISegmentedControl)
     {
-        let gandallerId:String = controller.model.gandallerId
+        let gandallerId:String = controller.model.gandaller.gandallerId
         let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Status.rawValue
         let segmentedSelected:Int = segmented.selectedSegmentIndex
         status = FDatabaseModelGandaller.FDatabaseModelGandallerStatus(rawValue:segmentedSelected)!

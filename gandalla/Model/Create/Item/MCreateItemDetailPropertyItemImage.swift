@@ -48,7 +48,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         {
             let data:NSData = UIImageJPEGRepresentation(image!, 1)!
             let gandallerReference:FStorage.FStorageReference = FStorage.FStorageReference.Gandaller
-            let gandallerId:String = controller.model.gandallerId
+            let gandallerId:String = controller.model.gandaller.gandallerId
             FMain.sharedInstance.storage.saveData(
                 gandallerReference,
                 parentId:gandallerId,

@@ -139,6 +139,7 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         { [weak self] in
             
             self?.spinner.stopAnimating()
+            self?.collection.reloadData()
             self?.collection.hidden = false
         }
     }

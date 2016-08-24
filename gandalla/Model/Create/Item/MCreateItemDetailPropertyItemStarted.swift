@@ -41,7 +41,7 @@ class MCreateItemDetailPropertyItemStarted:MCreateItemDetailPropertyItem
                 if self != nil
                 {
                     self!.started = newValue
-                    let gandallerId:String = self!.controller.model.gandallerId
+                    let gandallerId:String = self!.controller.model.gandaller.gandallerId
                     let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Started.rawValue
                     let fNews:FDatabaseModelNewsJoined = FDatabaseModelNewsJoined(gandallerId:gandallerId)
                     let newsJson:[String:AnyObject] = fNews.modelJson()
