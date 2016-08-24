@@ -9,6 +9,7 @@ class FDatabase
     {
         case User = "user"
         case Gandaller = "gandaller"
+        case GandallerImage = "gandaller/images"
         case News = "news"
     }
     
@@ -43,6 +44,17 @@ class FDatabase
         childReference.setValue(json)
         
         return childId
+    }
+    
+    func createSubChild(parent:FDatabaseReference, childId:String, property:String, value:AnyObject) -> String
+    {
+        let parentName:String = parent.rawValue
+        let propertyReference:FIRDatabaseReference = reference.child(parentName).child(childId).child(property)
+        let subChild:FIRDatabaseReference = propertyReference.childByAutoId()
+        let subChildId:String = subChild.key
+        subChild.setValue(value)
+        
+        return subChildId
     }
     
     func updateProperty(parent:FDatabaseReference, childId:String, property:String, value:AnyObject)
