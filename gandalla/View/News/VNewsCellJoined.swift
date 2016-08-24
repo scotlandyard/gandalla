@@ -11,4 +11,11 @@ class VNewsCellJoined:VNewsCell
     {
         fatalError()
     }
+    
+    override func config(model:MNewsItem)
+    {
+        super.config(model)
+        
+        labelEvent.text = NSLocalizedString("VNewsCellJoined_labelEvent", comment:"")
+    }
 }

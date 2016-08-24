@@ -4,6 +4,7 @@
 "VCreateDetailCellStatus_itemActive"="Active";
 "VCreateDetailCellStatus_itemPaused"="Paused";
 "VCreateDetailCellStarted_label"="Started";
+"VNewsCellJoined_labelEvent"="Ingresó al Escuadrón Gandalla";
 
 "MCreateItem_noName"="Unnamed";
 "MCreateItemDetailPropertyStatus_name"="Status";
