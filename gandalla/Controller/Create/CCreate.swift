@@ -59,9 +59,11 @@ class CCreate:CMainController
             let imagesProperty:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Images.rawValue
             let jsonGandaller:[String:AnyObject] = fGandaller.modelJson()
             let jsonImage:[String:AnyObject] = fImage.modelJson()
+            
             let gandallerId:String = FMain.sharedInstance.database.createChild(
                 gandallerReference,
                 json:jsonGandaller)
+            
             FMain.sharedInstance.database.createSubChild(
                 gandallerReference,
                 childId:gandallerId,
