@@ -61,7 +61,7 @@ class CCreateDetail:CMainController
                     parentReference,
                     childId:childId,
                     property:property,
-                    value:imageJson)
+                    json:imageJson)
             }
         }
     }
