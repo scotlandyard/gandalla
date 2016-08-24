@@ -1,6 +1,6 @@
 import UIKit
 
-class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem
+class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImagePickerControllerDelegate
 {
     var image:UIImage?
     
@@ -12,6 +12,13 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem
     override func config(controller:CCreateDetail, cell:VCreateDetailCell)
     {
         super.config(controller, cell:cell)
+        let cellImage:VCreateDetailCellImage = cell as! VCreateDetailCellImage
         
+    }
+    
+    //MARK: actions
+    
+    func actionEditImage(sender button:UIButton)
+    {
     }
 }

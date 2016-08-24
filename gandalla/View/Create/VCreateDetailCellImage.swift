@@ -4,6 +4,8 @@ class VCreateDetailCellImage:VCreateDetailCell
 {
     weak var image:UIImageView!
     weak var layoutRemoveLeft:NSLayoutConstraint!
+    weak var buttonImage:UIButton!
+    let picker:UIImagePickerController
     private let kButtonSize:CGFloat = 40
     private let kImageWidth:CGFloat = 160
     private let kInterItem:CGFloat = 10
@@ -12,6 +14,8 @@ class VCreateDetailCellImage:VCreateDetailCell
     override init(frame:CGRect)
     {
         itemsWidth = kButtonSize + kInterItem + kImageWidth + kInterItem + kButtonSize
+        picker = UIImagePickerController()
+        picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
         super.init(frame:frame)
         
@@ -29,6 +33,7 @@ class VCreateDetailCellImage:VCreateDetailCell
         buttonImage.setImage(UIImage(named:"createListImage"), forState:UIControlState.Normal)
         buttonImage.imageView?.contentMode = UIViewContentMode.Center
         buttonImage.imageView?.clipsToBounds = true
+        self.buttonImage = buttonImage
         
         let buttonRemove:UIButton = UIButton()
         buttonRemove.translatesAutoresizingMaskIntoConstraints = false
