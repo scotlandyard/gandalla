@@ -28,7 +28,7 @@ class MCreate
         items.sortInPlace
         { (itemA, itemB) -> Bool in
             
-            let before:Bool = itemA.fModel.created > itemB.fModel.created
+            let before:Bool = itemA.gandaller.fModel.created > itemB.gandaller.fModel.created
             
             return before
         }

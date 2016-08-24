@@ -2,27 +2,25 @@ import UIKit
 
 class MCreateItem
 {
-    weak var fModel:FDatabaseModelGandaller!
-    let gandallerId:String
+    weak var gandaller:MGandallerItem!
     
     init(gandaller:MGandallerItem)
     {
-        gandallerId = gandaller.gandallerId
-        fModel = gandaller.fModel
+        self.gandaller = gandaller
     }
     
     //MARK: public
     
     func config(cell:VCreateCell)
     {
-        var gandallerName:String = fModel.name
+        var gandallerName:String = gandaller.fModel.name
         
         if gandallerName.isEmpty
         {
             gandallerName = NSLocalizedString("MCreateItem_noName", comment:"")
         }
         
-        cell.imageStatus.tintColor = fModel.statusColor()
+        cell.imageStatus.tintColor = gandaller.fModel.statusColor()
         cell.labelName.text = gandallerName
     }
     
@@ -30,7 +28,8 @@ class MCreateItem
     {
         let detailModel:MCreateItemDetail = MCreateItemDetail(model:self)
         let detail:CCreateDetail = CCreateDetail(model:detailModel)
-        let transition:MMainTransition = MMainTransition.Push(fModel.name)
+        let gandallerName:String = gandaller.fModel.name
+        let transition:MMainTransition = MMainTransition.Push(gandallerName)
         controller.parent.pushController(detail, transition:transition)
     }
 }

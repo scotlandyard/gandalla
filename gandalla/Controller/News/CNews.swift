@@ -39,17 +39,15 @@ class CNews:CMainController
     {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallersUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
-        
-        listenHandler = FMain.sharedInstance.database.listenParent(FDatabase.FDatabaseReference.News)
-        { [weak self] (snapshot) in
+        if MGandaller.sharedInstance.items.isEmpty
+        {
+            print("empty list gandallers!!!!!!!!!!!!!!!")
             
-            let json:[String:[String:AnyObject]]? = snapshot.value as? [String:[String:AnyObject]]
-            
-            if json != nil
-            {
-                self?.newsReceived(json!)
-            }
+            NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallersUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+        }
+        else
+        {
+            fetchNews()
         }
     }
     
@@ -57,10 +55,31 @@ class CNews:CMainController
     
     func notifiedGandallersUpdated(sender notification:NSNotification)
     {
-        
+        fetchNews()
     }
     
     //MARK: private
+    
+    private func fetchNews()
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            if self != nil
+            {
+                self!.listenHandler = FMain.sharedInstance.database.listenParent(FDatabase.FDatabaseReference.News)
+                { [weak self] (snapshot) in
+                    
+                    let json:[String:[String:AnyObject]]? = snapshot.value as? [String:[String:AnyObject]]
+                    
+                    if json != nil
+                    {
+                        self?.newsReceived(json!)
+                    }
+                }
+            }
+        }
+    }
     
     private func newsReceived(json:[String:[String:AnyObject]])
     {
@@ -78,5 +97,7 @@ class CNews:CMainController
                 updates.addObject(indexPath!)
             }
         }
+        
+        
     }
 }
