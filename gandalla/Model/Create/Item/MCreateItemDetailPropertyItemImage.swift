@@ -85,7 +85,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
                 let propertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Images.rawValue
                 let imageId:String = fImage!.imageId!
                 let subPropertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageStatus.rawValue
-                let activeImage:Bool = true
+                let newStatus:Int = FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready.rawValue
                 
                 FMain.sharedInstance.database.updateSubProperty(
                     reference,
@@ -93,7 +93,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
                     property:propertyId,
                     subChildId:imageId,
                     subPropertyId:subPropertyId,
-                    value:activeImage)
+                    value:newStatus)
             }
         }
     }
