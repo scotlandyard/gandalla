@@ -129,22 +129,9 @@ class VNews:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         return count
     }
     
-    func collectionView(collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, atIndexPath indexPath:NSIndexPath) -> UICollectionReusableView
-    {
-        let header:VCreateHeader = collectionView.dequeueReusableSupplementaryViewOfKind(
-            kind,
-            withReuseIdentifier:
-            VCreateHeader.reusableIdentifier(),
-            forIndexPath:indexPath) as! VCreateHeader
-        
-        header.config(controller)
-        
-        return header
-    }
-    
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
     {
-        let item:MCreateItem = modelAtIndex(indexPath)
+        let item:MNewsItem = modelAtIndex(indexPath)
         let cell:VCreateCell = collectionView.dequeueReusableCellWithReuseIdentifier(
             VCreateCell.reusableIdentifier(),
             forIndexPath:

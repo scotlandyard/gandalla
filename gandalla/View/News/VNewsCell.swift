@@ -13,4 +13,14 @@ class VNewsCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MNewsItem)
+    {
+    }
+    
+    func selected(model:MNewsItem, controller:CNews)
+    {
+    }
 }
