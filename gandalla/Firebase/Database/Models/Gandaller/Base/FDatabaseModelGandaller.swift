@@ -14,6 +14,7 @@ class FDatabaseModelGandaller:FDatabaseModel
         case Created = "created"
         case Name = "name"
         case Images = "images"
+        case ImageStatus = "image_status"
         case Powers = "powers"
         case Videos = "videos"
         case Social = "social"

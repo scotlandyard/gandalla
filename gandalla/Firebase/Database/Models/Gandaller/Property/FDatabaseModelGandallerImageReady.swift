@@ -1,9 +1,11 @@
-//
-//  FDatabaseModelGandallerImageReady.swift
-//  gandalla
-//
-//  Created by zero on 8/24/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class FDatabaseModelGandallerImageReady:FDatabaseModelGandallerImage
+{
+    init(imageid:String)
+    {
+        let status:FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus = FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
+        
+        super.init(imageid:imageid, status:status)
+    }
+}
