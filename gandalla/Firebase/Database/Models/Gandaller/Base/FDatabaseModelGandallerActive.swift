@@ -2,12 +2,6 @@ import UIKit
 
 class FDatabaseModelGandallerActive:FDatabaseModelGandaller
 {
-    init()
-    {
-        let status:FDatabaseModelGandallerStatus = FDatabaseModelGandallerStatus.Active
-        super.init(status:status)
-    }
-    
     init(json:[String:AnyObject])
     {
         let status:FDatabaseModelGandallerStatus = FDatabaseModelGandallerStatus.Active

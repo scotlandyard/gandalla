@@ -8,7 +8,7 @@ class FDatabaseModelGandallerImage
         case Ready
     }
     
-    let imageId:String
+    var imageId:String?
     let status:FDatabaseModelGandallerImageStatus
     
     class func withJson(json:[String:AnyObject], imageId:String) -> FDatabaseModelGandallerImage
@@ -36,7 +36,7 @@ class FDatabaseModelGandallerImage
         return image
     }
     
-    init(imageId:String, status:FDatabaseModelGandallerImageStatus)
+    init(imageId:String?, status:FDatabaseModelGandallerImageStatus)
     {
         self.imageId = imageId
         self.status = status

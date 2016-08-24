@@ -55,7 +55,8 @@ class CCreate:CMainController
         {
             let fGandaller:FDatabaseModelGandaller = FDatabaseModelGandallerPaused()
             let json:[String:AnyObject] = fGandaller.modelJson()
-            FMain.sharedInstance.database.createChild(FDatabase.FDatabaseReference.Gandaller, json:json)
+            let gandallerId:String = FMain.sharedInstance.database.createChild(FDatabase.FDatabaseReference.Gandaller, json:json)
+            
             
             let message:String = NSLocalizedString("CCreate_gandallerCreated", comment:"")
             VMainAlert.Message(message)
