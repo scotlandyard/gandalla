@@ -132,19 +132,21 @@ class VNews:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
     {
         let item:MNewsItem = modelAtIndex(indexPath)
-        let cell:VCreateCell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            VCreateCell.reusableIdentifier(),
+        let reusableIdentifier:String = item.fModel.reusableIdentifier()
+        let cell:VNewsCell = collectionView.dequeueReusableCellWithReuseIdentifier(
+            reusableIdentifier,
             forIndexPath:
-            indexPath) as! VCreateCell
-        item.config(cell)
+            indexPath) as! VNewsCell
+        cell.config(item)
         
         return cell
     }
     
     func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
     {
-        let item:MCreateItem = modelAtIndex(indexPath)
-        item.selected(controller)
+        let item:MNewsItem = modelAtIndex(indexPath)
+        let cell:VNewsCell = collectionView.cellForItemAtIndexPath(indexPath) as! VNewsCell
+        cell.selected(item, controller:controller)
         
         dispatch_after(
             dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)),
