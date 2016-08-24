@@ -2,12 +2,13 @@ import UIKit
 
 class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
-    var image:UIImage?
+    weak var fImage:FDatabaseModelGandallerImage?
     weak var cellImage:VCreateDetailCellImage!
+    var image:UIImage?
     
-    init(image:UIImage?)
+    init(fImage:FDatabaseModelGandallerImage)
     {
-        self.image = image
+        self.fImage = fImage
     }
     
     override func config(controller:CCreateDetail, cell:VCreateDetailCell)
@@ -25,6 +26,28 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         controller.presentViewController(cellImage.picker, animated:true, completion:nil)
     }
     
+    //MARK: private
+    
+    private func updaloadImage()
+    {
+        let imageId:String? = fImage?.imageId
+        
+        if image != nil && imageId != nil
+        {
+            let data:NSData = UIImageJPEGRepresentation(image!, 1)!
+            let gandallerReference:FStorage.FStorageReference = FStorage.FStorageReference.Gandaller
+            let gandallerId:String = controller.model.gandallerId
+            FMain.sharedInstance.storage.saveData(
+                gandallerReference,
+                parentId:gandallerId,
+                childId:imageId!,
+                data:data)
+            { (error) in
+                
+            }
+        }
+    }
+    
     //MARK: image picker
     
     func imagePickerController(picker:UIImagePickerController, didFinishPickingMediaWithInfo info:[String:AnyObject])
@@ -35,6 +58,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         { [weak self] in
             
             self?.cellImage.image.image = self?.image
+            self?.updaloadImage()
         }
     }
 }

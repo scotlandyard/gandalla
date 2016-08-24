@@ -5,6 +5,9 @@ class VCreateDetailCellImage:VCreateDetailCell
     weak var image:UIImageView!
     weak var layoutRemoveLeft:NSLayoutConstraint!
     weak var buttonImage:UIButton!
+    weak var buttonAdd:UIButton!
+    weak var buttonRemove:UIButton!
+    weak var spinner:VMainLoader!
     let picker:UIImagePickerController
     private let kButtonSize:CGFloat = 40
     private let kImageWidth:CGFloat = 160
@@ -18,6 +21,10 @@ class VCreateDetailCellImage:VCreateDetailCell
         picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
         super.init(frame:frame)
+        
+        let spinner:VMainLoader = VMainLoader()
+        spinner.stopAnimating()
+        self.spinner = spinner
         
         let image:UIImageView = UIImageView()
         image.userInteractionEnabled = false
@@ -42,23 +49,27 @@ class VCreateDetailCellImage:VCreateDetailCell
         buttonRemove.setImage(UIImage(named:"createListRemove"), forState:UIControlState.Normal)
         buttonRemove.imageView?.contentMode = UIViewContentMode.Center
         buttonRemove.imageView?.clipsToBounds = true
+        self.buttonAdd = buttonAdd
         
         let buttonAdd:UIButton = UIButton()
         buttonAdd.translatesAutoresizingMaskIntoConstraints = false
         buttonAdd.setImage(UIImage(named:"createListAdd"), forState:UIControlState.Normal)
         buttonAdd.imageView?.contentMode = UIViewContentMode.Center
         buttonAdd.imageView?.clipsToBounds = true
+        self.buttonRemove = buttonRemove
         
         addSubview(buttonRemove)
         addSubview(buttonAdd)
         addSubview(image)
         addSubview(buttonImage)
+        addSubview(spinner)
         
         let views:[String:AnyObject] = [
             "buttonAdd":buttonAdd,
             "buttonRemove":buttonRemove,
             "buttonImage":buttonImage,
-            "image":image]
+            "image":image,
+            "spinner":spinner]
         
         let metrics:[String:AnyObject] = [
             "buttonSize":kButtonSize,
@@ -72,6 +83,11 @@ class VCreateDetailCellImage:VCreateDetailCell
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:[buttonRemove]-(interItem)-[buttonImage(imageWidth)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[spinner]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -92,6 +108,11 @@ class VCreateDetailCellImage:VCreateDetailCell
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-(interItem)-[image]-(interItem)-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[spinner]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -121,5 +142,33 @@ class VCreateDetailCellImage:VCreateDetailCell
         layoutRemoveLeft.constant = margin
         
         super.layoutSubviews()
+    }
+    
+    //MARK: public
+    
+    func showLoading()
+    {
+        dispatch_async(dispatch_get_main_queue())
+        { [weak self] in
+            
+            self?.spinner.startAnimating()
+            self?.buttonImage.hidden = true
+            self?.image.hidden = true
+            self?.buttonRemove.hidden = true
+            self?.buttonAdd.hidden = true
+        }
+    }
+    
+    func hideLoading()
+    {
+        dispatch_async(dispatch_get_main_queue())
+        { [weak self] in
+            
+            self?.spinner.stopAnimating()
+            self?.buttonImage.hidden = false
+            self?.image.hidden = false
+            self?.buttonRemove.hidden = false
+            self?.buttonAdd.hidden = false
+        }
     }
 }
