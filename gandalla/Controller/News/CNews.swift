@@ -55,6 +55,7 @@ class CNews:CMainController
     
     func notifiedGandallersUpdated(sender notification:NSNotification)
     {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
         fetchNews()
     }
     
@@ -83,7 +84,7 @@ class CNews:CMainController
     
     private func newsReceived(json:[String:[String:AnyObject]])
     {
-        let updates:NSMutableSet = NSMutableSet()
+        var updates:[NSIndexPath] = []
         let keys:[String] = Array(json.keys)
         
         for key:String in keys
@@ -94,10 +95,22 @@ class CNews:CMainController
             
             if indexPath != nil
             {
-                updates.addObject(indexPath!)
+                updates.append(indexPath!)
             }
         }
         
-        
+        if !updates.isEmpty
+        {
+            dispatch_async(dispatch_get_main_queue())
+            { [weak self] in
+                
+                self?.updatesReady(updates)
+            }
+        }
+    }
+    
+    private func updatesReady(updates:[NSIndexPath])
+    {
+        viewNews.reload(updates)
     }
 }

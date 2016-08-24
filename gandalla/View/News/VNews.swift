@@ -100,6 +100,15 @@ class VNews:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         return item
     }
     
+    //MARK: public
+    
+    func reload(items:[NSIndexPath])
+    {
+        spinner?.stopAnimating()
+        spinner?.removeFromSuperview()
+        collection.insertItemsAtIndexPaths(items)
+    }
+    
     //MARK: col del
     
     func scrollViewDidScroll(scrollView:UIScrollView)
