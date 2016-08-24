@@ -9,9 +9,11 @@ class FDatabaseModelGandallerImage
     }
     
     let imageid:String
+    let status:FDatabaseModelGandallerImage
     
-    init(imageid:String)
+    init(imageid:String, status:FDatabaseModelGandallerImage)
     {
         self.imageid = imageid
+        self.status = status
     }
 }
