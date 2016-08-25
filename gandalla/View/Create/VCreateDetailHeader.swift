@@ -3,6 +3,7 @@ import UIKit
 class VCreateDetailHeader:UICollectionReusableView
 {
     weak var labelName:UILabel!
+    weak var buttonAdd:UIButton!
     
     override init(frame:CGRect)
     {
@@ -20,10 +21,19 @@ class VCreateDetailHeader:UICollectionReusableView
         labelName.textAlignment = NSTextAlignment.Center
         self.labelName = labelName
         
+        let buttonAdd:UIButton = UIButton()
+        buttonAdd.translatesAutoresizingMaskIntoConstraints = false
+        buttonAdd.setImage(UIImage(named:"createListAdd"), forState:UIControlState.Normal)
+        buttonAdd.imageView?.contentMode = UIViewContentMode.Center
+        buttonAdd.imageView?.clipsToBounds = true
+        self.buttonAdd = buttonAdd
+        
         addSubview(labelName)
+        addSubview(buttonAdd)
         
         let views:[String:AnyObject] = [
-            "labelName":labelName]
+            "labelName":labelName,
+            "buttonAdd":buttonAdd]
         
         let metrics:[String:AnyObject] = [:]
         
@@ -34,6 +44,16 @@ class VCreateDetailHeader:UICollectionReusableView
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-10-[labelName]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:[buttonAdd(70)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-10-[buttonAdd]-0-|",
             options:[],
             metrics:metrics,
             views:views))

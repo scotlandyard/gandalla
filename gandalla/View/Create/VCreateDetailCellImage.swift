@@ -5,7 +5,6 @@ class VCreateDetailCellImage:VCreateDetailCell
     weak var image:UIImageView!
     weak var layoutRemoveLeft:NSLayoutConstraint!
     weak var buttonImage:UIButton!
-    weak var buttonAdd:UIButton!
     weak var buttonRemove:UIButton!
     weak var spinner:VMainLoader!
     let picker:UIImagePickerController
@@ -16,7 +15,7 @@ class VCreateDetailCellImage:VCreateDetailCell
     
     override init(frame:CGRect)
     {
-        itemsWidth = kButtonSize + kInterItem + kImageWidth + kInterItem + kButtonSize
+        itemsWidth = kButtonSize + kInterItem + kImageWidth
         picker = UIImagePickerController()
         picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
@@ -51,21 +50,12 @@ class VCreateDetailCellImage:VCreateDetailCell
         buttonRemove.imageView?.clipsToBounds = true
         self.buttonRemove = buttonRemove
         
-        let buttonAdd:UIButton = UIButton()
-        buttonAdd.translatesAutoresizingMaskIntoConstraints = false
-        buttonAdd.setImage(UIImage(named:"createListAdd"), forState:UIControlState.Normal)
-        buttonAdd.imageView?.contentMode = UIViewContentMode.Center
-        buttonAdd.imageView?.clipsToBounds = true
-        self.buttonAdd = buttonAdd
-        
         addSubview(buttonRemove)
-        addSubview(buttonAdd)
         addSubview(image)
         addSubview(buttonImage)
         addSubview(spinner)
         
         let views:[String:AnyObject] = [
-            "buttonAdd":buttonAdd,
             "buttonRemove":buttonRemove,
             "buttonImage":buttonImage,
             "image":image,
@@ -77,7 +67,7 @@ class VCreateDetailCellImage:VCreateDetailCell
             "interItem":kInterItem]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[buttonRemove(buttonSize)]-(interItem)-[image(imageWidth)]-(interItem)-[buttonAdd(buttonSize)]",
+            "H:[buttonRemove(buttonSize)]-(interItem)-[image(imageWidth)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -98,11 +88,6 @@ class VCreateDetailCellImage:VCreateDetailCell
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-(interItem)-[buttonImage]-(interItem)-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[buttonAdd]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -155,7 +140,6 @@ class VCreateDetailCellImage:VCreateDetailCell
             self?.buttonImage.hidden = true
             self?.image.hidden = true
             self?.buttonRemove.hidden = true
-            self?.buttonAdd.hidden = true
         }
     }
     
@@ -168,7 +152,6 @@ class VCreateDetailCellImage:VCreateDetailCell
             self?.buttonImage.hidden = false
             self?.image.hidden = false
             self?.buttonRemove.hidden = false
-            self?.buttonAdd.hidden = false
         }
     }
 }
