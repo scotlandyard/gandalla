@@ -5,7 +5,9 @@ class VNewsCell:UICollectionViewCell
     weak var labelGandaller:UILabel!
     weak var labelDate:UILabel!
     weak var imageGandaller:UIImageView!
-    private let kImageSize:CGFloat = 30
+    weak var gandaller:MGandallerItem!
+    private let kImageSize:CGFloat = 50
+    private let kCornerRadius:CGFloat = 4
     
     override init(frame:CGRect)
     {
@@ -16,7 +18,7 @@ class VNewsCell:UICollectionViewCell
         let labelGandaller:UILabel = UILabel()
         labelGandaller.translatesAutoresizingMaskIntoConstraints = false
         labelGandaller.backgroundColor = UIColor.clearColor()
-        labelGandaller.font = UIFont.bold(12)
+        labelGandaller.font = UIFont.bold(13)
         labelGandaller.textColor = UIColor(white:0.2, alpha:1)
         labelGandaller.userInteractionEnabled = false
         self.labelGandaller = labelGandaller
@@ -24,8 +26,8 @@ class VNewsCell:UICollectionViewCell
         let labelDate:UILabel = UILabel()
         labelDate.translatesAutoresizingMaskIntoConstraints = false
         labelDate.backgroundColor = UIColor.clearColor()
-        labelDate.font = UIFont.regular(11)
-        labelDate.textColor = UIColor(white:0.4, alpha:1)
+        labelDate.font = UIFont.regular(10)
+        labelDate.textColor = UIColor(white:0.3, alpha:1)
         labelDate.userInteractionEnabled = false
         labelDate.textAlignment = NSTextAlignment.Right
         self.labelDate = labelDate
@@ -35,6 +37,9 @@ class VNewsCell:UICollectionViewCell
         imageGandaller.contentMode = UIViewContentMode.ScaleToFill
         imageGandaller.clipsToBounds = true
         imageGandaller.translatesAutoresizingMaskIntoConstraints = false
+        imageGandaller.layer.borderWidth = 1
+        imageGandaller.layer.borderColor = UIColor(white:0, alpha:0.1).CGColor
+        imageGandaller.layer.cornerRadius = kCornerRadius
         self.imageGandaller = imageGandaller
         
         addSubview(imageGandaller)
@@ -50,7 +55,7 @@ class VNewsCell:UICollectionViewCell
             "imageSize":kImageSize]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-10-[imageGandaller(imageSize)]-5-[labelGandaller]-10-|",
+            "H:|-10-[imageGandaller(imageSize)]-10-[labelGandaller]-10-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -65,7 +70,7 @@ class VNewsCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-10-[labelGandaller(imageSize)]",
+            "V:|-10-[labelGandaller(17)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -81,6 +86,11 @@ class VNewsCell:UICollectionViewCell
         fatalError()
     }
     
+    deinit
+    {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override var selected:Bool
     {
         didSet
@@ -94,6 +104,26 @@ class VNewsCell:UICollectionViewCell
         didSet
         {
             hover()
+        }
+    }
+    
+    //MARK: notified
+    
+    func notifiedImageLoaded(sender notification:NSNotification)
+    {
+        let userInfo:[String:AnyObject] = notification.userInfo as! [String:AnyObject]
+        let gandallerKey:String = FDatabase.FDatabaseReference.Gandaller.rawValue
+        let gandallerId:String = userInfo[gandallerKey] as! String
+        
+        if gandallerId == gandaller.gandallerId
+        {
+            NSNotificationCenter.defaultCenter().removeObserver(self)
+            
+            dispatch_async(dispatch_get_main_queue())
+            { [weak self] in
+                
+                self?.imageGandaller.image = self?.gandaller.image.imageBinary
+            }
         }
     }
     
@@ -115,7 +145,31 @@ class VNewsCell:UICollectionViewCell
     
     func config(model:MNewsItem)
     {
-        labelGandaller.text = model.gandaller.fModel.name
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        
+        if gandaller !== model.gandaller
+        {
+            gandaller = model.gandaller
+            labelGandaller.text = gandaller.fModel.name
+            imageGandaller.image = nil
+            
+            if model.gandaller.image.imageId != nil
+            {
+                if model.gandaller.image.imageBinary == nil
+                {
+                    NSNotificationCenter.defaultCenter().addObserver(
+                        self,
+                        selector:#selector(self.notifiedImageLoaded(sender:)),
+                        name:NSNotification.NSNotificationName.GandallerImage.rawValue,
+                        object:nil)
+                }
+                else
+                {
+                    imageGandaller.image = model.gandaller.image.imageBinary
+                }
+            }
+        }
+        
         labelDate.text = model.date
     }
     

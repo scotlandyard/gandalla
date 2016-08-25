@@ -11,7 +11,7 @@ class VNewsCellJoined:VNewsCell
         let labelEvent:UILabel = UILabel()
         labelEvent.translatesAutoresizingMaskIntoConstraints = false
         labelEvent.backgroundColor = UIColor.clearColor()
-        labelEvent.font = UIFont.bold(17)
+        labelEvent.font = UIFont.bold(15)
         labelEvent.textColor = UIColor.complement()
         labelEvent.userInteractionEnabled = false
         self.labelEvent = labelEvent
@@ -20,17 +20,18 @@ class VNewsCellJoined:VNewsCell
         
         let views:[String:AnyObject] = [
             "imageGandaller":imageGandaller,
+            "labelGandaller":labelGandaller,
             "labelEvent":labelEvent]
         
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[imageGandaller]-5-[labelEvent]-10-|",
+            "H:[imageGandaller]-10-[labelEvent]-10-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[labelEvent(22)]-5-|",
+            "V:[labelGandaller]-0-[labelEvent(18)]",
             options:[],
             metrics:metrics,
             views:views))
