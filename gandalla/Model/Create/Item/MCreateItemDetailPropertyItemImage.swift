@@ -130,12 +130,13 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     {
         if fImage != nil
         {
+            let gandallerId:String = controller.model.gandaller.gandallerId
+            let imageId:String = fImage!.imageId!
+            
             if fImage!.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Waiting
             {
                 let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
-                let gandallerId:String = controller.model.gandaller.gandallerId
                 let propertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Images.rawValue
-                let imageId:String = fImage!.imageId!
                 let subPropertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageStatus.rawValue
                 let newStatus:Int = FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready.rawValue
                 
@@ -147,6 +148,10 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
                     subPropertyId:subPropertyId,
                     value:newStatus)
             }
+            
+            let news:FDatabaseModelNews = FDatabaseModelNewsPicture(gandallerId:gandallerId, pictureId:imageId)
+            let newsJson:[String:AnyObject] = news.modelJson()
+            FMain.sharedInstance.database.createChild(FDatabase.FDatabaseReference.News, json:newsJson)
         }
     }
     
