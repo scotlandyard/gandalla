@@ -10,10 +10,18 @@ class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
         let reusableIdentifier:String = VCreateDetailCellImage.reusableIdentifier()
         var items:[MCreateItemDetailPropertyItem] = []
         
-        for fImage:FDatabaseModelGandallerImage in fModel.images
+        if fModel.images.isEmpty
         {
-            let itemImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(fImage:fImage)
+            let itemImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(fImage:nil)
             items.append(itemImage)
+        }
+        else
+        {
+            for fImage:FDatabaseModelGandallerImage in fModel.images
+            {
+                let itemImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(fImage:fImage)
+                items.append(itemImage)
+            }
         }
         
         super.init(name:name, reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, items:items)

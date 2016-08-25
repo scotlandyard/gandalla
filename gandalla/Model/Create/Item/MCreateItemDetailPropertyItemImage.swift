@@ -6,7 +6,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     weak var cellImage:VCreateDetailCellImage!
     var image:UIImage?
     
-    init(fImage:FDatabaseModelGandallerImage)
+    init(fImage:FDatabaseModelGandallerImage?)
     {
         self.fImage = fImage
     }
