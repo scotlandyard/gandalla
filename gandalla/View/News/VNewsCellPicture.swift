@@ -5,7 +5,7 @@ class VNewsCellPicture:VNewsCell
     weak var image:UIImageView!
     private var imageId:String?
     private let kCornerRadius:CGFloat = 4
-    private let kImageSize:CGFloat = 80
+    private let kImageSize:CGFloat = 110
     
     override init(frame:CGRect)
     {
@@ -13,10 +13,14 @@ class VNewsCellPicture:VNewsCell
         backgroundColor = UIColor.clearColor()
         
         let image:UIImageView = UIImageView()
+        image.backgroundColor = UIColor(white:0.95, alpha:1)
         image.userInteractionEnabled = false
         image.contentMode = UIViewContentMode.ScaleAspectFill
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.layer.cornerRadius = kCornerRadius
+        image.layer.borderWidth = 1
+        image.layer.borderColor = UIColor(white:0, alpha:0.15).CGColor
         self.image = image
         
         addSubview(image)
@@ -30,12 +34,12 @@ class VNewsCellPicture:VNewsCell
             "imageSize":kImageSize]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[imageGandaller]-10-[image(imagesize)]",
+            "H:[imageGandaller]-10-[image(imageSize)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[labelGandaller]-10-[image(imageSize)]",
+            "V:[labelGandaller]-7-[image(imageSize)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -55,6 +59,7 @@ class VNewsCellPicture:VNewsCell
         let reference:FStorage.FStorageReference = FStorage.FStorageReference.Gandaller
         let gandallerId:String = gandaller!.gandallerId
         imageId = pictureId
+        image.image = nil
         
         FMain.sharedInstance.storage.loadData(
             reference,

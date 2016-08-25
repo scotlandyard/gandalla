@@ -3,7 +3,7 @@ import UIKit
 class FDatabaseModelNewsPicture:FDatabaseModelNews
 {
     let pictureId:String
-    private let kCellHeight:CGFloat = 140
+    private let kCellHeight:CGFloat = 160
     
     init(gandallerId:String, pictureId:String)
     {

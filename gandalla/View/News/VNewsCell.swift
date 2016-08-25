@@ -70,7 +70,7 @@ class VNewsCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-10-[labelGandaller(17)]",
+            "V:|-10-[labelGandaller(16)]",
             options:[],
             metrics:metrics,
             views:views))

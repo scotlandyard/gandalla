@@ -29,7 +29,7 @@ class VNewsCellJoined:VNewsCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[labelGandaller]-0-[labelEvent(18)]",
+            "V:[labelGandaller]-3-[labelEvent(18)]",
             options:[],
             metrics:metrics,
             views:views))

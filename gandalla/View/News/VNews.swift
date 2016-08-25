@@ -5,7 +5,7 @@ class VNews:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     weak var controller:CNews!
     weak var collection:UICollectionView!
     weak var spinner:VMainLoader?
-    private let kCollectionBottom:CGFloat = 40
+    private let kCollectionBottom:CGFloat = 20
     private let kInterLine:CGFloat = 1
     
     convenience init(controller:CNews)
