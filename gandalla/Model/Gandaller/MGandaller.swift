@@ -46,7 +46,7 @@ class MGandaller
             }
             else
             {
-                inGandaller!.fModel = fGandaller
+                inGandaller!.update(fGandaller)
             }
         }
         

@@ -3,7 +3,7 @@ import UIKit
 class MGandallerItem
 {
     let gandallerId:String
-    var fModel:FDatabaseModelGandaller
+    private(set) var fModel:FDatabaseModelGandaller
     var image:UIImage?
     
     init(gandallerId:String, fModel:FDatabaseModelGandaller)
@@ -19,5 +19,10 @@ class MGandallerItem
         let duplicated:MGandallerItem = MGandallerItem(gandallerId:gandallerId, fModel:fModel)
         
         return duplicated
+    }
+    
+    func update(fModel:FDatabaseModelGandaller)
+    {
+        self.fModel = fModel
     }
 }

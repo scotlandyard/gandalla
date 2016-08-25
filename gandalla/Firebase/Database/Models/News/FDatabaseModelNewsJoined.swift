@@ -2,7 +2,7 @@ import UIKit
 
 class FDatabaseModelNewsJoined:FDatabaseModelNews
 {
-    private let kCellHeight:CGFloat = 100
+    private let kCellHeight:CGFloat = 70
     
     init(gandallerId:String)
     {

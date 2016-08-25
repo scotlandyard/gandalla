@@ -11,7 +11,7 @@ class VNewsCellJoined:VNewsCell
         let labelEvent:UILabel = UILabel()
         labelEvent.translatesAutoresizingMaskIntoConstraints = false
         labelEvent.backgroundColor = UIColor.clearColor()
-        labelEvent.font = UIFont.bold(28)
+        labelEvent.font = UIFont.bold(17)
         labelEvent.textColor = UIColor.complement()
         labelEvent.userInteractionEnabled = false
         self.labelEvent = labelEvent
@@ -30,7 +30,7 @@ class VNewsCellJoined:VNewsCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[labelEvent(30)]-10-|",
+            "V:[labelEvent(22)]-5-|",
             options:[],
             metrics:metrics,
             views:views))
