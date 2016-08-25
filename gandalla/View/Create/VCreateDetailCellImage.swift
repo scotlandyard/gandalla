@@ -178,10 +178,21 @@ class VCreateDetailCellImage:VCreateDetailCell
         dispatch_async(dispatch_get_main_queue())
         { [weak self] in
             
-            self?.spinner.stopAnimating()
-            self?.buttonImage.hidden = false
-            self?.image.hidden = false
-            self?.buttonRemove.hidden = false
+            if self != nil
+            {
+                self!.spinner.stopAnimating()
+                self!.buttonImage.hidden = false
+                self!.image.hidden = false
+                
+                if self!.model!.profileImage
+                {
+                    self!.buttonRemove.hidden = true
+                }
+                else
+                {
+                    self!.buttonRemove.hidden = false
+                }
+            }
         }
     }
 }

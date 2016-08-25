@@ -46,11 +46,13 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
             {
                 cellImage!.check.setOn(true, animated:false)
                 cellImage!.check.userInteractionEnabled = false
+                cellImage!.buttonRemove.hidden = true
             }
             else
             {
                 cellImage!.check.setOn(false, animated:false)
                 cellImage!.check.userInteractionEnabled = true
+                cellImage!.buttonRemove.hidden = false
             }
         }
         else
