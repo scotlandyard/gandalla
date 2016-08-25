@@ -35,7 +35,33 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     
     func actionRemoveImage(sender button:UIButton)
     {
-        controller.removeImage(self)
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteTitle", comment:""),
+            message:
+            NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteMessage", comment:""),
+            preferredStyle:UIAlertControllerStyle.ActionSheet)
+        
+        let actionDelete:UIAlertAction = UIAlertAction(
+            title:NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteDelete", comment:""),
+            style:
+            UIAlertActionStyle.Default)
+        { [weak self] (action) in
+            
+            if self != nil
+            {
+                self!.controller.removeImage(self!)
+            }
+        }
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteCancel", comment:""),
+            style:UIAlertActionStyle.Cancel,
+            handler:nil)
+            
+        alert.addAction(actionDelete)
+        alert.addAction(actionCancel)
+        controller.presentViewController(alert, animated:true, completion:nil)
     }
     
     //MARK: private

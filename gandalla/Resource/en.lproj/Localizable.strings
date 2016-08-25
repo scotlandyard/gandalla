@@ -11,3 +11,7 @@
 "MCreateItemDetailPropertyName_name"="Name";
 "MCreateItemDetailPropertyStarted_name"="Started";
 "MCreateItemDetailPropertyImages_name"="Images";
+"MCreateItemDetailPropertyItemImage_deleteTitle"="Delete image";
+"MCreateItemDetailPropertyItemImage_deleteMessage"="Are you sure?";
+"MCreateItemDetailPropertyItemImage_deleteDelete"="Delete";
+"MCreateItemDetailPropertyItemImage_deleteCancel"="Cancel";
