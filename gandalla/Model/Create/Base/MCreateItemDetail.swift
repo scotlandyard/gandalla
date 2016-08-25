@@ -15,11 +15,12 @@ class MCreateItemDetail
     
     func generate()
     {
+        let gandallerId:String = gandaller.gandallerId
         let fModel:FDatabaseModelGandaller = gandaller.fModel
-        let propertyStatus:MCreateItemDetailPropertyStatus = MCreateItemDetailPropertyStatus(fModel:fModel)
-        let propertyStarted:MCreateItemDetailPropertyStarted = MCreateItemDetailPropertyStarted(fModel:fModel)
-        let propertyName:MCreateItemDetailPropertyName = MCreateItemDetailPropertyName(fModel:fModel)
-        let propertyImages:MCreateItemDetailPropertyImages = MCreateItemDetailPropertyImages(fModel:fModel)
+        let propertyStatus:MCreateItemDetailPropertyStatus = MCreateItemDetailPropertyStatus(gandallerId:gandallerId, fModel:fModel)
+        let propertyStarted:MCreateItemDetailPropertyStarted = MCreateItemDetailPropertyStarted(gandallerId:gandallerId, fModel:fModel)
+        let propertyName:MCreateItemDetailPropertyName = MCreateItemDetailPropertyName(gandallerId:gandallerId, fModel:fModel)
+        let propertyImages:MCreateItemDetailPropertyImages = MCreateItemDetailPropertyImages(gandallerId:gandallerId, fModel:fModel)
         
         properties = [
             propertyStatus,

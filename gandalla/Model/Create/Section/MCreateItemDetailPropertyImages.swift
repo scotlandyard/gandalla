@@ -4,7 +4,7 @@ class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
 {
     private let kCellHeight:CGFloat = 150
     
-    override init(fModel:FDatabaseModelGandaller)
+    override init(gandallerId:String, fModel:FDatabaseModelGandaller)
     {
         let name:String = NSLocalizedString("MCreateItemDetailPropertyImages_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellImage.reusableIdentifier()
@@ -12,14 +12,14 @@ class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
         
         if fModel.images.isEmpty
         {
-            let itemImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(fImage:nil)
+            let itemImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(gandallerId:gandallerId, fImage:nil)
             items.append(itemImage)
         }
         else
         {
             for fImage:FDatabaseModelGandallerImage in fModel.images
             {
-                let itemImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(fImage:fImage)
+                let itemImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(gandallerId:gandallerId, fImage:fImage)
                 items.append(itemImage)
             }
         }

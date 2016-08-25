@@ -4,7 +4,7 @@ class MCreateItemDetailPropertyStarted:MCreateItemDetailProperty
 {
     private let kCellHeight:CGFloat = 50
     
-    override init(fModel:FDatabaseModelGandaller)
+    override init(gandallerId:String, fModel:FDatabaseModelGandaller)
     {
         let name:String = NSLocalizedString("MCreateItemDetailPropertyStarted_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellStarted.reusableIdentifier()

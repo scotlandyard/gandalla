@@ -9,6 +9,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     init(gandallerId:String, fImage:FDatabaseModelGandallerImage?)
     {
         self.fImage = fImage
+        super.init()
         
         if fImage != nil
         {
@@ -53,7 +54,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     
     func actionEditImage(sender button:UIButton)
     {
-        controller.presentViewController(cellImage.picker, animated:true, completion:nil)
+        controller.presentViewController(cellImage!.picker, animated:true, completion:nil)
     }
     
     func actionAddImage(sender button:UIButton)

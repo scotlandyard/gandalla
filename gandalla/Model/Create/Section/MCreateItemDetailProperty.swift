@@ -7,7 +7,7 @@ class MCreateItemDetailProperty
     let cellHeight:CGFloat
     var items:[MCreateItemDetailPropertyItem]
     
-    init(fModel:FDatabaseModelGandaller)
+    init(gandallerId:String, fModel:FDatabaseModelGandaller)
     {
         fatalError()
     }
