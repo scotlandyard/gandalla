@@ -5,10 +5,12 @@ class CNews:CMainController
     weak var viewNews:VNews!
     let model:MNews
     var listenHandler:UInt?
+    var lastTimestamp:NSTimeInterval
     
     init()
     {
         model = MNews()
+        lastTimestamp = 0
         
         super.init(nibName:nil, bundle:nil)
     }
@@ -85,19 +87,32 @@ class CNews:CMainController
     private func newsReceived(json:[String:[String:AnyObject]])
     {
         var updates:[NSIndexPath] = []
+        var maxTimestamp:NSTimeInterval = lastTimestamp
         let keys:[String] = Array(json.keys)
         
         for key:String in keys
         {
             let inJson:[String:AnyObject] = json[key]!
             let fNews:FDatabaseModelNews = FDatabaseModelNews.withJson(inJson)
-            let indexPath:NSIndexPath? = model.addNews(key, fModel:fNews)
+            let created:NSTimeInterval = fNews.created
             
-            if indexPath != nil
+            if created > lastTimestamp
             {
-                updates.append(indexPath!)
+                let indexPath:NSIndexPath? = model.addNews(key, fModel:fNews)
+                
+                if indexPath != nil
+                {
+                    updates.append(indexPath!)
+                }
+                
+                if created > maxTimestamp
+                {
+                    maxTimestamp = created
+                }
             }
         }
+        
+        lastTimestamp = maxTimestamp
         
         if !updates.isEmpty
         {

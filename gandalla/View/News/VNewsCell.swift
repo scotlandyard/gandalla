@@ -4,7 +4,6 @@ class VNewsCell:UICollectionViewCell
 {
     weak var labelGandaller:UILabel!
     weak var labelDate:UILabel!
-    weak var labelEvent:UILabel!
     weak var imageGandaller:UIImageView!
     private let kImageSize:CGFloat = 30
     
@@ -31,14 +30,6 @@ class VNewsCell:UICollectionViewCell
         labelDate.textAlignment = NSTextAlignment.Right
         self.labelDate = labelDate
         
-        let labelEvent:UILabel = UILabel()
-        labelEvent.translatesAutoresizingMaskIntoConstraints = false
-        labelEvent.backgroundColor = UIColor.clearColor()
-        labelEvent.font = UIFont.bold(14)
-        labelEvent.textColor = UIColor.complement()
-        labelEvent.userInteractionEnabled = false
-        self.labelEvent = labelEvent
-        
         let imageGandaller:UIImageView = UIImageView()
         imageGandaller.userInteractionEnabled = false
         imageGandaller.contentMode = UIViewContentMode.ScaleToFill
@@ -49,25 +40,17 @@ class VNewsCell:UICollectionViewCell
         addSubview(imageGandaller)
         addSubview(labelGandaller)
         addSubview(labelDate)
-        addSubview(labelEvent)
         
         let views:[String:AnyObject] = [
             "labelGandaller":labelGandaller,
             "imageGandaller":imageGandaller,
-            "labelDate":labelDate,
-            "labelEvent":labelEvent]
+            "labelDate":labelDate]
         
         let metrics:[String:AnyObject] = [
             "imageSize":kImageSize]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-10-[imageGandaller(imageSize)]-5-[labelGandaller]-10-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[imageGandaller]-5-[labelEvent]-10-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -82,7 +65,7 @@ class VNewsCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-10-[labelGandaller(imageSize)]-0-[labelEvent(22)]",
+            "V:|-10-[labelGandaller(imageSize)]",
             options:[],
             metrics:metrics,
             views:views))

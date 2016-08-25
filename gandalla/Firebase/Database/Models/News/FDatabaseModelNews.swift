@@ -99,11 +99,11 @@ class FDatabaseModelNews:FDatabaseModel
     
     func cellHeight() -> CGFloat
     {
-        return 0
+        fatalError()
     }
     
     func reusableIdentifier() -> String
     {
-        return ""
+        fatalError()
     }
 }

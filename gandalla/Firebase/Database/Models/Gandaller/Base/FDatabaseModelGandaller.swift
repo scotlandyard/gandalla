@@ -168,8 +168,6 @@ class FDatabaseModelGandaller:FDatabaseModel
     
     func statusColor() -> UIColor
     {
-        let color:UIColor = UIColor.clearColor()
-        
-        return color
+        fatalError()
     }
 }

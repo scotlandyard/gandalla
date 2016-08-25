@@ -36,7 +36,7 @@ class FDatabaseModelNewsPicture:FDatabaseModelNews
     
     override func reusableIdentifier() -> String
     {
-        let identifier:String = VNewsCellJoined.reusableIdentifier()
+        let identifier:String = VNewsCellPicture.reusableIdentifier()
         
         return identifier
     }
