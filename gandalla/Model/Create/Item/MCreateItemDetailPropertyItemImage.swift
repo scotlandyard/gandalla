@@ -49,7 +49,15 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         }
         else
         {
-            controller.presentViewController(cellImage!.picker, animated:true, completion:nil)
+            if !cellImage!.picker.isBeingPresented()
+            {
+                button.userInteractionEnabled = false
+                controller.presentViewController(cellImage!.picker, animated:true)
+                { [weak button] in
+                    
+                    button?.userInteractionEnabled = true
+                }
+            }
         }
     }
     
