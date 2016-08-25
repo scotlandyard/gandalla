@@ -1,10 +1,9 @@
-import UIKit
+import Foundation
 
 class MGandallerItem
 {
     let gandallerId:String
     private(set) var fModel:FDatabaseModelGandaller
-    var image:UIImage?
     
     init(gandallerId:String, fModel:FDatabaseModelGandaller)
     {
