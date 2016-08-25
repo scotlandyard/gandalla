@@ -3,25 +3,50 @@ import UIKit
 class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     weak var fImage:FDatabaseModelGandallerImage?
-    weak var cellImage:VCreateDetailCellImage!
+    weak var cellImage:VCreateDetailCellImage?
     var image:UIImage?
     
-    init(fImage:FDatabaseModelGandallerImage?)
+    init(gandallerId:String, fImage:FDatabaseModelGandallerImage?)
     {
         self.fImage = fImage
         
-        here
+        if fImage != nil
+        {
+            if fImage!.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
+            {
+                let imageId:String = fImage!.imageId!
+                
+                FMain.sharedInstance.storage.loadData(
+                    FStorage.FStorageReference.Gandaller,
+                    parentId:gandallerId,
+                    childId:imageId)
+                { [weak self] (data) in
+                    
+                    if data != nil
+                    {
+                        let image:UIImage = UIImage(data:data!)!
+                        self?.image = image
+                        
+                        dispatch_async(dispatch_get_main_queue())
+                        { [weak self] in
+                            
+                            self?.cellImage?.image.image = image
+                        }
+                    }
+                }
+            }
+        }
     }
     
     override func config(controller:CCreateDetail, cell:VCreateDetailCell)
     {
         super.config(controller, cell:cell)
-        cellImage = cell as! VCreateDetailCellImage
-        cellImage.image.image = image
-        cellImage.buttonImage.addTarget(self, action:#selector(self.actionEditImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
-        cellImage.buttonAdd.addTarget(self, action:#selector(self.actionAddImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
-        cellImage.buttonRemove.addTarget(self, action:#selector(self.actionRemoveImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
-        cellImage.picker.delegate = self
+        cellImage = cell as? VCreateDetailCellImage
+        cellImage!.image.image = image
+        cellImage!.buttonImage.addTarget(self, action:#selector(self.actionEditImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        cellImage!.buttonAdd.addTarget(self, action:#selector(self.actionAddImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        cellImage!.buttonRemove.addTarget(self, action:#selector(self.actionRemoveImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        cellImage!.picker.delegate = self
     }
     
     //MARK: actions
@@ -94,12 +119,12 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
                     }
                 }
                 
-                self?.cellImage.hideLoading()
+                self?.cellImage?.hideLoading()
             }
         }
         else
         {
-            cellImage.hideLoading()
+            cellImage?.hideLoading()
         }
     }
     
@@ -136,8 +161,8 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         controller.dismissViewControllerAnimated(true)
         { [weak self] in
             
-            self?.cellImage.image.image = self?.image
-            self?.cellImage.showLoading()
+            self?.cellImage?.image.image = self?.image
+            self?.cellImage?.showLoading()
             self?.updaloadImage()
         }
     }
