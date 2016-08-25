@@ -43,8 +43,6 @@ class CNews:CMainController
         
         if MGandaller.sharedInstance.items.isEmpty
         {
-            print("empty list gandallers!!!!!!!!!!!!!!!")
-            
             NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallersUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
         }
         else

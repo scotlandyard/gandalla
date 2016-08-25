@@ -5,7 +5,7 @@ class VNewsCell:UICollectionViewCell
     weak var labelGandaller:UILabel!
     weak var labelDate:UILabel!
     weak var imageGandaller:UIImageView!
-    weak var gandaller:MGandallerItem!
+    weak var gandaller:MGandallerItem?
     private let kImageSize:CGFloat = 50
     private let kCornerRadius:CGFloat = 4
     
@@ -79,6 +79,12 @@ class VNewsCell:UICollectionViewCell
             options:[],
             metrics:metrics,
             views:views))
+        
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector:#selector(self.notifiedImageLoaded(sender:)),
+            name:NSNotification.NSNotificationName.GandallerImage.rawValue,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
@@ -115,14 +121,15 @@ class VNewsCell:UICollectionViewCell
         let gandallerKey:String = FDatabase.FDatabaseReference.Gandaller.rawValue
         let gandallerId:String = userInfo[gandallerKey] as! String
         
-        if gandallerId == gandaller.gandallerId
+        if gandallerId == gandaller!.gandallerId
         {
-            NSNotificationCenter.defaultCenter().removeObserver(self)
-            
             dispatch_async(dispatch_get_main_queue())
             { [weak self] in
                 
-                self?.imageGandaller.image = self?.gandaller.image.imageBinary
+                if self != nil
+                {
+                    self!.imageGandaller.image = self!.gandaller!.image.imageBinary
+                }
             }
         }
     }
@@ -145,29 +152,11 @@ class VNewsCell:UICollectionViewCell
     
     func config(model:MNewsItem)
     {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-        
         if gandaller !== model.gandaller
         {
             gandaller = model.gandaller
-            labelGandaller.text = gandaller.fModel.name
-            imageGandaller.image = nil
-            
-            if model.gandaller.image.imageId != nil
-            {
-                if model.gandaller.image.imageBinary == nil
-                {
-                    NSNotificationCenter.defaultCenter().addObserver(
-                        self,
-                        selector:#selector(self.notifiedImageLoaded(sender:)),
-                        name:NSNotification.NSNotificationName.GandallerImage.rawValue,
-                        object:nil)
-                }
-                else
-                {
-                    imageGandaller.image = model.gandaller.image.imageBinary
-                }
-            }
+            labelGandaller.text = gandaller!.fModel.name
+            imageGandaller.image = gandaller!.image.imageBinary
         }
         
         labelDate.text = model.date

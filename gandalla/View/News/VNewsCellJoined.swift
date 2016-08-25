@@ -2,8 +2,6 @@ import UIKit
 
 class VNewsCellJoined:VNewsCell
 {
-    weak var labelEvent:UILabel!
-    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
@@ -14,7 +12,7 @@ class VNewsCellJoined:VNewsCell
         labelEvent.font = UIFont.bold(15)
         labelEvent.textColor = UIColor.complement()
         labelEvent.userInteractionEnabled = false
-        self.labelEvent = labelEvent
+        labelEvent.text = NSLocalizedString("VNewsCellJoined_labelEvent", comment:"")
         
         addSubview(labelEvent)
         
@@ -40,12 +38,5 @@ class VNewsCellJoined:VNewsCell
     required init?(coder:NSCoder)
     {
         fatalError()
-    }
-    
-    override func config(model:MNewsItem)
-    {
-        super.config(model)
-        
-        labelEvent.text = NSLocalizedString("VNewsCellJoined_labelEvent", comment:"")
     }
 }
