@@ -40,8 +40,20 @@ class CCreateDetail:CMainController
     func notifiedGandallerUpdated(sender notification:NSNotification)
     {
         NSNotificationCenter.defaultCenter().removeObserver(self)
-        model.generate()
-        viewDetail.hideLoading()
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            self?.model.generate()
+            let topCollection:CGRect = CGRectMake(0, 0, 1, 1)
+            
+            dispatch_async(dispatch_get_main_queue())
+            { [weak self] in
+                
+                self?.viewDetail.hideLoading()
+                self?.viewDetail.collection.scrollRectToVisible(topCollection, animated:true)
+            }
+        }
     }
     
     //MARK: public
