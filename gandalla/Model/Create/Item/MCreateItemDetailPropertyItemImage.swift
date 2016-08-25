@@ -23,17 +23,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
                     childId:imageId)
                 { [weak self] (data) in
                     
-                    if data != nil
-                    {
-                        let image:UIImage = UIImage(data:data!)!
-                        self?.image = image
-                        
-                        dispatch_async(dispatch_get_main_queue())
-                        { [weak self] in
-                            
-                            self?.cellImage?.image.image = image
-                        }
-                    }
+                    self?.downloadedImage(data)
                 }
             }
         }
@@ -54,7 +44,14 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     
     func actionEditImage(sender button:UIButton)
     {
-        controller.presentViewController(cellImage!.picker, animated:true, completion:nil)
+        if fImage?.imageId == nil
+        {
+            controller.addImage()
+        }
+        else
+        {
+            controller.presentViewController(cellImage!.picker, animated:true, completion:nil)
+        }
     }
     
     func actionAddImage(sender button:UIButton)
@@ -149,6 +146,21 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
                     subChildId:imageId,
                     subPropertyId:subPropertyId,
                     value:newStatus)
+            }
+        }
+    }
+    
+    private func downloadedImage(data:NSData?)
+    {
+        if data != nil
+        {
+            let image:UIImage = UIImage(data:data!)!
+            self.image = image
+            
+            dispatch_async(dispatch_get_main_queue())
+            { [weak self] in
+                
+                self?.cellImage?.image.image = image
             }
         }
     }
