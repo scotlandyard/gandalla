@@ -5,26 +5,26 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     weak var fImage:FDatabaseModelGandallerImage?
     weak var cellImage:VCreateDetailCellImage?
     var image:UIImage?
+    let profileImage:Bool
     
-    init(gandallerId:String, fImage:FDatabaseModelGandallerImage?)
+    init(gandallerId:String, fImage:FDatabaseModelGandallerImage, profileImage:Bool)
     {
         self.fImage = fImage
+        self.profileImage = profileImage
+        
         super.init()
         
-        if fImage != nil
+        if fImage.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
         {
-            if fImage!.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
-            {
-                let imageId:String = fImage!.imageId!
+            let imageId:String = fImage.imageId!
+            
+            FMain.sharedInstance.storage.loadData(
+                FStorage.FStorageReference.Gandaller,
+                parentId:gandallerId,
+                childId:imageId)
+            { [weak self] (data) in
                 
-                FMain.sharedInstance.storage.loadData(
-                    FStorage.FStorageReference.Gandaller,
-                    parentId:gandallerId,
-                    childId:imageId)
-                { [weak self] (data) in
-                    
-                    self?.downloadedImage(data)
-                }
+                self?.downloadedImage(data)
             }
         }
     }
@@ -38,12 +38,25 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         if fImage?.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
         {
             cellImage!.image.hidden = false
+            cellImage!.check.hidden = false
             cellImage!.image.image = image
             cellImage!.picker.delegate = self
+            
+            if profileImage
+            {
+                cellImage!.check.setOn(true, animated:false)
+                cellImage!.check.userInteractionEnabled = false
+            }
+            else
+            {
+                cellImage!.check.setOn(false, animated:false)
+                cellImage!.check.userInteractionEnabled = true
+            }
         }
         else
         {
             cellImage!.image.hidden = true
+            cellImage!.check.hidden = true
         }
     }
     
@@ -172,6 +185,27 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         alert.addAction(actionDelete)
         alert.addAction(actionCancel)
         controller.presentViewController(alert, animated:true, completion:nil)
+    }
+    
+    func makeProfileImage()
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            if self != nil
+            {
+                let gandallerId:String = self!.controller.model.gandaller.gandallerId
+                let imageId:String = self!.fImage!.imageId!
+                let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
+                let propertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ProfileImage.rawValue
+                
+                FMain.sharedInstance.database.updateProperty(
+                    reference,
+                    childId:gandallerId,
+                    property:propertyId,
+                    value:imageId)
+            }
+        }
     }
     
     //MARK: image picker

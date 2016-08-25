@@ -6,6 +6,7 @@ class VCreateDetailCellImage:VCreateDetailCell
     weak var layoutRemoveLeft:NSLayoutConstraint!
     weak var buttonImage:UIButton!
     weak var buttonRemove:UIButton!
+    weak var check:UISwitch!
     weak var spinner:VMainLoader!
     weak var model:MCreateItemDetailPropertyItemImage?
     let picker:UIImagePickerController
@@ -16,7 +17,7 @@ class VCreateDetailCellImage:VCreateDetailCell
     
     override init(frame:CGRect)
     {
-        itemsWidth = kButtonSize + kInterItem + kImageWidth + kInterItem + kButtonSize
+        itemsWidth = kButtonSize + kInterItem + kImageWidth + kInterItem + kButtonSize + kInterItem
         picker = UIImagePickerController()
         picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
@@ -53,16 +54,24 @@ class VCreateDetailCellImage:VCreateDetailCell
         buttonRemove.addTarget(self, action:#selector(self.actionRemove(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         self.buttonRemove = buttonRemove
         
+        let check:UISwitch = UISwitch()
+        check.translatesAutoresizingMaskIntoConstraints = false
+        check.onTintColor = UIColor.complement()
+        check.addTarget(self, action:#selector(self.actionMakeProfile(sender:)), forControlEvents:UIControlEvents.ValueChanged)
+        self.check = check
+        
         addSubview(buttonRemove)
         addSubview(image)
         addSubview(buttonImage)
         addSubview(spinner)
+        addSubview(check)
         
         let views:[String:AnyObject] = [
             "buttonRemove":buttonRemove,
             "buttonImage":buttonImage,
             "image":image,
-            "spinner":spinner]
+            "spinner":spinner,
+            "check":check]
         
         let metrics:[String:AnyObject] = [
             "buttonSize":kButtonSize,
@@ -70,7 +79,7 @@ class VCreateDetailCellImage:VCreateDetailCell
             "interItem":kInterItem]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[buttonRemove(buttonSize)]-(interItem)-[image(imageWidth)]-(interItem)-[buttonImage(buttonSize)]",
+            "H:[buttonRemove(buttonSize)]-(interItem)-[image(imageWidth)]-(interItem)-[buttonImage(buttonSize)]-(interItem)-[check]",
             options:[],
             metrics:metrics,
             views:views))
@@ -96,6 +105,11 @@ class VCreateDetailCellImage:VCreateDetailCell
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-35-[check]",
             options:[],
             metrics:metrics,
             views:views))
@@ -137,6 +151,12 @@ class VCreateDetailCellImage:VCreateDetailCell
     func actionEdit(sender button:UIButton)
     {
         model?.editImage()
+    }
+    
+    func actionMakeProfile(sender check:UISwitch)
+    {
+        check.userInteractionEnabled = false
+        model?.makeProfileImage()
     }
     
     //MARK: public

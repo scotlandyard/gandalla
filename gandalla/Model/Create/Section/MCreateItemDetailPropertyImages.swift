@@ -8,11 +8,22 @@ class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
     {
         let name:String = NSLocalizedString("MCreateItemDetailPropertyImages_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellImage.reusableIdentifier()
+        let profileImageId:String? = fModel.profileImage
         var items:[MCreateItemDetailPropertyItem] = []
         
         for fImage:FDatabaseModelGandallerImage in fModel.images
         {
-            let itemImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(gandallerId:gandallerId, fImage:fImage)
+            var profileImage:Bool = false
+            
+            if profileImageId != nil
+            {
+                if fImage.imageId == profileImageId
+                {
+                    profileImage = true
+                }
+            }
+            
+            let itemImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(gandallerId:gandallerId, fImage:fImage, profileImage:profileImage)
             items.append(itemImage)
         }
         
