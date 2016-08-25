@@ -10,6 +10,7 @@ class FStorage
     
     private let storage:FIRStorage
     private let storageReference:FIRStorageReference
+    private let kTenMegaBytes:Int64 = 10485760
     
     init()
     {
@@ -43,6 +44,28 @@ class FStorage
         }
     }
     
+    private func asyncLoadData(reference:FStorageReference, parentId:String, childId:String, completionHandler:((data:NSData?) -> ()))
+    {
+        let parentReference:FIRStorageReference = storageReference.child(reference.rawValue).child(parentId)
+        let childReference:FIRStorageReference = parentReference.child(childId)
+        childReference.dataWithMaxSize(kTenMegaBytes)
+        { (data, error) in
+            
+            let sendData:NSData?
+            
+            if error != nil
+            {
+                sendData = nil
+            }
+            else
+            {
+                sendData = data
+            }
+            
+            completionHandler(data:sendData)
+        }
+    }
+    
     //MARK: public
     
     func saveData(reference:FStorageReference, parentId:String, childId:String, data:NSData, completionHandler:((error:String?) -> ()))
@@ -58,6 +81,14 @@ class FStorage
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         {
             self.asyncDeleteData(reference, parentId:parentId, childId:childId, completionHandler:completionHandler)
+        }
+    }
+    
+    func loadData(reference:FStorageReference, parentId:String, childId:String, completionHandler:((data:NSData?) -> ()))
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        {
+            self.asyncLoadData(reference, parentId:parentId, childId:childId, completionHandler:completionHandler)
         }
     }
 }

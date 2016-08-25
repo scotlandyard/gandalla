@@ -9,12 +9,15 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     init(fImage:FDatabaseModelGandallerImage?)
     {
         self.fImage = fImage
+        
+        here
     }
     
     override func config(controller:CCreateDetail, cell:VCreateDetailCell)
     {
         super.config(controller, cell:cell)
         cellImage = cell as! VCreateDetailCellImage
+        cellImage.image.image = image
         cellImage.buttonImage.addTarget(self, action:#selector(self.actionEditImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         cellImage.buttonAdd.addTarget(self, action:#selector(self.actionAddImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         cellImage.buttonRemove.addTarget(self, action:#selector(self.actionRemoveImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
