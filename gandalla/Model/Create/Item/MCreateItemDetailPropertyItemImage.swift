@@ -33,63 +33,18 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     {
         super.config(controller, cell:cell)
         cellImage = cell as? VCreateDetailCellImage
-        cellImage!.image.image = image
-        cellImage!.buttonImage.addTarget(self, action:#selector(self.actionEditImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
-        cellImage!.buttonRemove.addTarget(self, action:#selector(self.actionRemoveImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
-        cellImage!.picker.delegate = self
-    }
-    
-    //MARK: actions
-    
-    func actionEditImage(sender button:UIButton)
-    {
-        if fImage?.imageId == nil
+        cellImage?.model = self
+        
+        if fImage?.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
         {
-            controller.addImage()
+            cellImage!.image.hidden = false
+            cellImage!.image.image = image
+            cellImage!.picker.delegate = self
         }
         else
         {
-            if !cellImage!.picker.isBeingPresented()
-            {
-                button.userInteractionEnabled = false
-                controller.presentViewController(cellImage!.picker, animated:true)
-                { [weak button] in
-                    
-                    button?.userInteractionEnabled = true
-                }
-            }
+            cellImage!.image.hidden = true
         }
-    }
-    
-    func actionRemoveImage(sender button:UIButton)
-    {
-        let alert:UIAlertController = UIAlertController(
-            title:
-            NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteTitle", comment:""),
-            message:
-            NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteMessage", comment:""),
-            preferredStyle:UIAlertControllerStyle.ActionSheet)
-        
-        let actionDelete:UIAlertAction = UIAlertAction(
-            title:NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteDelete", comment:""),
-            style:
-            UIAlertActionStyle.Default)
-        { [weak self] (action) in
-            
-            if self != nil
-            {
-                self!.controller.removeImage(self!)
-            }
-        }
-        
-        let actionCancel:UIAlertAction = UIAlertAction(
-            title:NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteCancel", comment:""),
-            style:UIAlertActionStyle.Cancel,
-            handler:nil)
-            
-        alert.addAction(actionDelete)
-        alert.addAction(actionCancel)
-        controller.presentViewController(alert, animated:true, completion:nil)
     }
     
     //MARK: private
@@ -132,11 +87,10 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     {
         if fImage != nil
         {
-            let gandallerId:String = controller.model.gandaller.gandallerId
-            let imageId:String = fImage!.imageId!
-            
             if fImage!.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Waiting
             {
+                let gandallerId:String = controller.model.gandaller.gandallerId
+                let imageId:String = fImage!.imageId!
                 let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
                 let propertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Images.rawValue
                 let subPropertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageStatus.rawValue
@@ -149,11 +103,11 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
                     subChildId:imageId,
                     subPropertyId:subPropertyId,
                     value:newStatus)
+                
+                let news:FDatabaseModelNews = FDatabaseModelNewsPicture(gandallerId:gandallerId, pictureId:imageId)
+                let newsJson:[String:AnyObject] = news.modelJson()
+                FMain.sharedInstance.database.createChild(FDatabase.FDatabaseReference.News, json:newsJson)
             }
-            
-            let news:FDatabaseModelNews = FDatabaseModelNewsPicture(gandallerId:gandallerId, pictureId:imageId)
-            let newsJson:[String:AnyObject] = news.modelJson()
-            FMain.sharedInstance.database.createChild(FDatabase.FDatabaseReference.News, json:newsJson)
         }
     }
     
@@ -170,6 +124,54 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
                 self?.cellImage?.image.image = image
             }
         }
+    }
+    
+    //MARK: public
+    
+    func editImage()
+    {
+        if fImage?.imageId == nil
+        {
+            controller.addImage()
+        }
+        else
+        {
+            if !cellImage!.picker.isBeingPresented()
+            {
+                controller.presentViewController(cellImage!.picker, animated:true, completion:nil)
+            }
+        }
+    }
+    
+    func removeImage()
+    {
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteTitle", comment:""),
+            message:
+            NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteMessage", comment:""),
+            preferredStyle:UIAlertControllerStyle.ActionSheet)
+        
+        let actionDelete:UIAlertAction = UIAlertAction(
+            title:NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteDelete", comment:""),
+            style:
+            UIAlertActionStyle.Default)
+        { [weak self] (action) in
+            
+            if self != nil
+            {
+                self!.controller.removeImage(self!)
+            }
+        }
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteCancel", comment:""),
+            style:UIAlertActionStyle.Cancel,
+            handler:nil)
+        
+        alert.addAction(actionDelete)
+        alert.addAction(actionCancel)
+        controller.presentViewController(alert, animated:true, completion:nil)
     }
     
     //MARK: image picker

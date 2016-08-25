@@ -7,6 +7,7 @@ class VCreateDetailCellImage:VCreateDetailCell
     weak var buttonImage:UIButton!
     weak var buttonRemove:UIButton!
     weak var spinner:VMainLoader!
+    weak var model:MCreateItemDetailPropertyItemImage?
     let picker:UIImagePickerController
     private let kButtonSize:CGFloat = 40
     private let kImageWidth:CGFloat = 80
@@ -41,6 +42,7 @@ class VCreateDetailCellImage:VCreateDetailCell
         buttonImage.setImage(UIImage(named:"createListImage"), forState:UIControlState.Normal)
         buttonImage.imageView?.contentMode = UIViewContentMode.Center
         buttonImage.imageView?.clipsToBounds = true
+        buttonImage.addTarget(self, action:#selector(self.actionEdit(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         self.buttonImage = buttonImage
         
         let buttonRemove:UIButton = UIButton()
@@ -48,6 +50,7 @@ class VCreateDetailCellImage:VCreateDetailCell
         buttonRemove.setImage(UIImage(named:"createListRemove"), forState:UIControlState.Normal)
         buttonRemove.imageView?.contentMode = UIViewContentMode.Center
         buttonRemove.imageView?.clipsToBounds = true
+        buttonRemove.addTarget(self, action:#selector(self.actionRemove(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         self.buttonRemove = buttonRemove
         
         addSubview(buttonRemove)
@@ -122,6 +125,18 @@ class VCreateDetailCellImage:VCreateDetailCell
         layoutRemoveLeft.constant = margin
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionRemove(sender button:UIButton)
+    {
+        model?.removeImage()
+    }
+    
+    func actionEdit(sender button:UIButton)
+    {
+        model?.editImage()
     }
     
     //MARK: public
