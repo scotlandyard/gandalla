@@ -36,7 +36,11 @@ class MGandallerItem
                     }
                 }
                 
-                if lookingImage != nil
+                if lookingImage == nil
+                {
+                    self!.image.imageBinary = nil
+                }
+                else
                 {
                     let imageId:String = lookingImage!.imageId!
                     
