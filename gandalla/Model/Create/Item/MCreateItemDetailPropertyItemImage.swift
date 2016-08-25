@@ -189,23 +189,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     
     func makeProfileImage()
     {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
-        { [weak self] in
-            
-            if self != nil
-            {
-                let gandallerId:String = self!.controller.model.gandaller.gandallerId
-                let imageId:String = self!.fImage!.imageId!
-                let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
-                let propertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ProfileImage.rawValue
-                
-                FMain.sharedInstance.database.updateProperty(
-                    reference,
-                    childId:gandallerId,
-                    property:propertyId,
-                    value:imageId)
-            }
-        }
+        controller.makeProfilePicture(fImage!.imageId!)
     }
     
     //MARK: image picker

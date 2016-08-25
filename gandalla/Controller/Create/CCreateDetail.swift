@@ -108,4 +108,27 @@ class CCreateDetail:CMainController
             }
         }
     }
+    
+    func makeProfilePicture(imageId:String)
+    {
+        viewDetail.showLoading()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            if self != nil
+            {
+                let gandallerId:String = self!.model.gandaller.gandallerId
+                let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
+                let propertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ProfileImage.rawValue
+                
+                FMain.sharedInstance.database.updateProperty(
+                    reference,
+                    childId:gandallerId,
+                    property:propertyId,
+                    value:imageId)
+            }
+        }
+    }
 }
