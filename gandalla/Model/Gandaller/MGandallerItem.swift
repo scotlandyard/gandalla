@@ -22,32 +22,13 @@ class MGandallerItem
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
             
-            if self != nil
+            let profileImageId:String? = self?.fModel.profileImage
+            
+            if profileImageId != nil
             {
-                var lookingImage:FDatabaseModelGandallerImage?
-                
-                for gandallerImage:FDatabaseModelGandallerImage in self!.fModel.images
+                if self?.image.imageId != profileImageId
                 {
-                    if gandallerImage.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
-                    {
-                        lookingImage = gandallerImage
-                        
-                        break
-                    }
-                }
-                
-                if lookingImage == nil
-                {
-                    self!.image.imageBinary = nil
-                }
-                else
-                {
-                    let imageId:String = lookingImage!.imageId!
-                    
-                    if self!.image.imageId != imageId
-                    {
-                        self!.image.getImage(imageId)
-                    }
+                    self?.image.getImage(profileImageId!)
                 }
             }
         }
