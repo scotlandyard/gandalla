@@ -34,7 +34,7 @@ class VNewsCell:UICollectionViewCell
         
         let imageGandaller:UIImageView = UIImageView()
         imageGandaller.userInteractionEnabled = false
-        imageGandaller.contentMode = UIViewContentMode.ScaleToFill
+        imageGandaller.contentMode = UIViewContentMode.ScaleAspectFill
         imageGandaller.clipsToBounds = true
         imageGandaller.translatesAutoresizingMaskIntoConstraints = false
         imageGandaller.layer.borderWidth = 1
