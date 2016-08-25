@@ -35,7 +35,6 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         cellImage = cell as? VCreateDetailCellImage
         cellImage!.image.image = image
         cellImage!.buttonImage.addTarget(self, action:#selector(self.actionEditImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
-        cellImage!.buttonAdd.addTarget(self, action:#selector(self.actionAddImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         cellImage!.buttonRemove.addTarget(self, action:#selector(self.actionRemoveImage(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         cellImage!.picker.delegate = self
     }
@@ -52,11 +51,6 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         {
             controller.presentViewController(cellImage!.picker, animated:true, completion:nil)
         }
-    }
-    
-    func actionAddImage(sender button:UIButton)
-    {
-        controller.addImage()
     }
     
     func actionRemoveImage(sender button:UIButton)

@@ -15,7 +15,7 @@ class VCreateDetailCellImage:VCreateDetailCell
     
     override init(frame:CGRect)
     {
-        itemsWidth = kButtonSize + kInterItem + kImageWidth
+        itemsWidth = kButtonSize + kInterItem + kImageWidth + kInterItem + kButtonSize
         picker = UIImagePickerController()
         picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
@@ -67,12 +67,7 @@ class VCreateDetailCellImage:VCreateDetailCell
             "interItem":kInterItem]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[buttonRemove(buttonSize)]-(interItem)-[image(imageWidth)]",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[buttonRemove]-(interItem)-[buttonImage(imageWidth)]",
+            "H:[buttonRemove(buttonSize)]-(interItem)-[image(imageWidth)]-(interItem)-[buttonImage(buttonSize)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -87,7 +82,7 @@ class VCreateDetailCellImage:VCreateDetailCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-(interItem)-[buttonImage]-(interItem)-|",
+            "V:|-0-[buttonImage]-0-|",
             options:[],
             metrics:metrics,
             views:views))

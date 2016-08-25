@@ -19,4 +19,10 @@ class MCreateItemDetailProperty
         self.cellHeight = cellHeight
         self.items = items
     }
+    
+    //MARK: public
+    
+    func add()
+    {
+    }
 }
