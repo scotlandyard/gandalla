@@ -14,6 +14,6 @@ extension UIColor
     
     class func collectionBackground() -> UIColor
     {
-        return UIColor(white:0.97, alpha:1)
+        return UIColor(white:0.975, alpha:1)
     }
 }

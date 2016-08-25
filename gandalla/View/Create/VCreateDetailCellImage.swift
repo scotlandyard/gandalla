@@ -10,7 +10,7 @@ class VCreateDetailCellImage:VCreateDetailCell
     weak var spinner:VMainLoader!
     let picker:UIImagePickerController
     private let kButtonSize:CGFloat = 40
-    private let kImageWidth:CGFloat = 160
+    private let kImageWidth:CGFloat = 80
     private let kInterItem:CGFloat = 10
     private let itemsWidth:CGFloat
     

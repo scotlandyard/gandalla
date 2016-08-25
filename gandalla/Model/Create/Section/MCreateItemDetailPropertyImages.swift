@@ -2,7 +2,7 @@ import UIKit
 
 class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
 {
-    private let kCellHeight:CGFloat = 150
+    private let kCellHeight:CGFloat = 100
     
     override init(gandallerId:String, fModel:FDatabaseModelGandaller)
     {

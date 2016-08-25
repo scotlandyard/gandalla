@@ -8,7 +8,6 @@ class CCreateDetail:CMainController
     init(model:MCreateItemDetail)
     {
         self.model = model
-        model.generate()
         
         super.init(nibName:nil, bundle:nil)
     }
@@ -28,6 +27,12 @@ class CCreateDetail:CMainController
         let viewDetail:VCreateDetail = VCreateDetail(controller:self)
         self.viewDetail = viewDetail
         view = viewDetail
+    }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        model.generate()
     }
     
     //MARK: notified
