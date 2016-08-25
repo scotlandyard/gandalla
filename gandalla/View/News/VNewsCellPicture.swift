@@ -3,6 +3,9 @@ import UIKit
 class VNewsCellPicture:VNewsCell
 {
     weak var image:UIImageView!
+    private var imageId:String?
+    private let kCornerRadius:CGFloat = 4
+    private let kImageSize:CGFloat = 80
     
     override init(frame:CGRect)
     {
@@ -11,7 +14,7 @@ class VNewsCellPicture:VNewsCell
         
         let image:UIImageView = UIImageView()
         image.userInteractionEnabled = false
-        image.contentMode = UIViewContentMode.ScaleAspectFit
+        image.contentMode = UIViewContentMode.ScaleAspectFill
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         self.image = image
@@ -23,15 +26,16 @@ class VNewsCellPicture:VNewsCell
             "labelGandaller":labelGandaller,
             "imageGandaller":imageGandaller]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:AnyObject] = [
+            "imageSize":kImageSize]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[imageGandaller]-10-[image]-10-|",
+            "H:[imageGandaller]-10-[image(imagesize)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[labelGandaller]-10-[image]-10-|",
+            "V:[labelGandaller]-10-[image(imageSize)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -50,6 +54,7 @@ class VNewsCellPicture:VNewsCell
         let pictureId:String = fNewsPicture.pictureId
         let reference:FStorage.FStorageReference = FStorage.FStorageReference.Gandaller
         let gandallerId:String = gandaller!.gandallerId
+        imageId = pictureId
         
         FMain.sharedInstance.storage.loadData(
             reference,
@@ -57,13 +62,13 @@ class VNewsCellPicture:VNewsCell
             childId:pictureId)
         { [weak self] (data) in
             
-            self?.imageReceived(data, gandallerId:gandallerId)
+            self?.imageReceived(data, imageId:pictureId)
         }
     }
     
     //MARK: private
     
-    private func imageReceived(data:NSData?, gandallerId:String)
+    private func imageReceived(data:NSData?, imageId:String)
     {
         if data != nil
         {
@@ -72,7 +77,7 @@ class VNewsCellPicture:VNewsCell
             dispatch_async(dispatch_get_main_queue())
             { [weak self] in
                 
-                if gandallerId == self?.gandaller?.gandallerId
+                if imageId == self?.imageId
                 {
                     self?.image.image = imageBinary
                 }
