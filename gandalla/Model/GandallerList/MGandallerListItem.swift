@@ -15,4 +15,9 @@ class MGandallerListItem
     {
         return 0
     }
+    
+    func config(cell:VGandallersCell)
+    {
+        
+    }
 }

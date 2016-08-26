@@ -59,6 +59,7 @@ class CGandallers:CMainController
             dispatch_async(dispatch_get_main_queue())
             { [weak self] in
                 
+                self?.viewGandallers.collection.reloadData()
             }
         }
     }
