@@ -10,16 +10,25 @@ class FDatabaseModelGandallerPower
         name = ""
     }
     
+    init(json:[String:AnyObject])
+    {
+        let rawPowerName:String = json[FDatabaseModelGandaller.FDatabaseModelGandallerKey.PowerName.rawValue] as! String
+        let rawPowerNotification:String? = json[FDatabaseModelGandaller.FDatabaseModelGandallerKey.PowerNotification.rawValue] as? String
+        
+        name = rawPowerName
+        powerNotification = rawPowerNotification
+    }
+    
     //MARK: public
     
     func modelJson() -> [String:AnyObject]
     {
         var json:[String:AnyObject] = [
-            FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageStatus.rawValue:status.rawValue]
+            FDatabaseModelGandaller.FDatabaseModelGandallerKey.PowerName.rawValue:name]
         
-        if imageNotification != nil
+        if powerNotification != nil
         {
-            json[FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageNotification.rawValue] = imageNotification!
+            json[FDatabaseModelGandaller.FDatabaseModelGandallerKey.PowerNotification.rawValue] = powerNotification!
         }
         
         return json
