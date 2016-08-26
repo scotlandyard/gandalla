@@ -120,6 +120,8 @@
 		DABF04721D70E31700012C4C /* MCreateItemDetailPropertyNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04711D70E31700012C4C /* MCreateItemDetailPropertyNotifications.swift */; };
 		DABF04751D70EEA700012C4C /* CGandallers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04741D70EEA700012C4C /* CGandallers.swift */; };
 		DABF04781D70EF1E00012C4C /* VGandallers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04771D70EF1E00012C4C /* VGandallers.swift */; };
+		DABF047B1D70F17B00012C4C /* MGandallerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF047A1D70F17B00012C4C /* MGandallerList.swift */; };
+		DABF047D1D70F18500012C4C /* MGandallerListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF047C1D70F18500012C4C /* MGandallerListItem.swift */; };
 		DAD713CF1D6A0B67007ABB0C /* VNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713CE1D6A0B67007ABB0C /* VNews.swift */; };
 		DAD713D11D6A11FC007ABB0C /* DGandallaGandaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713D01D6A11FC007ABB0C /* DGandallaGandaller.swift */; };
 		DAD713DE1D6A1361007ABB0C /* MMainNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713D31D6A1361007ABB0C /* MMainNav.swift */; };
@@ -267,6 +269,8 @@
 		DABF04711D70E31700012C4C /* MCreateItemDetailPropertyNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyNotifications.swift; sourceTree = "<group>"; };
 		DABF04741D70EEA700012C4C /* CGandallers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGandallers.swift; sourceTree = "<group>"; };
 		DABF04771D70EF1E00012C4C /* VGandallers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGandallers.swift; sourceTree = "<group>"; };
+		DABF047A1D70F17B00012C4C /* MGandallerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGandallerList.swift; sourceTree = "<group>"; };
+		DABF047C1D70F18500012C4C /* MGandallerListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGandallerListItem.swift; sourceTree = "<group>"; };
 		DAD713CE1D6A0B67007ABB0C /* VNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNews.swift; sourceTree = "<group>"; };
 		DAD713D01D6A11FC007ABB0C /* DGandallaGandaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGandallaGandaller.swift; sourceTree = "<group>"; };
 		DAD713D31D6A1361007ABB0C /* MMainNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainNav.swift; sourceTree = "<group>"; };
@@ -618,6 +622,7 @@
 		DAA6A3921D69184300F2565B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DABF04791D70F17200012C4C /* GandallerList */,
 				DA155AFB1D6CBA6A000C8C85 /* Gandaller */,
 				DA155AF81D6CA7D3000C8C85 /* News */,
 				DAD713ED1D6A5F3D007ABB0C /* User */,
@@ -760,6 +765,15 @@
 				DABF04771D70EF1E00012C4C /* VGandallers.swift */,
 			);
 			path = Gandallers;
+			sourceTree = "<group>";
+		};
+		DABF04791D70F17200012C4C /* GandallerList */ = {
+			isa = PBXGroup;
+			children = (
+				DABF047A1D70F17B00012C4C /* MGandallerList.swift */,
+				DABF047C1D70F18500012C4C /* MGandallerListItem.swift */,
+			);
+			path = GandallerList;
 			sourceTree = "<group>";
 		};
 		DAD713CD1D6A0B5E007ABB0C /* News */ = {
@@ -1041,6 +1055,7 @@
 				DA13F3761D6B450F008AF28A /* FDatabaseModelNewsSocial.swift in Sources */,
 				DAD713E31D6A1361007ABB0C /* MMainNavPosPushed.swift in Sources */,
 				DAD713E51D6A1361007ABB0C /* MMainNavItemStateActive.swift in Sources */,
+				DABF047D1D70F18500012C4C /* MGandallerListItem.swift in Sources */,
 				DA42AE581D6FEF680082F43A /* MCreateItemDetailPropertyPowers.swift in Sources */,
 				DAA580131D6D2BD100EC941A /* VNewsCellPicture.swift in Sources */,
 				DA9221801D691BAA006323FE /* FStorage.swift in Sources */,
@@ -1124,6 +1139,7 @@
 				DA19122F1D6DED9F001F6F3A /* MCreateItemDetailPropertyImages.swift in Sources */,
 				DABF04751D70EEA700012C4C /* CGandallers.swift in Sources */,
 				DA155AF01D6C9D89000C8C85 /* MCreateItemDetailPropertyItemStatus.swift in Sources */,
+				DABF047B1D70F17B00012C4C /* MGandallerList.swift in Sources */,
 				DA13F3851D6B6713008AF28A /* FDatabaseModelGandaller.swift in Sources */,
 				DAA6A3C31D69184300F2565B /* CategoryUIColor.swift in Sources */,
 				DA155AED1D6C9D89000C8C85 /* MCreateItemDetail.swift in Sources */,
