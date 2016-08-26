@@ -122,6 +122,8 @@
 		DABF04781D70EF1E00012C4C /* VGandallers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04771D70EF1E00012C4C /* VGandallers.swift */; };
 		DABF047B1D70F17B00012C4C /* MGandallerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF047A1D70F17B00012C4C /* MGandallerList.swift */; };
 		DABF047D1D70F18500012C4C /* MGandallerListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF047C1D70F18500012C4C /* MGandallerListItem.swift */; };
+		DABF047F1D70F38A00012C4C /* VGandallersFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF047E1D70F38A00012C4C /* VGandallersFlow.swift */; };
+		DABF04811D70F3B100012C4C /* VGandallersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04801D70F3B100012C4C /* VGandallersCell.swift */; };
 		DAD713CF1D6A0B67007ABB0C /* VNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713CE1D6A0B67007ABB0C /* VNews.swift */; };
 		DAD713D11D6A11FC007ABB0C /* DGandallaGandaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713D01D6A11FC007ABB0C /* DGandallaGandaller.swift */; };
 		DAD713DE1D6A1361007ABB0C /* MMainNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713D31D6A1361007ABB0C /* MMainNav.swift */; };
@@ -271,6 +273,8 @@
 		DABF04771D70EF1E00012C4C /* VGandallers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGandallers.swift; sourceTree = "<group>"; };
 		DABF047A1D70F17B00012C4C /* MGandallerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGandallerList.swift; sourceTree = "<group>"; };
 		DABF047C1D70F18500012C4C /* MGandallerListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGandallerListItem.swift; sourceTree = "<group>"; };
+		DABF047E1D70F38A00012C4C /* VGandallersFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGandallersFlow.swift; sourceTree = "<group>"; };
+		DABF04801D70F3B100012C4C /* VGandallersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGandallersCell.swift; sourceTree = "<group>"; };
 		DAD713CE1D6A0B67007ABB0C /* VNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNews.swift; sourceTree = "<group>"; };
 		DAD713D01D6A11FC007ABB0C /* DGandallaGandaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGandallaGandaller.swift; sourceTree = "<group>"; };
 		DAD713D31D6A1361007ABB0C /* MMainNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainNav.swift; sourceTree = "<group>"; };
@@ -763,6 +767,8 @@
 			isa = PBXGroup;
 			children = (
 				DABF04771D70EF1E00012C4C /* VGandallers.swift */,
+				DABF047E1D70F38A00012C4C /* VGandallersFlow.swift */,
+				DABF04801D70F3B100012C4C /* VGandallersCell.swift */,
 			);
 			path = Gandallers;
 			sourceTree = "<group>";
@@ -1088,6 +1094,7 @@
 				DA13F3AB1D6BC684008AF28A /* VCreateDetailHeader.swift in Sources */,
 				DA13F35C1D6B3F19008AF28A /* MMainNavItemGandallers.swift in Sources */,
 				DAA6A3C51D69184300F2565B /* CategoryUILocalNotification.swift in Sources */,
+				DABF047F1D70F38A00012C4C /* VGandallersFlow.swift in Sources */,
 				DAA6A3CF1D69184300F2565B /* DGandallaModel.xcdatamodeld in Sources */,
 				DAA580111D6D2BBF00EC941A /* VNewsCellJoined.swift in Sources */,
 				DA3C5E7B1D709297003F5358 /* MCreateItemDetailPropertyHashtags.swift in Sources */,
@@ -1104,6 +1111,7 @@
 				DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */,
 				DA155AF31D6C9D89000C8C85 /* MCreateItemDetailPropertyStatus.swift in Sources */,
 				DABF04701D70DAD800012C4C /* VCreateDetailCellNotify.swift in Sources */,
+				DABF04811D70F3B100012C4C /* VGandallersCell.swift in Sources */,
 				DA13F3731D6B450F008AF28A /* FDatabaseModelNewsJoined.swift in Sources */,
 				DAA6A3C61D69184300F2565B /* CategoryUIViewController.swift in Sources */,
 				DA1912331D6E0CF3001F6F3A /* FDatabaseModelGandallerImageWaiting.swift in Sources */,
