@@ -118,6 +118,7 @@
 		DABF046E1D70DA0900012C4C /* MCreateItemDataPropertyItemNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF046D1D70DA0900012C4C /* MCreateItemDataPropertyItemNotify.swift */; };
 		DABF04701D70DAD800012C4C /* VCreateDetailCellNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF046F1D70DAD800012C4C /* VCreateDetailCellNotify.swift */; };
 		DABF04721D70E31700012C4C /* MCreateItemDetailPropertyNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04711D70E31700012C4C /* MCreateItemDetailPropertyNotifications.swift */; };
+		DABF04751D70EEA700012C4C /* CGandallers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04741D70EEA700012C4C /* CGandallers.swift */; };
 		DAD713CF1D6A0B67007ABB0C /* VNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713CE1D6A0B67007ABB0C /* VNews.swift */; };
 		DAD713D11D6A11FC007ABB0C /* DGandallaGandaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713D01D6A11FC007ABB0C /* DGandallaGandaller.swift */; };
 		DAD713DE1D6A1361007ABB0C /* MMainNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713D31D6A1361007ABB0C /* MMainNav.swift */; };
@@ -263,6 +264,7 @@
 		DABF046D1D70DA0900012C4C /* MCreateItemDataPropertyItemNotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDataPropertyItemNotify.swift; sourceTree = "<group>"; };
 		DABF046F1D70DAD800012C4C /* VCreateDetailCellNotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateDetailCellNotify.swift; sourceTree = "<group>"; };
 		DABF04711D70E31700012C4C /* MCreateItemDetailPropertyNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyNotifications.swift; sourceTree = "<group>"; };
+		DABF04741D70EEA700012C4C /* CGandallers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGandallers.swift; sourceTree = "<group>"; };
 		DAD713CE1D6A0B67007ABB0C /* VNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNews.swift; sourceTree = "<group>"; };
 		DAD713D01D6A11FC007ABB0C /* DGandallaGandaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGandallaGandaller.swift; sourceTree = "<group>"; };
 		DAD713D31D6A1361007ABB0C /* MMainNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainNav.swift; sourceTree = "<group>"; };
@@ -744,6 +746,7 @@
 		DABF04731D70EE9000012C4C /* Gandallers */ = {
 			isa = PBXGroup;
 			children = (
+				DABF04741D70EEA700012C4C /* CGandallers.swift */,
 			);
 			path = Gandallers;
 			sourceTree = "<group>";
@@ -1107,6 +1110,7 @@
 				DAA6A3CC1D69184300F2565B /* DManagerModel.swift in Sources */,
 				DAA6A3EA1D69184300F2565B /* VMainBarCell.swift in Sources */,
 				DA19122F1D6DED9F001F6F3A /* MCreateItemDetailPropertyImages.swift in Sources */,
+				DABF04751D70EEA700012C4C /* CGandallers.swift in Sources */,
 				DA155AF01D6C9D89000C8C85 /* MCreateItemDetailPropertyItemStatus.swift in Sources */,
 				DA13F3851D6B6713008AF28A /* FDatabaseModelGandaller.swift in Sources */,
 				DAA6A3C31D69184300F2565B /* CategoryUIColor.swift in Sources */,
