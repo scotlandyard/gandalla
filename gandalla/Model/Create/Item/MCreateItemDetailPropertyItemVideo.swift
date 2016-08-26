@@ -61,6 +61,7 @@ class MCreateItemDetailPropertyItemVideo:MCreateItemDetailPropertyItem, UITextFi
                             let newsId:String = FMain.sharedInstance.database.createChild(
                                 FDatabase.FDatabaseReference.News,
                                 json:newsJson)
+                            self!.fVideo!.videoNotification = newsId
                             
                             FMain.sharedInstance.database.updateSubProperty(
                                 reference,
