@@ -16,8 +16,8 @@ class VCreateDetailHeader:UICollectionReusableView
         let labelName:UILabel = UILabel()
         labelName.translatesAutoresizingMaskIntoConstraints = false
         labelName.backgroundColor = UIColor.clearColor()
-        labelName.font = UIFont.bold(14)
-        labelName.textColor = UIColor(white:0.4, alpha:1)
+        labelName.font = UIFont.bold(16)
+        labelName.textColor = UIColor(white:0.2, alpha:1)
         labelName.userInteractionEnabled = false
         labelName.numberOfLines = 0
         labelName.textAlignment = NSTextAlignment.Center

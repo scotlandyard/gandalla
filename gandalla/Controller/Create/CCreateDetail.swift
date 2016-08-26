@@ -90,6 +90,31 @@ class CCreateDetail:CMainController
         }
     }
     
+    func addPower()
+    {
+        viewDetail.showLoading()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            if self != nil
+            {
+                let parentReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
+                let childId:String = self!.model.gandaller.gandallerId
+                let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Powers.rawValue
+                let fPower:FDatabaseModelGandallerPower = FDatabaseModelGandallerPower(name: <#T##String#>)
+                let imageJson:[String:AnyObject] = fImage.modelJson()
+                
+                FMain.sharedInstance.database.createSubChild(
+                    parentReference,
+                    childId:childId,
+                    property:property,
+                    json:imageJson)
+            }
+        }
+    }
+    
     func removeImage(model:MCreateItemDetailPropertyItemImage)
     {
         viewDetail.showLoading()

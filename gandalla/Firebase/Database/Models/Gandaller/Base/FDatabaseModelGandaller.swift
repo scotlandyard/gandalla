@@ -18,6 +18,8 @@ class FDatabaseModelGandaller:FDatabaseModel
         case ImageStatus = "image_status"
         case ImageNotification = "image_notification"
         case Powers = "powers"
+        case PowerName = "power_name"
+        case PowerNotification = "power_notification"
         case Videos = "videos"
         case Social = "social"
         case Started = "started"

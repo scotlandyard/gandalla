@@ -6,7 +6,7 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     weak var spinner:VMainLoader!
     weak var collection:UICollectionView!
     private let kInterLine:CGFloat = 1
-    private let kHeaderHeight:CGFloat = 70
+    private let kHeaderHeight:CGFloat = 80
     private let kCollectionBottom:CGFloat = 30
     
     convenience init(controller:CCreateDetail)
