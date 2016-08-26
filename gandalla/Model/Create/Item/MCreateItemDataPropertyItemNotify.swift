@@ -45,6 +45,9 @@ class MCreateItemDetailPropertyItemNotify:MCreateItemDetailPropertyItem
                 FMain.sharedInstance.database.createChild(
                     FDatabase.FDatabaseReference.News,
                     json:newsJson)
+                
+                let titleDone:String = NSLocalizedString("MCreateItemDetailPropertyItemNotify_done", comment:"")
+                VMainAlert.Message(titleDone)
             }
         }
         

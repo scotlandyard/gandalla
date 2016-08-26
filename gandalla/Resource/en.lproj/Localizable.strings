@@ -14,6 +14,7 @@
 "MCreateItemDetailPropertyImages_name"="Images";
 "MCreateItemDetailPropertyPowers_name"="Powers";
 "MCreateItemDetailPropertySocial_name"="Social";
+"MCreateItemDetailPropertySocial_notify"="Social update";
 "MCreateItemDetailPropertyHashtags_name"="Hashtags";
 "MCreateItemDetailPropertyVideos_name"="Videos";
 "MCreateItemDetailPropertyItemImage_deleteTitle"="Delete image";
@@ -26,3 +27,4 @@
 "MCreateItemDetailPropertyItemNotify_title"="Send notification";
 "MCreateItemDetailPropertyItemNotify_notify"="Send";
 "MCreateItemDetailPropertyItemNotify_cancel"="Cancel";
+"MCreateItemDetailPropertyItemNotify_done"="Notification sent";
