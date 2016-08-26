@@ -4,17 +4,19 @@ class FDatabaseModelGandallerPower
 {
     let name:String
     var powerNotification:String?
+    var powerId:String?
     
     init()
     {
         name = ""
     }
     
-    init(json:[String:AnyObject])
+    init(json:[String:AnyObject], powerId:String)
     {
         let rawPowerName:String = json[FDatabaseModelGandaller.FDatabaseModelGandallerKey.PowerName.rawValue] as! String
         let rawPowerNotification:String? = json[FDatabaseModelGandaller.FDatabaseModelGandallerKey.PowerNotification.rawValue] as? String
         
+        self.powerId = powerId
         name = rawPowerName
         powerNotification = rawPowerNotification
     }
