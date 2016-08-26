@@ -98,6 +98,7 @@ class CCreateDetail:CMainController
                     let parentReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
                     let childId:String = self!.model.gandaller.gandallerId
                     let imageId:String = model.fImage!.imageId!
+                    let imageNotification:String? = model.fImage?.imageNotification
                     let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Images.rawValue
                     
                     if model.fImage!.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
@@ -116,6 +117,13 @@ class CCreateDetail:CMainController
                         childId:childId,
                         property:property,
                         subChildId:imageId)
+                    
+                    if imageNotification != nil
+                    {
+                        let newsReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.News
+                        
+                        FMain.sharedInstance.database.deleteSubChild(<#T##parent: FDatabase.FDatabaseReference##FDatabase.FDatabaseReference#>, childId: <#T##String#>, property: <#T##String#>, subChildId: <#T##String#>)
+                    }
                 }
             }
         }
