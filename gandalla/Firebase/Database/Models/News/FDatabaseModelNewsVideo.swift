@@ -3,7 +3,7 @@ import UIKit
 class FDatabaseModelNewsVideo:FDatabaseModelNews
 {
     let url:String
-    private let kCellHeight:CGFloat = 50
+    private let kCellHeight:CGFloat = 80
     
     init(gandallerId:String, url:String)
     {
@@ -36,7 +36,7 @@ class FDatabaseModelNewsVideo:FDatabaseModelNews
     
     override func reusableIdentifier() -> String
     {
-        let identifier:String = VNewsCellJoined.reusableIdentifier()
+        let identifier:String = VNewsCellVideo.reusableIdentifier()
         
         return identifier
     }

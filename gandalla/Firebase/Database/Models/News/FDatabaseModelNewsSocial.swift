@@ -2,7 +2,7 @@ import UIKit
 
 class FDatabaseModelNewsSocial:FDatabaseModelNews
 {
-    private let kCellHeight:CGFloat = 40
+    private let kCellHeight:CGFloat = 90
     
     init(gandallerId:String)
     {
@@ -23,7 +23,7 @@ class FDatabaseModelNewsSocial:FDatabaseModelNews
     
     override func reusableIdentifier() -> String
     {
-        let identifier:String = VNewsCellJoined.reusableIdentifier()
+        let identifier:String = VNewsCellSocial.reusableIdentifier()
         
         return identifier
     }
