@@ -23,5 +23,6 @@ class MCreateItemDetailPropertyPowers:MCreateItemDetailProperty
     
     override func add(controller:CCreateDetail)
     {
+        controller.addPower()
     }
 }
