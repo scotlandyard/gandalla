@@ -22,7 +22,7 @@ class VNewsCellPower:VNewsCell
         labelTitle.font = UIFont.regular(13)
         labelTitle.textColor = UIColor(white:0.5, alpha:1)
         labelTitle.userInteractionEnabled = false
-        labelTitle.text = NSLocalizedString("VNewsCellJoined_labelPower", comment:"")
+        labelTitle.text = NSLocalizedString("VNewsCellPower_labelEvent", comment:"")
         
         addSubview(labelEvent)
         addSubview(labelTitle)

@@ -538,6 +538,7 @@
 		DAA6A37E1D69184300F2565B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DABF04731D70EE9000012C4C /* Gandallers */,
 				DA9221861D6A0B04006323FE /* News */,
 				DAA6A37F1D69184300F2565B /* Create */,
 				DAA6A3811D69184300F2565B /* Main */,
@@ -738,6 +739,13 @@
 				DAA6A3BA1D69184300F2565B /* VMainShadow.swift */,
 			);
 			path = Generic;
+			sourceTree = "<group>";
+		};
+		DABF04731D70EE9000012C4C /* Gandallers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Gandallers;
 			sourceTree = "<group>";
 		};
 		DAD713CD1D6A0B5E007ABB0C /* News */ = {

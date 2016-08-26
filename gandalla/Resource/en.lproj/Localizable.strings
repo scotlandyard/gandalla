@@ -5,7 +5,9 @@
 "VCreateDetailCellStatus_itemPaused"="Paused";
 "VCreateDetailCellStarted_label"="Started";
 "VNewsCellJoined_labelEvent"="Ingresó al Escuadrón";
-"VNewsCellJoined_labelPower"="Nuevo super poder";
+"VNewsCellPower_labelEvent"="Nuevo super poder";
+"VNewsCellSocial_labelEvent"="Actualizó sus redes sociales";
+"VNewsCellVideo_labelEvent"="Nuevo video";
 
 "MCreateItem_noName"="-";
 "MCreateItemDetailPropertyStatus_name"="Status";

@@ -3,7 +3,7 @@ import UIKit
 class FDatabaseModelNewsVideo:FDatabaseModelNews
 {
     let url:String
-    private let kCellHeight:CGFloat = 80
+    private let kCellHeight:CGFloat = 90
     
     init(gandallerId:String, url:String)
     {
