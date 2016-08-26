@@ -21,7 +21,14 @@ class FDatabaseModelGandaller:FDatabaseModel
         case PowerName = "power_name"
         case PowerNotification = "power_notification"
         case Videos = "videos"
+        case VideoName = "video_name"
+        case VideoNotification = "video_notification"
         case Social = "social"
+        case SocialFacebook = "social_facebook"
+        case SocialTwitter = "social_twitter"
+        case SocialInstagram = "social_instagram"
+        case SocialHashtags = "social_hashtags"
+        case SocialHashtagName = "social_hashtag_name"
         case Started = "started"
     }
     

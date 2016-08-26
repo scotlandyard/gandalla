@@ -7,14 +7,6 @@ class FDatabaseModelGandallerSocial
     var instagram:String?
     var hashtags:[FDatabaseModelGandallerSocialHashtag]
     
-    enum FDatabaseModelGandallerSocial:String
-    {
-        case Facebook = "facebook"
-        case Twitter = "twitter"
-        case Instagram = "instagram"
-        case Hashtags = "hashtags"
-    }
-    
     init()
     {
         hashtags = []
