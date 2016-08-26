@@ -28,6 +28,7 @@ class VGandallers:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             VGandallersCell.self,
             forCellWithReuseIdentifier:
             VGandallersCell.reusableIdentifier())
+        self.collection = collection
         
         addSubview(collection)
         
