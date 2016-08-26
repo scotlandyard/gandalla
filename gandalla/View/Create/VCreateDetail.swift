@@ -56,9 +56,9 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             forCellWithReuseIdentifier:
             VCreateDetailCellImage.reusableIdentifier())
         collection.registerClass(
-            VCreateDetailCellList.self,
+            VCreateDetailCellNotify.self,
             forCellWithReuseIdentifier:
-            VCreateDetailCellList.reusableIdentifier())
+            VCreateDetailCellNotify.reusableIdentifier())
         collection.registerClass(
             VCreateDetailHeader.self,
             forSupplementaryViewOfKind:
