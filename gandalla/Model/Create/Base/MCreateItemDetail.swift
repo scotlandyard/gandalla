@@ -22,13 +22,19 @@ class MCreateItemDetail
         let propertyName:MCreateItemDetailPropertyName = MCreateItemDetailPropertyName(gandallerId:gandallerId, fModel:fModel)
         let propertyImages:MCreateItemDetailPropertyImages = MCreateItemDetailPropertyImages(gandallerId:gandallerId, fModel:fModel)
         let propertyPowers:MCreateItemDetailPropertyPowers = MCreateItemDetailPropertyPowers(gandallerId:gandallerId, fModel:fModel)
+        let propertySocial:MCreateItemDetailPropertyPowers = MCreateItemDetailPropertySocial(gandallerId:gandallerId, fModel:fModel)
+        let propertyHashtags:MCreateItemDetailPropertyPowers = MCreateItemDetailPropertyHashtags(gandallerId:gandallerId, fModel:fModel)
+        let propertyVideos:MCreateItemDetailPropertyPowers = MCreateItemDetailPropertyVideos(gandallerId:gandallerId, fModel:fModel)
         
         properties = [
             propertyStatus,
             propertyStarted,
             propertyName,
             propertyImages,
-            propertyPowers
+            propertyPowers,
+            propertySocial,
+            propertyHashtags,
+            propertyVideos
         ]
     }
 }
