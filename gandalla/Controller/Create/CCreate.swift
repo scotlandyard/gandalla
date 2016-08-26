@@ -54,21 +54,12 @@ class CCreate:CMainController
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         {
             let fGandaller:FDatabaseModelGandaller = FDatabaseModelGandallerPaused()
-            let fImage:FDatabaseModelGandallerImage = FDatabaseModelGandallerImageWaiting()
             let gandallerReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
-            let imagesProperty:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Images.rawValue
             let jsonGandaller:[String:AnyObject] = fGandaller.modelJson()
-            let jsonImage:[String:AnyObject] = fImage.modelJson()
             
-            let gandallerId:String = FMain.sharedInstance.database.createChild(
+            FMain.sharedInstance.database.createChild(
                 gandallerReference,
                 json:jsonGandaller)
-            
-            FMain.sharedInstance.database.createSubChild(
-                gandallerReference,
-                childId:gandallerId,
-                property:imagesProperty,
-                json:jsonImage)
             
             let message:String = NSLocalizedString("CCreate_gandallerCreated", comment:"")
             VMainAlert.Message(message)
