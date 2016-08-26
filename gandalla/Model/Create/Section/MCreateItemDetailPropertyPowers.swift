@@ -8,7 +8,7 @@ class MCreateItemDetailPropertyPowers:MCreateItemDetailProperty
     override init(gandallerId:String, fModel:FDatabaseModelGandaller)
     {
         let name:String = NSLocalizedString("MCreateItemDetailPropertyPowers_name", comment:"")
-        let reusableIdentifier:String = VCreateDetailCellImage.reusableIdentifier()
+        let reusableIdentifier:String = VCreateDetailCellText.reusableIdentifier()
         let profileImageId:String? = fModel.profileImage
         var items:[MCreateItemDetailPropertyItem] = []
         
