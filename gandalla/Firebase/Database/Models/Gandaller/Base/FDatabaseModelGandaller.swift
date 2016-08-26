@@ -131,7 +131,7 @@ class FDatabaseModelGandaller:FDatabaseModel
             for rawVideoKey:String in rawVideosKeys
             {
                 let rawVideo:[String:AnyObject] = rawVideos![rawVideoKey]!
-                let video:FDatabaseModelGandallerVideo = FDatabaseModelGandallerVideo(json:rawPower, videoId:rawVideoKey)
+                let video:FDatabaseModelGandallerVideo = FDatabaseModelGandallerVideo(json:rawVideo, videoId:rawVideoKey)
                 videos.append(video)
             }
         }
