@@ -3,6 +3,7 @@ import UIKit
 class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
 {
     private let kCellHeight:CGFloat = 100
+    private let kAddAvailable:Bool = true
     
     override init(gandallerId:String, fModel:FDatabaseModelGandaller)
     {
@@ -27,6 +28,6 @@ class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
             items.append(itemImage)
         }
         
-        super.init(name:name, reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, items:items)
+        super.init(name:name, reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, items:items, addAvailable:kAddAvailable)
     }
 }
