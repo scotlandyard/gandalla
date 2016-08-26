@@ -4,6 +4,7 @@ class VCreateDetailHeader:UICollectionReusableView
 {
     weak var labelName:UILabel!
     weak var buttonAdd:UIButton!
+    weak var model:MCreateItemDetailProperty!
     
     override init(frame:CGRect)
     {
@@ -26,6 +27,7 @@ class VCreateDetailHeader:UICollectionReusableView
         buttonAdd.setImage(UIImage(named:"createListAdd"), forState:UIControlState.Normal)
         buttonAdd.imageView?.contentMode = UIViewContentMode.Center
         buttonAdd.imageView?.clipsToBounds = true
+        buttonAdd.addTarget(self, action:#selector(self.actionAdd(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         self.buttonAdd = buttonAdd
         
         addSubview(labelName)
@@ -48,7 +50,7 @@ class VCreateDetailHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[buttonAdd(70)]-0-|",
+            "H:[buttonAdd(90)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -64,10 +66,27 @@ class VCreateDetailHeader:UICollectionReusableView
         fatalError()
     }
     
+    //MARK: actions
+    
+    func actionAdd(sender button:UIButton)
+    {
+        model.add()
+    }
+    
     //MARK: public
     
     func config(model:MCreateItemDetailProperty)
     {
+        self.model = model
         labelName.text = model.name
+        
+        if model.addAvailable
+        {
+            buttonAdd.hidden = false
+        }
+        else
+        {
+            buttonAdd.hidden = true
+        }
     }
 }
