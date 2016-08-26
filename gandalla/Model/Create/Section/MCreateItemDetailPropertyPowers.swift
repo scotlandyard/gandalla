@@ -9,23 +9,13 @@ class MCreateItemDetailPropertyPowers:MCreateItemDetailProperty
     {
         let name:String = NSLocalizedString("MCreateItemDetailPropertyPowers_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellText.reusableIdentifier()
-        let profileImageId:String? = fModel.profileImage
         var items:[MCreateItemDetailPropertyItem] = []
         
-        for fImage:FDatabaseModelGandallerImage in fModel.images
+        for fPower:FDatabaseModelGandallerPower in fModel.powers
         {
-            var profileImage:Bool = false
-            
-            if profileImageId != nil
-            {
-                if fImage.imageId == profileImageId
-                {
-                    profileImage = true
-                }
-            }
-            
-            let itemImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(gandallerId:gandallerId, fImage:fImage, profileImage:profileImage)
-            items.append(itemImage)
+            let powerName:String = fPower.name
+            let itemPower:MCreateItemDetailPropertyItemPower = MCreateItemDetailPropertyItemPower(power:powerName)
+            items.append(itemPower)
         }
         
         super.init(name:name, reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, items:items, addAvailable:kAddAvailable)
