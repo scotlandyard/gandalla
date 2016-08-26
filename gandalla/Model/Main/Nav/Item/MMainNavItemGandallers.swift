@@ -11,7 +11,7 @@ class MMainNavItemGandallers:MMainNavItem
     
     override func controller() -> UIViewController
     {
-        let news:CNews = CNews()
+        let news:CGandallers = CGandallers()
         
         return news
     }

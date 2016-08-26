@@ -2,6 +2,8 @@ import UIKit
 
 class CGandallers:CMainController
 {
+    weak var viewGandallers:VGandallers!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -9,6 +11,8 @@ class CGandallers:CMainController
     
     override func loadView()
     {
-        
+        let viewGandallers:VGandallers = VGandallers(controller:self)
+        self.viewGandallers = viewGandallers
+        view = viewGandallers
     }
 }

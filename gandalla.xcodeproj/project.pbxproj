@@ -119,6 +119,7 @@
 		DABF04701D70DAD800012C4C /* VCreateDetailCellNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF046F1D70DAD800012C4C /* VCreateDetailCellNotify.swift */; };
 		DABF04721D70E31700012C4C /* MCreateItemDetailPropertyNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04711D70E31700012C4C /* MCreateItemDetailPropertyNotifications.swift */; };
 		DABF04751D70EEA700012C4C /* CGandallers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04741D70EEA700012C4C /* CGandallers.swift */; };
+		DABF04781D70EF1E00012C4C /* VGandallers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04771D70EF1E00012C4C /* VGandallers.swift */; };
 		DAD713CF1D6A0B67007ABB0C /* VNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713CE1D6A0B67007ABB0C /* VNews.swift */; };
 		DAD713D11D6A11FC007ABB0C /* DGandallaGandaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713D01D6A11FC007ABB0C /* DGandallaGandaller.swift */; };
 		DAD713DE1D6A1361007ABB0C /* MMainNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713D31D6A1361007ABB0C /* MMainNav.swift */; };
@@ -265,6 +266,7 @@
 		DABF046F1D70DAD800012C4C /* VCreateDetailCellNotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateDetailCellNotify.swift; sourceTree = "<group>"; };
 		DABF04711D70E31700012C4C /* MCreateItemDetailPropertyNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyNotifications.swift; sourceTree = "<group>"; };
 		DABF04741D70EEA700012C4C /* CGandallers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGandallers.swift; sourceTree = "<group>"; };
+		DABF04771D70EF1E00012C4C /* VGandallers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGandallers.swift; sourceTree = "<group>"; };
 		DAD713CE1D6A0B67007ABB0C /* VNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNews.swift; sourceTree = "<group>"; };
 		DAD713D01D6A11FC007ABB0C /* DGandallaGandaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGandallaGandaller.swift; sourceTree = "<group>"; };
 		DAD713D31D6A1361007ABB0C /* MMainNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainNav.swift; sourceTree = "<group>"; };
@@ -689,6 +691,7 @@
 		DAA6A3AF1D69184300F2565B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DABF04761D70EF1600012C4C /* Gandallers */,
 				DAD713CD1D6A0B5E007ABB0C /* News */,
 				DAA6A3B01D69184300F2565B /* Create */,
 				DAA6A3B21D69184300F2565B /* Main */,
@@ -747,6 +750,14 @@
 			isa = PBXGroup;
 			children = (
 				DABF04741D70EEA700012C4C /* CGandallers.swift */,
+			);
+			path = Gandallers;
+			sourceTree = "<group>";
+		};
+		DABF04761D70EF1600012C4C /* Gandallers */ = {
+			isa = PBXGroup;
+			children = (
+				DABF04771D70EF1E00012C4C /* VGandallers.swift */,
 			);
 			path = Gandallers;
 			sourceTree = "<group>";
@@ -1070,6 +1081,7 @@
 				DA13F3891D6B677A008AF28A /* FDatabaseModelGandallerActive.swift in Sources */,
 				DA13F3A31D6BC20C008AF28A /* VCreateDetailCellImage.swift in Sources */,
 				DAA6A3CB1D69184300F2565B /* DManager.swift in Sources */,
+				DABF04781D70EF1E00012C4C /* VGandallers.swift in Sources */,
 				DA155AFA1D6CA7DD000C8C85 /* MNews.swift in Sources */,
 				DAA5800D1D6D1A1C00EC941A /* MNewsItem.swift in Sources */,
 				DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */,
