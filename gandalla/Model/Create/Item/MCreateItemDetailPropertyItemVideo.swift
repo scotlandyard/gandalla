@@ -4,12 +4,13 @@ class MCreateItemDetailPropertyItemVideo:MCreateItemDetailPropertyItem, UITextFi
 {
     let gandallerId:String
     var fVideo:FDatabaseModelGandallerVideo?
+    let placeholder:String
     
     init(gandallerId:String, fVideo:FDatabaseModelGandallerVideo)
     {
         self.gandallerId = gandallerId
         self.fVideo = fVideo
-        
+        placeholder = ""
         super.init()
     }
     
@@ -20,6 +21,7 @@ class MCreateItemDetailPropertyItemVideo:MCreateItemDetailPropertyItem, UITextFi
         let cellText:VCreateDetailCellText = cell as! VCreateDetailCellText
         cellText.field.delegate = self
         cellText.field.text = fVideo?.url
+        cellText.field.placeholder = placeholder
     }
     
     //MARK: field del

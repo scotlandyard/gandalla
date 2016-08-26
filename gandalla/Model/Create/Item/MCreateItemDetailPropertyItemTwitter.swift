@@ -3,10 +3,12 @@ import UIKit
 class MCreateItemDetailPropertyItemTwitter:MCreateItemDetailPropertyItem, UITextFieldDelegate
 {
     var name:String
+    let placeholder:String
     
     init(name:String)
     {
         self.name = name
+        placeholder = NSLocalizedString("MCreateItemDetailPropertyItemTwitter_placeholder", comment:"")
         super.init()
     }
     
@@ -17,6 +19,7 @@ class MCreateItemDetailPropertyItemTwitter:MCreateItemDetailPropertyItem, UIText
         let cellText:VCreateDetailCellText = cell as! VCreateDetailCellText
         cellText.field.delegate = self
         cellText.field.text = name
+        cellText.field.placeholder = placeholder
     }
     
     //MARK: field del

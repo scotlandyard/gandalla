@@ -4,12 +4,13 @@ class MCreateItemDetailPropertyItemHashtag:MCreateItemDetailPropertyItem, UIText
 {
     let gandallerId:String
     var fHashtag:FDatabaseModelGandallerSocialHashtag?
+    let placeholder:String
     
     init(gandallerId:String, fHashtag:FDatabaseModelGandallerSocialHashtag)
     {
         self.gandallerId = gandallerId
         self.fHashtag = fHashtag
-        
+        placeholder = ""
         super.init()
     }
     
@@ -20,6 +21,7 @@ class MCreateItemDetailPropertyItemHashtag:MCreateItemDetailPropertyItem, UIText
         let cellText:VCreateDetailCellText = cell as! VCreateDetailCellText
         cellText.field.delegate = self
         cellText.field.text = fHashtag?.tag
+        cellText.field.placeholder = placeholder
     }
     
     //MARK: field del

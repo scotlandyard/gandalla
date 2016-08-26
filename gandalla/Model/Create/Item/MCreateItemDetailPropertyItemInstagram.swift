@@ -3,10 +3,12 @@ import UIKit
 class MCreateItemDetailPropertyItemInstagram:MCreateItemDetailPropertyItem, UITextFieldDelegate
 {
     var name:String
+    let placeholder:String
     
     init(name:String)
     {
         self.name = name
+        placeholder = NSLocalizedString("MCreateItemDetailPropertyItemInstagram_placeholder", comment:"")
         super.init()
     }
     
@@ -17,6 +19,7 @@ class MCreateItemDetailPropertyItemInstagram:MCreateItemDetailPropertyItem, UITe
         let cellText:VCreateDetailCellText = cell as! VCreateDetailCellText
         cellText.field.delegate = self
         cellText.field.text = name
+        cellText.field.placeholder = placeholder
     }
     
     //MARK: field del

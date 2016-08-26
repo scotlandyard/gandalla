@@ -20,3 +20,6 @@
 "MCreateItemDetailPropertyItemImage_deleteMessage"="Are you sure?";
 "MCreateItemDetailPropertyItemImage_deleteDelete"="Delete";
 "MCreateItemDetailPropertyItemImage_deleteCancel"="Cancel";
+"MCreateItemDetailPropertyItemFacebook_placeholder"="Facebook";
+"MCreateItemDetailPropertyItemTwitter_placeholder"="Twitter";
+"MCreateItemDetailPropertyItemInstagram_placeholder"="Instagram";

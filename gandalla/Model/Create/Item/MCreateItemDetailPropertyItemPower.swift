@@ -4,12 +4,13 @@ class MCreateItemDetailPropertyItemPower:MCreateItemDetailPropertyItem, UITextFi
 {
     let gandallerId:String
     var fPower:FDatabaseModelGandallerPower?
+    let placeholder:String
     
     init(gandallerId:String, fPower:FDatabaseModelGandallerPower)
     {
         self.gandallerId = gandallerId
         self.fPower = fPower
-        
+        placeholder = ""
         super.init()
     }
     
@@ -20,6 +21,7 @@ class MCreateItemDetailPropertyItemPower:MCreateItemDetailPropertyItem, UITextFi
         let cellText:VCreateDetailCellText = cell as! VCreateDetailCellText
         cellText.field.delegate = self
         cellText.field.text = fPower?.name
+        cellText.field.placeholder = placeholder
     }
     
     //MARK: field del

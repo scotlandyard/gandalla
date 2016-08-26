@@ -3,10 +3,12 @@ import UIKit
 class MCreateItemDetailPropertyItemName:MCreateItemDetailPropertyItem, UITextFieldDelegate
 {
     var name:String
+    let placeholder:String
     
     init(name:String)
     {
         self.name = name
+        placeholder = ""
         super.init()
     }
     
@@ -17,6 +19,7 @@ class MCreateItemDetailPropertyItemName:MCreateItemDetailPropertyItem, UITextFie
         let cellText:VCreateDetailCellText = cell as! VCreateDetailCellText
         cellText.field.delegate = self
         cellText.field.text = name
+        cellText.field.placeholder = placeholder
     }
     
     //MARK: field del

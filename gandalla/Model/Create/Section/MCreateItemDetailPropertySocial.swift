@@ -9,15 +9,17 @@ class MCreateItemDetailPropertySocial:MCreateItemDetailProperty
     {
         let name:String = NSLocalizedString("MCreateItemDetailPropertySocial_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellText.reusableIdentifier()
-        let itemFacebook:mcreateitemdetai
+        let facebook:String = fModel.social.facebook
+        let twitter:String = fModel.social.twitter
+        let instagram:String = fModel.social.instagram
+        let itemFacebook:MCreateItemDetailPropertyItemFacebook = MCreateItemDetailPropertyItemFacebook(name:facebook)
+        let itemTwitter:MCreateItemDetailPropertyItemTwitter = MCreateItemDetailPropertyItemTwitter(name:twitter)
+        let itemInstagram:MCreateItemDetailPropertyItemInstagram = MCreateItemDetailPropertyItemInstagram(name:instagram)
         let items:[MCreateItemDetailPropertyItem] = [
+            itemFacebook,
+            itemTwitter,
+            itemInstagram
         ]
-        
-        for fPower:FDatabaseModelGandallerPower in fModel.powers
-        {
-            let itemPower:MCreateItemDetailPropertyItemPower = MCreateItemDetailPropertyItemPower(gandallerId:gandallerId, fPower:fPower)
-            items.append(itemPower)
-        }
         
         super.init(name:name, reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, items:items, addAvailable:kAddAvailable)
     }
