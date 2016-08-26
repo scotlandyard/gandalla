@@ -34,13 +34,13 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         super.config(controller, cell:cell)
         cellImage = cell as? VCreateDetailCellImage
         cellImage?.model = self
+        cellImage!.picker.delegate = self
         
         if fImage?.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
         {
             cellImage!.image.hidden = false
             cellImage!.check.hidden = false
             cellImage!.image.image = image
-            cellImage!.picker.delegate = self
             
             if profileImage
             {
