@@ -30,4 +30,9 @@ class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
         
         super.init(name:name, reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, items:items, addAvailable:kAddAvailable)
     }
+    
+    override func add(controller:CCreateDetail)
+    {
+        controller.addImage()
+    }
 }

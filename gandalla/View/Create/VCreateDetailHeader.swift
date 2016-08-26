@@ -51,7 +51,7 @@ class VCreateDetailHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[buttonAdd(90)]-0-|",
+            "H:[buttonAdd(70)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

@@ -183,7 +183,7 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             VCreateDetailHeader.reusableIdentifier(),
             forIndexPath:indexPath) as! VCreateDetailHeader
         
-        header.config(section)
+        header.config(controller, model:section)
         
         return header
     }
