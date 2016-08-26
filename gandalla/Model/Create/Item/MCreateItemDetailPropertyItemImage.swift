@@ -36,6 +36,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         cellImage!.spinner.stopAnimating()
         cellImage!.model = self
         cellImage!.picker.delegate = self
+        cellImage!.buttonImage.hidden = false
         
         if fImage?.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
         {
@@ -83,64 +84,27 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
                 
                 if error == nil
                 {
-                    self?.changeImageStatus()
-                }
-                
-                dispatch_async(dispatch_get_main_queue())
-                { [weak self] in
-                    
-                    if self != nil
-                    {
-                        if self!.cellImage != nil
+                    dispatch_async(dispatch_get_main_queue())
+                    { [weak self] in
+                        
+                        if self != nil
                         {
-                            self!.config(self!.controller, cell:self!.cellImage!)
+                            if self!.fImage != nil
+                            {
+                                self!.controller.changeImageStatus(self!.fImage!)
+                            }
                         }
                     }
+                }
+                else
+                {
+                    self?.cellImage?.hideLoading()
                 }
             }
         }
         else
         {
             cellImage?.hideLoading()
-        }
-    }
-    
-    private func changeImageStatus()
-    {
-        if fImage != nil
-        {
-            if fImage!.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Waiting
-            {
-                let gandallerId:String = controller.model.gandaller.gandallerId
-                let imageId:String = fImage!.imageId!
-                let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
-                let propertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Images.rawValue
-                let subPropertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageStatus.rawValue
-                let newStatus:Int = FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready.rawValue
-                let propertyImageNotification:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageNotification.rawValue
-                
-                FMain.sharedInstance.database.updateSubProperty(
-                    reference,
-                    childId:gandallerId,
-                    property:propertyId,
-                    subChildId:imageId,
-                    subPropertyId:subPropertyId,
-                    value:newStatus)
-                
-                let news:FDatabaseModelNews = FDatabaseModelNewsPicture(gandallerId:gandallerId, pictureId:imageId)
-                let newsJson:[String:AnyObject] = news.modelJson()
-                let newsId:String = FMain.sharedInstance.database.createChild(
-                    FDatabase.FDatabaseReference.News,
-                    json:newsJson)
-                
-                FMain.sharedInstance.database.updateSubProperty(
-                    reference,
-                    childId:gandallerId,
-                    property:propertyId,
-                    subChildId:imageId,
-                    subPropertyId:propertyImageNotification,
-                    value:newsId)
-            }
         }
     }
     

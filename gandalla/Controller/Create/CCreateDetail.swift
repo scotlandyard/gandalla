@@ -44,15 +44,22 @@ class CCreateDetail:CMainController
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
             
-            self?.model.generate()
-            let topCollection:CGRect = CGRectMake(0, 0, 1, 1)
+            self?.updateModel()
+        }
+    }
+    
+    //MARK: private
+    
+    private func updateModel()
+    {
+        model.generate()
+        let topCollection:CGRect = CGRectMake(0, 0, 1, 1)
+        
+        dispatch_async(dispatch_get_main_queue())
+        { [weak self] in
             
-            dispatch_async(dispatch_get_main_queue())
-            { [weak self] in
-                
-                self?.viewDetail.hideLoading()
-                self?.viewDetail.collection.scrollRectToVisible(topCollection, animated:true)
-            }
+            self?.viewDetail.hideLoading()
+            self?.viewDetail.collection.scrollRectToVisible(topCollection, animated:true)
         }
     }
     
@@ -151,6 +158,48 @@ class CCreateDetail:CMainController
                     property:propertyId,
                     value:imageId)
             }
+        }
+    }
+    
+    func changeImageStatus(fImage:FDatabaseModelGandallerImage)
+    {
+        if fImage.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Waiting
+        {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+            
+            let gandallerId:String = model.gandaller.gandallerId
+            let imageId:String = fImage.imageId!
+            let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
+            let propertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Images.rawValue
+            let subPropertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageStatus.rawValue
+            let newStatus:Int = FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready.rawValue
+            let propertyImageNotification:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageNotification.rawValue
+            
+            FMain.sharedInstance.database.updateSubProperty(
+                reference,
+                childId:gandallerId,
+                property:propertyId,
+                subChildId:imageId,
+                subPropertyId:subPropertyId,
+                value:newStatus)
+            
+            let news:FDatabaseModelNews = FDatabaseModelNewsPicture(gandallerId:gandallerId, pictureId:imageId)
+            let newsJson:[String:AnyObject] = news.modelJson()
+            let newsId:String = FMain.sharedInstance.database.createChild(
+                FDatabase.FDatabaseReference.News,
+                json:newsJson)
+            
+            FMain.sharedInstance.database.updateSubProperty(
+                reference,
+                childId:gandallerId,
+                property:propertyId,
+                subChildId:imageId,
+                subPropertyId:propertyImageNotification,
+                value:newsId)
+        }
+        else
+        {
+            updateModel()
         }
     }
 }

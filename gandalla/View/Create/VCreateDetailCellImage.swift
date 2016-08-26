@@ -170,6 +170,7 @@ class VCreateDetailCellImage:VCreateDetailCell
             self?.buttonImage.hidden = true
             self?.image.hidden = true
             self?.buttonRemove.hidden = true
+            self?.check.hidden = true
         }
     }
     
@@ -183,6 +184,7 @@ class VCreateDetailCellImage:VCreateDetailCell
                 self!.spinner.stopAnimating()
                 self!.buttonImage.hidden = false
                 self!.image.hidden = false
+                self!.check.hidden = false
                 
                 if self!.model!.profileImage
                 {
