@@ -14,7 +14,8 @@
 "MCreateItemDetailPropertyImages_name"="Images";
 "MCreateItemDetailPropertyPowers_name"="Powers";
 "MCreateItemDetailPropertySocial_name"="Social";
-"MCreateItemDetailPropertySocial_notify"="Social update";
+"MCreateItemDetailPropertyNotifications_name"="Notifications";
+"MCreateItemDetailPropertyNotifications_social"="Social update";
 "MCreateItemDetailPropertyHashtags_name"="Hashtags";
 "MCreateItemDetailPropertyVideos_name"="Videos";
 "MCreateItemDetailPropertyItemImage_deleteTitle"="Delete image";

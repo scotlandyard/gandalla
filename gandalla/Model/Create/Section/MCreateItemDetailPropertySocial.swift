@@ -12,13 +12,10 @@ class MCreateItemDetailPropertySocial:MCreateItemDetailProperty
         let facebook:String = fModel.social.facebook
         let twitter:String = fModel.social.twitter
         let instagram:String = fModel.social.instagram
-        let titleNotify:String = NSLocalizedString("MCreateItemDetailPropertySocial_notify", comment:"")
-        let itemNotify:MCreateItemDetailPropertyItemNotify = MCreateItemDetailPropertyItemNotify(gandallerId:gandallerId, title:titleNotify)
         let itemFacebook:MCreateItemDetailPropertyItemFacebook = MCreateItemDetailPropertyItemFacebook(name:facebook)
         let itemTwitter:MCreateItemDetailPropertyItemTwitter = MCreateItemDetailPropertyItemTwitter(name:twitter)
         let itemInstagram:MCreateItemDetailPropertyItemInstagram = MCreateItemDetailPropertyItemInstagram(name:instagram)
         let items:[MCreateItemDetailPropertyItem] = [
-            itemNotify,
             itemFacebook,
             itemTwitter,
             itemInstagram

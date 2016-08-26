@@ -25,6 +25,7 @@ class MCreateItemDetail
         let propertySocial:MCreateItemDetailPropertySocial = MCreateItemDetailPropertySocial(gandallerId:gandallerId, fModel:fModel)
         let propertyHashtags:MCreateItemDetailPropertyHashtags = MCreateItemDetailPropertyHashtags(gandallerId:gandallerId, fModel:fModel)
         let propertyVideos:MCreateItemDetailPropertyVideos = MCreateItemDetailPropertyVideos(gandallerId:gandallerId, fModel:fModel)
+        let propertyNotify:MCreateItemDetailPropertyNotifications = MCreateItemDetailPropertyNotifications(gandallerId:gandallerId, fModel:fModel)
         
         properties = [
             propertyStatus,
@@ -34,7 +35,8 @@ class MCreateItemDetail
             propertyPowers,
             propertySocial,
             propertyHashtags,
-            propertyVideos
+            propertyVideos,
+            propertyNotify
         ]
     }
 }
