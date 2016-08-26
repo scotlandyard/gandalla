@@ -43,6 +43,12 @@ class FDatabaseModelGandallerSocial
                 }
             }
         }
+        else
+        {
+            facebook = ""
+            twitter = ""
+            instagram = ""
+        }
     }
     
     //MARK: public

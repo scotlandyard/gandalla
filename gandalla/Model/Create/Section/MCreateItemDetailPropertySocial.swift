@@ -9,7 +9,9 @@ class MCreateItemDetailPropertySocial:MCreateItemDetailProperty
     {
         let name:String = NSLocalizedString("MCreateItemDetailPropertySocial_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellText.reusableIdentifier()
-        var items:[MCreateItemDetailPropertyItem] = []
+        let itemFacebook:mcreateitemdetai
+        let items:[MCreateItemDetailPropertyItem] = [
+        ]
         
         for fPower:FDatabaseModelGandallerPower in fModel.powers
         {
