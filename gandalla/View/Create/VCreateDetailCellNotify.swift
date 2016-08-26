@@ -49,5 +49,6 @@ class VCreateDetailCellNotify:VCreateDetailCell
     
     func actionButton(sender button:UIButton)
     {
+        model.notify()
     }
 }

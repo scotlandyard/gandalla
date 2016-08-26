@@ -15,10 +15,9 @@ class MCreateItemDetailPropertyItemNotify:MCreateItemDetailPropertyItem
     {
         super.config(controller, cell:cell)
         
-        let cellText:VCreateDetailCellText = cell as! VCreateDetailCellText
-        cellText.field.delegate = self
-        cellText.field.text = fVideo?.url
-        cellText.field.placeholder = placeholder
+        let cellNotify:VCreateDetailCellNotify = cell as! VCreateDetailCellNotify
+        cellNotify.button.setTitle(title, forState:UIControlState.Normal)
+        cellNotify.model = self
     }
     
     //MARK: public
