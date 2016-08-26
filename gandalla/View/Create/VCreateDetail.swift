@@ -8,7 +8,7 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     weak var layoutCollectionBottom:NSLayoutConstraint!
     private let kInterLine:CGFloat = 1
     private let kHeaderHeight:CGFloat = 80
-    private let kCollectionBottom:CGFloat = 40
+    private let kCollectionBottom:CGFloat = 30
     
     convenience init(controller:CCreateDetail)
     {
