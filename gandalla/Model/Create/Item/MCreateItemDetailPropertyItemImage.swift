@@ -110,6 +110,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
                 let propertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Images.rawValue
                 let subPropertyId:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageStatus.rawValue
                 let newStatus:Int = FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready.rawValue
+                let propertyImageNotification:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageNotification.rawValue
                 
                 FMain.sharedInstance.database.updateSubProperty(
                     reference,
@@ -121,7 +122,17 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
                 
                 let news:FDatabaseModelNews = FDatabaseModelNewsPicture(gandallerId:gandallerId, pictureId:imageId)
                 let newsJson:[String:AnyObject] = news.modelJson()
-                FMain.sharedInstance.database.createChild(FDatabase.FDatabaseReference.News, json:newsJson)
+                let newsId:String = FMain.sharedInstance.database.createChild(
+                    FDatabase.FDatabaseReference.News,
+                    json:newsJson)
+                
+                FMain.sharedInstance.database.updateSubProperty(
+                    reference,
+                    childId:gandallerId,
+                    property:propertyId,
+                    subChildId:imageId,
+                    subPropertyId:propertyImageNotification,
+                    value:newsId)
             }
         }
     }
