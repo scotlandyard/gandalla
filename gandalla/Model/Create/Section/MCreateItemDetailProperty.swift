@@ -24,7 +24,7 @@ class MCreateItemDetailProperty
     
     //MARK: public
     
-    func add()
+    func add(controller:CCreateDetail)
     {
     }
 }

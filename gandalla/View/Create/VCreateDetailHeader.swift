@@ -5,6 +5,7 @@ class VCreateDetailHeader:UICollectionReusableView
     weak var labelName:UILabel!
     weak var buttonAdd:UIButton!
     weak var model:MCreateItemDetailProperty!
+    weak var controller:CCreateDetail!
     
     override init(frame:CGRect)
     {
@@ -70,14 +71,15 @@ class VCreateDetailHeader:UICollectionReusableView
     
     func actionAdd(sender button:UIButton)
     {
-        model.add()
+        model.add(controller)
     }
     
     //MARK: public
     
-    func config(model:MCreateItemDetailProperty)
+    func config(controller:CCreateDetail, model:MCreateItemDetailProperty)
     {
         self.model = model
+        self.controller = controller
         labelName.text = model.name
         
         if model.addAvailable
