@@ -115,6 +115,58 @@ class CCreateDetail:CMainController
         }
     }
     
+    func addHashtag()
+    {
+        viewDetail.showLoading()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            if self != nil
+            {
+                let parentReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
+                let childId:String = self!.model.gandaller.gandallerId
+                let subChild:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Social.rawValue
+                let subProperty:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.SocialHashtags.rawValue
+                let property:String = "\(subChild)/\(subProperty)"
+                let fHashtag:FDatabaseModelGandallerSocialHashtag = FDatabaseModelGandallerSocialHashtag()
+                let hashtagJson:[String:AnyObject] = fHashtag.modelJson()
+                
+                FMain.sharedInstance.database.createSubChild(
+                    parentReference,
+                    childId:childId,
+                    property:property,
+                    json:hashtagJson)
+            }
+        }
+    }
+    
+    func addVideo()
+    {
+        viewDetail.showLoading()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            if self != nil
+            {
+                let parentReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
+                let childId:String = self!.model.gandaller.gandallerId
+                let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Videos.rawValue
+                let fVideo:FDatabaseModelGandallerVideo = FDatabaseModelGandallerVideo()
+                let videoJson:[String:AnyObject] = fVideo.modelJson()
+                
+                FMain.sharedInstance.database.createSubChild(
+                    parentReference,
+                    childId:childId,
+                    property:property,
+                    json:videoJson)
+            }
+        }
+    }
+    
     func removeImage(model:MCreateItemDetailPropertyItemImage)
     {
         viewDetail.showLoading()

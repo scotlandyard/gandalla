@@ -11,10 +11,10 @@ class MCreateItemDetailPropertyHashtags:MCreateItemDetailProperty
         let reusableIdentifier:String = VCreateDetailCellText.reusableIdentifier()
         var items:[MCreateItemDetailPropertyItem] = []
         
-        for fPower:FDatabaseModelGandallerPower in fModel.powers
+        for fHashtag:FDatabaseModelGandallerSocialHashtag in fModel.social.hashtags
         {
-            let itemPower:MCreateItemDetailPropertyItemPower = MCreateItemDetailPropertyItemPower(gandallerId:gandallerId, fPower:fPower)
-            items.append(itemPower)
+            let itemHashtag:MCreateItemDetailPropertyItemHashtag = MCreateItemDetailPropertyItemHashtag(gandallerId:gandallerId, fHashtag:fHashtag)
+            items.append(itemHashtag)
         }
         
         super.init(name:name, reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, items:items, addAvailable:kAddAvailable)
