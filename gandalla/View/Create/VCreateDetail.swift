@@ -5,6 +5,7 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     weak var controller:CCreateDetail!
     weak var spinner:VMainLoader!
     weak var collection:UICollectionView!
+    weak var layoutCollectionBottom:NSLayoutConstraint!
     private let kInterLine:CGFloat = 1
     private let kHeaderHeight:CGFloat = 80
     private let kCollectionBottom:CGFloat = 40
@@ -81,7 +82,7 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[collection]-0-|",
+            "V:|-0-[collection]",
             options:[],
             metrics:metrics,
             views:views))
@@ -96,6 +97,17 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             metrics:metrics,
             views:views))
         
+        layoutCollectionBottom = NSLayoutConstraint(
+            item:collection,
+            attribute:NSLayoutAttribute.Bottom,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Bottom,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutCollectionBottom)
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedKeyboardChanged(sender:)), name:UIKeyboardWillChangeFrameNotification, object:nil)
     }
     
@@ -109,6 +121,24 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         collection.collectionViewLayout.invalidateLayout()
         
         super.layoutSubviews()
+    }
+    
+    //MARK: notified
+    
+    func notifiedKeyboardChanged(sender notification:NSNotification)
+    {
+        let keyRect:CGRect = notification.userInfo![UIKeyboardFrameEndUserInfoKey]!.CGRectValue()
+        let yOrigin = keyRect.origin.y
+        let screenHeight:CGFloat = UIScreen.mainScreen().bounds.size.height
+        
+        if yOrigin < screenHeight
+        {
+            layoutCollectionBottom.constant = -(screenHeight - yOrigin)
+        }
+        else
+        {
+            layoutCollectionBottom.constant = 0
+        }
     }
     
     //MARK: private
