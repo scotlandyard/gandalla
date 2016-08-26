@@ -21,7 +21,7 @@ class FDatabaseModelGandaller:FDatabaseModel
         case PowerName = "power_name"
         case PowerNotification = "power_notification"
         case Videos = "videos"
-        case VideoName = "video_name"
+        case VideoUrl = "video_url"
         case VideoNotification = "video_notification"
         case Social = "social"
         case SocialFacebook = "social_facebook"
@@ -85,10 +85,10 @@ class FDatabaseModelGandaller:FDatabaseModel
         let rawName:String = json[FDatabaseModelGandallerKey.Name.rawValue] as! String
         let rawStarted:Bool = json[FDatabaseModelGandallerKey.Started.rawValue] as! Bool
         let rawProfileImage:String? = json[FDatabaseModelGandallerKey.ProfileImage.rawValue] as? String
-        let rawSocial:[String:AnyObject]? = json[FDatabaseModelGandallerKey.Social.rawValue] as? [String:AnyObject]
+        let rawSocial:[String:[String:AnyObject]]? = json[FDatabaseModelGandallerKey.Social.rawValue] as? [String:[String:AnyObject]]
         let rawImages:[String:[String:AnyObject]]? = json[FDatabaseModelGandallerKey.Images.rawValue] as? [String:[String:AnyObject]]
         let rawPowers:[String:[String:AnyObject]]? = json[FDatabaseModelGandallerKey.Powers.rawValue] as? [String:[String:AnyObject]]
-        let rawVideos:[String]? = json[FDatabaseModelGandallerKey.Videos.rawValue] as? [String]
+        let rawVideos:[String:[String:AnyObject]]? = json[FDatabaseModelGandallerKey.Videos.rawValue] as? [String:[String:AnyObject]]
         
         self.status = status
         created = rawCreated
@@ -126,9 +126,12 @@ class FDatabaseModelGandaller:FDatabaseModel
         
         if rawVideos != nil
         {
-            for rawVideo:String in rawVideos!
+            let rawVideosKeys:[String] = Array(rawVideos!.keys)
+            
+            for rawVideoKey:String in rawVideosKeys
             {
-                let video:FDatabaseModelGandallerVideo = FDatabaseModelGandallerVideo(url:rawVideo)
+                let rawVideo:[String:AnyObject] = rawVideos![rawVideoKey]!
+                let video:FDatabaseModelGandallerVideo = FDatabaseModelGandallerVideo(json:rawPower, videoId:rawVideoKey)
                 videos.append(video)
             }
         }
