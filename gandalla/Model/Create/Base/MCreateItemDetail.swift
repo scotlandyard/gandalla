@@ -21,12 +21,14 @@ class MCreateItemDetail
         let propertyStarted:MCreateItemDetailPropertyStarted = MCreateItemDetailPropertyStarted(gandallerId:gandallerId, fModel:fModel)
         let propertyName:MCreateItemDetailPropertyName = MCreateItemDetailPropertyName(gandallerId:gandallerId, fModel:fModel)
         let propertyImages:MCreateItemDetailPropertyImages = MCreateItemDetailPropertyImages(gandallerId:gandallerId, fModel:fModel)
+        let propertyPowers:MCreateItemDetailPropertyPowers = MCreateItemDetailPropertyPowers(gandallerId:gandallerId, fModel:fModel)
         
         properties = [
             propertyStatus,
             propertyStarted,
             propertyName,
-            propertyImages
+            propertyImages,
+            propertyPowers
         ]
     }
 }
