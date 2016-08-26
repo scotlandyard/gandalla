@@ -5,9 +5,10 @@ class MCreateItemDetailPropertyItemNotify:MCreateItemDetailPropertyItem
     let gandallerId:String
     let title:String
     
-    init(gandallerId:String)
+    init(gandallerId:String, title:String)
     {
         self.gandallerId = gandallerId
+        self.title = title
         super.init()
     }
     
@@ -26,33 +27,33 @@ class MCreateItemDetailPropertyItemNotify:MCreateItemDetailPropertyItem
     {
         let alert:UIAlertController = UIAlertController(
             title:
-            NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteTitle", comment:""),
+            NSLocalizedString("MCreateItemDetailPropertyItemNotify_title", comment:""),
             message:
-            NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteMessage", comment:""),
+            title,
             preferredStyle:UIAlertControllerStyle.ActionSheet)
         
-        let actionDelete:UIAlertAction = UIAlertAction(
-            title:NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteDelete", comment:""),
+        let actionNotify:UIAlertAction = UIAlertAction(
+            title:NSLocalizedString("MCreateItemDetailPropertyItemNotify_notify", comment:""),
             style:
             UIAlertActionStyle.Default)
         { [weak self] (action) in
             
             if self != nil
             {
-                let news:FDatabaseModelNews = FDatabaseModelNewsVideo(gandallerId:self!.gandallerId, url:newUrl)
+                let news:FDatabaseModelNews = FDatabaseModelNewsSocial(gandallerId:self!.gandallerId)
                 let newsJson:[String:AnyObject] = news.modelJson()
-                let newsId:String = FMain.sharedInstance.database.createChild(
+                FMain.sharedInstance.database.createChild(
                     FDatabase.FDatabaseReference.News,
                     json:newsJson)
             }
         }
         
         let actionCancel:UIAlertAction = UIAlertAction(
-            title:NSLocalizedString("MCreateItemDetailPropertyItemImage_deleteCancel", comment:""),
+            title:NSLocalizedString("MCreateItemDetailPropertyItemNotify_cancel", comment:""),
             style:UIAlertActionStyle.Cancel,
             handler:nil)
         
-        alert.addAction(actionDelete)
+        alert.addAction(actionNotify)
         alert.addAction(actionCancel)
         controller.presentViewController(alert, animated:true, completion:nil)
     }
