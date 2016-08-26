@@ -7,6 +7,7 @@ class MCreateItemDetailPropertyItemStatus:MCreateItemDetailPropertyItem
     init(status:FDatabaseModelGandaller.FDatabaseModelGandallerStatus)
     {
         self.status = status
+        super.init()
     }
     
     override func config(controller:CCreateDetail, cell:VCreateDetailCell)

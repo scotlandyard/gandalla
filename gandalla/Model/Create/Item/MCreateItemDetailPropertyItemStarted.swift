@@ -7,6 +7,7 @@ class MCreateItemDetailPropertyItemStarted:MCreateItemDetailPropertyItem
     init(started:Bool)
     {
         self.started = started
+        super.init()
     }
     
     override func config(controller:CCreateDetail, cell:VCreateDetailCell)

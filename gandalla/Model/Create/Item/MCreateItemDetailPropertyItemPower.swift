@@ -4,12 +4,14 @@ import UIKit
 class MCreateItemDetailPropertyItemPower:MCreateItemDetailPropertyItem, UITextFieldDelegate
 {
     let gandallerId:String
-    weak var fPower:FDatabaseModelGandallerPower?
+    var fPower:FDatabaseModelGandallerPower?
     
     init(gandallerId:String, fPower:FDatabaseModelGandallerPower)
     {
         self.gandallerId = gandallerId
         self.fPower = fPower
+        
+        super.init()
     }
     
     override func config(controller:CCreateDetail, cell:VCreateDetailCell)
@@ -50,8 +52,6 @@ class MCreateItemDetailPropertyItemPower:MCreateItemDetailPropertyItem, UITextFi
                     
                     if !newName.isEmpty
                     {
-                        let referenceNotification:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.News
-                        
                         if notificationId == nil
                         {
                             let propertyPowerNotification:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.PowerNotification.rawValue
@@ -62,7 +62,7 @@ class MCreateItemDetailPropertyItemPower:MCreateItemDetailPropertyItem, UITextFi
                                 json:newsJson)
                             
                             FMain.sharedInstance.database.updateSubProperty(
-                                referenceNotification,
+                                reference,
                                 childId:self!.gandallerId,
                                 property:propertyPowers,
                                 subChildId:powerId,
@@ -71,6 +71,7 @@ class MCreateItemDetailPropertyItemPower:MCreateItemDetailPropertyItem, UITextFi
                         }
                         else
                         {
+                            let referenceNotification:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.News
                             let propertyNotificationPower:String = FDatabaseModelNews.FDatabaseModelNewsKey.Power.rawValue
                             
                             FMain.sharedInstance.database.updateProperty(
@@ -82,18 +83,6 @@ class MCreateItemDetailPropertyItemPower:MCreateItemDetailPropertyItem, UITextFi
                     }
                 }
             }
-            
-            /*
-            let name:String = textField.text!
-            
-            if self != nil
-            {
-                let gandallerId:String = self!.controller.model.gandaller.gandallerId
-                let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Name.rawValue
-                self?.name = name
-                
-                FMain.sharedInstance.database.updateProperty(FDatabase.FDatabaseReference.Gandaller, childId:gandallerId, property:property, value:name)
-            }*/
         }
     }
     

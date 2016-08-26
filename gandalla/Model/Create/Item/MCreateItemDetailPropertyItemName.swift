@@ -7,6 +7,7 @@ class MCreateItemDetailPropertyItemName:MCreateItemDetailPropertyItem, UITextFie
     init(name:String)
     {
         self.name = name
+        super.init()
     }
     
     override func config(controller:CCreateDetail, cell:VCreateDetailCell)
