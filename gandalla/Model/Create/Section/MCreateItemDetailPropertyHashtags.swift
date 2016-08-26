@@ -22,6 +22,6 @@ class MCreateItemDetailPropertyHashtags:MCreateItemDetailProperty
     
     override func add(controller:CCreateDetail)
     {
-        controller.addPower()
+        controller.addHashtag()
     }
 }

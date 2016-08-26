@@ -11,10 +11,10 @@ class MCreateItemDetailPropertyVideos:MCreateItemDetailProperty
         let reusableIdentifier:String = VCreateDetailCellText.reusableIdentifier()
         var items:[MCreateItemDetailPropertyItem] = []
         
-        for fPower:FDatabaseModelGandallerPower in fModel.powers
+        for fVideo:FDatabaseModelGandallerVideo in fModel.videos
         {
-            let itemPower:MCreateItemDetailPropertyItemPower = MCreateItemDetailPropertyItemPower(gandallerId:gandallerId, fPower:fPower)
-            items.append(itemPower)
+            let itemVideo:MCreateItemDetailPropertyItemVideo = MCreateItemDetailPropertyItemVideo(gandallerId:gandallerId, fVideo:fVideo)
+            items.append(itemVideo)
         }
         
         super.init(name:name, reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, items:items, addAvailable:kAddAvailable)
@@ -22,6 +22,6 @@ class MCreateItemDetailPropertyVideos:MCreateItemDetailProperty
     
     override func add(controller:CCreateDetail)
     {
-        controller.addPower()
+        controller.addVideo()
     }
 }
