@@ -50,13 +50,34 @@ class MCreateItemDetailPropertyItemPower:MCreateItemDetailPropertyItem, UITextFi
                     
                     if !newName.isEmpty
                     {
+                        let referenceNotification:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.News
+                        
                         if notificationId == nil
                         {
+                            let propertyPowerNotification:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.PowerNotification.rawValue
+                            let news:FDatabaseModelNews = FDatabaseModelNewsPower(gandallerId:self!.gandallerId, power:newName)
+                            let newsJson:[String:AnyObject] = news.modelJson()
+                            let newsId:String = FMain.sharedInstance.database.createChild(
+                                FDatabase.FDatabaseReference.News,
+                                json:newsJson)
                             
+                            FMain.sharedInstance.database.updateSubProperty(
+                                referenceNotification,
+                                childId:self!.gandallerId,
+                                property:propertyPowers,
+                                subChildId:powerId,
+                                subPropertyId:propertyPowerNotification,
+                                value:newsId)
                         }
                         else
                         {
+                            let propertyNotificationPower:String = FDatabaseModelNews.FDatabaseModelNewsKey.Power.rawValue
                             
+                            FMain.sharedInstance.database.updateProperty(
+                                referenceNotification,
+                                childId:notificationId!,
+                                property:propertyNotificationPower,
+                                value:newName)
                         }
                     }
                 }
