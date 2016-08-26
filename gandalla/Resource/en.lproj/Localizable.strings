@@ -5,6 +5,7 @@
 "VCreateDetailCellStatus_itemPaused"="Paused";
 "VCreateDetailCellStarted_label"="Started";
 "VNewsCellJoined_labelEvent"="Ingresó al Escuadrón";
+"VNewsCellJoined_labelPower"="Nuevo super poder";
 
 "MCreateItem_noName"="-";
 "MCreateItemDetailPropertyStatus_name"="Status";
