@@ -3,7 +3,9 @@ import UIKit
 class VGandallersFlow:UICollectionViewFlowLayout
 {
     weak var controller:CGandallers!
-    var attributes:[UICollectionViewLayoutAttributes]
+    private var attributes:[UICollectionViewLayoutAttributes]
+    private var totalWidth:CGFloat
+    private var totalHeight:CGFloat
     private let padding2:CGFloat
     private let padding_2:CGFloat
     private let kMinCols:Int = 2
@@ -17,6 +19,8 @@ class VGandallersFlow:UICollectionViewFlowLayout
         padding2 = kPadding + kPadding
         padding_2 = kPadding / 2.0
         attributes = []
+        totalWidth = 0
+        totalHeight = 0
         
         super.init()
         self.controller = controller
@@ -37,10 +41,10 @@ class VGandallersFlow:UICollectionViewFlowLayout
         let cellWidth:CGFloat
         let columns:Int
         let totalItems:Int = controller.model.items.count
-        let totalWidth:CGFloat = collectionView!.bounds.maxX
+        totalWidth = collectionView!.bounds.maxX
         let totalCellWidth:CGFloat = totalWidth / kPadding
         var currentColumn:Int = 0
-        var totalHeight:CGFloat = 0
+        totalHeight = 0
         
         if totalWidth < 500
         {
@@ -97,5 +101,29 @@ class VGandallersFlow:UICollectionViewFlowLayout
         }
         
         totalHeight += kCollectionBottom
+    }
+    
+    override func collectionViewContentSize() -> CGSize
+    {
+        let size:CGSize = CGSizeMake(totalWidth, totalHeight)
+        
+        return size
+    }
+    
+    override func layoutAttributesForElementsInRect(rect:CGRect) -> [UICollectionViewLayoutAttributes]?
+    {
+        var array:[UICollectionViewLayoutAttributes] = []
+        
+        for attribute:UICollectionViewLayoutAttributes in attributes
+        {
+            let attrRect:CGRect = attribute.frame
+            
+            if CGRectIntersectsRect(attrRect, rect)
+            {
+                array.append(attribute)
+            }
+        }
+        
+        return array
     }
 }
