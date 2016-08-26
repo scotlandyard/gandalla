@@ -14,11 +14,11 @@ class FDatabaseModelGandallerVideo
     init(json:[String:AnyObject], videoId:String)
     {
         let rawVideoUrl:String = json[FDatabaseModelGandaller.FDatabaseModelGandallerKey.VideoUrl.rawValue] as! String
-        let rawPowerNotification:String? = json[FDatabaseModelGandaller.FDatabaseModelGandallerKey.VideoNotification.rawValue] as? String
+        let rawVideoNotification:String? = json[FDatabaseModelGandaller.FDatabaseModelGandallerKey.VideoNotification.rawValue] as? String
         
         self.videoId = videoId
-        name = rawPowerName
-        powerNotification = rawPowerNotification
+        url = rawVideoUrl
+        videoNotification = rawVideoNotification
     }
     
     //MARK: public
@@ -26,11 +26,11 @@ class FDatabaseModelGandallerVideo
     func modelJson() -> [String:AnyObject]
     {
         var json:[String:AnyObject] = [
-            FDatabaseModelGandaller.FDatabaseModelGandallerKey.PowerName.rawValue:name]
+            FDatabaseModelGandaller.FDatabaseModelGandallerKey.VideoUrl.rawValue:url]
         
-        if powerNotification != nil
+        if videoNotification != nil
         {
-            json[FDatabaseModelGandaller.FDatabaseModelGandallerKey.PowerNotification.rawValue] = powerNotification!
+            json[FDatabaseModelGandaller.FDatabaseModelGandallerKey.VideoNotification.rawValue] = videoNotification!
         }
         
         return json
