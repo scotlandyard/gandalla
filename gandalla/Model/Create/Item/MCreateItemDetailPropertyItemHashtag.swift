@@ -41,13 +41,15 @@ class MCreateItemDetailPropertyItemHashtag:MCreateItemDetailPropertyItem, UIText
                     let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
                     let propertySocial:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Social.rawValue
                     let propertySocialHashtags:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.SocialHashtags.rawValue
+                    let hashtagName:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.SocialHashtagName.rawValue
+                    let hashtagIdName:String = "\(hashtagId)/\(hashtagName)"
                     
                     FMain.sharedInstance.database.updateSubProperty(
                         reference,
                         childId:self!.gandallerId,
                         property:propertySocial,
                         subChildId:propertySocialHashtags,
-                        subPropertyId:hashtagId,
+                        subPropertyId:hashtagIdName,
                         value:newTag)
                 }
             }
