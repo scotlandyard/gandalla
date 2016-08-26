@@ -13,8 +13,7 @@ class MCreateItemDetailPropertyPowers:MCreateItemDetailProperty
         
         for fPower:FDatabaseModelGandallerPower in fModel.powers
         {
-            let powerName:String = fPower.name
-            let itemPower:MCreateItemDetailPropertyItemPower = MCreateItemDetailPropertyItemPower(power:powerName)
+            let itemPower:MCreateItemDetailPropertyItemPower = MCreateItemDetailPropertyItemPower(gandallerId:gandallerId, fPower:fPower)
             items.append(itemPower)
         }
         
