@@ -145,16 +145,19 @@ class VCreateDetailCellImage:VCreateDetailCell
     
     func actionRemove(sender button:UIButton)
     {
+        UIApplication.sharedApplication().keyWindow?.endEditing(true)
         model?.removeImage()
     }
     
     func actionEdit(sender button:UIButton)
     {
+        UIApplication.sharedApplication().keyWindow?.endEditing(true)
         model?.editImage()
     }
     
     func actionMakeProfile(sender check:UISwitch)
     {
+        UIApplication.sharedApplication().keyWindow?.endEditing(true)
         check.userInteractionEnabled = false
         model?.makeProfileImage()
     }

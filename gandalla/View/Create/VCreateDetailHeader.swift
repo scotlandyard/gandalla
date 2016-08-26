@@ -71,6 +71,7 @@ class VCreateDetailHeader:UICollectionReusableView
     
     func actionAdd(sender button:UIButton)
     {
+        UIApplication.sharedApplication().keyWindow?.endEditing(true)
         model.add(controller)
     }
     

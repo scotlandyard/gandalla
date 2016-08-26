@@ -95,6 +95,13 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             options:[],
             metrics:metrics,
             views:views))
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedKeyboardChanged(sender:)), name:UIKeyboardWillChangeFrameNotification, object:nil)
+    }
+    
+    deinit
+    {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func layoutSubviews()
