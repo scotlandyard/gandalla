@@ -33,7 +33,8 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     {
         super.config(controller, cell:cell)
         cellImage = cell as? VCreateDetailCellImage
-        cellImage?.model = self
+        cellImage!.spinner.stopAnimating()
+        cellImage!.model = self
         cellImage!.picker.delegate = self
         
         if fImage?.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
@@ -82,14 +83,20 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
                 
                 if error == nil
                 {
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
-                    { [weak self] in
-                        
-                        self?.changeImageStatus()
-                    }
+                    self?.changeImageStatus()
                 }
                 
-                self?.cellImage?.hideLoading()
+                dispatch_async(dispatch_get_main_queue())
+                { [weak self] in
+                    
+                    if self != nil
+                    {
+                        if self!.cellImage != nil
+                        {
+                            self!.config(self!.controller, cell:self!.cellImage!)
+                        }
+                    }
+                }
             }
         }
         else
