@@ -103,14 +103,14 @@ class CCreateDetail:CMainController
                 let parentReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
                 let childId:String = self!.model.gandaller.gandallerId
                 let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Powers.rawValue
-                let fPower:FDatabaseModelGandallerPower = FDatabaseModelGandallerPower(name: <#T##String#>)
-                let imageJson:[String:AnyObject] = fImage.modelJson()
+                let fPower:FDatabaseModelGandallerPower = FDatabaseModelGandallerPower()
+                let powerJson:[String:AnyObject] = fPower.modelJson()
                 
                 FMain.sharedInstance.database.createSubChild(
                     parentReference,
                     childId:childId,
                     property:property,
-                    json:imageJson)
+                    json:powerJson)
             }
         }
     }
