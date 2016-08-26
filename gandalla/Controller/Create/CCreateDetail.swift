@@ -122,7 +122,9 @@ class CCreateDetail:CMainController
                     {
                         let newsReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.News
                         
-                        FMain.sharedInstance.database.deleteSubChild(<#T##parent: FDatabase.FDatabaseReference##FDatabase.FDatabaseReference#>, childId: <#T##String#>, property: <#T##String#>, subChildId: <#T##String#>)
+                        FMain.sharedInstance.database.deleteChild(
+                            newsReference,
+                            childId:imageNotification!)
                     }
                 }
             }
