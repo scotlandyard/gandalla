@@ -4,6 +4,7 @@ class VCreateDetailCellStarted:VCreateDetailCell
 {
     weak var check:UISwitch!
     weak var layoutCheckLeft:NSLayoutConstraint!
+    weak var model:MCreateItemDetailPropertyItemStarted!
     
     override init(frame:CGRect)
     {
@@ -12,6 +13,7 @@ class VCreateDetailCellStarted:VCreateDetailCell
         let check:UISwitch = UISwitch()
         check.translatesAutoresizingMaskIntoConstraints = false
         check.onTintColor = UIColor.complement()
+        check.addTarget(self, action:#selector(self.actionCheck(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         self.check = check
         
         addSubview(check)
@@ -53,5 +55,13 @@ class VCreateDetailCellStarted:VCreateDetailCell
         layoutCheckLeft.constant = margin
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionCheck(sender check:UISwitch)
+    {
+        check.userInteractionEnabled = false
+        model.activate()
     }
 }

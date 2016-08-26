@@ -16,16 +16,15 @@ class MCreateItemDetailPropertyItemStatus:MCreateItemDetailPropertyItem
         
         let cellStatus:VCreateDetailCellStatus = cell as! VCreateDetailCellStatus
         cellStatus.segmented.selectedSegmentIndex = status.rawValue
-        cellStatus.segmented.addTarget(self, action:#selector(self.actionSegmented(sender:)), forControlEvents:UIControlEvents.ValueChanged)
+        cellStatus.model = self
     }
     
-    //MARK: actions
+    //MARK: public
     
-    func actionSegmented(sender segmented:UISegmentedControl)
+    func changeStatus(segmentedSelected:Int)
     {
         let gandallerId:String = controller.model.gandaller.gandallerId
         let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Status.rawValue
-        let segmentedSelected:Int = segmented.selectedSegmentIndex
         status = FDatabaseModelGandaller.FDatabaseModelGandallerStatus(rawValue:segmentedSelected)!
         
         FMain.sharedInstance.database.updateProperty(FDatabase.FDatabaseReference.Gandaller, childId:gandallerId, property:property, value:segmentedSelected)

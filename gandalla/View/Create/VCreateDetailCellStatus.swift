@@ -4,12 +4,12 @@ class VCreateDetailCellStatus:VCreateDetailCell
 {
     weak var segmented:UISegmentedControl!
     weak var layoutSegmentedLeft:NSLayoutConstraint!
+    weak var model:MCreateItemDetailPropertyItemStatus!
     private let kSegmentedWidth:CGFloat = 160
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        clipsToBounds = true
         
         let itemActive:String = NSLocalizedString("VCreateDetailCellStatus_itemActive", comment:"")
         let itemPaused:String = NSLocalizedString("VCreateDetailCellStatus_itemPaused", comment:"")
@@ -22,6 +22,7 @@ class VCreateDetailCellStatus:VCreateDetailCell
         segmented.clipsToBounds = true
         segmented.translatesAutoresizingMaskIntoConstraints = false
         segmented.tintColor = UIColor.complement()
+        segmented.addTarget(self, action:#selector(self.actionSegmented(sender:)), forControlEvents:UIControlEvents.ValueChanged)
         self.segmented = segmented
         
         addSubview(segmented)
@@ -68,5 +69,13 @@ class VCreateDetailCellStatus:VCreateDetailCell
         layoutSegmentedLeft.constant = margin
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionSegmented(sender segmented:UISegmentedControl)
+    {
+        let segmentedSelected:Int = segmented.selectedSegmentIndex
+        model.changeStatus(segmentedSelected)
     }
 }
