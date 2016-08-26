@@ -9,13 +9,16 @@ class FDatabaseModelGandallerImage
     }
     
     var imageId:String?
+    var imageNotification:String?
     let status:FDatabaseModelGandallerImageStatus
     
     class func withJson(json:[String:AnyObject], imageId:String) -> FDatabaseModelGandallerImage
     {
         let image:FDatabaseModelGandallerImage
         let imageStatusKey:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageStatus.rawValue
+        let imageNotificationKey:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageNotification.rawValue
         let rawStatus:Int = json[imageStatusKey] as! Int
+        let rawImageNotification:String? = json[imageNotificationKey] as? String
         let status:FDatabaseModelGandallerImageStatus = FDatabaseModelGandallerImageStatus(rawValue:rawStatus)!
         
         switch status
@@ -33,6 +36,8 @@ class FDatabaseModelGandallerImage
                 break
         }
         
+        image.imageNotification = rawImageNotification
+        
         return image
     }
     
@@ -46,8 +51,13 @@ class FDatabaseModelGandallerImage
     
     func modelJson() -> [String:AnyObject]
     {
-        let json:[String:AnyObject] = [
+        var json:[String:AnyObject] = [
             FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageStatus.rawValue:status.rawValue]
+        
+        if imageNotification != nil
+        {
+            json[FDatabaseModelGandaller.FDatabaseModelGandallerKey.ImageNotification.rawValue] = imageNotification!
+        }
         
         return json
     }
