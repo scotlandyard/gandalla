@@ -13,6 +13,7 @@ class VGandallersFlow:UICollectionViewFlowLayout
     private let kMaxCols:Int = 4
     private let kPadding:CGFloat = 4
     private let kCollectionBottom:CGFloat = 40
+    private let kCollectionTop:CGFloat = 64
     
     init(controller:CGandallers)
     {
@@ -42,7 +43,7 @@ class VGandallersFlow:UICollectionViewFlowLayout
         let columns:Int
         let totalItems:Int = controller.model.items.count
         totalWidth = collectionView!.bounds.maxX
-        let totalCellWidth:CGFloat = totalWidth / kPadding
+        let totalCellWidth:CGFloat = totalWidth - kPadding
         var currentColumn:Int = 0
         totalHeight = 0
         
@@ -64,19 +65,8 @@ class VGandallersFlow:UICollectionViewFlowLayout
         
         for index:Int in 0 ..< columns
         {
-            let addedPadding:CGFloat
-            
-            if index > 0
-            {
-                addedPadding = kPadding
-            }
-            else
-            {
-                addedPadding = 0
-            }
-            
-            let xItem:CGFloat = (CGFloat(index) * columnWidth) + addedPadding
-            let yItem:CGFloat = kPadding
+            let xItem:CGFloat = (CGFloat(index) * columnWidth) + kPadding
+            let yItem:CGFloat = kCollectionTop + kPadding
             xOff.append(xItem)
             yOff.append(yItem)
         }
@@ -85,13 +75,13 @@ class VGandallersFlow:UICollectionViewFlowLayout
         {
             let model:MGandallerListItem = controller.model.items[index]
             currentColumn = index % columns
-            let indexPath:NSIndexPath = NSIndexPath(forItem:currentColumn, inSection:0)
+            let indexPath:NSIndexPath = NSIndexPath(forItem:index, inSection:0)
             let height:CGFloat = model.heightForWidth(cellWidth)
             let heightPadding:CGFloat = height + padding2
             let x:CGFloat = xOff[currentColumn]
             let y:CGFloat = yOff[currentColumn]
             let frame:CGRect = CGRectMake(x, y, columnWidth, heightPadding)
-            let inset:CGRect = CGRectInset(frame, padding_2, kPadding)
+            let inset:CGRect = CGRectInset(frame, padding2, kPadding)
             let colY:CGFloat = y + heightPadding
             let attribute:UICollectionViewLayoutAttributes = UICollectionViewLayoutAttributes(forCellWithIndexPath:indexPath)
             attribute.frame = inset

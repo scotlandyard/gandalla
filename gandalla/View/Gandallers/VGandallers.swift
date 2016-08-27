@@ -10,7 +10,7 @@ class VGandallers:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         self.init()
         self.controller = controller
         clipsToBounds = true
-        backgroundColor = UIColor.collectionBackground()
+        backgroundColor = UIColor(white: 0.7, alpha:1)
         translatesAutoresizingMaskIntoConstraints = false
         
         let flow:VGandallersFlow = VGandallersFlow(controller:controller)
@@ -47,6 +47,12 @@ class VGandallers:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    override func layoutSubviews()
+    {
+        collection.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
     }
     
     //MARK: private
