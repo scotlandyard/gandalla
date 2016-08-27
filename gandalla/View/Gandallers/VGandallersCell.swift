@@ -60,6 +60,41 @@ class VGandallersCell:UICollectionViewCell
             options:[],
             metrics:metrics,
             views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[image]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-10-[label]-10-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[image]-10-[label]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        
+        layoutImageHeight = NSLayoutConstraint(
+            item:image,
+            attribute:NSLayoutAttribute.Height,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.NotAnAttribute,
+            multiplier:1,
+            constant:0)
+        layoutLabelHeight = NSLayoutConstraint(
+            item:label,
+            attribute:NSLayoutAttribute.Height,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.NotAnAttribute,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutImageHeight)
+        addConstraint(layoutLabelHeight)
     }
     
     required init?(coder:NSCoder)
