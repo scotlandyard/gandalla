@@ -43,6 +43,7 @@ class VGandallersFlow:UICollectionViewFlowLayout
         let columns:Int
         let totalItems:Int = controller.model.items.count
         totalWidth = collectionView!.bounds.maxX
+        let usableWidth:CGFloat = totalWidth - kPadding
         var currentColumn:Int = 0
         totalHeight = 0
         
@@ -59,8 +60,8 @@ class VGandallersFlow:UICollectionViewFlowLayout
             columns = kMaxCols
         }
         
-        columnWidth = totalWidth / CGFloat(columns)
-        columnWidth_padding = columnWidth - (kPadding + padding_2)
+        columnWidth = usableWidth / CGFloat(columns)
+        columnWidth_padding = columnWidth - kPadding
         
         for index:Int in 0 ..< columns
         {
@@ -73,7 +74,7 @@ class VGandallersFlow:UICollectionViewFlowLayout
             else
             {
                 let indexFloat:CGFloat = CGFloat(index)
-                xItem = (indexFloat * columnWidth) + padding_2
+                xItem = (indexFloat * columnWidth) + kPadding
             }
             
             let yItem:CGFloat = kCollectionTop + kPadding

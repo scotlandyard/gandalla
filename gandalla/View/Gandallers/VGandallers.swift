@@ -10,7 +10,7 @@ class VGandallers:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         self.init()
         self.controller = controller
         clipsToBounds = true
-        backgroundColor = UIColor(white: 0.7, alpha:1)
+        backgroundColor = UIColor.collectionBackground()
         translatesAutoresizingMaskIntoConstraints = false
         
         let flow:VGandallersFlow = VGandallersFlow(controller:controller)

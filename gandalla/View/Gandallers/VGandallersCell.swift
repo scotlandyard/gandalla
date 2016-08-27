@@ -17,6 +17,8 @@ class VGandallersCell:UICollectionViewCell
         base.translatesAutoresizingMaskIntoConstraints = false
         base.backgroundColor = UIColor.whiteColor()
         base.layer.cornerRadius = kCornerRadius
+        base.layer.borderWidth = 1
+        base.layer.borderColor = UIColor(white:0.9, alpha:1).CGColor
         self.base = base
         
         addSubview(base)
