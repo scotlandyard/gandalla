@@ -24,9 +24,37 @@ class MGandallerList
             {
                 if gandaller.fModel.status == FDatabaseModelGandaller.FDatabaseModelGandallerStatus.Active
                 {
-                    
+                    let fModel:FDatabaseModelGandaller = gandaller.fModel
+                    let newItem:MGandallerListItem = MGandallerListItem(fGandaller:fModel)
+                    newItems.append(newItem)
                 }
             }
+        }
+        
+        newItems.sortInPlace
+        { (itemA, itemB) -> Bool in
+            
+            let before:Bool
+            let nameA:String = itemA.fGandaller!.name
+            let nameB:String = itemB.fGandaller!.name
+            let result:NSComparisonResult = nameA.compare(nameB)
+            
+            switch result
+            {
+                case NSComparisonResult.OrderedAscending, NSComparisonResult.OrderedSame:
+                
+                    before = true
+                    
+                    break
+                
+                case NSComparisonResult.OrderedDescending:
+                
+                    before = false
+                    
+                    break
+            }
+            
+            return before
         }
     }
 }
