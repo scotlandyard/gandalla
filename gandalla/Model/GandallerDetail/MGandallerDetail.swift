@@ -4,7 +4,7 @@ class MGandallerDetail
 {
     var items:[MGandallerDetailItem]
     
-    init()
+    init(gandaller:MGandallerItem)
     {
         items = []
     }

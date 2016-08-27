@@ -13,4 +13,10 @@ class VGandallerDetailCell:UICollectionViewCell
     {
         super.init(coder:coder)
     }
+    
+    //MARK: public
+    
+    func config(model:MGandallerDetailItem)
+    {
+    }
 }

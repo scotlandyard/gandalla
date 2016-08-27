@@ -4,6 +4,9 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
 {
     weak var controller:CGandallerDetail!
     weak var collection:UICollectionView!
+    private let kCollectionTop:CGFloat = 64
+    private let kCollectionBottom:CGFloat = 40
+    private let kInterLine:CGFloat = 1
     
     convenience init(controller:CGandallerDetail)
     {
@@ -12,6 +15,72 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
         clipsToBounds = true
         backgroundColor = UIColor.collectionBackground()
         translatesAutoresizingMaskIntoConstraints = false
+        
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSizeZero
+        flow.footerReferenceSize = CGSizeZero
+        flow.sectionInset = UIEdgeInsetsMake(kCollectionTop, 0, kCollectionBottom, 0)
+        flow.minimumLineSpacing = kInterLine
+        flow.minimumInteritemSpacing = 0
+        flow.scrollDirection = UICollectionViewScrollDirection.Vertical
+        
+        let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
+        collection.clipsToBounds = true
+        collection.backgroundColor = UIColor.clearColor()
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.showsVerticalScrollIndicator = false
+        collection.showsHorizontalScrollIndicator = false
+        collection.alwaysBounceVertical = true
+        collection.delegate = self
+        collection.dataSource = self
+        collection.registerClass(
+            VGandallerDetailCellPictures.self,
+            forCellWithReuseIdentifier:
+            VGandallerDetailCellPictures.reusableIdentifier())
+        collection.registerClass(
+            VGandallerDetailCellProfile.self,
+            forCellWithReuseIdentifier:
+            VGandallerDetailCellProfile.reusableIdentifier())
+        collection.registerClass(
+            VGandallerDetailCellSocial.self,
+            forCellWithReuseIdentifier:
+            VGandallerDetailCellSocial.reusableIdentifier())
+        collection.registerClass(
+            VGandallerDetailCellVideo.self,
+            forCellWithReuseIdentifier:
+            VGandallerDetailCellVideo.reusableIdentifier())
+        collection.registerClass(
+            VGandallerDetailCellHashtag.self,
+            forCellWithReuseIdentifier:
+            VGandallerDetailCellHashtag.reusableIdentifier())
+        self.collection = collection
+        
+        addSubview(collection)
+        
+        let views:[String:AnyObject] = [
+            "collection":collection]
+        
+        let metrics:[String:AnyObject] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[collection]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[collection]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:NSIndexPath) -> MGandallerDetailItem
+    {
+        let item:MGandallerDetailItem = controller.model.items[index.item]
+        
+        return item
     }
     
     //MARK: collection del
@@ -23,11 +92,20 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
+        
+        
         return 0
     }
     
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
     {
+        let item:MGandallerDetailItem = modelAtIndex(indexPath)
+        let cell:VGandallerDetailCell = collectionView.dequeueReusableCellWithReuseIdentifier(
+            item.reusableIdentifier,
+            forIndexPath:
+            indexPath) as! VGandallerDetailCell
+        cell.config(item)
         
+        return cell
     }
 }

@@ -3,11 +3,11 @@ import UIKit
 class CGandallerDetail:CMainController
 {
     weak var viewDetail:VGandallerDetail!
-    weak var model:MGandallerItem!
+    let model:MGandallerDetail
     
-    init(model:MGandallerItem)
+    init(gandaller:MGandallerItem)
     {
-        self.model = model
+        model = MGandallerDetail(gandaller:gandaller)
         super.init(nibName:nil, bundle:nil)
     }
     
