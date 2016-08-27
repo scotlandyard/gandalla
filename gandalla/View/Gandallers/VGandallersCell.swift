@@ -7,6 +7,7 @@ class VGandallersCell:UICollectionViewCell
     weak var label:UILabel!
     weak var layoutImageHeight:NSLayoutConstraint!
     weak var layoutLabelHeight:NSLayoutConstraint!
+    weak var model:MGandallerListItem?
     private let kCornerRadius:CGFloat = 4
     
     override init(frame:CGRect)
@@ -101,5 +102,11 @@ class VGandallersCell:UICollectionViewCell
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        model?.layoutConstraints()
+        super.layoutSubviews()
     }
 }

@@ -3,6 +3,7 @@ import UIKit
 class MGandallerListItem
 {
     weak var modelGandaller:MGandallerItem!
+    weak var cell:VGandallersCell?
     private var imageHeight:CGFloat
     private var labelHeight:CGFloat
     private let attributedString:NSAttributedString
@@ -42,9 +43,16 @@ class MGandallerListItem
     
     func config(cell:VGandallersCell)
     {
+        self.cell = cell
+        cell.model = self
         cell.image.image = modelGandaller.image.imageBinary
         cell.label.text = modelGandaller.fModel.name
-        cell.layoutImageHeight.constant = imageHeight
-        cell.layoutLabelHeight.constant = labelHeight
+        layoutConstraints()
+    }
+    
+    func layoutConstraints()
+    {
+        cell?.layoutImageHeight.constant = imageHeight
+        cell?.layoutLabelHeight.constant = labelHeight
     }
 }
