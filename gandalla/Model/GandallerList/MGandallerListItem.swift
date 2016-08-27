@@ -45,9 +45,9 @@ class MGandallerListItem
     {
         self.cell = cell
         cell.model = self
-        cell.image.image = modelGandaller.image.imageBinary
         cell.label.text = modelGandaller.fModel.name
         layoutConstraints()
+        cell.placeImage()
     }
     
     func layoutConstraints()

@@ -97,6 +97,12 @@ class VGandallersCell:UICollectionViewCell
         
         addConstraint(layoutImageHeight)
         addConstraint(layoutLabelHeight)
+        
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector:#selector(self.notifiedImageLoaded(sender:)),
+            name:NSNotification.NSNotificationName.GandallerImage.rawValue,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
@@ -104,9 +110,42 @@ class VGandallersCell:UICollectionViewCell
         fatalError()
     }
     
+    deinit
+    {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func layoutSubviews()
     {
         model?.layoutConstraints()
         super.layoutSubviews()
+    }
+    
+    //MARK: notified
+    
+    func notifiedImageLoaded(sender notification:NSNotification)
+    {
+        let userInfo:[String:AnyObject] = notification.userInfo as! [String:AnyObject]
+        let gandallerKey:String = FDatabase.FDatabaseReference.Gandaller.rawValue
+        let gandallerId:String = userInfo[gandallerKey] as! String
+        
+        if model != nil
+        {
+            if gandallerId == model!.modelGandaller.gandallerId
+            {
+                dispatch_async(dispatch_get_main_queue())
+                { [weak self] in
+                    
+                    self?.placeImage()
+                }
+            }
+        }
+    }
+    
+    //MARK: public
+    
+    func placeImage()
+    {
+        image.image = model?.modelGandaller.image.imageBinary
     }
 }
