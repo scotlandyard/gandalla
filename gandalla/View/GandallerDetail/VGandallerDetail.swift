@@ -1,8 +1,9 @@
 import UIKit
 
-class VGandallerDetail:UIView
+class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewFlowLayout
 {
     weak var controller:CGandallerDetail!
+    weak var collection:UICollectionView!
     
     convenience init(controller:CGandallerDetail)
     {
