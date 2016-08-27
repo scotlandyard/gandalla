@@ -12,7 +12,7 @@ class VGandallersFlow:UICollectionViewFlowLayout
     private let kMedCols:Int = 3
     private let kMaxCols:Int = 4
     private let kPadding:CGFloat = 4
-    private let kCollectionBottom:CGFloat = 40
+    private let kCollectionBottom:CGFloat = 10
     private let kCollectionTop:CGFloat = 64
     
     init(controller:CGandallers)
@@ -40,11 +40,9 @@ class VGandallersFlow:UICollectionViewFlowLayout
         var yOff:[CGFloat] = []
         let columnWidth:CGFloat
         let columnWidth_padding:CGFloat
-        let cellWidth:CGFloat
         let columns:Int
         let totalItems:Int = controller.model.items.count
         totalWidth = collectionView!.bounds.maxX
-        let totalCellWidth:CGFloat = totalWidth - kPadding
         var currentColumn:Int = 0
         totalHeight = 0
         
@@ -61,13 +59,23 @@ class VGandallersFlow:UICollectionViewFlowLayout
             columns = kMaxCols
         }
         
-        columnWidth = totalCellWidth / CGFloat(columns)
+        columnWidth = totalWidth / CGFloat(columns)
         columnWidth_padding = columnWidth - (kPadding + padding_2)
-        cellWidth = columnWidth - padding2
         
         for index:Int in 0 ..< columns
         {
-            let xItem:CGFloat = (CGFloat(index) * columnWidth) + kPadding
+            let xItem:CGFloat
+            
+            if index == 0
+            {
+                xItem = kPadding
+            }
+            else
+            {
+                let indexFloat:CGFloat = CGFloat(index)
+                xItem = (indexFloat * columnWidth) + padding_2
+            }
+            
             let yItem:CGFloat = kCollectionTop + kPadding
             xOff.append(xItem)
             yOff.append(yItem)
@@ -78,7 +86,7 @@ class VGandallersFlow:UICollectionViewFlowLayout
             let model:MGandallerListItem = controller.model.items[index]
             currentColumn = index % columns
             let indexPath:NSIndexPath = NSIndexPath(forItem:index, inSection:0)
-            let height:CGFloat = model.heightForWidth(cellWidth)
+            let height:CGFloat = model.heightForWidth(columnWidth_padding)
             let heightPadding:CGFloat = height + padding2
             let x:CGFloat = xOff[currentColumn]
             let y:CGFloat = yOff[currentColumn]
