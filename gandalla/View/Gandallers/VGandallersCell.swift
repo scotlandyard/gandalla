@@ -20,10 +20,8 @@ class VGandallersCell:UICollectionViewCell
         base.userInteractionEnabled = false
         base.clipsToBounds = true
         base.translatesAutoresizingMaskIntoConstraints = false
-        base.backgroundColor = UIColor.whiteColor()
         base.layer.cornerRadius = kCornerRadius
         base.layer.borderWidth = 1
-        base.layer.borderColor = UIColor(white:0.9, alpha:1).CGColor
         self.base = base
         
         let image:UIImageView = UIImageView()
@@ -37,7 +35,6 @@ class VGandallersCell:UICollectionViewCell
         label.userInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clearColor()
-        label.textColor = UIColor(white:0.4, alpha:1)
         label.numberOfLines = 0
         self.label = label
         
@@ -121,6 +118,22 @@ class VGandallersCell:UICollectionViewCell
         super.layoutSubviews()
     }
     
+    override var selected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var highlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
     //MARK: notified
     
     func notifiedImageLoaded(sender notification:NSNotification)
@@ -142,10 +155,29 @@ class VGandallersCell:UICollectionViewCell
         }
     }
     
+    //MARK: private
+    
+    private func hover()
+    {
+        if selected || highlighted
+        {
+            base.backgroundColor = UIColor.main()
+            base.layer.borderColor = UIColor.complement().CGColor
+            label.textColor = UIColor.whiteColor()
+        }
+        else
+        {
+            base.backgroundColor = UIColor.whiteColor()
+            base.layer.borderColor = UIColor(white:0.9, alpha:1).CGColor
+            label.textColor = UIColor(white:0.4, alpha:1)
+        }
+    }
+    
     //MARK: public
     
     func placeImage()
     {
         image.image = model?.modelGandaller.image.imageBinary
+        hover()
     }
 }
