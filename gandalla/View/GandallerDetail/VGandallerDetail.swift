@@ -74,6 +74,13 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
             views:views))
     }
     
+    override func layoutSubviews()
+    {
+        collection.collectionViewLayout.invalidateLayout()
+        
+        super.layoutSubviews()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:NSIndexPath) -> MGandallerDetailItem
@@ -85,6 +92,15 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
     
     //MARK: collection del
     
+    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
+    {
+        let item:MGandallerDetailItem = modelAtIndex(indexPath)
+        let width:CGFloat = collectionView.bounds.size.width
+        let size:CGSize = CGSizeMake(width, item.cellHeight)
+        
+        return size
+    }
+    
     func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
     {
         return 1
@@ -92,9 +108,9 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
+        let count:Int = controller.model.items.count
         
-        
-        return 0
+        return count
     }
     
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
