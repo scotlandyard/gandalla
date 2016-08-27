@@ -65,7 +65,18 @@ class VGandallersFlow:UICollectionViewFlowLayout
         
         for index:Int in 0 ..< columns
         {
-            let xItem:CGFloat = (CGFloat(index) * columnWidth) + kPadding
+            let padding:CGFloat
+            
+            if index > 0
+            {
+                padding = kPadding
+            }
+            else
+            {
+                padding = 0
+            }
+            
+            let xItem:CGFloat = (CGFloat(index) * columnWidth) + padding
             let yItem:CGFloat = kCollectionTop + kPadding
             xOff.append(xItem)
             yOff.append(yItem)
