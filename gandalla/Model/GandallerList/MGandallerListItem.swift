@@ -11,7 +11,7 @@ class MGandallerListItem
     
     init(fGandaller:FDatabaseModelGandaller)
     {
-        let nameAttributes:[String:AnyObject] = [NSFontAttributeName:UIFont.bold(15)]
+        let nameAttributes:[String:AnyObject] = [NSFontAttributeName:UIFont.bold(17)]
         let name:String = fGandaller.name
         self.fGandaller = fGandaller
         imageSize = 0
