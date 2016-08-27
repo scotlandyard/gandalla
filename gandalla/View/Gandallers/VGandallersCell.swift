@@ -38,6 +38,7 @@ class VGandallersCell:UICollectionViewCell
         label.backgroundColor = UIColor.clearColor()
         label.textColor = UIColor(white:0.4, alpha:1)
         label.numberOfLines = 0
+        self.label = label
         
         addSubview(base)
         base.addSubview(image)

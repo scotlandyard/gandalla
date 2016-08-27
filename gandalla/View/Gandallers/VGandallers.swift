@@ -51,7 +51,12 @@ class VGandallers:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     override func layoutSubviews()
     {
-        collection.collectionViewLayout.invalidateLayout()
+        dispatch_async(dispatch_get_main_queue())
+        { [weak self] in
+            
+            self?.collection.collectionViewLayout.invalidateLayout()
+        }
+        
         super.layoutSubviews()
     }
     
@@ -62,6 +67,13 @@ class VGandallers:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         let item:MGandallerListItem = controller.model.items[index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        collection.reloadData()
     }
     
     //MARK: collection del

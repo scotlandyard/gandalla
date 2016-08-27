@@ -143,11 +143,12 @@ class VMainBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         if currentWidth != width
         {
             currentWidth = width
-            collection.collectionViewLayout.invalidateLayout()
             pos.adjust(self)
             
             dispatch_async(dispatch_get_main_queue())
             { [weak self] in
+                
+                self?.collection.collectionViewLayout.invalidateLayout()
                 
                 if self != nil
                 {

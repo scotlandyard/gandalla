@@ -66,18 +66,20 @@ class VGandallersFlow:UICollectionViewFlowLayout
         for index:Int in 0 ..< columns
         {
             let xItem:CGFloat
+            let yItem:CGFloat
             
             if index == 0
             {
                 xItem = kPadding
+                yItem = kCollectionTop + kPadding
             }
             else
             {
                 let indexFloat:CGFloat = CGFloat(index)
                 xItem = (indexFloat * columnWidth) + kPadding
+                yItem = kCollectionTop + padding2 + kPadding
             }
             
-            let yItem:CGFloat = kCollectionTop + kPadding
             xOff.append(xItem)
             yOff.append(yItem)
         }
@@ -115,18 +117,21 @@ class VGandallersFlow:UICollectionViewFlowLayout
     {
         var array:[UICollectionViewLayoutAttributes]?
         
-        for attribute:UICollectionViewLayoutAttributes in attributes
+        if !controller.model.items.isEmpty
         {
-            let attrRect:CGRect = attribute.frame
-            
-            if CGRectIntersectsRect(attrRect, rect)
+            for attribute:UICollectionViewLayoutAttributes in attributes
             {
-                if array == nil
-                {
-                    array = []
-                }
+                let attrRect:CGRect = attribute.frame
                 
-                array!.append(attribute)
+                if CGRectIntersectsRect(attrRect, rect)
+                {
+                    if array == nil
+                    {
+                        array = []
+                    }
+                    
+                    array!.append(attribute)
+                }
             }
         }
         

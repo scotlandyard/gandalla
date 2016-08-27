@@ -24,8 +24,7 @@ class MGandallerList
             {
                 if gandaller.fModel.status == FDatabaseModelGandaller.FDatabaseModelGandallerStatus.Active
                 {
-                    let fModel:FDatabaseModelGandaller = gandaller.fModel
-                    let newItem:MGandallerListItem = MGandallerListItem(fGandaller:fModel)
+                    let newItem:MGandallerListItem = MGandallerListItem(modelGandaller:gandaller)
                     newItems.append(newItem)
                 }
             }
@@ -35,8 +34,8 @@ class MGandallerList
         { (itemA, itemB) -> Bool in
             
             let before:Bool
-            let nameA:String = itemA.fGandaller!.name
-            let nameB:String = itemB.fGandaller!.name
+            let nameA:String = itemA.modelGandaller.fModel.name
+            let nameB:String = itemB.modelGandaller.fModel.name
             let result:NSComparisonResult = nameA.compare(nameB)
             
             switch result

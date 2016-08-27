@@ -44,7 +44,7 @@ class CGandallers:CMainController
     
     func notifiedGandallersUpdated(sender notification:NSNotification)
     {
-        
+        generateModel()
     }
     
     //MARK: private
@@ -59,7 +59,7 @@ class CGandallers:CMainController
             dispatch_async(dispatch_get_main_queue())
             { [weak self] in
                 
-                self?.viewGandallers.collection.reloadData()
+                self?.viewGandallers.refresh()
             }
         }
     }

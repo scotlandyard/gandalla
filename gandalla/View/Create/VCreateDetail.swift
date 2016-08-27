@@ -118,7 +118,11 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     override func layoutSubviews()
     {
-        collection.collectionViewLayout.invalidateLayout()
+        dispatch_async(dispatch_get_main_queue())
+        { [weak self] in
+            
+            self?.collection.collectionViewLayout.invalidateLayout()
+        }
         
         super.layoutSubviews()
     }
