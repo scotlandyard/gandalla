@@ -33,6 +33,13 @@ class CGandallers:CMainController
             object:nil)
     }
     
+    override func viewDidAppear(animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        parent.scrollDidScroll(viewGandallers.collection)
+    }
+    
     override func loadView()
     {
         let viewGandallers:VGandallers = VGandallers(controller:self)

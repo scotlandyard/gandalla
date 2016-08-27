@@ -15,7 +15,7 @@ class MMainTransitionPush:MMainTransition
     {
         let width:CGFloat = current!.view.bounds.maxX
         let shadow:VMainShadow = VMainShadow()
-        
+     
         parent.layoutTopTemporal = NSLayoutConstraint(
             item:next.view,
             attribute:NSLayoutAttribute.Top,
@@ -87,6 +87,7 @@ class MMainTransitionPush:MMainTransition
         parent.layoutLeftTemporal!.constant = 0
         parent.layoutRightTemporal!.constant = 0
         parent.bar?.pushed(pushed)
+        parent.layoutBarHeight.constant = parent.kBarHeight
     }
     
     override func animationAfter()
