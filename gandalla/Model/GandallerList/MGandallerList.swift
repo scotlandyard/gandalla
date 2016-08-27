@@ -56,5 +56,7 @@ class MGandallerList
             
             return before
         }
+        
+        items = newItems
     }
 }

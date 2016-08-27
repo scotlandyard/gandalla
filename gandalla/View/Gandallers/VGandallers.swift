@@ -62,7 +62,7 @@ class VGandallers:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
     {
-        return 0
+        return 1
     }
     
     func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int

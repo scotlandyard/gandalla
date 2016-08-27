@@ -13,7 +13,7 @@ class MGandallerListItem
     
     func heightForWidth(width:CGFloat) -> CGFloat
     {
-        return 0
+        return 100
     }
     
     func config(cell:VGandallersCell)
