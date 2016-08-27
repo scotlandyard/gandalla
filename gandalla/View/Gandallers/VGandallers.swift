@@ -66,6 +66,11 @@ class VGandallers:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     //MARK: collection del
     
+    func scrollViewDidScroll(scrollView:UIScrollView)
+    {
+        controller.parent.scrollDidScroll(scrollView)
+    }
+    
     func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
     {
         return 1

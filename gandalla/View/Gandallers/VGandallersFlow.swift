@@ -104,7 +104,7 @@ class VGandallersFlow:UICollectionViewFlowLayout
     
     override func layoutAttributesForElementsInRect(rect:CGRect) -> [UICollectionViewLayoutAttributes]?
     {
-        var array:[UICollectionViewLayoutAttributes] = []
+        var array:[UICollectionViewLayoutAttributes]?
         
         for attribute:UICollectionViewLayoutAttributes in attributes
         {
@@ -112,7 +112,12 @@ class VGandallersFlow:UICollectionViewFlowLayout
             
             if CGRectIntersectsRect(attrRect, rect)
             {
-                array.append(attribute)
+                if array == nil
+                {
+                    array = []
+                }
+                
+                array!.append(attribute)
             }
         }
         
