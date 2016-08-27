@@ -63,4 +63,16 @@ class CGandallers:CMainController
             }
         }
     }
+    
+    //MARK: public
+    
+    func showGandaller(index:NSIndexPath)
+    {
+        let listItem:MGandallerListItem = model.items[index.item]
+        let item:MGandallerItem = listItem.modelGandaller
+        let gandallerName:String = item.fModel.name
+        let controller:CGandallerDetail = CGandallerDetail(model:item)
+        let transition:MMainTransition = MMainTransition.Push(gandallerName)
+        parent.pushController(controller, transition:transition)
+    }
 }
