@@ -1,9 +1,13 @@
-//
-//  MGandallerDetailItem.swift
-//  gandalla
-//
-//  Created by zero on 8/27/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MGandallerDetailItem
+{
+    let reusableIdentifier:String
+    let cellHeight:CGFloat
+    
+    init(reusableIdentifier:String, cellHeight:CGFloat)
+    {
+        self.reusableIdentifier = reusableIdentifier
+        self.cellHeight = cellHeight
+    }
+}
