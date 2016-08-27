@@ -117,7 +117,7 @@ class VGandallersFlow:UICollectionViewFlowLayout
     {
         var array:[UICollectionViewLayoutAttributes]?
         
-        if !controller.model.items.isEmpty
+        if collectionView?.numberOfItemsInSection(0) > 0
         {
             for attribute:UICollectionViewLayoutAttributes in attributes
             {

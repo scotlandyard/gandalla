@@ -51,12 +51,7 @@ class VGandallers:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     override func layoutSubviews()
     {
-        dispatch_async(dispatch_get_main_queue())
-        { [weak self] in
-            
-            self?.collection.collectionViewLayout.invalidateLayout()
-        }
-        
+        collection.collectionViewLayout.invalidateLayout()
         super.layoutSubviews()
     }
     
