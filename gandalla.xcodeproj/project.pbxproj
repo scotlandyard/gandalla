@@ -64,6 +64,8 @@
 		DA42AE5A1D6FF02D0082F43A /* MCreateItemDetailPropertyItemPower.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA42AE591D6FF02D0082F43A /* MCreateItemDetailPropertyItemPower.swift */; };
 		DA65BBB21D722F7300DA8440 /* CGandallerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BBB11D722F7300DA8440 /* CGandallerDetail.swift */; };
 		DA65BBB81D72375700DA8440 /* VGandallerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BBB71D72375700DA8440 /* VGandallerDetail.swift */; };
+		DA65BBBB1D72383300DA8440 /* MGandallerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BBBA1D72383300DA8440 /* MGandallerDetail.swift */; };
+		DA65BBBD1D72383F00DA8440 /* MGandallerDetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BBBC1D72383F00DA8440 /* MGandallerDetailItem.swift */; };
 		DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216B1D691BAA006323FE /* FAnalytics.swift */; };
 		DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216E1D691BAA006323FE /* FDatabase.swift */; };
 		DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216F1D691BAA006323FE /* FDatabaseModel.swift */; };
@@ -215,6 +217,8 @@
 		DA42AE591D6FF02D0082F43A /* MCreateItemDetailPropertyItemPower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemPower.swift; sourceTree = "<group>"; };
 		DA65BBB11D722F7300DA8440 /* CGandallerDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGandallerDetail.swift; sourceTree = "<group>"; };
 		DA65BBB71D72375700DA8440 /* VGandallerDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGandallerDetail.swift; sourceTree = "<group>"; };
+		DA65BBBA1D72383300DA8440 /* MGandallerDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGandallerDetail.swift; sourceTree = "<group>"; };
+		DA65BBBC1D72383F00DA8440 /* MGandallerDetailItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGandallerDetailItem.swift; sourceTree = "<group>"; };
 		DA92216B1D691BAA006323FE /* FAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAnalytics.swift; sourceTree = "<group>"; };
 		DA92216E1D691BAA006323FE /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
 		DA92216F1D691BAA006323FE /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
@@ -461,6 +465,15 @@
 			path = GandallerDetail;
 			sourceTree = "<group>";
 		};
+		DA65BBB91D72382900DA8440 /* GandallerDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DA65BBBA1D72383300DA8440 /* MGandallerDetail.swift */,
+				DA65BBBC1D72383F00DA8440 /* MGandallerDetailItem.swift */,
+			);
+			path = GandallerDetail;
+			sourceTree = "<group>";
+		};
 		DA9221691D691BAA006323FE /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +651,7 @@
 		DAA6A3921D69184300F2565B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA65BBB91D72382900DA8440 /* GandallerDetail */,
 				DABF04791D70F17200012C4C /* GandallerList */,
 				DA155AFB1D6CBA6A000C8C85 /* Gandaller */,
 				DA155AF81D6CA7D3000C8C85 /* News */,
@@ -1096,7 +1110,9 @@
 				DABF04721D70E31700012C4C /* MCreateItemDetailPropertyNotifications.swift in Sources */,
 				DAA6A3C41D69184300F2565B /* CategoryUIFont.swift in Sources */,
 				DA155AF71D6C9EE7000C8C85 /* MCreateItemDetailPropertyStarted.swift in Sources */,
+				DA65BBBD1D72383F00DA8440 /* MGandallerDetailItem.swift in Sources */,
 				DAA6A3ED1D69184300F2565B /* VMainShadow.swift in Sources */,
+				DA65BBBB1D72383300DA8440 /* MGandallerDetail.swift in Sources */,
 				DA13F3781D6B450F008AF28A /* FDatabaseModelUser.swift in Sources */,
 				DA13F37A1D6B551D008AF28A /* VCreateCell.swift in Sources */,
 				DAA580171D6D2BE600EC941A /* VNewsCellSocial.swift in Sources */,
