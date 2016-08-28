@@ -7,16 +7,22 @@ class MGandallerDetail
     init(gandaller:MGandallerItem)
     {
         let gandallerId:String = gandaller.gandallerId
-        var items:[MGandallerDetailItem] = []
+        let titlePowers:String = NSLocalizedString("MGandallerDetail_titlePowers", comment:"")
+        let titleHashtags:String = NSLocalizedString("MGandallerDetail_titleHashtags", comment:"")
+        let titleVideos:String = NSLocalizedString("MGandallerDetail_titleVideos", comment:"")
         
+        var items:[MGandallerDetailItem] = []
         let itemPictures:MGandallerDetailItemPictures = MGandallerDetailItemPictures(gandallerId:gandallerId)
         let itemProfile:MGandallerDetailItemProfile = MGandallerDetailItemProfile(modelGandaller:gandaller)
+        let itemLike:MGandallerDetailItemLike = MGandallerDetailItemLike(modelGandaller:gandaller)
+        let itemTitlePowers:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titlePowers)
+        let itemSocial:MGandallerDetailItemSocial = MGandallerDetailItemSocial(modelGandaller:gandaller)
+        let itemTitleHashtags:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titleHashtags)
+        let itemTitleVideos:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titleVideos)
         
         items.append(itemPictures)
         items.append(itemProfile)
-        
-        let titlePowers:String = NSLocalizedString("MGandallerDetail_titlePowers", comment:"")
-        let itemTitlePowers:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titlePowers)
+        items.append(itemLike)
         items.append(itemTitlePowers)
         
         for power:FDatabaseModelGandallerPower in gandaller.fModel.powers
@@ -30,11 +36,7 @@ class MGandallerDetail
             }
         }
         
-        let itemSocial:MGandallerDetailItemSocial = MGandallerDetailItemSocial(modelGandaller:gandaller)
         items.append(itemSocial)
-        
-        let titleHashtags:String = NSLocalizedString("MGandallerDetail_titleHashtags", comment:"")
-        let itemTitleHashtags:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titleHashtags)
         items.append(itemTitleHashtags)
         
         for hashtag:FDatabaseModelGandallerSocialHashtag in gandaller.fModel.social.hashtags
@@ -47,9 +49,7 @@ class MGandallerDetail
                 items.append(itemHashtag)
             }
         }
-        
-        let titleVideos:String = NSLocalizedString("MGandallerDetail_titleVideos", comment:"")
-        let itemTitleVideos:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titleVideos)
+
         items.append(itemTitleVideos)
         
         for video:FDatabaseModelGandallerVideo in gandaller.fModel.videos
