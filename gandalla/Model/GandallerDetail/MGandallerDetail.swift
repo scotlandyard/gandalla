@@ -42,6 +42,10 @@ class MGandallerDetail
             items.append(itemHashtag)
         }
         
+        let titleVideos:String = NSLocalizedString("MGandallerDetail_titleVideos", comment:"")
+        let itemTitleVideos:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titleVideos)
+        items.append(itemTitleVideos)
+        
         for video:FDatabaseModelGandallerVideo in gandaller.fModel.videos
         {
             let url:String = video.url
