@@ -3,6 +3,7 @@ import UIKit
 class MGandallerDetailItemPictures:MGandallerDetailItem
 {
     let gandallerId:String
+    private let kSelectable:Bool = false
     
     init(gandallerId:String)
     {
@@ -22,6 +23,6 @@ class MGandallerDetailItemPictures:MGandallerDetailItem
             cellHeight = screenHeight
         }
         
-        super.init(reusableIdentifier:reusableIdentifier, cellHeight:cellHeight)
+        super.init(reusableIdentifier:reusableIdentifier, cellHeight:cellHeight, selectable:kSelectable)
     }
 }
