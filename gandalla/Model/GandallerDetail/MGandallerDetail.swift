@@ -16,7 +16,7 @@ class MGandallerDetail
         let titleInstagram:String = gandaller.fModel.social.instagram
         
         var items:[MGandallerDetailItem] = []
-        let itemPictures:MGandallerDetailItemPictures = MGandallerDetailItemPictures(gandallerId:gandallerId)
+        let itemPictures:MGandallerDetailItemPictures = MGandallerDetailItemPictures(modelGandaller:gandaller)
         let itemProfile:MGandallerDetailItemProfile = MGandallerDetailItemProfile(modelGandaller:gandaller)
         let itemLike:MGandallerDetailItemLike = MGandallerDetailItemLike(modelGandaller:gandaller)
         let itemTitlePowers:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titlePowers)

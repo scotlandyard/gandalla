@@ -2,14 +2,12 @@ import UIKit
 
 class MGandallerDetailItemPictures:MGandallerDetailItem
 {
-    let gandallerId:String
     let cellSize:CGFloat
-    var items:[]
+    let items:[MGandallerDetailItemPicturesItem]
     private let kSelectable:Bool = false
     
-    init(gandallerId:String)
+    init(modelGandaller:MGandallerItem)
     {
-        self.gandallerId = gandallerId
         let reusableIdentifier:String = VGandallerDetailCellPictures.reusableIdentifier()
         let screenSize:CGSize = UIScreen.mainScreen().bounds.size
         let screenWidth:CGFloat = screenSize.width
@@ -23,6 +21,15 @@ class MGandallerDetailItemPictures:MGandallerDetailItem
         {
             cellSize = screenHeight
         }
+        
+        let items:[MGandallerDetailItemPicturesItem] = []
+        
+        for fImage:FDatabaseModelGandallerImage in modelGandaller.fModel.images
+        {
+            
+        }
+        
+        self.items = items
         
         super.init(reusableIdentifier:reusableIdentifier, cellHeight:cellSize, selectable:kSelectable)
     }
