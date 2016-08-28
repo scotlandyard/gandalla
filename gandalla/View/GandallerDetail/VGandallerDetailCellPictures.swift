@@ -31,6 +31,11 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
     
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
     {
+        let cell:VGandallerDetailCellPicturesCell = collectionView.dequeueReusableCellWithReuseIdentifier(
+            VGandallerDetailCellPicturesCell.reusableIdentifier(),
+            forIndexPath:
+            indexPath) as! VGandallerDetailCellPicturesCell
         
+        return cell
     }
 }

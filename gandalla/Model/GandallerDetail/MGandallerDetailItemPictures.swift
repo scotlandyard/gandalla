@@ -23,11 +23,18 @@ class MGandallerDetailItemPictures:MGandallerDetailItem
         }
         
         let gandallerId:String = modelGandaller.gandallerId
-        let items:[MGandallerDetailItemPicturesItem] = []
+        var items:[MGandallerDetailItemPicturesItem] = []
         
         for fImage:FDatabaseModelGandallerImage in modelGandaller.fModel.images
         {
-            let imageId:String = fImage.imageId!
+            let imageStatus:FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus = fImage.status
+            
+            if imageStatus == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
+            {
+                let imageId:String = fImage.imageId!
+                let imageItem:MGandallerDetailItemPicturesItem = MGandallerDetailItemPicturesItem(gandallerId:gandallerId, imageId:imageId)
+                items.append(imageItem)
+            }
         }
         
         self.items = items
