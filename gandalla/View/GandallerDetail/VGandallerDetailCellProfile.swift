@@ -7,7 +7,6 @@ class VGandallerDetailCellProfile:VGandallerDetailCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor.whiteColor()
         userInteractionEnabled = false
         
         let label:UILabel = UILabel()
@@ -31,7 +30,7 @@ class VGandallerDetailCellProfile:VGandallerDetailCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[label]-0-|",
+            "V:|-8-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))

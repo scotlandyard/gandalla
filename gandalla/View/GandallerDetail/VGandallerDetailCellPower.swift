@@ -15,7 +15,7 @@ class VGandallerDetailCellPower:VGandallerDetailCell
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clearColor()
         label.font = UIFont.regular(15)
-        label.textColor = UIColor(white:0.15, alpha:1)
+        label.textColor = UIColor(white:0.4, alpha:1)
         label.numberOfLines = 2
         self.label = label
         

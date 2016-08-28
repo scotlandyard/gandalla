@@ -43,7 +43,7 @@ class VGandallerDetailCellLike:VGandallerDetailCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-15-[button]-15-|",
+            "V:|-0-[button]-0-|",
             options:[],
             metrics:metrics,
             views:views))
