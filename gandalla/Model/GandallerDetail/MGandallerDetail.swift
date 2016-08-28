@@ -10,6 +10,7 @@ class MGandallerDetail
         let titlePowers:String = NSLocalizedString("MGandallerDetail_titlePowers", comment:"")
         let titleHashtags:String = NSLocalizedString("MGandallerDetail_titleHashtags", comment:"")
         let titleVideos:String = NSLocalizedString("MGandallerDetail_titleVideos", comment:"")
+        let titleSocial:String = NSLocalizedString("MGandallerDetail_titleSocial", comment:"")
         let titleFacebook:String = gandaller.fModel.social.facebook
         let titleTwitter:String = gandaller.fModel.social.twitter
         let titleInstagram:String = gandaller.fModel.social.instagram
@@ -19,6 +20,7 @@ class MGandallerDetail
         let itemProfile:MGandallerDetailItemProfile = MGandallerDetailItemProfile(modelGandaller:gandaller)
         let itemLike:MGandallerDetailItemLike = MGandallerDetailItemLike(modelGandaller:gandaller)
         let itemTitlePowers:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titlePowers)
+        let itemTitleSocial:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titleSocial)
         let itemTitleHashtags:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titleHashtags)
         let itemTitleVideos:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titleVideos)
         
@@ -37,6 +39,8 @@ class MGandallerDetail
                 items.append(itemPower)
             }
         }
+        
+        items.append(itemTitleSocial)
         
         if !titleFacebook.isEmpty
         {

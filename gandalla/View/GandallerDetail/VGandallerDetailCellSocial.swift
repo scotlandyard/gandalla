@@ -15,9 +15,8 @@ class VGandallerDetailCellSocial:VGandallerDetailCell
         label.userInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clearColor()
-        label.font = UIFont.regular(15)
-        label.textColor = UIColor(white:0.4, alpha:1)
-        label.numberOfLines = 2
+        label.font = UIFont.bold(16)
+        label.textColor = UIColor(white:0.35, alpha:1)
         self.label = label
         
         let icon:UIImageView = UIImageView()
