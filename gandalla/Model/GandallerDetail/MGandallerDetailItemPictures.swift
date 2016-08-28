@@ -2,8 +2,11 @@ import UIKit
 
 class MGandallerDetailItemPictures:MGandallerDetailItem
 {
-    init()
+    let gandallerId:String
+    
+    init(gandallerId:String)
     {
+        self.gandallerId = gandallerId
         let cellHeight:CGFloat
         let reusableIdentifier:String = VGandallerDetailCellPictures.reusableIdentifier()
         let screenSize:CGSize = UIScreen.mainScreen().bounds.size
