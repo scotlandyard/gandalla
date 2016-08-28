@@ -80,17 +80,51 @@ class VGandallerDetailCellLike:VGandallerDetailCell
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
             
-            
+            let predicateString:String = String(format:"name == \"%@\"", gandallerId)
+            let predicate:NSPredicate = NSPredicate(format:predicateString)
+            DManager.sharedInstance.managerGandalla.fetchManagedObjects(
+                DGandallaGandaller.self,
+                limit:1,
+                predicate:predicate)
+            { (objects) in
+                
+                let liked:Bool = !objects.isEmpty
+                
+                dispatch_async(dispatch_get_main_queue())
+                { [weak self] in
+                    
+                    if self != nil
+                    {
+                        if self!.modelLike.modelGandaller.gandallerId == gandallerId
+                        {
+                            if liked
+                            {
+                                self!.gandallerLiked()
+                            }
+                            else
+                            {
+                                self!.gandallerNotLiked()
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     
     private func gandallerLiked()
     {
-        
+        label.hidden = true
+        button.hidden = false
+        button.userInteractionEnabled = false
+        button.setImage(UIImage(named:"gandallerLiked"), forState:UIControlState.Normal)
     }
     
     private func gandallerNotLiked()
     {
-        
+        label.hidden = false
+        button.hidden = false
+        button.userInteractionEnabled = true
+        button.setImage(UIImage(named:"gandallerLike"), forState:UIControlState.Normal)
     }
 }
