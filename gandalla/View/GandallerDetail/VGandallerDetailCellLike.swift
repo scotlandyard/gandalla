@@ -4,6 +4,7 @@ class VGandallerDetailCellLike:VGandallerDetailCell
 {
     weak var label:UILabel!
     weak var button:UIButton!
+    weak var modelLike:MGandallerDetailItemLike!
     
     override init(frame:CGRect)
     {
@@ -24,7 +25,7 @@ class VGandallerDetailCellLike:VGandallerDetailCell
         button.translatesAutoresizingMaskIntoConstraints = false
         button.imageView?.clipsToBounds = true
         button.imageView?.contentMode = UIViewContentMode.Center
-        button.addTarget(self, action:#selector(self.button), forControlEvents:UIControlEvents.TouchUpInside)
+        button.addTarget(self, action:#selector(self.actionLike(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
         self.button = button
         
         addSubview(label)
@@ -60,9 +61,9 @@ class VGandallerDetailCellLike:VGandallerDetailCell
     
     override func config(model:MGandallerDetailItem)
     {
-        let modelProfile:MGandallerDetailItemProfile = model as! MGandallerDetailItemProfile
-        let gandallerName:String = modelProfile.modelGandaller.fModel.name
-        label.text = gandallerName
+        modelLike = model as! MGandallerDetailItemLike
+        button.hidden = true
+        label.hidden = true
     }
     
     //MARK: actions

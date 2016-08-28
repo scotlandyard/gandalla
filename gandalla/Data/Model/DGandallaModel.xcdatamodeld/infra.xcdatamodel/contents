@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Automatic">
     <entity name="Gandaller" representedClassName="DGandallaGandaller" syncable="YES">
+        <attribute name="created" attributeType="Date" defaultDateTimeInterval="0" syncable="YES"/>
         <attribute name="gandallerId" attributeType="String" defaultValueString="x" syncable="YES"/>
-        <attribute name="name" attributeType="String" defaultValueString="x" syncable="YES"/>
         <relationship name="userLiked" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="likedGandaller" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="DGandallaUser" syncable="YES">
@@ -10,7 +10,7 @@
         <relationship name="likedGandaller" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Gandaller" inverseName="userLiked" inverseEntity="Gandaller" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="75"/>
         <element name="Gandaller" positionX="-54" positionY="0" width="128" height="90"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="75"/>
     </elements>
 </model>

@@ -5,7 +5,7 @@ import CoreData
 class DGandallaGandaller:NSManagedObject
 {
     @NSManaged var gandallerId:String
-    @NSManaged var name:String
+    @NSManaged var created:NSTimeInterval
     @NSManaged var userLiked:DGandallaUser?
     
     override class func entityName() -> String
