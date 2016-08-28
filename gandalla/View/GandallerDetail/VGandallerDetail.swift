@@ -133,4 +133,27 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
         
         return cell
     }
+    
+    func collectionView(collectionView:UICollectionView, shouldHighlightItemAtIndexPath indexPath:NSIndexPath) -> Bool
+    {
+        let item:MGandallerDetailItem = modelAtIndex(indexPath)
+        
+        return item.selectable
+    }
+    
+    func collectionView(collectionView:UICollectionView, shouldSelectItemAtIndexPath indexPath:NSIndexPath) -> Bool
+    {
+        let item:MGandallerDetailItem = modelAtIndex(indexPath)
+        
+        return item.selectable
+    }
+    
+    func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
+    {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
+        { [weak collectionView] in
+            
+            collectionView?.selectItemAtIndexPath(nil, animated:false, scrollPosition:UICollectionViewScrollPosition.None)
+        }
+    }
 }
