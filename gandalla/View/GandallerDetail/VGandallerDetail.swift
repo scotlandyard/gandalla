@@ -96,6 +96,11 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
     
     //MARK: collection del
     
+    func scrollViewDidScroll(scrollView:UIScrollView)
+    {
+        controller.parent.scrollDidScroll(scrollView)
+    }
+    
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
         let item:MGandallerDetailItem = modelAtIndex(indexPath)
