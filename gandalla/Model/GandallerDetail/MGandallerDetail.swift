@@ -30,6 +30,10 @@ class MGandallerDetail
         let itemSocial:MGandallerDetailItemSocial = MGandallerDetailItemSocial(modelGandaller:gandaller)
         items.append(itemSocial)
         
+        let titleHashtags:String = NSLocalizedString("MGandallerDetail_titleHashtags", comment:"")
+        let itemTitleHashtags:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titleHashtags)
+        items.append(itemTitleHashtags)
+        
         for hashtag:FDatabaseModelGandallerSocialHashtag in gandaller.fModel.social.hashtags
         {
             let tag:String = hashtag.tag
