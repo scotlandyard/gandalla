@@ -3,7 +3,7 @@ import UIKit
 class MGandallerDetailItemLike:MGandallerDetailItem
 {
     weak var modelGandaller:MGandallerItem!
-    private let kCellHeight:CGFloat = 60
+    private let kCellHeight:CGFloat = 75
     private let kSelectable:Bool = false
     
     init(modelGandaller:MGandallerItem)

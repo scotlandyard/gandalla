@@ -14,14 +14,15 @@ class VGandallerDetailCellLike:VGandallerDetailCell
         label.userInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clearColor()
-        label.font = UIFont.regular(13)
-        label.textColor = UIColor(white:0.3, alpha:1)
+        label.font = UIFont.regular(12)
+        label.textColor = UIColor(white:0.15, alpha:1)
         label.textAlignment = NSTextAlignment.Right
         label.text = NSLocalizedString("VGandallerDetailCellLike_label", comment:"")
         self.label = label
         
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named:"gandallerLiked"), forState:UIControlState.Highlighted)
         button.imageView?.clipsToBounds = true
         button.imageView?.contentMode = UIViewContentMode.Center
         button.addTarget(self, action:#selector(self.actionLike(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
@@ -37,7 +38,7 @@ class VGandallerDetailCellLike:VGandallerDetailCell
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[label(150)]-10-[button(50)]-10-|",
+            "H:[label(200)]-4-[button(40)]-9-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -71,9 +72,19 @@ class VGandallerDetailCellLike:VGandallerDetailCell
     
     func actionLike(sender button:UIButton)
     {
+        button.userInteractionEnabled = false
+        likeGandaller()
     }
     
     //MARK: private
+    
+    private func likeGandaller()
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        {
+            
+        }
+    }
     
     private func seekGandallerDb(gandallerId:String)
     {
