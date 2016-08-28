@@ -80,7 +80,7 @@ class VGandallerDetailCellLike:VGandallerDetailCell
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
             
-            let predicateString:String = String(format:"name == \"%@\"", gandallerId)
+            let predicateString:String = String(format:"gandallerId == \"%@\"", gandallerId)
             let predicate:NSPredicate = NSPredicate(format:predicateString)
             DManager.sharedInstance.managerGandalla.fetchManagedObjects(
                 DGandallaGandaller.self,
