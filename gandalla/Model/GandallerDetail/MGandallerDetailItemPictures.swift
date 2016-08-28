@@ -22,11 +22,12 @@ class MGandallerDetailItemPictures:MGandallerDetailItem
             cellSize = screenHeight
         }
         
+        let gandallerId:String = modelGandaller.gandallerId
         let items:[MGandallerDetailItemPicturesItem] = []
         
         for fImage:FDatabaseModelGandallerImage in modelGandaller.fModel.images
         {
-            
+            let imageId:String = fImage.imageId!
         }
         
         self.items = items
