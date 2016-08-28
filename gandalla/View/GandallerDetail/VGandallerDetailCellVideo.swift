@@ -16,22 +16,37 @@ class VGandallerDetailCellVideo:VGandallerDetailCell
         label.backgroundColor = UIColor.clearColor()
         label.font = UIFont.regular(12)
         label.textColor = UIColor(white:0.3, alpha:1)
+        label.numberOfLines = 2
         self.label = label
         
+        let icon:UIImageView = UIImageView()
+        icon.userInteractionEnabled = false
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        icon.clipsToBounds = true
+        icon.contentMode = UIViewContentMode.Center
+        icon.image = UIImage(named:"gandallerVideo")
+        
         addSubview(label)
+        addSubview(icon)
         
         let views:[String:AnyObject] = [
-            "label":label]
+            "label":label,
+            "icon":icon]
         
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-10-[label]-10-|",
+            "H:|-0-[icon(35)]-0-[label]-10-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[label]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[icon]-0-|",
             options:[],
             metrics:metrics,
             views:views))
