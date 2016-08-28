@@ -10,13 +10,15 @@ class MGandallerDetail
         let titlePowers:String = NSLocalizedString("MGandallerDetail_titlePowers", comment:"")
         let titleHashtags:String = NSLocalizedString("MGandallerDetail_titleHashtags", comment:"")
         let titleVideos:String = NSLocalizedString("MGandallerDetail_titleVideos", comment:"")
+        let titleFacebook:String = gandaller.fModel.social.facebook
+        let titleTwitter:String = gandaller.fModel.social.twitter
+        let titleInstagram:String = gandaller.fModel.social.instagram
         
         var items:[MGandallerDetailItem] = []
         let itemPictures:MGandallerDetailItemPictures = MGandallerDetailItemPictures(gandallerId:gandallerId)
         let itemProfile:MGandallerDetailItemProfile = MGandallerDetailItemProfile(modelGandaller:gandaller)
         let itemLike:MGandallerDetailItemLike = MGandallerDetailItemLike(modelGandaller:gandaller)
         let itemTitlePowers:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titlePowers)
-        let itemSocial:MGandallerDetailItemSocial = MGandallerDetailItemSocial(modelGandaller:gandaller)
         let itemTitleHashtags:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titleHashtags)
         let itemTitleVideos:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titleVideos)
         
@@ -36,7 +38,24 @@ class MGandallerDetail
             }
         }
         
-        items.append(itemSocial)
+        if !titleFacebook.isEmpty
+        {
+            let itemFacebook:MGandallerDetailItemSocialFacebook = MGandallerDetailItemSocialFacebook(title:titleFacebook)
+            items.append(itemFacebook)
+        }
+        
+        if !titleTwitter.isEmpty
+        {
+            let itemTwitter:MGandallerDetailItemSocialTwitter = MGandallerDetailItemSocialTwitter(title:titleTwitter)
+            items.append(itemTwitter)
+        }
+        
+        if !titleInstagram.isEmpty
+        {
+            let itemInstagram:MGandallerDetailItemSocialInstagram = MGandallerDetailItemSocialInstagram(title:titleInstagram)
+            items.append(itemInstagram)
+        }
+        
         items.append(itemTitleHashtags)
         
         for hashtag:FDatabaseModelGandallerSocialHashtag in gandaller.fModel.social.hashtags
