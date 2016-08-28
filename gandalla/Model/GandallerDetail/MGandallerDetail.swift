@@ -17,6 +17,14 @@ class MGandallerDetail
         items.append(itemProfile)
         items.append(itemSocial)
         
+        for hashtag:FDatabaseModelGandallerSocialHashtag in gandaller.fModel.social.hashtags
+        {
+            let tag:String = hashtag.tag
+            let itemHashtag:MGandallerDetailItemHashtag = MGandallerDetailItemHashtag(tag:tag)
+            
+            items.append(itemHashtag)
+        }
+        
         self.items = items
     }
 }
