@@ -133,8 +133,14 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
         }
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAtIndex section:Int) -> UIEdgeInsets
+    {
+        let colWidth:CGFloat = bounds.maxX
+        let remain:CGFloat = colWidth - imageSize
+        let margin:CGFloat = remain / 2.0
+        let insets:UIEdgeInsets = UIEdgeInsetsMake(0, margin, 0, margin)
         
+        return insets
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
