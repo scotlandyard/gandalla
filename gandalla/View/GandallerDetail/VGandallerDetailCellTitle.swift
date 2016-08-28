@@ -7,7 +7,6 @@ class VGandallerDetailCellTitle:VGandallerDetailCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor.whiteColor()
         userInteractionEnabled = false
         
         let label:UILabel = UILabel()

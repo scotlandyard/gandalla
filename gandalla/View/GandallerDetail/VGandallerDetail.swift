@@ -34,6 +34,10 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
         collection.delegate = self
         collection.dataSource = self
         collection.registerClass(
+            VGandallerDetailCellTitle.self,
+            forCellWithReuseIdentifier:
+            VGandallerDetailCellTitle.reusableIdentifier())
+        collection.registerClass(
             VGandallerDetailCellPictures.self,
             forCellWithReuseIdentifier:
             VGandallerDetailCellPictures.reusableIdentifier())

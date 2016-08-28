@@ -15,6 +15,10 @@ class MGandallerDetail
         items.append(itemPictures)
         items.append(itemProfile)
         
+        let titlePowers:String = NSLocalizedString("MGandallerDetail_titlePowers", comment:"")
+        let itemTitlePowers:MGandallerDetailItemTitle = MGandallerDetailItemTitle(title:titlePowers)
+        items.append(itemTitlePowers)
+        
         for power:FDatabaseModelGandallerPower in gandaller.fModel.powers
         {
             let power:String = power.name
