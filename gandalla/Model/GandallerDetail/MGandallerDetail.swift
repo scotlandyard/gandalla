@@ -12,7 +12,6 @@ class MGandallerDetail
         let itemPictures:MGandallerDetailItemPictures = MGandallerDetailItemPictures(gandallerId:gandallerId)
         let itemProfile:MGandallerDetailItemProfile = MGandallerDetailItemProfile(modelGandaller:gandaller)
         
-        
         items.append(itemPictures)
         items.append(itemProfile)
         

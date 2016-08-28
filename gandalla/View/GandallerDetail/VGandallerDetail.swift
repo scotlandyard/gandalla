@@ -42,17 +42,21 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
             forCellWithReuseIdentifier:
             VGandallerDetailCellProfile.reusableIdentifier())
         collection.registerClass(
+            VGandallerDetailCellPower.self,
+            forCellWithReuseIdentifier:
+            VGandallerDetailCellPower.reusableIdentifier())
+        collection.registerClass(
             VGandallerDetailCellSocial.self,
             forCellWithReuseIdentifier:
             VGandallerDetailCellSocial.reusableIdentifier())
         collection.registerClass(
-            VGandallerDetailCellVideo.self,
-            forCellWithReuseIdentifier:
-            VGandallerDetailCellVideo.reusableIdentifier())
-        collection.registerClass(
             VGandallerDetailCellHashtag.self,
             forCellWithReuseIdentifier:
             VGandallerDetailCellHashtag.reusableIdentifier())
+        collection.registerClass(
+            VGandallerDetailCellVideo.self,
+            forCellWithReuseIdentifier:
+            VGandallerDetailCellVideo.reusableIdentifier())
         self.collection = collection
         
         addSubview(collection)
