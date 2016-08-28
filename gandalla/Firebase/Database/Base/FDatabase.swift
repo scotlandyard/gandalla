@@ -86,4 +86,11 @@ class FDatabase
         let subPropertyReference:FIRDatabaseReference = propertyReference.child(subChildId)
         subPropertyReference.removeValue()
     }
+    
+    func transactionChild(parent:FDatabaseReference, childId:String, block:((data:FIRMutableData) -> (FIRTransactionResult)), completion:((error:NSError?, completed:Bool, snapshot:FIRDataSnapshot?) -> ()))
+    {
+        let parentName:String = parent.rawValue
+        let propertyReference:FIRDatabaseReference = reference.child(parentName).child(childId)
+        propertyReference.runTransactionBlock(block, andCompletionBlock:completion)
+    }
 }

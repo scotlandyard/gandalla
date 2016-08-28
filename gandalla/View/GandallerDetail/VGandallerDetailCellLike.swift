@@ -95,7 +95,10 @@ class VGandallerDetailCellLike:VGandallerDetailCell
                 FMain.sharedInstance.database.createSubChild(
                     reference,
                     childId:childId,
-                    property:property, json: <#T##[String : AnyObject]#>)
+                    property:property,
+                    json:jsonLike)
+                
+                self!.databaseLike()
             }
         }
     }
