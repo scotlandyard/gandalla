@@ -2,16 +2,19 @@ import Foundation
 
 class FDatabaseModelLike:FDatabaseModel
 {
-    let created:NSTimeInterval
+    let gandallerId:String
+    let userId:String
     
-    enum FDatabaseModelUserKey:String
+    enum FDatabaseModelLikeKey:String
     {
-        case Created = "created"
+        case GandallerId = "gandaller_id"
+        case UserId = "user_id"
     }
     
-    init()
+    init(gandallerId:String, userId:String)
     {
-        created = NSDate().timeIntervalSince1970
+        self.gandallerId = gandallerId
+        self.userId = userId
     }
     
     //MARK: public
@@ -19,7 +22,8 @@ class FDatabaseModelLike:FDatabaseModel
     func modelJson() -> [String:AnyObject]
     {
         let dict:[String:AnyObject] = [
-            FDatabaseModelUserKey.Created.rawValue:created
+            FDatabaseModelLikeKey.GandallerId.rawValue:gandallerId,
+            FDatabaseModelLikeKey.UserId.rawValue:userId
         ]
         
         return dict
