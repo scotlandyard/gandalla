@@ -9,7 +9,6 @@ class VGandallerDetailCellLike:VGandallerDetailCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor.whiteColor()
         
         let label:UILabel = UILabel()
         label.userInteractionEnabled = false
@@ -64,11 +63,34 @@ class VGandallerDetailCellLike:VGandallerDetailCell
         modelLike = model as! MGandallerDetailItemLike
         button.hidden = true
         label.hidden = true
+        let gandallerId:String = modelLike.modelGandaller.gandallerId
+        seekGandallerDb(gandallerId)
     }
     
     //MARK: actions
     
     func actionLike(sender button:UIButton)
     {
+    }
+    
+    //MARK: private
+    
+    private func seekGandallerDb(gandallerId:String)
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            
+        }
+    }
+    
+    private func gandallerLiked()
+    {
+        
+    }
+    
+    private func gandallerNotLiked()
+    {
+        
     }
 }

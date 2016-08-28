@@ -36,7 +36,7 @@ class MGandallerList
             let before:Bool
             let nameA:String = itemA.modelGandaller.fModel.name
             let nameB:String = itemB.modelGandaller.fModel.name
-            let result:NSComparisonResult = nameA.compare(nameB)
+            let result:NSComparisonResult = nameA.compare(nameB, options:NSStringCompareOptions.CaseInsensitiveSearch, range:nil, locale:nil)
             
             switch result
             {

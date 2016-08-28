@@ -46,6 +46,10 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
             forCellWithReuseIdentifier:
             VGandallerDetailCellProfile.reusableIdentifier())
         collection.registerClass(
+            VGandallerDetailCellLike.self,
+            forCellWithReuseIdentifier:
+            VGandallerDetailCellLike.reusableIdentifier())
+        collection.registerClass(
             VGandallerDetailCellPower.self,
             forCellWithReuseIdentifier:
             VGandallerDetailCellPower.reusableIdentifier())
