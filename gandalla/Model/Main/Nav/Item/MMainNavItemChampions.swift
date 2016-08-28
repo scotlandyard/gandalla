@@ -11,8 +11,8 @@ class MMainNavItemChampions:MMainNavItem
     
     override func controller() -> UIViewController
     {
-        let news:CNews = CNews()
+        let champions:CChampions = CChampions()
         
-        return news
+        return champions
     }
 }
