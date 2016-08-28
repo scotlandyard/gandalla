@@ -6,7 +6,6 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
     weak var collection:UICollectionView!
     weak var modelPictures:MGandallerDetailItemPictures?
     weak var pageControl:UIPageControl!
-    private let kInterLine:CGFloat = 1
     private let kPageControlBottom:Int = 50
     
     override init(frame:CGRect)
@@ -14,14 +13,18 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
         imageSize = frame.size.height
         
         super.init(frame:frame)
-        backgroundColor = UIColor(white:0.9, alpha:1)
+        
+        let border:UIView = UIView()
+        border.userInteractionEnabled = false
+        border.translatesAutoresizingMaskIntoConstraints = false
+        border.backgroundColor = UIColor(white:0.9, alpha:1)
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSizeZero
         flow.footerReferenceSize = CGSizeZero
         flow.itemSize = CGSizeMake(imageSize, imageSize)
         flow.minimumInteritemSpacing = 0
-        flow.minimumLineSpacing = kInterLine
+        flow.minimumLineSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.Horizontal
         
         let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
@@ -44,20 +47,27 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.backgroundColor = UIColor.clearColor()
         pageControl.currentPageIndicatorTintColor = UIColor.complement()
-        pageControl.pageIndicatorTintColor = UIColor.main().colorWithAlphaComponent(0.5)
+        pageControl.pageIndicatorTintColor = UIColor.whiteColor()
         pageControl.addTarget(self, action:#selector(self.actionPageSelected(sender:)), forControlEvents:UIControlEvents.ValueChanged)
         self.pageControl = pageControl
         
+        addSubview(border)
         addSubview(collection)
         addSubview(pageControl)
         
         let views:[String:AnyObject] = [
+            "border":border,
             "collection":collection,
             "pageControl":pageControl]
         
         let metrics:[String:AnyObject] = [
             "pageControlBottom":kPageControlBottom]
         
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[border]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[collection]-0-|",
             options:[],
@@ -75,6 +85,11 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:[pageControl(pageControlBottom)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[border(1)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

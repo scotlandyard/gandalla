@@ -10,7 +10,6 @@ class VGandallerDetailCellPicturesCell:UICollectionViewCell
         super.init(frame:frame)
         clipsToBounds = true
         userInteractionEnabled = false
-        backgroundColor = UIColor(white:0.85, alpha:1)
         
         let image:UIImageView = UIImageView()
         image.userInteractionEnabled = false
