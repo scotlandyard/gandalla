@@ -2,10 +2,81 @@ import UIKit
 
 class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 {
+    weak var collection:UICollectionView!
+    weak var modelPictures:MGandallerDetailItemPictures?
+    weak var pageControl:UIPageControl!
+    private let kInterLine:CGFloat = 1
+    private let kPageControlBottom:Int = 50
+    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
+        backgroundColor = UIColor(white:0.9, alpha:1)
         
+        let imageSize:CGFloat = frame.size.height
+        
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSizeZero
+        flow.footerReferenceSize = CGSizeZero
+        flow.itemSize = CGSizeMake(imageSize, imageSize)
+        flow.minimumInteritemSpacing = 0
+        flow.minimumLineSpacing = kInterLine
+        flow.scrollDirection = UICollectionViewScrollDirection.Horizontal
+        flow.sectionInset = UIEdgeInsetsZero
+        
+        let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
+        collection.clipsToBounds = true
+        collection.backgroundColor = UIColor.clearColor()
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.showsVerticalScrollIndicator = false
+        collection.showsHorizontalScrollIndicator = false
+        collection.alwaysBounceHorizontal = true
+        collection.delegate = self
+        collection.dataSource = self
+        collection.registerClass(
+            VGandallerDetailCellPicturesCell.self,
+            forCellWithReuseIdentifier:
+            VGandallerDetailCellPicturesCell.reusableIdentifier())
+        self.collection = collection
+        
+        let pageControl:UIPageControl = UIPageControl()
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.backgroundColor = UIColor.clearColor()
+        pageControl.currentPageIndicatorTintColor = UIColor.complement()
+        pageControl.pageIndicatorTintColor = UIColor.main().colorWithAlphaComponent(0.5)
+        pageControl.addTarget(self, action:#selector(self.actionPageSelected(sender:)), forControlEvents:UIControlEvents.ValueChanged)
+        self.pageControl = pageControl
+        
+        addSubview(collection)
+        addSubview(pageControl)
+        
+        let views:[String:AnyObject] = [
+            "collection":collection,
+            "pageControl":pageControl]
+        
+        let metrics:[String:AnyObject] = [
+            "pageControlBottom":kPageControlBottom]
+        
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[collection]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[collection]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[pageControl]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[pageControl(pageControlBottom)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     required init?(coder:NSCoder)
@@ -13,9 +84,38 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
         super.init(coder:coder)
     }
     
+    override func config(model:MGandallerDetailItem)
+    {
+        modelPictures = model as? MGandallerDetailItemPictures
+        pageControl.numberOfPages = modelPictures!.items.count
+        
+        collection.reloadData()
+    }
+    
+    override func layoutSubviews()
+    {
+        collection.collectionViewLayout.invalidateLayout()
+        
+        super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionPageSelected(sender pageControl:UIPageControl)
+    {
+        let selected:Int = pageControl.currentPage
+        let indexPath:NSIndexPath = NSIndexPath(forItem:selected, inSection:0)
+        collection.scrollToItemAtIndexPath(indexPath, atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally, animated:true)
+    }
+    
     //MARK: private
     
-    
+    private func modelAtIndex(index:NSIndexPath) -> MGandallerDetailItemPicturesItem
+    {
+        let item:MGandallerDetailItemPicturesItem = modelPictures!.items[index.item]
+        
+        return item
+    }
     
     //MARK: collection del
     
@@ -26,7 +126,18 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
     
     func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        return 0
+        let count:Int
+        
+        if modelPictures == nil
+        {
+            count = 0
+        }
+        else
+        {
+            count = modelPictures!.items.count
+        }
+        
+        return count
     }
     
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
