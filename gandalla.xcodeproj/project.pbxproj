@@ -81,6 +81,8 @@
 		DA65BBD71D7273E700DA8440 /* MGandallerDetailItemPower.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BBD61D7273E700DA8440 /* MGandallerDetailItemPower.swift */; };
 		DA65BBD91D727AD800DA8440 /* MGandallerDetailItemTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BBD81D727AD800DA8440 /* MGandallerDetailItemTitle.swift */; };
 		DA65BBDB1D727B6700DA8440 /* VGandallerDetailCellTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BBDA1D727B6700DA8440 /* VGandallerDetailCellTitle.swift */; };
+		DA65BBDD1D72BE8B00DA8440 /* VGandallerDetailCellLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BBDC1D72BE8B00DA8440 /* VGandallerDetailCellLike.swift */; };
+		DA65BBDF1D72BEA100DA8440 /* MGandallerDetailItemLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BBDE1D72BEA100DA8440 /* MGandallerDetailItemLike.swift */; };
 		DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216B1D691BAA006323FE /* FAnalytics.swift */; };
 		DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216E1D691BAA006323FE /* FDatabase.swift */; };
 		DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216F1D691BAA006323FE /* FDatabaseModel.swift */; };
@@ -249,6 +251,8 @@
 		DA65BBD61D7273E700DA8440 /* MGandallerDetailItemPower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGandallerDetailItemPower.swift; sourceTree = "<group>"; };
 		DA65BBD81D727AD800DA8440 /* MGandallerDetailItemTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGandallerDetailItemTitle.swift; sourceTree = "<group>"; };
 		DA65BBDA1D727B6700DA8440 /* VGandallerDetailCellTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGandallerDetailCellTitle.swift; sourceTree = "<group>"; };
+		DA65BBDC1D72BE8B00DA8440 /* VGandallerDetailCellLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGandallerDetailCellLike.swift; sourceTree = "<group>"; };
+		DA65BBDE1D72BEA100DA8440 /* MGandallerDetailItemLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGandallerDetailItemLike.swift; sourceTree = "<group>"; };
 		DA92216B1D691BAA006323FE /* FAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAnalytics.swift; sourceTree = "<group>"; };
 		DA92216E1D691BAA006323FE /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
 		DA92216F1D691BAA006323FE /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
@@ -495,6 +499,7 @@
 				DA65BBDA1D727B6700DA8440 /* VGandallerDetailCellTitle.swift */,
 				DA65BBCA1D7248D900DA8440 /* VGandallerDetailCellPictures.swift */,
 				DA65BBCC1D7248FC00DA8440 /* VGandallerDetailCellProfile.swift */,
+				DA65BBDC1D72BE8B00DA8440 /* VGandallerDetailCellLike.swift */,
 				DA65BBD41D7273B900DA8440 /* VGandallerDetailCellPower.swift */,
 				DA65BBCE1D72490500DA8440 /* VGandallerDetailCellSocial.swift */,
 				DA65BBD01D72490E00DA8440 /* VGandallerDetailCellVideo.swift */,
@@ -511,6 +516,7 @@
 				DA65BBD81D727AD800DA8440 /* MGandallerDetailItemTitle.swift */,
 				DA65BBBE1D72448C00DA8440 /* MGandallerDetailItemPictures.swift */,
 				DA65BBC01D72449600DA8440 /* MGandallerDetailItemProfile.swift */,
+				DA65BBDE1D72BEA100DA8440 /* MGandallerDetailItemLike.swift */,
 				DA65BBD61D7273E700DA8440 /* MGandallerDetailItemPower.swift */,
 				DA65BBC21D7244A100DA8440 /* MGandallerDetailItemSocial.swift */,
 				DA65BBC41D7244AE00DA8440 /* MGandallerDetailItemHashtag.swift */,
@@ -1123,6 +1129,7 @@
 				DA155AFF1D6CBA89000C8C85 /* MGandallerItem.swift in Sources */,
 				DA3C5E811D7092FB003F5358 /* MCreateItemDetailPropertyItemTwitter.swift in Sources */,
 				DA42AE5A1D6FF02D0082F43A /* MCreateItemDetailPropertyItemPower.swift in Sources */,
+				DA65BBDF1D72BEA100DA8440 /* MGandallerDetailItemLike.swift in Sources */,
 				DAA6A3CE1D69184300F2565B /* DManagerSaver.swift in Sources */,
 				DAA6A3E01D69184300F2565B /* MMainTransitionReplace.swift in Sources */,
 				DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */,
@@ -1130,6 +1137,7 @@
 				DA155AEF1D6C9D89000C8C85 /* MCreateItemDetailPropertyItemName.swift in Sources */,
 				DAD713E21D6A1361007ABB0C /* MMainNavPosNormal.swift in Sources */,
 				DA65BBD91D727AD800DA8440 /* MGandallerDetailItemTitle.swift in Sources */,
+				DA65BBDD1D72BE8B00DA8440 /* VGandallerDetailCellLike.swift in Sources */,
 				DAD713CF1D6A0B67007ABB0C /* VNews.swift in Sources */,
 				DAD713EA1D6A5CD8007ABB0C /* MMainNavItemLiked.swift in Sources */,
 				DA3C5E7F1D7092F2003F5358 /* MCreateItemDetailPropertyItemFacebook.swift in Sources */,

@@ -8,6 +8,7 @@
 "VNewsCellPower_labelEvent"="Nuevo super poder";
 "VNewsCellSocial_labelEvent"="Actualizó sus redes sociales";
 "VNewsCellVideo_labelEvent"="Nuevo video";
+"VGandallerDetailCellLike_label"="Desaprueba su gandallez";
 
 "MCreateItem_noName"="-";
 "MCreateItemDetailPropertyStatus_name"="Status";
