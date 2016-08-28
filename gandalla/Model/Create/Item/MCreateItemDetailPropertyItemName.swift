@@ -4,6 +4,7 @@ class MCreateItemDetailPropertyItemName:MCreateItemDetailPropertyItem, UITextFie
 {
     var name:String
     let placeholder:String
+    weak var cellText:VCreateDetailCellText?
     
     init(name:String)
     {
@@ -17,6 +18,7 @@ class MCreateItemDetailPropertyItemName:MCreateItemDetailPropertyItem, UITextFie
         super.config(controller, cell:cell)
         
         let cellText:VCreateDetailCellText = cell as! VCreateDetailCellText
+        cellText.field.resignFirstResponder()
         cellText.field.delegate = self
         cellText.field.text = name
         cellText.field.placeholder = placeholder
@@ -29,10 +31,9 @@ class MCreateItemDetailPropertyItemName:MCreateItemDetailPropertyItem, UITextFie
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
          
-            let name:String = textField.text!
-            
             if self != nil
             {
+                let name:String = textField.text!
                 self!.name = name
                 let gandallerId:String = self!.controller.model.gandaller.gandallerId
                 let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Name.rawValue

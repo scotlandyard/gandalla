@@ -39,6 +39,7 @@ class VCreateDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         collection.alwaysBounceVertical = true
         collection.delegate = self
         collection.dataSource = self
+        collection.keyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag
         collection.registerClass(
             VCreateDetailCellText.self,
             forCellWithReuseIdentifier:

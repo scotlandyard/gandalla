@@ -17,6 +17,7 @@ class MCreateItemDetailPropertyItemInstagram:MCreateItemDetailPropertyItem, UITe
         super.config(controller, cell:cell)
         
         let cellText:VCreateDetailCellText = cell as! VCreateDetailCellText
+        cellText.field.resignFirstResponder()
         cellText.field.delegate = self
         cellText.field.text = name
         cellText.field.placeholder = placeholder
