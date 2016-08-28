@@ -26,10 +26,10 @@ class VGandallerDetailCellLike:VGandallerDetailCell
         labelCounter.userInteractionEnabled = false
         labelCounter.translatesAutoresizingMaskIntoConstraints = false
         labelCounter.backgroundColor = UIColor.clearColor()
-        labelCounter.font = UIFont.regular(13)
+        labelCounter.font = UIFont.bold(12)
         labelCounter.textColor = UIColor.complement()
         labelCounter.textAlignment = NSTextAlignment.Right
-        self.label = label
+        self.labelCounter = labelCounter
         
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -56,7 +56,7 @@ class VGandallerDetailCellLike:VGandallerDetailCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[labelCounter(200)]-4-[button]",
+            "H:[labelCounter(200)]-0-[button]",
             options:[],
             metrics:metrics,
             views:views))
