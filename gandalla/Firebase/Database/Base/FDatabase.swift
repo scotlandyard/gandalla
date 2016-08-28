@@ -36,6 +36,15 @@ class FDatabase
         parentReference.removeObserverWithHandle(handler)
     }
     
+    func listenChildOnce(parent:FDatabaseReference, child:String, snapBlock:((FIRDataSnapshot) -> Void))
+    {
+        let parentName:String = parent.rawValue
+        let parentReference:FIRDatabaseReference = reference.child(parentName)
+        let childReference:FIRDatabaseReference = parentReference.child(child)
+        
+        childReference.observeSingleEventOfType(FIRDataEventType.Value, withBlock:snapBlock)
+    }
+    
     func createChild(parent:FDatabaseReference, json:[String:AnyObject]) -> String
     {
         let parentName:String = parent.rawValue

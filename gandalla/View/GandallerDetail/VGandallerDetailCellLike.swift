@@ -4,6 +4,7 @@ import FirebaseDatabase
 class VGandallerDetailCellLike:VGandallerDetailCell
 {
     weak var label:UILabel!
+    weak var labelCounter:UILabel!
     weak var button:UIButton!
     weak var modelLike:MGandallerDetailItemLike!
     
@@ -21,6 +22,15 @@ class VGandallerDetailCellLike:VGandallerDetailCell
         label.text = NSLocalizedString("VGandallerDetailCellLike_label", comment:"")
         self.label = label
         
+        let labelCounter:UILabel = UILabel()
+        labelCounter.userInteractionEnabled = false
+        labelCounter.translatesAutoresizingMaskIntoConstraints = false
+        labelCounter.backgroundColor = UIColor.clearColor()
+        labelCounter.font = UIFont.regular(13)
+        labelCounter.textColor = UIColor.complement()
+        labelCounter.textAlignment = NSTextAlignment.Right
+        self.label = label
+        
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named:"gandallerLiked"), forState:UIControlState.Highlighted)
@@ -30,16 +40,23 @@ class VGandallerDetailCellLike:VGandallerDetailCell
         self.button = button
         
         addSubview(label)
+        addSubview(labelCounter)
         addSubview(button)
         
         let views:[String:AnyObject] = [
             "label":label,
-            "button":button]
+            "button":button,
+            "labelCounter":labelCounter]
         
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:[label(200)]-4-[button(40)]-9-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:[labelCounter(200)]-4-[button]",
             options:[],
             metrics:metrics,
             views:views))
@@ -50,6 +67,11 @@ class VGandallerDetailCellLike:VGandallerDetailCell
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[label]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[labelCounter]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -65,6 +87,7 @@ class VGandallerDetailCellLike:VGandallerDetailCell
         modelLike = model as! MGandallerDetailItemLike
         button.hidden = true
         label.hidden = true
+        labelCounter.hidden = true
         let gandallerId:String = modelLike.modelGandaller.gandallerId
         seekGandallerDb(gandallerId)
     }
@@ -79,6 +102,16 @@ class VGandallerDetailCellLike:VGandallerDetailCell
     }
     
     //MARK: private
+    
+    private func loadGandallerCounter()
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            let reference:FDatabaseModelLike
+            FMain.sharedInstance.database.listenParent(<#T##parent: FDatabase.FDatabaseReference##FDatabase.FDatabaseReference#>, snapBlock: <#T##((FIRDataSnapshot) -> Void)##((FIRDataSnapshot) -> Void)##(FIRDataSnapshot) -> Void#>)
+        }
+    }
     
     private func likeGandaller()
     {
@@ -129,6 +162,8 @@ class VGandallerDetailCellLike:VGandallerDetailCell
                 object.gandallerId = gandallerId
                 object.created = created
                 object.userLiked = user
+                
+                self!.loadGandallerCounter()
             }
         }
     }
@@ -157,7 +192,7 @@ class VGandallerDetailCellLike:VGandallerDetailCell
                         {
                             if liked
                             {
-                                self!.gandallerLiked()
+                                self!.gandallerLiked(true)
                             }
                             else
                             {
@@ -179,16 +214,21 @@ class VGandallerDetailCellLike:VGandallerDetailCell
         dispatch_async(dispatch_get_main_queue())
         { [weak self] in
             
-            self?.gandallerLiked()
+            self?.gandallerLiked(false)
         }
     }
     
-    private func gandallerLiked()
+    private func gandallerLiked(loadCounter:Bool)
     {
         label.hidden = true
         button.hidden = false
         button.userInteractionEnabled = false
         button.setImage(UIImage(named:"gandallerLiked"), forState:UIControlState.Normal)
+        
+        if loadCounter
+        {
+            loadGandallerCounter()
+        }
     }
     
     private func gandallerNotLiked()
