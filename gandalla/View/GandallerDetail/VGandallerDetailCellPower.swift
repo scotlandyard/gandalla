@@ -36,7 +36,7 @@ class VGandallerDetailCellPower:VGandallerDetailCell
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[icon(30)]-0-[label]-10-|",
+            "H:|-0-[icon(35)]-0-[label]-10-|",
             options:[],
             metrics:metrics,
             views:views))
