@@ -25,6 +25,14 @@ class MGandallerDetail
             items.append(itemHashtag)
         }
         
+        for video:FDatabaseModelGandallerVideo in gandaller.fModel.videos
+        {
+            let url:String = video.url
+            let itemVideo:MGandallerDetailItemVideo = MGandallerDetailItemVideo(url:url)
+            
+            items.append(itemVideo)
+        }
+        
         self.items = items
     }
 }

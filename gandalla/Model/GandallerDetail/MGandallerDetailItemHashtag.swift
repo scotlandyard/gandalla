@@ -2,8 +2,8 @@ import UIKit
 
 class MGandallerDetailItemHashtag:MGandallerDetailItem
 {
-    private let kCellHeight:CGFloat = 60
     let tag:String
+    private let kCellHeight:CGFloat = 60
     
     init(tag:String)
     {

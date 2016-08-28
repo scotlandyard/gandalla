@@ -2,10 +2,12 @@ import UIKit
 
 class MGandallerDetailItemVideo:MGandallerDetailItem
 {
-    private let kCellHeight:CGFloat = 100
+    let url:String
+    private let kCellHeight:CGFloat = 50
     
-    init()
+    init(url:String)
     {
+        self.url = url
         let reusableIdentifier:String = VGandallerDetailCellVideo.reusableIdentifier()
         
         super.init(reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight)
