@@ -3,12 +3,12 @@ import UIKit
 class MGandallerDetailItemPictures:MGandallerDetailItem
 {
     let gandallerId:String
+    let cellSize:CGFloat
     private let kSelectable:Bool = false
     
     init(gandallerId:String)
     {
         self.gandallerId = gandallerId
-        let cellHeight:CGFloat
         let reusableIdentifier:String = VGandallerDetailCellPictures.reusableIdentifier()
         let screenSize:CGSize = UIScreen.mainScreen().bounds.size
         let screenWidth:CGFloat = screenSize.width
@@ -16,13 +16,13 @@ class MGandallerDetailItemPictures:MGandallerDetailItem
         
         if screenWidth < screenHeight
         {
-            cellHeight = screenWidth
+            cellSize = screenWidth
         }
         else
         {
-            cellHeight = screenHeight
+            cellSize = screenHeight
         }
         
-        super.init(reusableIdentifier:reusableIdentifier, cellHeight:cellHeight, selectable:kSelectable)
+        super.init(reusableIdentifier:reusableIdentifier, cellHeight:cellSize, selectable:kSelectable)
     }
 }
