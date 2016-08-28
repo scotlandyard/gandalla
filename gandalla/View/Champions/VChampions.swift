@@ -13,7 +13,7 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         self.init()
         self.controller = controller
         clipsToBounds = true
-        backgroundColor = UIColor.collectionBackground()
+        backgroundColor = UIColor.whiteColor()
         translatesAutoresizingMaskIntoConstraints = false
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
