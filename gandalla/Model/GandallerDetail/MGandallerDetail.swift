@@ -40,9 +40,12 @@ class MGandallerDetail
         for hashtag:FDatabaseModelGandallerSocialHashtag in gandaller.fModel.social.hashtags
         {
             let tag:String = hashtag.tag
-            let itemHashtag:MGandallerDetailItemHashtag = MGandallerDetailItemHashtag(tag:tag)
             
-            items.append(itemHashtag)
+            if !tag.isEmpty
+            {
+                let itemHashtag:MGandallerDetailItemHashtag = MGandallerDetailItemHashtag(tag:tag)
+                items.append(itemHashtag)
+            }
         }
         
         let titleVideos:String = NSLocalizedString("MGandallerDetail_titleVideos", comment:"")
@@ -52,9 +55,12 @@ class MGandallerDetail
         for video:FDatabaseModelGandallerVideo in gandaller.fModel.videos
         {
             let url:String = video.url
-            let itemVideo:MGandallerDetailItemVideo = MGandallerDetailItemVideo(url:url)
             
-            items.append(itemVideo)
+            if !url.isEmpty
+            {
+                let itemVideo:MGandallerDetailItemVideo = MGandallerDetailItemVideo(url:url)
+                items.append(itemVideo)
+            }
         }
         
         self.items = items
