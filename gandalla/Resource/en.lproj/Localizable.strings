@@ -32,3 +32,5 @@
 "MCreateItemDetailPropertyItemNotify_cancel"="Cancel";
 "MCreateItemDetailPropertyItemNotify_done"="Notification sent";
 "MGandallerDetail_titlePowers"="Super poderes";
+"MGandallerDetail_titleHashtags"="Hashtags";
+"MGandallerDetail_titleVideos"="Videos";
