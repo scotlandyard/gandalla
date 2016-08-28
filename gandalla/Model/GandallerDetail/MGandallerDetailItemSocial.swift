@@ -2,13 +2,13 @@ import UIKit
 
 class MGandallerDetailItemSocial:MGandallerDetailItem
 {
-    weak var modelGandaller:MGandallerItem!
+    let title:String
     private let kCellHeight:CGFloat = 70
     private let kSelectable:Bool = false
     
-    init(modelGandaller:MGandallerItem)
+    init(title:String, icon:String)
     {
-        self.modelGandaller = modelGandaller
+        self.title = title
         let reusableIdentifier:String = VGandallerDetailCellSocial.reusableIdentifier()
         
         super.init(reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, selectable:kSelectable)
