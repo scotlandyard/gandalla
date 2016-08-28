@@ -81,8 +81,28 @@ class VGandallerDetailCellLike:VGandallerDetailCell
     private func likeGandaller()
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
-        {
+        { [weak self] in
             
+            if self != nil
+            {
+                DManager.sharedInstance.managerGandalla.createManagedObject(
+                    DGandallaGandaller.self)
+                { [weak self] (object) in
+                    
+                    if self != nil
+                    {
+                        let gandallerId:String = self!.modelLike.modelGandaller.gandallerId
+                        let created:NSTimeInterval = NSDate().timeIntervalSince1970
+                        let user:DGandallaUser = MUser.sharedInstance.dbUser
+                        
+                        object.gandallerId = gandallerId
+                        object.created = created
+                        object.userLiked = user
+                        
+                        self!.justLiked()
+                    }
+                }
+            }
         }
     }
     
@@ -120,6 +140,19 @@ class VGandallerDetailCellLike:VGandallerDetailCell
                     }
                 }
             }
+        }
+    }
+    
+    private func justLiked()
+    {
+        DManager.sharedInstance.managerGandalla.saver.save(false)
+        let alertMessage:String = NSLocalizedString("VGandallerDetailCellLike_liked", comment:"")
+        VMainAlert.Message(alertMessage)
+        
+        dispatch_async(dispatch_get_main_queue())
+        { [weak self] in
+            
+            self?.gandallerLiked()
         }
     }
     
