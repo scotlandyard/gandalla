@@ -15,7 +15,7 @@ class VGandallerDetailCellPicturesCell:UICollectionViewCell
         let image:UIImageView = UIImageView()
         image.userInteractionEnabled = false
         image.clipsToBounds = true
-        image.contentMode = UIViewContentMode.Center
+        image.contentMode = UIViewContentMode.ScaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         self.image = image
         

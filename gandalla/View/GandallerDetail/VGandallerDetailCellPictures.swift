@@ -31,6 +31,7 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
         collection.alwaysBounceHorizontal = true
+        collection.pagingEnabled = true
         collection.delegate = self
         collection.dataSource = self
         collection.registerClass(
