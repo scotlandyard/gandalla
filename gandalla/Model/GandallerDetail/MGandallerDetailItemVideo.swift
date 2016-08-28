@@ -13,4 +13,10 @@ class MGandallerDetailItemVideo:MGandallerDetailItem
         
         super.init(reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, selectable:kSelectable)
     }
+    
+    override func selected(controller:CGandallerDetail)
+    {
+        let urlPath:NSURL = NSURL(string:url)!
+        UIApplication.sharedApplication().openURL(urlPath)
+    }
 }

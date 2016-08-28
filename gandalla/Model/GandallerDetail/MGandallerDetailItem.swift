@@ -12,4 +12,10 @@ class MGandallerDetailItem
         self.cellHeight = cellHeight
         self.selectable = selectable
     }
+    
+    //MARK: public
+    
+    func selected(controller:CGandallerDetail)
+    {
+    }
 }

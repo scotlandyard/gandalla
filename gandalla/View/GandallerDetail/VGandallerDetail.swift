@@ -154,6 +154,9 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
     {
+        let item:MGandallerDetailItem = modelAtIndex(indexPath)
+        item.selected(controller)
+        
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
         { [weak collectionView] in
             
