@@ -3,7 +3,7 @@ import UIKit
 class MGandallerDetailItemHashtag:MGandallerDetailItem
 {
     let tag:String
-    private let kCellHeight:CGFloat = 60
+    private let kCellHeight:CGFloat = 25
     private let kSelectable:Bool = false
     
     init(tag:String)

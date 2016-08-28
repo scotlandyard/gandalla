@@ -7,7 +7,6 @@ class VGandallerDetailCellHashtag:VGandallerDetailCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor.whiteColor()
         userInteractionEnabled = false
         
         let label:UILabel = UILabel()
@@ -45,7 +44,7 @@ class VGandallerDetailCellHashtag:VGandallerDetailCell
     override func config(model:MGandallerDetailItem)
     {
         let modelHashtag:MGandallerDetailItemHashtag = model as! MGandallerDetailItemHashtag
-        let tag:String = modelHashtag.tag
+        let tag:String = "#\(modelHashtag.tag)"
         label.text = tag
     }
 }
