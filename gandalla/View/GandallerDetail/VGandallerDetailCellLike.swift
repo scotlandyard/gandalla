@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseDatabase
 
 class VGandallerDetailCellLike:VGandallerDetailCell
 {
@@ -73,6 +74,7 @@ class VGandallerDetailCellLike:VGandallerDetailCell
     func actionLike(sender button:UIButton)
     {
         button.userInteractionEnabled = false
+        justLiked()
         likeGandaller()
     }
     
@@ -87,18 +89,27 @@ class VGandallerDetailCellLike:VGandallerDetailCell
             {
                 let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Like
                 let childId:String = self!.modelLike.modelGandaller.gandallerId
-                let property:String = FDatabaseModelLike.FDatabaseModelLikeKey.Received.rawValue
-                let userId:String = MUser.sharedInstance.dbUser.userId
-                let fLike:FDatabaseModelLike = FDatabaseModelLike(userId:userId)
-                let jsonLike:[String:AnyObject] = fLike.modelJson()
                 
-                FMain.sharedInstance.database.createSubChild(
+                FMain.sharedInstance.database.transactionChild(
                     reference,
                     childId:childId,
-                    property:property,
-                    json:jsonLike)
-                
-                self!.databaseLike()
+                    block:
+                    { (data) -> (FIRTransactionResult) in
+                        
+                        let json:[String:AnyObject]? = data.value as? [String:AnyObject]
+                        let fLike:FDatabaseModelLike = FDatabaseModelLike(json:json)
+                        let jsonLike:[String:AnyObject] = fLike.modelJson()
+                        data.value = jsonLike
+                        let transactionResult:FIRTransactionResult = FIRTransactionResult.successWithValue(data)
+                        
+                        return transactionResult
+                        
+                    },
+                    completion:
+                { [weak self] (error, completed, snapshot) in
+                    
+                    self?.databaseLike()
+                })
             }
         }
     }
@@ -118,8 +129,6 @@ class VGandallerDetailCellLike:VGandallerDetailCell
                 object.gandallerId = gandallerId
                 object.created = created
                 object.userLiked = user
-                
-                self!.justLiked()
             }
         }
     }

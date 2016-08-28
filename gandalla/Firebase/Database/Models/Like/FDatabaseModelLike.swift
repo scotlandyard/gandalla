@@ -2,17 +2,24 @@ import Foundation
 
 class FDatabaseModelLike:FDatabaseModel
 {
-    let userId:String
+    let count:Int
     
     enum FDatabaseModelLikeKey:String
     {
-        case Received = "received"
-        case UserId = "user_id"
+        case Count = "count"
     }
     
-    init(userId:String)
+    init(json:[String:AnyObject]?)
     {
-        self.userId = userId
+        if json == nil
+        {
+            count = 1
+        }
+        else
+        {
+            let prevCount:Int = json![FDatabaseModelLikeKey.Count.rawValue] as! Int
+            count = prevCount + 1
+        }
     }
     
     //MARK: public
@@ -20,7 +27,7 @@ class FDatabaseModelLike:FDatabaseModel
     func modelJson() -> [String:AnyObject]
     {
         let dict:[String:AnyObject] = [
-            FDatabaseModelLikeKey.UserId.rawValue:userId
+            FDatabaseModelLikeKey.Count.rawValue:count
         ]
         
         return dict
