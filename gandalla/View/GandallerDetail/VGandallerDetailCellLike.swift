@@ -85,23 +85,38 @@ class VGandallerDetailCellLike:VGandallerDetailCell
             
             if self != nil
             {
-                DManager.sharedInstance.managerGandalla.createManagedObject(
-                    DGandallaGandaller.self)
-                { [weak self] (object) in
-                    
-                    if self != nil
-                    {
-                        let gandallerId:String = self!.modelLike.modelGandaller.gandallerId
-                        let created:NSTimeInterval = NSDate().timeIntervalSince1970
-                        let user:DGandallaUser = MUser.sharedInstance.dbUser
-                        
-                        object.gandallerId = gandallerId
-                        object.created = created
-                        object.userLiked = user
-                        
-                        self!.justLiked()
-                    }
-                }
+                let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Like
+                let childId:String = self!.modelLike.modelGandaller.gandallerId
+                let property:String = FDatabaseModelLike.FDatabaseModelLikeKey.Received.rawValue
+                let userId:String = MUser.sharedInstance.dbUser.userId
+                let fLike:FDatabaseModelLike = FDatabaseModelLike(userId:userId)
+                let jsonLike:[String:AnyObject] = fLike.modelJson()
+                
+                FMain.sharedInstance.database.createSubChild(
+                    reference,
+                    childId:childId,
+                    property:property, json: <#T##[String : AnyObject]#>)
+            }
+        }
+    }
+    
+    private func databaseLike()
+    {
+        DManager.sharedInstance.managerGandalla.createManagedObject(
+            DGandallaGandaller.self)
+        { [weak self] (object) in
+            
+            if self != nil
+            {
+                let gandallerId:String = self!.modelLike.modelGandaller.gandallerId
+                let created:NSTimeInterval = NSDate().timeIntervalSince1970
+                let user:DGandallaUser = MUser.sharedInstance.dbUser
+                
+                object.gandallerId = gandallerId
+                object.created = created
+                object.userLiked = user
+                
+                self!.justLiked()
             }
         }
     }

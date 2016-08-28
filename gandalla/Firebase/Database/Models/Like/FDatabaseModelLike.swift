@@ -2,18 +2,16 @@ import Foundation
 
 class FDatabaseModelLike:FDatabaseModel
 {
-    let gandallerId:String
     let userId:String
     
     enum FDatabaseModelLikeKey:String
     {
-        case GandallerId = "gandaller_id"
+        case Received = "received"
         case UserId = "user_id"
     }
     
-    init(gandallerId:String, userId:String)
+    init(userId:String)
     {
-        self.gandallerId = gandallerId
         self.userId = userId
     }
     
@@ -22,7 +20,6 @@ class FDatabaseModelLike:FDatabaseModel
     func modelJson() -> [String:AnyObject]
     {
         let dict:[String:AnyObject] = [
-            FDatabaseModelLikeKey.GandallerId.rawValue:gandallerId,
             FDatabaseModelLikeKey.UserId.rawValue:userId
         ]
         

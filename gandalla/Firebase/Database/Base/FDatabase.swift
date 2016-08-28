@@ -8,6 +8,7 @@ class FDatabase
         case User = "user"
         case Gandaller = "gandaller"
         case News = "news"
+        case Like = "like"
     }
     
     private let reference:FIRDatabaseReference
