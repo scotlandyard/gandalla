@@ -111,7 +111,6 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
     override func layoutSubviews()
     {
         collection.collectionViewLayout.invalidateLayout()
-        
         super.layoutSubviews()
     }
     

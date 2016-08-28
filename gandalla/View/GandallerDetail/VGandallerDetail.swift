@@ -89,7 +89,6 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
     override func layoutSubviews()
     {
         collection.collectionViewLayout.invalidateLayout()
-        
         super.layoutSubviews()
     }
     
