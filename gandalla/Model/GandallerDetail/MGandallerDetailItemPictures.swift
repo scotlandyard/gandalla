@@ -5,7 +5,7 @@ class MGandallerDetailItemPictures:MGandallerDetailItem
     init()
     {
         let cellHeight:CGFloat
-        let reusableIdentifier:String = ""
+        let reusableIdentifier:String = VGandallerDetailCellPictures.reusableIdentifier()
         let screenSize:CGSize = UIScreen.mainScreen().bounds.size
         let screenWidth:CGFloat = screenSize.width
         let screenHeight:CGFloat = screenSize.height
