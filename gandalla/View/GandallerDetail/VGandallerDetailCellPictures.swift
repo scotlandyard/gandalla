@@ -13,10 +13,24 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
         super.init(coder:coder)
     }
     
+    //MARK: private
+    
+    
+    
     //MARK: collection del
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
     {
         return 1
+    }
+    
+    func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        return 0
+    }
+    
+    func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
+    {
+        
     }
 }

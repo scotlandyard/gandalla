@@ -4,6 +4,7 @@ class MGandallerDetailItemPictures:MGandallerDetailItem
 {
     let gandallerId:String
     let cellSize:CGFloat
+    var items:[]
     private let kSelectable:Bool = false
     
     init(gandallerId:String)
