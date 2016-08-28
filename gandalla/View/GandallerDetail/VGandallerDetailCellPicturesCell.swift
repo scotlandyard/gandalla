@@ -3,6 +3,7 @@ import UIKit
 class VGandallerDetailCellPicturesCell:UICollectionViewCell
 {
     weak var image:UIImageView!
+    weak var model:MGandallerDetailItemPicturesItem?
     
     override init(frame:CGRect)
     {
@@ -35,6 +36,12 @@ class VGandallerDetailCellPicturesCell:UICollectionViewCell
             options:[],
             metrics:metrics,
             views:views))
+        
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector:#selector(self.notifiedImageLoaded(sender:)),
+            name:NSNotification.NSNotificationName.ImageLoaded.rawValue,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
@@ -42,10 +49,44 @@ class VGandallerDetailCellPicturesCell:UICollectionViewCell
         fatalError()
     }
     
+    deinit
+    {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    //MARK: notified
+    
+    func notifiedImageLoaded(sender notification:NSNotification)
+    {
+        let userInfo:[String:AnyObject] = notification.userInfo as! [String:AnyObject]
+        let imagesKey:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Images.rawValue
+        let imageId:String = userInfo[imagesKey] as! String
+        
+        if model != nil
+        {
+            if imageId == model!.imageId
+            {
+                dispatch_async(dispatch_get_main_queue())
+                { [weak self] in
+                    
+                    self?.placeImage()
+                }
+            }
+        }
+    }
+    
+    //MARK: private
+    
+    private func placeImage()
+    {
+        image.image = model?.imageBinary
+    }
+    
     //MARK: public
     
     func config(model:MGandallerDetailItemPicturesItem)
     {
-        image.image = model.imageBinary
+        self.model = model
+        placeImage()
     }
 }
