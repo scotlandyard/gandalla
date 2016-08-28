@@ -108,8 +108,31 @@ class VGandallerDetailCellLike:VGandallerDetailCell
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
             
-            let reference:FDatabaseModelLike
-            FMain.sharedInstance.database.listenParent(<#T##parent: FDatabase.FDatabaseReference##FDatabase.FDatabaseReference#>, snapBlock: <#T##((FIRDataSnapshot) -> Void)##((FIRDataSnapshot) -> Void)##(FIRDataSnapshot) -> Void#>)
+            if self != nil
+            {
+                let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Like
+                let childId:String = self!.modelLike.modelGandaller.gandallerId
+                
+                FMain.sharedInstance.database.listenChildOnce(
+                    reference,
+                    child:childId)
+                { [weak self] (snapshot) in
+                    
+                    let countKey:String = FDatabaseModelLike.FDatabaseModelLikeKey.Count.rawValue
+                    let json:[String:AnyObject] = snapshot.value as! [String:AnyObject]
+                    let count:Int = json[countKey] as! Int
+                    let formatter:NSNumberFormatter = NSNumberFormatter()
+                    formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+                    let countString:String = formatter.stringFromNumber(count)!
+                    
+                    dispatch_async(dispatch_get_main_queue())
+                    { [weak self] in
+                        
+                        self?.labelCounter.text = countString
+                        self?.labelCounter.hidden = false
+                    }
+                }
+            }
         }
     }
     
