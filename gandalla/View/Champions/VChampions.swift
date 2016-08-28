@@ -4,6 +4,7 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource
 {
     weak var controller:CChampions!
     weak var collection:UICollectionView!
+    weak var spinner:VMainLoader?
     private let kCollectionTop:CGFloat = 10
     private let kCollectionBottom:CGFloat = 40
     
@@ -33,15 +34,21 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         collection.delegate = self
         collection.dataSource = self
         collection.registerClass(
-            VGandallersCell.self,
+            VChampionsCell.self,
             forCellWithReuseIdentifier:
-            VGandallersCell.reusableIdentifier())
+            VChampionsCell.reusableIdentifier())
+        collection.hidden = true
         self.collection = collection
         
+        let spinner:VMainLoader = VMainLoader()
+        self.spinner = spinner
+        
         addSubview(collection)
+        addSubview(spinner)
         
         let views:[String:AnyObject] = [
-            "collection":collection]
+            "collection":collection,
+            "spinner":spinner]
         
         let metrics:[String:AnyObject] = [:]
         
@@ -55,6 +62,16 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             options:[],
             metrics:metrics,
             views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     override func layoutSubviews()
@@ -65,18 +82,24 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     //MARK: private
     
-    private func modelAtIndex(index:NSIndexPath) -> MGandallerListItem
+    private func modelAtIndex(index:NSIndexPath) -> MChampionsItem
     {
-        let item:MGandallerListItem = controller.model.items[index.item]
+        let item:MChampionsItem = controller.model!.items[index.item]
         
         return item
     }
     
     //MARK: public
     
-    func refresh()
+    func championsLoaded()
     {
-        collection.reloadData()
+        dispatch_async(dispatch_get_main_queue())
+        { [weak self] in
+            
+            self?.spinner?.removeFromSuperview()
+            self?.collection.reloadData()
+            self?.collection.hidden = false
+        }
     }
     
     //MARK: collection del
@@ -93,26 +116,35 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = controller.model.items.count
+        let count:Int
+        
+        if controller.model == nil
+        {
+            count = 0
+        }
+        else
+        {
+             count = controller.model!.items.count
+        }
         
         return count
     }
     
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
     {
-        let item:MGandallerListItem = modelAtIndex(indexPath)
-        let cell:VGandallersCell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            VGandallersCell.reusableIdentifier(),
+        let item:MChampionsItem = modelAtIndex(indexPath)
+        let cell:VChampionsCell = collectionView.dequeueReusableCellWithReuseIdentifier(
+            VChampionsCell.reusableIdentifier(),
             forIndexPath:
-            indexPath) as! VGandallersCell
-        item.config(cell)
+            indexPath) as! VChampionsCell
+        cell.config(item)
         
         return cell
     }
     
     func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
     {
-        controller.showGandaller(indexPath)
+//        controller.showGandaller(indexPath)
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
         { [weak collectionView] in
