@@ -6,5 +6,6 @@ extension NSNotification
     {
         case GandallersLoaded = "gandallersLoaded"
         case GandallerImage = "gandallerImage"
+        case ImageLoaded = "imageLoaded"
     }
 }

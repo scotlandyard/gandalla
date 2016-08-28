@@ -166,10 +166,12 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
     
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
     {
+        let item:MGandallerDetailItemPicturesItem = modelAtIndex(indexPath)
         let cell:VGandallerDetailCellPicturesCell = collectionView.dequeueReusableCellWithReuseIdentifier(
             VGandallerDetailCellPicturesCell.reusableIdentifier(),
             forIndexPath:
             indexPath) as! VGandallerDetailCellPicturesCell
+        cell.config(item)
         
         return cell
     }

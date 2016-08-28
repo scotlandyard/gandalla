@@ -6,7 +6,6 @@ class MGandallerDetail
     
     init(gandaller:MGandallerItem)
     {
-        let gandallerId:String = gandaller.gandallerId
         let titlePowers:String = NSLocalizedString("MGandallerDetail_titlePowers", comment:"")
         let titleHashtags:String = NSLocalizedString("MGandallerDetail_titleHashtags", comment:"")
         let titleVideos:String = NSLocalizedString("MGandallerDetail_titleVideos", comment:"")
