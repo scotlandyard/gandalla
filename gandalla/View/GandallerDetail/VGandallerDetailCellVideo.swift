@@ -67,7 +67,7 @@ class VGandallerDetailCellVideo:VGandallerDetailCell
     
     required init?(coder:NSCoder)
     {
-        super.init(coder:coder)
+        fatalError()
     }
     
     override func config(model:MGandallerDetailItem)

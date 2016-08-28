@@ -2,6 +2,7 @@ import UIKit
 
 class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 {
+    let imageSize:CGFloat
     weak var collection:UICollectionView!
     weak var modelPictures:MGandallerDetailItemPictures?
     weak var pageControl:UIPageControl!
@@ -10,10 +11,10 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
     
     override init(frame:CGRect)
     {
+        imageSize = frame.size.height
+        
         super.init(frame:frame)
         backgroundColor = UIColor(white:0.9, alpha:1)
-        
-        let imageSize:CGFloat = frame.size.height
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSizeZero
@@ -22,7 +23,6 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
         flow.minimumInteritemSpacing = 0
         flow.minimumLineSpacing = kInterLine
         flow.scrollDirection = UICollectionViewScrollDirection.Horizontal
-        flow.sectionInset = UIEdgeInsetsZero
         
         let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
         collection.clipsToBounds = true
@@ -81,7 +81,7 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
     
     required init?(coder:NSCoder)
     {
-        super.init(coder:coder)
+        fatalError()
     }
     
     override func config(model:MGandallerDetailItem)
@@ -118,6 +118,24 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
     }
     
     //MARK: collection del
+    
+    func scrollViewDidScroll(scrollView:UIScrollView)
+    {
+        let scrollX:CGFloat = scrollView.contentOffset.x
+        let totalX:CGFloat = scrollView.center.x + scrollX
+        let point:CGPoint = CGPointMake(totalX, 1)
+        let index:NSIndexPath? = collection.indexPathForItemAtPoint(point)
+        
+        if index != nil
+        {
+            let item:Int = index!.item
+            pageControl.currentPage = item
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        
+    }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
     {

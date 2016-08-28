@@ -38,7 +38,7 @@ class VGandallerDetailCellHashtag:VGandallerDetailCell
     
     required init?(coder:NSCoder)
     {
-        super.init(coder:coder)
+        fatalError()
     }
     
     override func config(model:MGandallerDetailItem)

@@ -10,7 +10,7 @@ class VGandallerDetailCell:UICollectionViewCell
     
     required init?(coder:NSCoder)
     {
-        super.init(coder:coder)
+        fatalError()
     }
     
     //MARK: public
