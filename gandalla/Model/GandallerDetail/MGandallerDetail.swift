@@ -11,10 +11,20 @@ class MGandallerDetail
         
         let itemPictures:MGandallerDetailItemPictures = MGandallerDetailItemPictures(gandallerId:gandallerId)
         let itemProfile:MGandallerDetailItemProfile = MGandallerDetailItemProfile(modelGandaller:gandaller)
-        let itemSocial:MGandallerDetailItemSocial = MGandallerDetailItemSocial(modelGandaller:gandaller)
+        
         
         items.append(itemPictures)
         items.append(itemProfile)
+        
+        for power:FDatabaseModelGandallerPower in gandaller.fModel.powers
+        {
+            let power:String = power.name
+            let itemPower:MGandallerDetailItemPower = MGandallerDetailItemPower(power:power)
+            
+            items.append(itemPower)
+        }
+        
+        let itemSocial:MGandallerDetailItemSocial = MGandallerDetailItemSocial(modelGandaller:gandaller)
         items.append(itemSocial)
         
         for hashtag:FDatabaseModelGandallerSocialHashtag in gandaller.fModel.social.hashtags
