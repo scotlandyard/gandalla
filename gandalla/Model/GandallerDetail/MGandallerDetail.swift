@@ -22,9 +22,12 @@ class MGandallerDetail
         for power:FDatabaseModelGandallerPower in gandaller.fModel.powers
         {
             let power:String = power.name
-            let itemPower:MGandallerDetailItemPower = MGandallerDetailItemPower(power:power)
             
-            items.append(itemPower)
+            if !power.isEmpty
+            {
+                let itemPower:MGandallerDetailItemPower = MGandallerDetailItemPower(power:power)
+                items.append(itemPower)
+            }
         }
         
         let itemSocial:MGandallerDetailItemSocial = MGandallerDetailItemSocial(modelGandaller:gandaller)
