@@ -4,7 +4,7 @@ class MChampions
 {
     let items:[MChampionsItem]
     
-    init()
+    init(json:[String:AnyObject])
     {
         items = []
     }

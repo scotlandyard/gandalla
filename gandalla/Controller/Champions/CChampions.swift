@@ -8,6 +8,8 @@ class CChampions:CMainController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        loadChampions()
     }
     
     override func loadView()
@@ -15,6 +17,27 @@ class CChampions:CMainController
         let viewChampions:VChampions = VChampions(controller:self)
         self.viewChampions = viewChampions
         view = viewChampions
+    }
+    
+    //MARK: private
+    
+    private func loadChampions()
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        {
+            let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Like
+            
+            let handler:UInt = FMain.sharedInstance.database.listenParent(
+                reference)
+            { [weak self] (snapshot) in
+                
+                let json:[String:AnyObject] = snapshot.value as! [String:AnyObject]
+                self?.model = MChampions(json:json)
+                self?.viewChampions.championsLoaded()
+            }
+            
+            FMain.sharedInstance.database.stopListeningParent(reference, handler:handler)
+        }
     }
     
     //MARK: public
