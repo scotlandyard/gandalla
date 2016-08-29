@@ -4,7 +4,6 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
 {
     weak var controller:CGandallerDetail!
     weak var collection:UICollectionView!
-    private let kCollectionTop:CGFloat = 64
     private let kCollectionBottom:CGFloat = 40
     private let kInterLine:CGFloat = 1
     
@@ -16,10 +15,11 @@ class VGandallerDetail:UIView, UICollectionViewDelegate, UICollectionViewDataSou
         backgroundColor = UIColor.collectionBackground()
         translatesAutoresizingMaskIntoConstraints = false
         
+        let collectionTop:CGFloat = controller.parent.kBarHeight
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSizeZero
         flow.footerReferenceSize = CGSizeZero
-        flow.sectionInset = UIEdgeInsetsMake(kCollectionTop, 0, kCollectionBottom, 0)
+        flow.sectionInset = UIEdgeInsetsMake(collectionTop, 0, kCollectionBottom, 0)
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.Vertical

@@ -2,13 +2,12 @@ import UIKit
 
 class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    weak var controller:CNews!
+    weak var controller:CLiked!
     weak var collection:UICollectionView!
-    weak var spinner:VMainLoader?
-    private let kCollectionBottom:CGFloat = 20
+    private let kCollectionBottom:CGFloat = 40
     private let kInterLine:CGFloat = 1
     
-    convenience init(controller:CNews)
+    convenience init(controller:CLiked)
     {
         self.init()
         clipsToBounds = true
@@ -17,10 +16,6 @@ class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         self.controller = controller
         
         let collectionTop:CGFloat = controller.parent.kBarHeight
-        
-        let spinner:VMainLoader = VMainLoader()
-        self.spinner = spinner
-        
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSizeZero
         flow.footerReferenceSize = CGSizeZero
@@ -39,46 +34,18 @@ class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         collection.delegate = self
         collection.dataSource = self
         collection.registerClass(
-            VNewsCellJoined.self,
+            VLikedCell.self,
             forCellWithReuseIdentifier:
-            VNewsCellJoined.reusableIdentifier())
-        collection.registerClass(
-            VNewsCellPicture.self,
-            forCellWithReuseIdentifier:
-            VNewsCellPicture.reusableIdentifier())
-        collection.registerClass(
-            VNewsCellPower.self,
-            forCellWithReuseIdentifier:
-            VNewsCellPower.reusableIdentifier())
-        collection.registerClass(
-            VNewsCellSocial.self,
-            forCellWithReuseIdentifier:
-            VNewsCellSocial.reusableIdentifier())
-        collection.registerClass(
-            VNewsCellVideo.self,
-            forCellWithReuseIdentifier:
-            VNewsCellVideo.reusableIdentifier())
+            VLikedCell.reusableIdentifier())
         self.collection = collection
         
-        addSubview(spinner)
         addSubview(collection)
         
         let views:[String:AnyObject] = [
-            "spinner":spinner,
             "collection":collection]
         
         let metrics:[String:AnyObject] = [:]
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[spinner]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[spinner]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[collection]-0-|",
             options:[],
@@ -99,9 +66,9 @@ class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     //MARK: private
     
-    private func modelAtIndex(index:NSIndexPath) -> MNewsItem
+    private func modelAtIndex(index:NSIndexPath) -> MLikedItem
     {
-        let item:MNewsItem = controller.model.items[index.item]
+        let item:MLikedItem = controller.model.items[index.item]
         
         return item
     }

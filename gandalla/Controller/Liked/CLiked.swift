@@ -2,14 +2,18 @@ import UIKit
 
 class CLiked:CMainController
 {
-    var model:MLiked?
+    let model:MLiked
     weak var viewLiked:VLiked!
     
-    override func viewDidLoad()
+    init()
     {
-        super.viewDidLoad()
-        
-        loadChampions()
+        model = MLiked()
+        super.init(nibName:nil, bundle:nil)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
     }
     
     override func viewDidAppear(animated:Bool)

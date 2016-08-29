@@ -5,7 +5,6 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
     weak var controller:CChampions!
     weak var collection:UICollectionView!
     weak var spinner:VMainLoader?
-    private let kCollectionTop:CGFloat = 64
     private let kCollectionBottom:CGFloat = 40
     private let kCellHeight:CGFloat = 300
     private let kMaxChampions:Int = 3
@@ -18,10 +17,11 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
         backgroundColor = UIColor.whiteColor()
         translatesAutoresizingMaskIntoConstraints = false
         
+        let collectionTop:CGFloat = controller.parent.kBarHeight
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSizeZero
         flow.footerReferenceSize = CGSizeZero
-        flow.sectionInset = UIEdgeInsetsMake(kCollectionTop, 0, kCollectionBottom, 0)
+        flow.sectionInset = UIEdgeInsetsMake(collectionTop, 0, kCollectionBottom, 0)
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.Vertical
