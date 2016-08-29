@@ -31,7 +31,7 @@ class MUser
         DManager.sharedInstance.managerGandalla.saver.save(false)
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
-        { [weak self]
+        { [weak self] in
             
             self?.askNotifications()
         }
