@@ -34,7 +34,7 @@ class VCreateDetailCellAction:VCreateDetailCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-10-[button]-10-|",
+            "V:|-5-[button]-5-|",
             options:[],
             metrics:metrics,
             views:views))

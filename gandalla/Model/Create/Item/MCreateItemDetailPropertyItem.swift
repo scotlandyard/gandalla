@@ -10,8 +10,4 @@ class MCreateItemDetailPropertyItem:NSObject
     {
         self.controller = controller
     }
-    
-    func action()
-    {
-    }
 }

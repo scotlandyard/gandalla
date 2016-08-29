@@ -19,10 +19,7 @@
 "MCreateItemDetailPropertyImages_name"="Images";
 "MCreateItemDetailPropertyPowers_name"="Powers";
 "MCreateItemDetailPropertySocial_name"="Social";
-"MCreateItemDetailPropertyNotifications_name"="Notifications";
-"MCreateItemDetailPropertyNotifications_social"="Social update";
-"MCreateItemDetailPropertyRemoveNotifications_name"="Remove notifications";
-"MCreateItemDetailPropertyRemoveNotifications_unlessJoined"="All unless joined";
+"MCreateItemDetailPropertyActions_name"="Actions";
 "MCreateItemDetailPropertyHashtags_name"="Hashtags";
 "MCreateItemDetailPropertyVideos_name"="Videos";
 "MCreateItemDetailPropertyItemImage_deleteTitle"="Delete image";
