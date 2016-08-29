@@ -38,29 +38,39 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         cellImage!.picker.delegate = self
         cellImage!.buttonImage.hidden = false
         
-        if fImage?.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
-        {
-            cellImage!.image.hidden = false
-            cellImage!.check.hidden = false
-            cellImage!.image.image = image
-            
-            if profileImage
-            {
-                cellImage!.check.setOn(true, animated:false)
-                cellImage!.check.userInteractionEnabled = false
-                cellImage!.buttonRemove.hidden = true
-            }
-            else
-            {
-                cellImage!.check.setOn(false, animated:false)
-                cellImage!.check.userInteractionEnabled = true
-                cellImage!.buttonRemove.hidden = false
-            }
-        }
-        else
+        if fImage == nil
         {
             cellImage!.image.hidden = true
             cellImage!.check.hidden = true
+            cellImage!.buttonRemove.hidden = false
+        }
+        else
+        {
+            if fImage!.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready || image != nil
+            {
+                cellImage!.image.hidden = false
+                cellImage!.check.hidden = false
+                cellImage!.image.image = image
+                
+                if profileImage
+                {
+                    cellImage!.check.setOn(true, animated:false)
+                    cellImage!.check.userInteractionEnabled = false
+                    cellImage!.buttonRemove.hidden = true
+                }
+                else
+                {
+                    cellImage!.check.setOn(false, animated:false)
+                    cellImage!.check.userInteractionEnabled = true
+                    cellImage!.buttonRemove.hidden = false
+                }
+            }
+            else
+            {
+                cellImage!.image.hidden = true
+                cellImage!.check.hidden = true
+                cellImage!.buttonRemove.hidden = false
+            }
         }
     }
     
