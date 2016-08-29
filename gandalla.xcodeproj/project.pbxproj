@@ -157,7 +157,7 @@
 		DAA6A3EC1D69184300F2565B /* VMainLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3B91D69184300F2565B /* VMainLoader.swift */; };
 		DAA6A3ED1D69184300F2565B /* VMainShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3BA1D69184300F2565B /* VMainShadow.swift */; };
 		DABF046E1D70DA0900012C4C /* MCreateItemDetailPropertyItemNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF046D1D70DA0900012C4C /* MCreateItemDetailPropertyItemNotify.swift */; };
-		DABF04701D70DAD800012C4C /* VCreateDetailCellNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF046F1D70DAD800012C4C /* VCreateDetailCellNotify.swift */; };
+		DABF04701D70DAD800012C4C /* VCreateDetailCellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF046F1D70DAD800012C4C /* VCreateDetailCellAction.swift */; };
 		DABF04721D70E31700012C4C /* MCreateItemDetailPropertyNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04711D70E31700012C4C /* MCreateItemDetailPropertyNotifications.swift */; };
 		DABF04751D70EEA700012C4C /* CGandallers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04741D70EEA700012C4C /* CGandallers.swift */; };
 		DABF04781D70EF1E00012C4C /* VGandallers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04771D70EF1E00012C4C /* VGandallers.swift */; };
@@ -350,7 +350,7 @@
 		DAA6A3B91D69184300F2565B /* VMainLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainLoader.swift; sourceTree = "<group>"; };
 		DAA6A3BA1D69184300F2565B /* VMainShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainShadow.swift; sourceTree = "<group>"; };
 		DABF046D1D70DA0900012C4C /* MCreateItemDetailPropertyItemNotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemNotify.swift; sourceTree = "<group>"; };
-		DABF046F1D70DAD800012C4C /* VCreateDetailCellNotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateDetailCellNotify.swift; sourceTree = "<group>"; };
+		DABF046F1D70DAD800012C4C /* VCreateDetailCellAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateDetailCellAction.swift; sourceTree = "<group>"; };
 		DABF04711D70E31700012C4C /* MCreateItemDetailPropertyNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyNotifications.swift; sourceTree = "<group>"; };
 		DABF04741D70EEA700012C4C /* CGandallers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGandallers.swift; sourceTree = "<group>"; };
 		DABF04771D70EF1E00012C4C /* VGandallers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGandallers.swift; sourceTree = "<group>"; };
@@ -916,7 +916,7 @@
 				DA13F3A01D6BC204008AF28A /* VCreateDetailCellStatus.swift */,
 				DA155ADD1D6C96F6000C8C85 /* VCreateDetailCellStarted.swift */,
 				DA13F3A21D6BC20C008AF28A /* VCreateDetailCellImage.swift */,
-				DABF046F1D70DAD800012C4C /* VCreateDetailCellNotify.swift */,
+				DABF046F1D70DAD800012C4C /* VCreateDetailCellAction.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -1339,7 +1339,7 @@
 				DAA6A3CD1D69184300F2565B /* DManagerModelGandalla.swift in Sources */,
 				DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */,
 				DA155AF31D6C9D89000C8C85 /* MCreateItemDetailPropertyStatus.swift in Sources */,
-				DABF04701D70DAD800012C4C /* VCreateDetailCellNotify.swift in Sources */,
+				DABF04701D70DAD800012C4C /* VCreateDetailCellAction.swift in Sources */,
 				DABF04811D70F3B100012C4C /* VGandallersCell.swift in Sources */,
 				DA13F3731D6B450F008AF28A /* FDatabaseModelNewsJoined.swift in Sources */,
 				DAA6A3C61D69184300F2565B /* CategoryUIViewController.swift in Sources */,

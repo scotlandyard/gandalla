@@ -1,9 +1,9 @@
 import UIKit
 
-class VCreateDetailCellNotify:VCreateDetailCell
+class VCreateDetailCellAction:VCreateDetailCell
 {
     weak var button:UIButton!
-    weak var model:MCreateItemDetailPropertyItemNotify!
+    weak var model:MCreateItemDetailPropertyItem!
     private let kSegmentedWidth:CGFloat = 160
     
     override init(frame:CGRect)
@@ -49,6 +49,6 @@ class VCreateDetailCellNotify:VCreateDetailCell
     
     func actionButton(sender button:UIButton)
     {
-        model.notify()
+        model.action()
     }
 }
