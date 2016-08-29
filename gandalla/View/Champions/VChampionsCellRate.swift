@@ -22,8 +22,8 @@ class VChampionsCellRate:UIView
         label.userInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clearColor()
-        label.font = UIFont.numeric(30)
-        label.textColor = UIColor.complement()
+        label.font = UIFont.numeric(28)
+        label.textColor = UIColor.whiteColor()
         label.textAlignment = NSTextAlignment.Center
         self.label = label
         
