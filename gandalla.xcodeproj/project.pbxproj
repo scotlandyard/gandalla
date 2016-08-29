@@ -96,6 +96,7 @@
 		DA65BBFA1D73AF7700DA8440 /* VChampionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BBF91D73AF7700DA8440 /* VChampionsCell.swift */; };
 		DA65BBFC1D73C04400DA8440 /* VChampionsCellRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BBFB1D73C04400DA8440 /* VChampionsCellRate.swift */; };
 		DA65BBFF1D73E74600DA8440 /* CLiked.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BBFE1D73E74600DA8440 /* CLiked.swift */; };
+		DA65BC021D73E79D00DA8440 /* VLiked.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BC011D73E79D00DA8440 /* VLiked.swift */; };
 		DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216B1D691BAA006323FE /* FAnalytics.swift */; };
 		DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216E1D691BAA006323FE /* FDatabase.swift */; };
 		DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216F1D691BAA006323FE /* FDatabaseModel.swift */; };
@@ -279,6 +280,7 @@
 		DA65BBF91D73AF7700DA8440 /* VChampionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChampionsCell.swift; sourceTree = "<group>"; };
 		DA65BBFB1D73C04400DA8440 /* VChampionsCellRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChampionsCellRate.swift; sourceTree = "<group>"; };
 		DA65BBFE1D73E74600DA8440 /* CLiked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLiked.swift; sourceTree = "<group>"; };
+		DA65BC011D73E79D00DA8440 /* VLiked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLiked.swift; sourceTree = "<group>"; };
 		DA92216B1D691BAA006323FE /* FAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAnalytics.swift; sourceTree = "<group>"; };
 		DA92216E1D691BAA006323FE /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
 		DA92216F1D691BAA006323FE /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
@@ -599,6 +601,14 @@
 			path = Liked;
 			sourceTree = "<group>";
 		};
+		DA65BC001D73E79500DA8440 /* Liked */ = {
+			isa = PBXGroup;
+			children = (
+				DA65BC011D73E79D00DA8440 /* VLiked.swift */,
+			);
+			path = Liked;
+			sourceTree = "<group>";
+		};
 		DA9221691D691BAA006323FE /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -855,6 +865,7 @@
 		DAA6A3AF1D69184300F2565B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA65BC001D73E79500DA8440 /* Liked */,
 				DA65BBF11D739CBF00DA8440 /* Champions */,
 				DA65BBB61D72375700DA8440 /* GandallerDetail */,
 				DABF04761D70EF1600012C4C /* Gandallers */,
@@ -1196,6 +1207,7 @@
 				DA13F3911D6B6C2F008AF28A /* FDatabaseModelGandallerPower.swift in Sources */,
 				DA1912371D6E9DAE001F6F3A /* MGandallerItemImage.swift in Sources */,
 				DAA6A3EB1D69184300F2565B /* VMainAlert.swift in Sources */,
+				DA65BC021D73E79D00DA8440 /* VLiked.swift in Sources */,
 				DAA6A3DD1D69184300F2565B /* MMainTransitionFade.swift in Sources */,
 				DAD713E81D6A137A007ABB0C /* MMainNavItemNews.swift in Sources */,
 				DA155AEC1D6C9D89000C8C85 /* MCreateItem.swift in Sources */,
