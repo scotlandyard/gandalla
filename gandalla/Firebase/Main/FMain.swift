@@ -16,4 +16,10 @@ class FMain
         analytics = FAnalytics()
         database = FDatabase()
     }
+    
+    //MARK: public
+    
+    func load()
+    {
+    }
 }
