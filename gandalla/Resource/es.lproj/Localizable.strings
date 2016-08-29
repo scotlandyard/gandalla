@@ -4,13 +4,13 @@
 "VCreateDetailCellStatus_itemActive"="Active";
 "VCreateDetailCellStatus_itemPaused"="Paused";
 "VCreateDetailCellStarted_label"="Started";
-"VNewsCellJoined_labelEvent"="Joined the squad!";
-"VNewsCellPower_labelEvent"="New super power";
-"VNewsCellSocial_labelEvent"="Updated social information";
-"VNewsCellVideo_labelEvent"="New video";
-"VGandallerDetailCellLike_label"="Disagree with this gandalla";
-"VGandallerDetailCellLike_liked"="Gandalla marked!";
-"VLikedHeader_labelEmpty"="Here you will find the gandallas you mark";
+"VNewsCellJoined_labelEvent"="Ingresó al Escuadrón";
+"VNewsCellPower_labelEvent"="Nuevo super poder";
+"VNewsCellSocial_labelEvent"="Actualizó sus redes sociales";
+"VNewsCellVideo_labelEvent"="Nuevo video";
+"VGandallerDetailCellLike_label"="Desaprueba su gandallez";
+"VGandallerDetailCellLike_liked"="¡Gandalla marcado!";
+"VLikedHeader_labelEmpty"="Aquí se mostrarán los gandallas que marques";
 
 "MCreateItem_noName"="-";
 "MCreateItemDetailPropertyStatus_name"="Status";
@@ -34,7 +34,7 @@
 "MCreateItemDetailPropertyItemNotify_notify"="Send";
 "MCreateItemDetailPropertyItemNotify_cancel"="Cancel";
 "MCreateItemDetailPropertyItemNotify_done"="Notification sent";
-"MGandallerDetail_titlePowers"="Super powers";
+"MGandallerDetail_titlePowers"="Super poderes";
 "MGandallerDetail_titleHashtags"="Hashtags";
 "MGandallerDetail_titleVideos"="Videos";
-"MGandallerDetail_titleSocial"="Networks";
+"MGandallerDetail_titleSocial"="Redes";

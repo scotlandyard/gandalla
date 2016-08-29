@@ -289,6 +289,7 @@
 		DA65BC061D73E86400DA8440 /* MLiked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLiked.swift; sourceTree = "<group>"; };
 		DA65BC081D73E87C00DA8440 /* MLikedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLikedItem.swift; sourceTree = "<group>"; };
 		DA65BC0A1D73F1CD00DA8440 /* VLikedHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLikedHeader.swift; sourceTree = "<group>"; };
+		DA65BC0C1D73FFBA00DA8440 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA92216B1D691BAA006323FE /* FAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAnalytics.swift; sourceTree = "<group>"; };
 		DA92216E1D691BAA006323FE /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
 		DA92216F1D691BAA006323FE /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
@@ -1135,6 +1136,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				es,
 			);
 			mainGroup = DADAB95C1D6912AE002637E8;
 			productRefGroup = DADAB9661D6912AE002637E8 /* Products */;
@@ -1413,6 +1415,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DAA6A3AA1D69184300F2565B /* en */,
+				DA65BC0C1D73FFBA00DA8440 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
