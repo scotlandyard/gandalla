@@ -4,7 +4,7 @@ class MCreateItemDetailPropertyItemActionSocialNotification:MCreateItemDetailPro
 {
     init(gandallerId:String)
     {
-        let title:String = NSLocalizedString("", comment:"")
+        let title:String = NSLocalizedString("MCreateItemDetailPropertyItemActionSocialNotification_title", comment:"")
         super.init(gandallerId:gandallerId, title:title)
     }
     

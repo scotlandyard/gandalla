@@ -3,7 +3,7 @@ import UIKit
 class VCreateDetailCellAction:VCreateDetailCell
 {
     weak var button:UIButton!
-    weak var model:MCreateItemDetailPropertyItem!
+    weak var model:MCreateItemDetailPropertyItemAction!
     private let kSegmentedWidth:CGFloat = 160
     
     override init(frame:CGRect)
