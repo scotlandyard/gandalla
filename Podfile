@@ -6,4 +6,5 @@ target 'gandalla' do
   pod 'Firebase/Crash'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
+  pod 'Firebase/Messaging'
 end
