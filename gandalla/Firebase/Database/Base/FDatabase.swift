@@ -29,6 +29,13 @@ class FDatabase
         return handler
     }
     
+    func listenParentOnce(parent:FDatabaseReference, snapBlock:((FIRDataSnapshot) -> Void))
+    {
+        let parentName:String = parent.rawValue
+        let parentReference:FIRDatabaseReference = reference.child(parentName)
+        parentReference.observeSingleEventOfType(FIRDataEventType.Value, withBlock:snapBlock)
+    }
+    
     func stopListeningParent(parent:FDatabaseReference, handler:UInt)
     {
         let parentName:String = parent.rawValue

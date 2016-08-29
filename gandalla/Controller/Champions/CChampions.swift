@@ -27,7 +27,7 @@ class CChampions:CMainController
         {
             let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Like
             
-            let handler:UInt = FMain.sharedInstance.database.listenParent(
+            FMain.sharedInstance.database.listenParentOnce(
                 reference)
             { [weak self] (snapshot) in
                 
@@ -35,8 +35,6 @@ class CChampions:CMainController
                 self?.model = MChampions(json:json)
                 self?.viewChampions.championsLoaded()
             }
-            
-            FMain.sharedInstance.database.stopListeningParent(reference, handler:handler)
         }
     }
     
