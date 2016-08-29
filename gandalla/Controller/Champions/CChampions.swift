@@ -38,9 +38,13 @@ class CChampions:CMainController
                 reference)
             { [weak self] (snapshot) in
                 
-                let json:[String:AnyObject] = snapshot.value as! [String:AnyObject]
-                self?.model = MChampions(json:json)
-                self?.viewChampions.championsLoaded()
+                let json:[String:AnyObject]? = snapshot.value as? [String:AnyObject]
+                
+                if json != nil
+                {
+                    self?.model = MChampions(json:json!)
+                    self?.viewChampions.championsLoaded()
+                }
             }
         }
     }
