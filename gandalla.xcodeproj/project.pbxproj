@@ -97,6 +97,7 @@
 		DA65BBFC1D73C04400DA8440 /* VChampionsCellRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BBFB1D73C04400DA8440 /* VChampionsCellRate.swift */; };
 		DA65BBFF1D73E74600DA8440 /* CLiked.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BBFE1D73E74600DA8440 /* CLiked.swift */; };
 		DA65BC021D73E79D00DA8440 /* VLiked.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BC011D73E79D00DA8440 /* VLiked.swift */; };
+		DA65BC041D73E7FA00DA8440 /* VLikedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65BC031D73E7FA00DA8440 /* VLikedCell.swift */; };
 		DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216B1D691BAA006323FE /* FAnalytics.swift */; };
 		DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216E1D691BAA006323FE /* FDatabase.swift */; };
 		DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92216F1D691BAA006323FE /* FDatabaseModel.swift */; };
@@ -281,6 +282,7 @@
 		DA65BBFB1D73C04400DA8440 /* VChampionsCellRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VChampionsCellRate.swift; sourceTree = "<group>"; };
 		DA65BBFE1D73E74600DA8440 /* CLiked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLiked.swift; sourceTree = "<group>"; };
 		DA65BC011D73E79D00DA8440 /* VLiked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLiked.swift; sourceTree = "<group>"; };
+		DA65BC031D73E7FA00DA8440 /* VLikedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLikedCell.swift; sourceTree = "<group>"; };
 		DA92216B1D691BAA006323FE /* FAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAnalytics.swift; sourceTree = "<group>"; };
 		DA92216E1D691BAA006323FE /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
 		DA92216F1D691BAA006323FE /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
@@ -605,6 +607,7 @@
 			isa = PBXGroup;
 			children = (
 				DA65BC011D73E79D00DA8440 /* VLiked.swift */,
+				DA65BC031D73E7FA00DA8440 /* VLikedCell.swift */,
 			);
 			path = Liked;
 			sourceTree = "<group>";
@@ -1277,6 +1280,7 @@
 				DAD713D11D6A11FC007ABB0C /* DGandallaGandaller.swift in Sources */,
 				DAA6A3BF1D69184300F2565B /* CategoryNSFileManager.swift in Sources */,
 				DA13F3931D6B6C3D008AF28A /* FDatabaseModelGandallerImage.swift in Sources */,
+				DA65BC041D73E7FA00DA8440 /* VLikedCell.swift in Sources */,
 				DA65BBC91D7247B700DA8440 /* VGandallerDetailCell.swift in Sources */,
 				DA65BBE31D72E18900DA8440 /* FDatabaseModelLike.swift in Sources */,
 				DAA6A3C01D69184300F2565B /* CategoryNSManagerdObject.swift in Sources */,
