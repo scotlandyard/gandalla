@@ -12,6 +12,13 @@ class CChampions:CMainController
         loadChampions()
     }
     
+    override func viewDidAppear(animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        parent.scrollDidScroll(viewChampions.collection)
+    }
+    
     override func loadView()
     {
         let viewChampions:VChampions = VChampions(controller:self)

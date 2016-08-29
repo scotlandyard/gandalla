@@ -7,7 +7,7 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
     weak var spinner:VMainLoader?
     private let kCollectionTop:CGFloat = 64
     private let kCollectionBottom:CGFloat = 40
-    private let kCellHeight:CGFloat = 250
+    private let kCellHeight:CGFloat = 300
     private let kMaxChampions:Int = 3
     
     convenience init(controller:CChampions)

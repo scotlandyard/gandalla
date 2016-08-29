@@ -15,8 +15,13 @@ class MChampions
         {
             let jsonItem:[String:AnyObject] = json[jsonKey] as! [String:AnyObject]
             let count:Int = jsonItem[countKey] as! Int
-            let item:MChampionsItem = MChampionsItem(gandallerId:jsonKey, count:count)
-            items.append(item)
+            let modelGandaller:MGandallerItem? = MGandaller.sharedInstance.items[jsonKey]
+            
+            if modelGandaller != nil
+            {
+                let item:MChampionsItem = MChampionsItem(modelGandaller:modelGandaller!, count:count)
+                items.append(item)
+            }
         }
         
         items.sortInPlace

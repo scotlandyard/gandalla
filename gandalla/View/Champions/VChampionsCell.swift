@@ -2,30 +2,20 @@ import UIKit
 
 class VChampionsCell:UICollectionViewCell
 {
-    weak var label:UILabel!
     weak var image:UIImageView!
     weak var rate:VChampionsCellRate!
     weak var layoutImageTop:NSLayoutConstraint!
     weak var layoutImageLeft:NSLayoutConstraint!
-    private let kImageSize:CGFloat = 200
-    private let kRateSize:CGFloat = 80
-    private let KRateMarginLeft:CGFloat = -20
-    private let KRateMarginBottom:CGFloat = 20
+    private let kImageSize:CGFloat = 180
+    private let kRateSize:CGFloat = 130
+    private let KRateMarginLeft:CGFloat = -65
+    private let KRateMarginBottom:CGFloat = 30
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clearColor()
-        
-        let label:UILabel = UILabel()
-        label.userInteractionEnabled = false
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clearColor()
-        label.font = UIFont.regular(15)
-        label.textColor = UIColor(white:0.4, alpha:1)
-        label.numberOfLines = 2
-        self.label = label
         
         let image:UIImageView = UIImageView()
         image.userInteractionEnabled = false
@@ -41,12 +31,10 @@ class VChampionsCell:UICollectionViewCell
         let rate:VChampionsCellRate = VChampionsCellRate()
         self.rate = rate
         
-        addSubview(label)
         addSubview(image)
         addSubview(rate)
         
         let views:[String:AnyObject] = [
-            "label":label,
             "image":image,
             "rate":rate]
         
@@ -102,7 +90,7 @@ class VChampionsCell:UICollectionViewCell
     {
         let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
-        let remainX:CGFloat = (width + KRateMarginLeft + kRateSize) - kImageSize
+        let remainX:CGFloat = width - (kImageSize + KRateMarginLeft + kRateSize)
         let remainY:CGFloat = height - kImageSize
         let marginX:CGFloat = remainX / 2.0
         let marginY:CGFloat = remainY / 2.0
@@ -117,5 +105,6 @@ class VChampionsCell:UICollectionViewCell
     func config(model:MChampionsItem)
     {
         image.image = model.modelGandaller.image.imageBinary
+        rate.count(model.count)
     }
 }
