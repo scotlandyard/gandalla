@@ -589,6 +589,13 @@
 			path = Champions;
 			sourceTree = "<group>";
 		};
+		DA65BBFD1D73E71700DA8440 /* Liked */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Liked;
+			sourceTree = "<group>";
+		};
 		DA9221691D691BAA006323FE /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -691,6 +698,7 @@
 		DAA6A37E1D69184300F2565B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DA65BBFD1D73E71700DA8440 /* Liked */,
 				DA65BBEE1D739AE500DA8440 /* Champions */,
 				DABF04731D70EE9000012C4C /* Gandallers */,
 				DA9221861D6A0B04006323FE /* News */,

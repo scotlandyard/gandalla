@@ -9,7 +9,7 @@
 "VNewsCellSocial_labelEvent"="Actualizó sus redes sociales";
 "VNewsCellVideo_labelEvent"="Nuevo video";
 "VGandallerDetailCellLike_label"="Desaprueba su gandallez";
-"VGandallerDetailCellLike_liked"="Gandalla agregado a la lista!";
+"VGandallerDetailCellLike_liked"="¡Gandalla marcado!";
 
 "MCreateItem_noName"="-";
 "MCreateItemDetailPropertyStatus_name"="Status";
