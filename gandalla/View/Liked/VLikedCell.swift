@@ -42,12 +42,12 @@ class VLikedCell:UICollectionViewCell
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-5-[image(55)]-7-[label]-10-|",
+            "H:|-10-[image(40)]-10-[label]-10-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-5-[image]-5-|",
+            "V:|-10-[image]-10-|",
             options:[],
             metrics:metrics,
             views:views))

@@ -5,7 +5,8 @@ class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     weak var controller:CLiked!
     weak var collection:UICollectionView!
     private let kCollectionBottom:CGFloat = 40
-    private let kCellHeight:CGFloat = 65
+    private let kCellHeight:CGFloat = 60
+    private let kHeaderHeight:CGFloat = 100
     private let kInterLine:CGFloat = 1
     
     convenience init(controller:CLiked)
@@ -18,7 +19,6 @@ class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         
         let collectionTop:CGFloat = controller.parent.kBarHeight
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSizeZero
         flow.footerReferenceSize = CGSizeZero
         flow.sectionInset = UIEdgeInsetsMake(collectionTop, 0, kCollectionBottom, 0)
         flow.minimumLineSpacing = kInterLine
@@ -38,6 +38,12 @@ class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             VLikedCell.self,
             forCellWithReuseIdentifier:
             VLikedCell.reusableIdentifier())
+        collection.registerClass(
+            VLikedHeader.self,
+            forSupplementaryViewOfKind:
+            UICollectionElementKindSectionHeader,
+            withReuseIdentifier:
+            VLikedHeader.reusableIdentifier())
         self.collection = collection
         
         addSubview(collection)
@@ -81,6 +87,22 @@ class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         controller.parent.scrollDidScroll(scrollView)
     }
     
+    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForHeaderInSection section:Int) -> CGSize
+    {
+        let size:CGSize
+        
+        if controller.model.items.isEmpty
+        {
+            size = CGSizeMake(0, kHeaderHeight)
+        }
+        else
+        {
+            size = CGSizeZero
+        }
+        
+        return size
+    }
+    
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
         let width:CGFloat = collectionView.bounds.maxX
@@ -99,6 +121,18 @@ class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         let count:Int = controller.model.items.count
         
         return count
+    }
+    
+    func collectionView(collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, atIndexPath indexPath:NSIndexPath) -> UICollectionReusableView
+    {
+        let reusable:UICollectionReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(
+            kind,
+            withReuseIdentifier:
+            VLikedHeader.reusableIdentifier(),
+            forIndexPath:
+            indexPath)
+        
+        return reusable
     }
     
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
