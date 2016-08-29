@@ -25,13 +25,13 @@ class VChampionsCell:UICollectionViewCell
         
         let image:UIImageView = UIImageView()
         image.userInteractionEnabled = false
-        image.backgroundColor = UIColor(white:0.97, alpha:1)
+        image.backgroundColor = UIColor(white:0.98, alpha:1)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
         image.contentMode = UIViewContentMode.ScaleAspectFill
         image.layer.cornerRadius = kImageSize / 2.0
         image.layer.borderWidth = 1
-        image.layer.borderColor = UIColor(white:0.8, alpha:1).CGColor
+        image.layer.borderColor = UIColor(white:0.9, alpha:1).CGColor
         self.image = image
         
         addSubview(label)
