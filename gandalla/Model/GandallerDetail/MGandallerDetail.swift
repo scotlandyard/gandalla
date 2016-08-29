@@ -61,9 +61,9 @@ class MGandallerDetail
         
         items.append(itemTitleHashtags)
         
+        var hashtags:[MGandallerDetailItem] = []
         for hashtag:FDatabaseModelGandallerSocialHashtag in gandaller.fModel.social.hashtags
         {
-            var hashtags:[MGandallerDetailItem] = []
             let tag:String = hashtag.tag
             
             if !tag.isEmpty
@@ -71,42 +71,41 @@ class MGandallerDetail
                 let itemHashtag:MGandallerDetailItemHashtag = MGandallerDetailItemHashtag(tag:tag)
                 hashtags.append(itemHashtag)
             }
+        }
+        
+        hashtags.sortInPlace()
+        { (itemA, itemB) -> Bool in
             
-            hashtags.sortInPlace()
-            { (itemA, itemB) -> Bool in
+            let hashA:MGandallerDetailItemHashtag = itemA as! MGandallerDetailItemHashtag
+            let hashB:MGandallerDetailItemHashtag = itemB as! MGandallerDetailItemHashtag
+            let tagA:String = hashA.tag
+            let tagB:String = hashB.tag
+            let before:Bool
+            let comparisonResult:NSComparisonResult = tagA.compare(
+                tagB,
+                options:NSStringCompareOptions.CaseInsensitiveSearch,
+                range:nil,
+                locale:nil)
+            
+            switch comparisonResult
+            {
+            case NSComparisonResult.OrderedAscending, NSComparisonResult.OrderedSame:
                 
-                let hashA:MGandallerDetailItemHashtag = itemA as! MGandallerDetailItemHashtag
-                let hashB:MGandallerDetailItemHashtag = itemB as! MGandallerDetailItemHashtag
-                let tagA:String = hashA.tag
-                let tagB:String = hashB.tag
-                let before:Bool
-                let comparisonResult:NSComparisonResult = tagA.compare(
-                    tagB,
-                    options:NSStringCompareOptions.CaseInsensitiveSearch,
-                    range:nil,
-                    locale:nil)
+                before = true
                 
-                switch comparisonResult
-                {
-                    case NSComparisonResult.OrderedAscending, NSComparisonResult.OrderedSame:
-                    
-                        before = true
-                        
-                        break
-                 
-                    case NSComparisonResult.OrderedDescending:
-                    
-                        before = false
-                    
-                        break
-                }
+                break
                 
-                return before
+            case NSComparisonResult.OrderedDescending:
+                
+                before = false
+                
+                break
             }
             
-            items.appendContentsOf(hashtags)
+            return before
         }
-
+        
+        items.appendContentsOf(hashtags)
         items.append(itemTitleVideos)
         
         for video:FDatabaseModelGandallerVideo in gandaller.fModel.videos
