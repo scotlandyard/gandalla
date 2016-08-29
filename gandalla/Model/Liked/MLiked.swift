@@ -16,9 +16,12 @@ class MLiked
             
             if modelGandaller != nil
             {
-                let created:NSTimeInterval = dbLiked.created
-                let item:MLikedItem = MLikedItem(modelGandaller:modelGandaller!, created:created)
-                items.append(item)
+                if modelGandaller!.fModel.status == FDatabaseModelGandaller.FDatabaseModelGandallerStatus.Active
+                {
+                    let created:NSTimeInterval = dbLiked.created
+                    let item:MLikedItem = MLikedItem(modelGandaller:modelGandaller!, created:created)
+                    items.append(item)
+                }
             }
         }
         

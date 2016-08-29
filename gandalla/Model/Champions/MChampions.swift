@@ -19,8 +19,11 @@ class MChampions
             
             if modelGandaller != nil
             {
-                let item:MChampionsItem = MChampionsItem(modelGandaller:modelGandaller!, count:count)
-                items.append(item)
+                if modelGandaller!.fModel.status == FDatabaseModelGandaller.FDatabaseModelGandallerStatus.Active
+                {
+                    let item:MChampionsItem = MChampionsItem(modelGandaller:modelGandaller!, count:count)
+                    items.append(item)
+                }
             }
         }
         
