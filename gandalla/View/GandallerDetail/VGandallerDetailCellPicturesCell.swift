@@ -9,7 +9,6 @@ class VGandallerDetailCellPicturesCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        userInteractionEnabled = false
         
         let image:UIImageView = UIImageView()
         image.userInteractionEnabled = false
