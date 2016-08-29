@@ -44,6 +44,9 @@ class MCreateItemDetailPropertyItemAction:MCreateItemDetailPropertyItem
         { [weak self] (action) in
             
             self?.performAction()
+            
+            let titleDone:String = NSLocalizedString("MCreateItemDetailPropertyItemAction_done", comment:"")
+            VMainAlert.Message(titleDone)
         }
         
         let actionCancel:UIAlertAction = UIAlertAction(

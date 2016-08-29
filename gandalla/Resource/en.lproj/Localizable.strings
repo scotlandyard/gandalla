@@ -32,6 +32,7 @@
 "MCreateItemDetailPropertyItemActionSocialNotification_title"="Social notification";
 "MCreateItemDetailPropertyItemAction_actionCancel"="Do";
 "MCreateItemDetailPropertyItemAction_actionCancel"="Cancel";
+"MCreateItemDetailPropertyItemAction_done"="Done";
 "MGandallerDetail_titlePowers"="Super powers";
 "MGandallerDetail_titleHashtags"="Hashtags";
 "MGandallerDetail_titleVideos"="Videos";
