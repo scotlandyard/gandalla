@@ -8,7 +8,7 @@ class MGandallerListItem
     private var labelHeight:CGFloat
     private let attributedString:NSAttributedString
     private let labelMarginHorizontal:CGFloat = 20
-    private let labelMarginVertical:CGFloat = 40
+    private let labelMarginVertical:CGFloat = 20
     private let drawingOptions:NSStringDrawingOptions
     
     init(modelGandaller:MGandallerItem)

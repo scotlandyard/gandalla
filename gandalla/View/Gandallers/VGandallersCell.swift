@@ -169,7 +169,7 @@ class VGandallersCell:UICollectionViewCell
         {
             base.backgroundColor = UIColor.whiteColor()
             base.layer.borderColor = UIColor(white:0.9, alpha:1).CGColor
-            label.textColor = UIColor(white:0.4, alpha:1)
+            label.textColor = UIColor(white:0.65, alpha:1)
         }
     }
     
