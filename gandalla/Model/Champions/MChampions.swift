@@ -19,6 +19,36 @@ class MChampions
             items.append(item)
         }
         
+        items.sortInPlace
+        { (itemA, itemB) -> Bool in
+            
+            let before:Bool
+            let countA:Int = itemA.count
+            let countB:Int = itemB.count
+            
+            if countA > countB
+            {
+                before = true
+            }
+            else if countA < countB
+            {
+                before = false
+            }
+            else
+            {
+                if itemA.modelGandaller.fModel.created <= itemB.modelGandaller.fModel.created
+                {
+                    before = true
+                }
+                else
+                {
+                    before = false
+                }
+            }
+            
+            return before
+        }
+        
         self.items = items
     }
 }
