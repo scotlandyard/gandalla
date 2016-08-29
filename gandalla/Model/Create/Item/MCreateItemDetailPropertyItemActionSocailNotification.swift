@@ -1,15 +1,11 @@
 import UIKit
 
-class MCreateItemDetailPropertyItemNotify:MCreateItemDetailPropertyItem
+class MCreateItemDetailPropertyItemActionSocialNotification:MCreateItemDetailPropertyItemAction
 {
-    let gandallerId:String
-    let title:String
-    
-    init(gandallerId:String, title:String)
+    init(gandallerId:String)
     {
-        self.gandallerId = gandallerId
-        self.title = title
-        super.init()
+        let title:String = NSLocalizedString("", comment:"")
+        super.init(gandallerId:gandallerId, title:title)
     }
     
     override func config(controller:CCreateDetail, cell:VCreateDetailCell)

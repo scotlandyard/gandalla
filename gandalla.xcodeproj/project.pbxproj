@@ -156,7 +156,7 @@
 		DAA6A3EB1D69184300F2565B /* VMainAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3B81D69184300F2565B /* VMainAlert.swift */; };
 		DAA6A3EC1D69184300F2565B /* VMainLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3B91D69184300F2565B /* VMainLoader.swift */; };
 		DAA6A3ED1D69184300F2565B /* VMainShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A3BA1D69184300F2565B /* VMainShadow.swift */; };
-		DABF046E1D70DA0900012C4C /* MCreateItemDetailPropertyItemNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF046D1D70DA0900012C4C /* MCreateItemDetailPropertyItemNotify.swift */; };
+		DABF046E1D70DA0900012C4C /* MCreateItemDetailPropertyItemActionSocailNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF046D1D70DA0900012C4C /* MCreateItemDetailPropertyItemActionSocailNotification.swift */; };
 		DABF04701D70DAD800012C4C /* VCreateDetailCellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF046F1D70DAD800012C4C /* VCreateDetailCellAction.swift */; };
 		DABF04721D70E31700012C4C /* MCreateItemDetailPropertyActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04711D70E31700012C4C /* MCreateItemDetailPropertyActions.swift */; };
 		DABF04751D70EEA700012C4C /* CGandallers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF04741D70EEA700012C4C /* CGandallers.swift */; };
@@ -349,7 +349,7 @@
 		DAA6A3B81D69184300F2565B /* VMainAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainAlert.swift; sourceTree = "<group>"; };
 		DAA6A3B91D69184300F2565B /* VMainLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainLoader.swift; sourceTree = "<group>"; };
 		DAA6A3BA1D69184300F2565B /* VMainShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMainShadow.swift; sourceTree = "<group>"; };
-		DABF046D1D70DA0900012C4C /* MCreateItemDetailPropertyItemNotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemNotify.swift; sourceTree = "<group>"; };
+		DABF046D1D70DA0900012C4C /* MCreateItemDetailPropertyItemActionSocailNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemActionSocailNotification.swift; sourceTree = "<group>"; };
 		DABF046F1D70DAD800012C4C /* VCreateDetailCellAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateDetailCellAction.swift; sourceTree = "<group>"; };
 		DABF04711D70E31700012C4C /* MCreateItemDetailPropertyActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyActions.swift; sourceTree = "<group>"; };
 		DABF04741D70EEA700012C4C /* CGandallers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGandallers.swift; sourceTree = "<group>"; };
@@ -492,7 +492,7 @@
 				DA3C5E841D70930F003F5358 /* MCreateItemDetailPropertyItemHashtag.swift */,
 				DA3C5E861D70931A003F5358 /* MCreateItemDetailPropertyItemVideo.swift */,
 				DA11A9A51D74DAAF002921E6 /* MCreateItemDetailPropertyItemAction.swift */,
-				DABF046D1D70DA0900012C4C /* MCreateItemDetailPropertyItemNotify.swift */,
+				DABF046D1D70DA0900012C4C /* MCreateItemDetailPropertyItemActionSocailNotification.swift */,
 				DA11A9A31D74D332002921E6 /* MCreateItemDetailPropertyItemRemoveUnlessJoined.swift */,
 			);
 			path = Item;
@@ -1373,7 +1373,7 @@
 				DA1912351D6E0CFE001F6F3A /* FDatabaseModelGandallerImageReady.swift in Sources */,
 				DA13F3991D6BB20C008AF28A /* VCreateDetailCell.swift in Sources */,
 				DA65BC071D73E86400DA8440 /* MLiked.swift in Sources */,
-				DABF046E1D70DA0900012C4C /* MCreateItemDetailPropertyItemNotify.swift in Sources */,
+				DABF046E1D70DA0900012C4C /* MCreateItemDetailPropertyItemActionSocailNotification.swift in Sources */,
 				DA155AF11D6C9D89000C8C85 /* MCreateItemDetailProperty.swift in Sources */,
 				DA1912311D6DEE1E001F6F3A /* MCreateItemDetailPropertyItemImage.swift in Sources */,
 				DAA6A3E81D69184300F2565B /* VMainBar.swift in Sources */,

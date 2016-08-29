@@ -29,10 +29,7 @@
 "MCreateItemDetailPropertyItemFacebook_placeholder"="Facebook";
 "MCreateItemDetailPropertyItemTwitter_placeholder"="Twitter";
 "MCreateItemDetailPropertyItemInstagram_placeholder"="Instagram";
-"MCreateItemDetailPropertyItemNotify_title"="Send notification";
-"MCreateItemDetailPropertyItemNotify_notify"="Send";
-"MCreateItemDetailPropertyItemNotify_cancel"="Cancel";
-"MCreateItemDetailPropertyItemNotify_done"="Notification sent";
+"MCreateItemDetailPropertyItemActionSocialNotification_title"="Social notification";
 "MGandallerDetail_titlePowers"="Super powers";
 "MGandallerDetail_titleHashtags"="Hashtags";
 "MGandallerDetail_titleVideos"="Videos";
