@@ -38,6 +38,7 @@ class MCreateItemDetailPropertyItemPower:MCreateItemDetailPropertyItem, UITextFi
             {
                 if self!.fPower != nil
                 {
+                    self!.fPower!.name = newName
                     let powerId:String = self!.fPower!.powerId!
                     let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
                     let propertyPowers:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Powers.rawValue

@@ -2,7 +2,7 @@ import Foundation
 
 class FDatabaseModelGandallerPower
 {
-    let name:String
+    var name:String
     var powerNotification:String?
     var powerId:String?
     
