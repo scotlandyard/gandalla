@@ -1,6 +1,6 @@
 import UIKit
 
-class VNews:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CNews!
     weak var collection:UICollectionView!
