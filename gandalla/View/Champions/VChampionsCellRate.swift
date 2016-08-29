@@ -23,7 +23,7 @@ class VChampionsCellRate:UIView
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clearColor()
         label.font = UIFont.numeric(30)
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.complement()
         label.textAlignment = NSTextAlignment.Center
         self.label = label
         
@@ -47,7 +47,7 @@ class VChampionsCellRate:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-5-[label]-13-|",
+            "H:|-7-[label]-15-|",
             options:[],
             metrics:metrics,
             views:views))

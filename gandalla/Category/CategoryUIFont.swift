@@ -14,6 +14,6 @@ extension UIFont
     
     class func numeric(size:CGFloat) -> UIFont
     {
-        return UIFont(name:"AvenirNextCondensed-Bold", size:size)!
+        return UIFont(name:"AvenirNext-Bold", size:size)!
     }
 }
