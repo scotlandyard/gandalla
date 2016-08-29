@@ -4,6 +4,7 @@ class VChampionsCell:UICollectionViewCell
 {
     weak var image:UIImageView!
     weak var rate:VChampionsCellRate!
+    weak var model:MChampionsItem?
     weak var layoutImageTop:NSLayoutConstraint!
     weak var layoutImageLeft:NSLayoutConstraint!
     private let kImageSize:CGFloat = 180
@@ -78,11 +79,22 @@ class VChampionsCell:UICollectionViewCell
         
         addConstraint(layoutImageTop)
         addConstraint(layoutImageLeft)
+        
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector:#selector(self.notifiedImageLoaded(sender:)),
+            name:NSNotification.NSNotificationName.GandallerImage.rawValue,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    deinit
+    {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func layoutSubviews()
@@ -115,6 +127,27 @@ class VChampionsCell:UICollectionViewCell
         }
     }
     
+    //MARK: notified
+    
+    func notifiedImageLoaded(sender notification:NSNotification)
+    {
+        let userInfo:[String:AnyObject] = notification.userInfo as! [String:AnyObject]
+        let gandallerKey:String = FDatabase.FDatabaseReference.Gandaller.rawValue
+        let gandallerId:String = userInfo[gandallerKey] as! String
+        
+        if model != nil
+        {
+            if gandallerId == model!.modelGandaller.gandallerId
+            {
+                dispatch_async(dispatch_get_main_queue())
+                { [weak self] in
+                    
+                    self?.placeImage()
+                }
+            }
+        }
+    }
+    
     //MARK: private
     
     private func hover()
@@ -129,11 +162,17 @@ class VChampionsCell:UICollectionViewCell
         }
     }
     
+    private func placeImage()
+    {
+        image.image = model!.modelGandaller.image.imageBinary
+    }
+    
     //MARK: public
     
     func config(model:MChampionsItem)
     {
-        image.image = model.modelGandaller.image.imageBinary
+        self.model = model
+        placeImage()
         rate.count(model.count)
     }
 }
