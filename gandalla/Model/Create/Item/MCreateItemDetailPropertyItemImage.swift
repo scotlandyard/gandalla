@@ -183,7 +183,13 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
     
     func makeProfileImage()
     {
-        controller.makeProfilePicture(fImage!.imageId!)
+        if fImage != nil
+        {
+            if fImage!.imageId != nil
+            {
+                controller.makeProfilePicture(fImage!.imageId!)
+            }
+        }
     }
     
     //MARK: image picker
