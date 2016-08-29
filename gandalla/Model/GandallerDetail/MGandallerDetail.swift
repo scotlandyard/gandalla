@@ -63,13 +63,48 @@ class MGandallerDetail
         
         for hashtag:FDatabaseModelGandallerSocialHashtag in gandaller.fModel.social.hashtags
         {
+            var hashtags:[MGandallerDetailItem] = []
             let tag:String = hashtag.tag
             
             if !tag.isEmpty
             {
                 let itemHashtag:MGandallerDetailItemHashtag = MGandallerDetailItemHashtag(tag:tag)
-                items.append(itemHashtag)
+                hashtags.append(itemHashtag)
             }
+            
+            hashtags.sortInPlace()
+            { (itemA, itemB) -> Bool in
+                
+                let hashA:MGandallerDetailItemHashtag = itemA as! MGandallerDetailItemHashtag
+                let hashB:MGandallerDetailItemHashtag = itemB as! MGandallerDetailItemHashtag
+                let tagA:String = hashA.tag
+                let tagB:String = hashB.tag
+                let before:Bool
+                let comparisonResult:NSComparisonResult = tagA.compare(
+                    tagB,
+                    options:NSStringCompareOptions.CaseInsensitiveSearch,
+                    range:nil,
+                    locale:nil)
+                
+                switch comparisonResult
+                {
+                    case NSComparisonResult.OrderedAscending, NSComparisonResult.OrderedSame:
+                    
+                        before = true
+                        
+                        break
+                 
+                    case NSComparisonResult.OrderedDescending:
+                    
+                        before = false
+                    
+                        break
+                }
+                
+                return before
+            }
+            
+            items.appendContentsOf(hashtags)
         }
 
         items.append(itemTitleVideos)
