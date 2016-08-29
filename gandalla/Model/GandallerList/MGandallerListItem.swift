@@ -45,7 +45,7 @@ class MGandallerListItem
     {
         self.cell = cell
         cell.model = self
-        cell.label.text = modelGandaller.fModel.name
+        cell.label.attributedText = attributedString
         layoutConstraints()
         cell.placeImage()
     }
