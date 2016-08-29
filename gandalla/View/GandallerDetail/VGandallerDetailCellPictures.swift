@@ -190,4 +190,9 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
         
         return cell
     }
+    
+    func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
+    {
+        collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally, animated:true)
+    }
 }
