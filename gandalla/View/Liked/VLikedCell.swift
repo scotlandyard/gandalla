@@ -11,24 +11,25 @@ class VLikedCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.whiteColor()
         
         let image:UIImageView = UIImageView()
         image.userInteractionEnabled = false
         image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
         image.contentMode = UIViewContentMode.ScaleAspectFill
+        image.backgroundColor = UIColor.collectionBackground()
         image.layer.cornerRadius = kCornerRadius
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor(white:0.7, alpha:1).CGColor
+        image.layer.borderWidth = 1
+        image.layer.borderColor = UIColor(white:0.5, alpha:1).CGColor
         self.image = image
         
         let label:UILabel = UILabel()
         label.userInteractionEnabled = false
         label.backgroundColor = UIColor.clearColor()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.bold(14)
-        label.textColor = UIColor(white:0.5, alpha:1)
+        label.font = UIFont.bold(16)
+        label.textColor = UIColor(white:0.2, alpha:1)
         self.label = label
         
         addSubview(image)
@@ -41,12 +42,12 @@ class VLikedCell:UICollectionViewCell
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-4-[image(36)]-4-[label]-10-|",
+            "H:|-5-[image(55)]-7-[label]-10-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-4-[image]-4-|",
+            "V:|-5-[image]-5-|",
             options:[],
             metrics:metrics,
             views:views))

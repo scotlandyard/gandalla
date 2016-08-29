@@ -5,7 +5,7 @@ class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     weak var controller:CLiked!
     weak var collection:UICollectionView!
     private let kCollectionBottom:CGFloat = 40
-    private let kCellHeight:CGFloat = 55
+    private let kCellHeight:CGFloat = 65
     private let kInterLine:CGFloat = 1
     
     convenience init(controller:CLiked)
