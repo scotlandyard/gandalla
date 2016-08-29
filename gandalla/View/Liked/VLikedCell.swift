@@ -163,7 +163,7 @@ class VLikedCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MChampionsItem)
+    func config(model:MLikedItem)
     {
         self.model = model
         placeImage()

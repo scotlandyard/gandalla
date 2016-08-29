@@ -5,6 +5,7 @@ class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     weak var controller:CLiked!
     weak var collection:UICollectionView!
     private let kCollectionBottom:CGFloat = 40
+    private let kCellHeight:CGFloat = 55
     private let kInterLine:CGFloat = 1
     
     convenience init(controller:CLiked)
@@ -73,15 +74,6 @@ class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return item
     }
     
-    //MARK: public
-    
-    func reload(items:[NSIndexPath])
-    {
-        spinner?.stopAnimating()
-        spinner?.removeFromSuperview()
-        collection.insertItemsAtIndexPaths(items)
-    }
-    
     //MARK: col del
     
     func scrollViewDidScroll(scrollView:UIScrollView)
@@ -91,10 +83,8 @@ class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
-        let item:MNewsItem = modelAtIndex(indexPath)
         let width:CGFloat = collectionView.bounds.maxX
-        let height:CGFloat = item.fModel.cellHeight()
-        let size:CGSize = CGSizeMake(width, height)
+        let size:CGSize = CGSizeMake(width, kCellHeight)
         
         return size
     }
@@ -113,12 +103,11 @@ class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
     {
-        let item:MNewsItem = modelAtIndex(indexPath)
-        let reusableIdentifier:String = item.fModel.reusableIdentifier()
-        let cell:VNewsCell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            reusableIdentifier,
+        let item:MLikedItem = modelAtIndex(indexPath)
+        let cell:VLikedCell = collectionView.dequeueReusableCellWithReuseIdentifier(
+            VLikedCell.reusableIdentifier(),
             forIndexPath:
-            indexPath) as! VNewsCell
+            indexPath) as! VLikedCell
         cell.config(item)
         
         return cell
@@ -126,16 +115,15 @@ class VLiked:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
     {
-        let item:MNewsItem = modelAtIndex(indexPath)
-        let cell:VNewsCell = collectionView.cellForItemAtIndexPath(indexPath) as! VNewsCell
-        cell.selected(item, controller:controller)
+        controller.showGandaller(indexPath)
         
         dispatch_after(
-            dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)),
+            dispatch_time(DISPATCH_TIME_NOW,
+                Int64(NSEC_PER_SEC)),
             dispatch_get_main_queue())
         { [weak collectionView] in
             
-            collectionView?.selectItemAtIndexPath(nil, animated:true, scrollPosition:UICollectionViewScrollPosition.None)
+            collectionView?.selectItemAtIndexPath(nil, animated:false, scrollPosition:UICollectionViewScrollPosition.None)
         }
     }
 }
