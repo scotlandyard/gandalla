@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA11A9A21D74C787002921E6 /* MCreateItemDetailPropertyRemoveNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11A9A11D74C787002921E6 /* MCreateItemDetailPropertyRemoveNotifications.swift */; };
 		DA13F35C1D6B3F19008AF28A /* MMainNavItemGandallers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F35B1D6B3F19008AF28A /* MMainNavItemGandallers.swift */; };
 		DA13F3721D6B450F008AF28A /* FDatabaseModelNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F36A1D6B450F008AF28A /* FDatabaseModelNews.swift */; };
 		DA13F3731D6B450F008AF28A /* FDatabaseModelNewsJoined.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F36B1D6B450F008AF28A /* FDatabaseModelNewsJoined.swift */; };
@@ -195,6 +196,7 @@
 		4F2DBF6A5322CF98D13C1607 /* Pods-gandalla.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gandalla.release.xcconfig"; path = "Pods/Target Support Files/Pods-gandalla/Pods-gandalla.release.xcconfig"; sourceTree = "<group>"; };
 		7071DB846720A600ABE48F7F /* Pods-gandalla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gandalla.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gandalla/Pods-gandalla.debug.xcconfig"; sourceTree = "<group>"; };
 		BB6363C319D194C1D235EF34 /* Pods_gandalla.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gandalla.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA11A9A11D74C787002921E6 /* MCreateItemDetailPropertyRemoveNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyRemoveNotifications.swift; sourceTree = "<group>"; };
 		DA13F35B1D6B3F19008AF28A /* MMainNavItemGandallers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainNavItemGandallers.swift; sourceTree = "<group>"; };
 		DA13F36A1D6B450F008AF28A /* FDatabaseModelNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelNews.swift; sourceTree = "<group>"; };
 		DA13F36B1D6B450F008AF28A /* FDatabaseModelNewsJoined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelNewsJoined.swift; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 				DA3C5E7A1D709297003F5358 /* MCreateItemDetailPropertyHashtags.swift */,
 				DA3C5E7C1D7092A4003F5358 /* MCreateItemDetailPropertyVideos.swift */,
 				DABF04711D70E31700012C4C /* MCreateItemDetailPropertyNotifications.swift */,
+				DA11A9A11D74C787002921E6 /* MCreateItemDetailPropertyRemoveNotifications.swift */,
 			);
 			path = Section;
 			sourceTree = "<group>";
@@ -1319,6 +1322,7 @@
 				DA65BBE91D72F8EE00DA8440 /* MGandallerDetailItemSocialInstagram.swift in Sources */,
 				DAA580111D6D2BBF00EC941A /* VNewsCellJoined.swift in Sources */,
 				DA3C5E7B1D709297003F5358 /* MCreateItemDetailPropertyHashtags.swift in Sources */,
+				DA11A9A21D74C787002921E6 /* MCreateItemDetailPropertyRemoveNotifications.swift in Sources */,
 				DAA6A3DF1D69184300F2565B /* MMainTransitionPush.swift in Sources */,
 				DA13F3971D6BAF01008AF28A /* VCreateDetail.swift in Sources */,
 				DA13F3891D6B677A008AF28A /* FDatabaseModelGandallerActive.swift in Sources */,

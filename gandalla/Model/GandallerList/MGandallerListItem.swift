@@ -13,7 +13,7 @@ class MGandallerListItem
     
     init(modelGandaller:MGandallerItem)
     {
-        let nameAttributes:[String:AnyObject] = [NSFontAttributeName:UIFont.bold(17)]
+        let nameAttributes:[String:AnyObject] = [NSFontAttributeName:UIFont.bold(14)]
         let name:String = modelGandaller.fModel.name
         self.modelGandaller = modelGandaller
         imageHeight = 0
