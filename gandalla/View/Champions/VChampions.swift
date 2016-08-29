@@ -1,12 +1,13 @@
 import UIKit
 
-class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource
+class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CChampions!
     weak var collection:UICollectionView!
     weak var spinner:VMainLoader?
     private let kCollectionTop:CGFloat = 10
     private let kCollectionBottom:CGFloat = 40
+    private let kCellHeight:CGFloat = 70
     
     convenience init(controller:CChampions)
     {
@@ -107,6 +108,14 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     func scrollViewDidScroll(scrollView:UIScrollView)
     {
         controller.parent.scrollDidScroll(scrollView)
+    }
+    
+    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSizeMake(width, kCellHeight)
+        
+        return size
     }
     
     func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int
