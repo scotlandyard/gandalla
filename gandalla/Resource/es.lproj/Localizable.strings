@@ -31,7 +31,7 @@
 "MCreateItemDetailPropertyItemInstagram_placeholder"="Instagram";
 "MCreateItemDetailPropertyItemActionSocialNotification_title"="Social notification";
 "MCreateItemDetailPropertyItemActionRemoveUnlessJoined_title"="Remove unless joined";
-"MCreateItemDetailPropertyItemAction_actionCancel"="Do";
+"MCreateItemDetailPropertyItemAction_actionDo"="Do";
 "MCreateItemDetailPropertyItemAction_actionCancel"="Cancel";
 "MCreateItemDetailPropertyItemAction_done"="Done";
 "MGandallerDetail_titlePowers"="Super poderes";
