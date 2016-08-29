@@ -5,9 +5,10 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
     weak var controller:CChampions!
     weak var collection:UICollectionView!
     weak var spinner:VMainLoader?
-    private let kCollectionTop:CGFloat = 10
+    private let kCollectionTop:CGFloat = 64
     private let kCollectionBottom:CGFloat = 40
-    private let kCellHeight:CGFloat = 70
+    private let kCellHeight:CGFloat = 250
+    private let kMaxChampions:Int = 3
     
     convenience init(controller:CChampions)
     {
@@ -133,7 +134,16 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
         }
         else
         {
-             count = controller.model!.items.count
+            let realCount:Int = controller.model!.items.count
+            
+            if realCount > kMaxChampions
+            {
+                count = kMaxChampions
+            }
+            else
+            {
+                count = realCount
+            }
         }
         
         return count

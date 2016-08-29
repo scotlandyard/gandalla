@@ -6,7 +6,7 @@ class VChampionsCell:UICollectionViewCell
     weak var image:UIImageView!
     weak var layoutImageTop:NSLayoutConstraint!
     weak var layoutImageLeft:NSLayoutConstraint!
-    private let kImageSize:CGFloat = 50
+    private let kImageSize:CGFloat = 200
     
     override init(frame:CGRect)
     {
@@ -25,10 +25,13 @@ class VChampionsCell:UICollectionViewCell
         
         let image:UIImageView = UIImageView()
         image.userInteractionEnabled = false
+        image.backgroundColor = UIColor(white:0.97, alpha:1)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
-        image.contentMode = UIViewContentMode.ScaleToFill
+        image.contentMode = UIViewContentMode.ScaleAspectFill
         image.layer.cornerRadius = kImageSize / 2.0
+        image.layer.borderWidth = 1
+        image.layer.borderColor = UIColor(white:0.8, alpha:1).CGColor
         self.image = image
         
         addSubview(label)
@@ -42,17 +45,12 @@ class VChampionsCell:UICollectionViewCell
             "imageSize":kImageSize]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[icon(35)]-0-[label]-10-|",
+            "H:[image(imageSize)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[label]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[icon]-0-|",
+            "V:[image(imageSize)]",
             options:[],
             metrics:metrics,
             views:views))
