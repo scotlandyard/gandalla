@@ -30,8 +30,8 @@ class MUser
         dbUser?.userId = userId
         DManager.sharedInstance.managerGandalla.saver.save(false)
         
-        dispatch_async(dispatch_get_main_queue())
-        { [weak self] in
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue())
+        { [weak self]
             
             self?.askNotifications()
         }
