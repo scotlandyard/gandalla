@@ -30,6 +30,8 @@
 "MCreateItemDetailPropertyItemTwitter_placeholder"="Twitter";
 "MCreateItemDetailPropertyItemInstagram_placeholder"="Instagram";
 "MCreateItemDetailPropertyItemActionSocialNotification_title"="Social notification";
+"MCreateItemDetailPropertyItemAction_actionCancel"="Do";
+"MCreateItemDetailPropertyItemAction_actionCancel"="Cancel";
 "MGandallerDetail_titlePowers"="Super powers";
 "MGandallerDetail_titleHashtags"="Hashtags";
 "MGandallerDetail_titleVideos"="Videos";

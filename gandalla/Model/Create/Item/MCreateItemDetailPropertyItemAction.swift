@@ -23,40 +23,35 @@ class MCreateItemDetailPropertyItemAction:MCreateItemDetailPropertyItem
     
     //MARK: public
     
+    func performAction()
+    {
+        
+    }
+    
     func action()
     {
         let alert:UIAlertController = UIAlertController(
             title:
-            NSLocalizedString("MCreateItemDetailPropertyItemNotify_title", comment:""),
+            "",
             message:
             title,
             preferredStyle:UIAlertControllerStyle.ActionSheet)
         
-        let actionNotify:UIAlertAction = UIAlertAction(
-            title:NSLocalizedString("MCreateItemDetailPropertyItemNotify_notify", comment:""),
+        let actionDo:UIAlertAction = UIAlertAction(
+            title:NSLocalizedString("MCreateItemDetailPropertyItemAction_actionDo", comment:""),
             style:
             UIAlertActionStyle.Default)
         { [weak self] (action) in
             
-            if self != nil
-            {
-                let news:FDatabaseModelNews = FDatabaseModelNewsSocial(gandallerId:self!.gandallerId)
-                let newsJson:[String:AnyObject] = news.modelJson()
-                FMain.sharedInstance.database.createChild(
-                    FDatabase.FDatabaseReference.News,
-                    json:newsJson)
-                
-                let titleDone:String = NSLocalizedString("MCreateItemDetailPropertyItemNotify_done", comment:"")
-                VMainAlert.Message(titleDone)
-            }
+            self?.performAction()
         }
         
         let actionCancel:UIAlertAction = UIAlertAction(
-            title:NSLocalizedString("MCreateItemDetailPropertyItemNotify_cancel", comment:""),
+            title:NSLocalizedString("MCreateItemDetailPropertyItemAction_actionCancel", comment:""),
             style:UIAlertActionStyle.Cancel,
             handler:nil)
         
-        alert.addAction(actionNotify)
+        alert.addAction(actionDo)
         alert.addAction(actionCancel)
         controller.presentViewController(alert, animated:true, completion:nil)
     }

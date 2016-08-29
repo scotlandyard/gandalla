@@ -19,7 +19,7 @@
 "MCreateItemDetailPropertyImages_name"="Images";
 "MCreateItemDetailPropertyPowers_name"="Powers";
 "MCreateItemDetailPropertySocial_name"="Social";
-"MCreateItemDetailPropertyActions_name"="actions";
+"MCreateItemDetailPropertyActions_name"="Actions";
 "MCreateItemDetailPropertyHashtags_name"="Hashtags";
 "MCreateItemDetailPropertyVideos_name"="Videos";
 "MCreateItemDetailPropertyItemImage_deleteTitle"="Delete image";
@@ -29,10 +29,9 @@
 "MCreateItemDetailPropertyItemFacebook_placeholder"="Facebook";
 "MCreateItemDetailPropertyItemTwitter_placeholder"="Twitter";
 "MCreateItemDetailPropertyItemInstagram_placeholder"="Instagram";
-"MCreateItemDetailPropertyItemNotify_title"="Send notification";
-"MCreateItemDetailPropertyItemNotify_notify"="Send";
-"MCreateItemDetailPropertyItemNotify_cancel"="Cancel";
-"MCreateItemDetailPropertyItemNotify_done"="Notification sent";
+"MCreateItemDetailPropertyItemActionSocialNotification_title"="Social notification";
+"MCreateItemDetailPropertyItemAction_actionCancel"="Do";
+"MCreateItemDetailPropertyItemAction_actionCancel"="Cancel";
 "MGandallerDetail_titlePowers"="Super poderes";
 "MGandallerDetail_titleHashtags"="Hashtags";
 "MGandallerDetail_titleVideos"="Videos";

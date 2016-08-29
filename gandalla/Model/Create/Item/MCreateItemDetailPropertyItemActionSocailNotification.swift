@@ -8,28 +8,19 @@ class MCreateItemDetailPropertyItemActionSocialNotification:MCreateItemDetailPro
         super.init(gandallerId:gandallerId, title:title)
     }
     
-    override func config(controller:CCreateDetail, cell:VCreateDetailCell)
-    {
-        super.config(controller, cell:cell)
-        
-        let cellNotify:VCreateDetailCellNotify = cell as! VCreateDetailCellNotify
-        cellNotify.button.setTitle(title, forState:UIControlState.Normal)
-        cellNotify.model = self
-    }
-    
     //MARK: public
     
-    func notify()
+    override func action()
     {
         let alert:UIAlertController = UIAlertController(
             title:
-            NSLocalizedString("MCreateItemDetailPropertyItemNotify_title", comment:""),
+            "",
             message:
             title,
             preferredStyle:UIAlertControllerStyle.ActionSheet)
         
-        let actionNotify:UIAlertAction = UIAlertAction(
-            title:NSLocalizedString("MCreateItemDetailPropertyItemNotify_notify", comment:""),
+        let actionDo:UIAlertAction = UIAlertAction(
+            title:NSLocalizedString("MCreateItemDetailPropertyItemActionSocialNotification_actionDo", comment:""),
             style:
             UIAlertActionStyle.Default)
         { [weak self] (action) in
@@ -48,11 +39,11 @@ class MCreateItemDetailPropertyItemActionSocialNotification:MCreateItemDetailPro
         }
         
         let actionCancel:UIAlertAction = UIAlertAction(
-            title:NSLocalizedString("MCreateItemDetailPropertyItemNotify_cancel", comment:""),
+            title:NSLocalizedString("MCreateItemDetailPropertyItemActionSocialNotification_actionCancel", comment:""),
             style:UIAlertActionStyle.Cancel,
             handler:nil)
         
-        alert.addAction(actionNotify)
+        alert.addAction(actionDo)
         alert.addAction(actionCancel)
         controller.presentViewController(alert, animated:true, completion:nil)
     }
