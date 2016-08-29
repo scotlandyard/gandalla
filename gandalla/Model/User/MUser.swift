@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class MUser
 {
@@ -29,6 +29,19 @@ class MUser
         let userId:String = FMain.sharedInstance.database.createChild(FDatabase.FDatabaseReference.User, json:json)
         dbUser?.userId = userId
         DManager.sharedInstance.managerGandalla.saver.save(false)
+        
+        dispatch_async(dispatch_get_main_queue())
+        { [weak self] in
+            
+            self?.askNotifications()
+        }
+    }
+    
+    private func askNotifications()
+    {
+        let settings:UIUserNotificationSettings = UIUserNotificationSettings(forTypes:[.Alert,.Badge,.Sound], categories:nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        UIApplication.sharedApplication().registerForRemoteNotifications()
     }
     
     //MARK: public
