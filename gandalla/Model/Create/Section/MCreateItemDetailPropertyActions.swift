@@ -10,11 +10,9 @@ class MCreateItemDetailPropertyNotifications:MCreateItemDetailProperty
         let name:String = NSLocalizedString("MCreateItemDetailPropertyActions_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellAction.reusableIdentifier()
         let itemSocialNotification:MCreateItemDetailPropertyItemActionSocialNotification = MCreateItemDetailPropertyItemActionSocialNotification(gandallerId:gandallerId)
-        let itemRemoveUnlessJoined:MCreateItemDetailPropertyItemActionRemoveUnlessJoined = MCreateItemDetailPropertyItemActionRemoveUnlessJoined(gandallerId:gandallerId)
         
         let items:[MCreateItemDetailPropertyItem] = [
-            itemSocialNotification,
-            itemRemoveUnlessJoined
+            itemSocialNotification
         ]
         
         super.init(name:name, reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, items:items, addAvailable:kAddAvailable)
