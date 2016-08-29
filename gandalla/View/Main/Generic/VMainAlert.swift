@@ -27,7 +27,6 @@ class VMainAlert:UIView
         self.init()
         backgroundColor = UIColor(red:0.68235294117647, green:0.8, blue:0.18823529411765, alpha:1)
         clipsToBounds = true
-        userInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
         
         let label:UILabel = UILabel()

@@ -29,7 +29,7 @@ class MLiked
             let createdA:NSTimeInterval = itemA.created
             let createdB:NSTimeInterval = itemB.created
             
-            if createdA <= createdB
+            if createdA > createdB
             {
                 before = true
             }

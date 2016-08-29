@@ -10,7 +10,7 @@
 "VNewsCellVideo_labelEvent"="Nuevo video";
 "VGandallerDetailCellLike_label"="Desaprueba su gandallez";
 "VGandallerDetailCellLike_liked"="¡Gandalla marcado!";
-"VLikedHeader_labelEmpty"="Aqui se mostrarán los gandallas que marques";
+"VLikedHeader_labelEmpty"="Aquí se mostrarán los gandallas que marques";
 
 "MCreateItem_noName"="-";
 "MCreateItemDetailPropertyStatus_name"="Status";
