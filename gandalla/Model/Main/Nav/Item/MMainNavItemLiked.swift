@@ -11,8 +11,8 @@ class MMainNavItemLiked:MMainNavItem
     
     override func controller() -> UIViewController
     {
-        let news:CNews = CNews()
+        let liked:CLiked = CLiked()
         
-        return news
+        return liked
     }
 }
