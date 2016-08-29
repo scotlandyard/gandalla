@@ -34,7 +34,7 @@ class CLiked:CMainController
     
     func showGandaller(index:NSIndexPath)
     {
-        let liked:MLikedItem = model!.items[index.item]
+        let liked:MLikedItem = model.items[index.item]
         let item:MGandallerItem = liked.modelGandaller
         let gandallerName:String = item.fModel.name
         let controller:CGandallerDetail = CGandallerDetail(gandaller:item)

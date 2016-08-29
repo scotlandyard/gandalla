@@ -4,7 +4,8 @@ class VLikedCell:UICollectionViewCell
 {
     weak var image:UIImageView!
     weak var label:UILabel!
-    weak var model:MChampionsItem?
+    weak var model:MLikedItem?
+    private let kCornerRadius:CGFloat = 4
     
     override init(frame:CGRect)
     {
@@ -17,62 +18,43 @@ class VLikedCell:UICollectionViewCell
         image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
         image.contentMode = UIViewContentMode.ScaleAspectFill
-        image.layer.cornerRadius = kImageSize / 2.0
+        image.layer.cornerRadius = kCornerRadius
         image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.complement().CGColor
+        image.layer.borderColor = UIColor(white:0.7, alpha:1).CGColor
         self.image = image
         
-        let rate:VChampionsCellRate = VChampionsCellRate()
-        self.rate = rate
+        let label:UILabel = UILabel()
+        label.userInteractionEnabled = false
+        label.backgroundColor = UIColor.clearColor()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.bold(14)
+        label.textColor = UIColor(white:0.5, alpha:1)
+        self.label = label
         
         addSubview(image)
-        addSubview(rate)
+        addSubview(label)
         
         let views:[String:AnyObject] = [
             "image":image,
-            "rate":rate]
+            "label":label]
         
-        let metrics:[String:AnyObject] = [
-            "imageSize":kImageSize,
-            "rateSize":kRateSize,
-            "rateMarginLeft":KRateMarginLeft,
-            "rateMarginBottom":KRateMarginBottom]
+        let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[image(imageSize)]-(rateMarginLeft)-[rate(rateSize)]",
+            "H:|-4-[image(36)]-4-[label]-10-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[image(imageSize)]",
+            "V:|-4-[image]-4-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[rate(rateSize)]-(rateMarginBottom)-|",
+            "V:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        
-        layoutImageTop = NSLayoutConstraint(
-            item:image,
-            attribute:NSLayoutAttribute.Top,
-            relatedBy:NSLayoutRelation.Equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.Top,
-            multiplier:1,
-            constant:0)
-        layoutImageLeft = NSLayoutConstraint(
-            item:image,
-            attribute:NSLayoutAttribute.Left,
-            relatedBy:NSLayoutRelation.Equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.Left,
-            multiplier:1,
-            constant:0)
-        
-        addConstraint(layoutImageTop)
-        addConstraint(layoutImageLeft)
         
         NSNotificationCenter.defaultCenter().addObserver(
             self,
@@ -91,22 +73,8 @@ class VLikedCell:UICollectionViewCell
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    override func layoutSubviews()
-    {
-        let width:CGFloat = bounds.maxX
-        let height:CGFloat = bounds.maxY
-        let remainX:CGFloat = width - (kImageSize + KRateMarginLeft + kRateSize)
-        let remainY:CGFloat = height - kImageSize
-        let marginX:CGFloat = remainX / 2.0
-        let marginY:CGFloat = remainY / 2.0
-        layoutImageTop.constant = marginY
-        layoutImageLeft.constant = marginX
-        
-        super.layoutSubviews()
-    }
-    
     override var selected:Bool
-        {
+    {
         didSet
         {
             hover()
@@ -114,7 +82,7 @@ class VLikedCell:UICollectionViewCell
     }
     
     override var highlighted:Bool
-        {
+    {
         didSet
         {
             hover()
@@ -167,6 +135,6 @@ class VLikedCell:UICollectionViewCell
     {
         self.model = model
         placeImage()
-        rate.count(model.count)
+        label.text = model.modelGandaller.fModel.name
     }
 }
