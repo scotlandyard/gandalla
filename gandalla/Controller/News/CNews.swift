@@ -126,4 +126,16 @@ class CNews:CMainController
     {
         viewNews.reload(updates)
     }
+    
+    //MARK: public
+    
+    func showGandaller(index:NSIndexPath)
+    {
+        let liked:MNewsItem = model.items[index.item]
+        let item:MGandallerItem = liked.gandaller
+        let gandallerName:String = item.fModel.name
+        let controller:CGandallerDetail = CGandallerDetail(gandaller:item)
+        let transition:MMainTransition = MMainTransition.Push(gandallerName)
+        parent.pushController(controller, transition:transition)
+    }
 }

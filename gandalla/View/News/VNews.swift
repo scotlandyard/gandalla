@@ -159,9 +159,7 @@ class VNews:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
     {
-        let item:MNewsItem = modelAtIndex(indexPath)
-        let cell:VNewsCell = collectionView.cellForItemAtIndexPath(indexPath) as! VNewsCell
-        cell.selected(item, controller:controller)
+        controller.showGandaller(indexPath)
         
         dispatch_after(
             dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)),

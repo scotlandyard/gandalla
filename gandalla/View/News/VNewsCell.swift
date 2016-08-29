@@ -161,8 +161,4 @@ class VNewsCell:UICollectionViewCell
         
         labelDate.text = model.date
     }
-    
-    func selected(model:MNewsItem, controller:CNews)
-    {
-    }
 }
