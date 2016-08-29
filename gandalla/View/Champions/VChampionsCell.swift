@@ -4,9 +4,13 @@ class VChampionsCell:UICollectionViewCell
 {
     weak var label:UILabel!
     weak var image:UIImageView!
+    weak var rate:VChampionsCellRate!
     weak var layoutImageTop:NSLayoutConstraint!
     weak var layoutImageLeft:NSLayoutConstraint!
     private let kImageSize:CGFloat = 200
+    private let kRateSize:CGFloat = 80
+    private let KRateMarginLeft:CGFloat = -20
+    private let KRateMarginBottom:CGFloat = 20
     
     override init(frame:CGRect)
     {
@@ -34,23 +38,36 @@ class VChampionsCell:UICollectionViewCell
         image.layer.borderColor = UIColor(white:0.9, alpha:1).CGColor
         self.image = image
         
+        let rate:VChampionsCellRate = VChampionsCellRate()
+        self.rate = rate
+        
         addSubview(label)
         addSubview(image)
+        addSubview(rate)
         
         let views:[String:AnyObject] = [
             "label":label,
-            "image":image]
+            "image":image,
+            "rate":rate]
         
         let metrics:[String:AnyObject] = [
-            "imageSize":kImageSize]
+            "imageSize":kImageSize,
+            "rateSize":kRateSize,
+            "rateMarginLeft":KRateMarginLeft,
+            "rateMarginBottom":KRateMarginBottom]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[image(imageSize)]",
+            "H:[image(imageSize)]-(rateMarginLeft)-[rate(rateSize)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:[image(imageSize)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[rate(rateSize)]-(rateMarginBottom)-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -85,7 +102,7 @@ class VChampionsCell:UICollectionViewCell
     {
         let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
-        let remainX:CGFloat = width - kImageSize
+        let remainX:CGFloat = (width + KRateMarginLeft + kRateSize) - kImageSize
         let remainY:CGFloat = height - kImageSize
         let marginX:CGFloat = remainX / 2.0
         let marginY:CGFloat = remainY / 2.0
