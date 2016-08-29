@@ -62,5 +62,6 @@ class VGandallerDetailCellPower:VGandallerDetailCell
         let modelPower:MGandallerDetailItemPower = model as! MGandallerDetailItemPower
         let power:String = modelPower.power
         label.text = power
+        hover()
     }
 }

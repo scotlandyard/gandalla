@@ -104,8 +104,8 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
     {
         modelPictures = model as? MGandallerDetailItemPictures
         pageControl.numberOfPages = modelPictures!.items.count
-        
         collection.reloadData()
+        hover()
     }
     
     override func layoutSubviews()

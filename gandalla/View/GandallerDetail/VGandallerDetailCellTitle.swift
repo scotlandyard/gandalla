@@ -45,5 +45,6 @@ class VGandallerDetailCellTitle:VGandallerDetailCell
     {
         let modelTitle:MGandallerDetailItemTitle = model as! MGandallerDetailItemTitle
         label.text = modelTitle.title
+        hover()
     }
 }

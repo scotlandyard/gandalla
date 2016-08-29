@@ -4,7 +4,7 @@ class MGandallerDetailItemHashtag:MGandallerDetailItem
 {
     let tag:String
     private let kCellHeight:CGFloat = 25
-    private let kSelectable:Bool = false
+    private let kSelectable:Bool = true
     
     init(tag:String)
     {
@@ -12,5 +12,10 @@ class MGandallerDetailItemHashtag:MGandallerDetailItem
         let reusableIdentifier:String = VGandallerDetailCellHashtag.reusableIdentifier()
         
         super.init(reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, selectable:kSelectable)
+    }
+    
+    override func selected(controller: CGandallerDetail)
+    {
+        
     }
 }

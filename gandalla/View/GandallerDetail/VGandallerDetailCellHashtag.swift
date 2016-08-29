@@ -46,5 +46,6 @@ class VGandallerDetailCellHashtag:VGandallerDetailCell
         let modelHashtag:MGandallerDetailItemHashtag = model as! MGandallerDetailItemHashtag
         let tag:String = "#\(modelHashtag.tag)"
         label.text = tag
+        hover()
     }
 }
