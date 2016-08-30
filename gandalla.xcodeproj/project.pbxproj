@@ -59,7 +59,7 @@
 		DA3C5E7D1D7092A4003F5358 /* MCreateItemDetailPropertyVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3C5E7C1D7092A4003F5358 /* MCreateItemDetailPropertyVideos.swift */; };
 		DA3C5E7F1D7092F2003F5358 /* MCreateItemDetailPropertyItemTextFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3C5E7E1D7092F2003F5358 /* MCreateItemDetailPropertyItemTextFacebook.swift */; };
 		DA3C5E811D7092FB003F5358 /* MCreateItemDetailPropertyItemTextTwitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3C5E801D7092FB003F5358 /* MCreateItemDetailPropertyItemTextTwitter.swift */; };
-		DA3C5E831D709305003F5358 /* MCreateItemDetailPropertyItemInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3C5E821D709305003F5358 /* MCreateItemDetailPropertyItemInstagram.swift */; };
+		DA3C5E831D709305003F5358 /* MCreateItemDetailPropertyItemTextInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3C5E821D709305003F5358 /* MCreateItemDetailPropertyItemTextInstagram.swift */; };
 		DA3C5E851D70930F003F5358 /* MCreateItemDetailPropertyItemHashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3C5E841D70930F003F5358 /* MCreateItemDetailPropertyItemHashtag.swift */; };
 		DA3C5E871D70931A003F5358 /* MCreateItemDetailPropertyItemVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3C5E861D70931A003F5358 /* MCreateItemDetailPropertyItemVideo.swift */; };
 		DA42AE581D6FEF680082F43A /* MCreateItemDetailPropertyPowers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA42AE571D6FEF680082F43A /* MCreateItemDetailPropertyPowers.swift */; };
@@ -249,7 +249,7 @@
 		DA3C5E7C1D7092A4003F5358 /* MCreateItemDetailPropertyVideos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyVideos.swift; sourceTree = "<group>"; };
 		DA3C5E7E1D7092F2003F5358 /* MCreateItemDetailPropertyItemTextFacebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemTextFacebook.swift; sourceTree = "<group>"; };
 		DA3C5E801D7092FB003F5358 /* MCreateItemDetailPropertyItemTextTwitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemTextTwitter.swift; sourceTree = "<group>"; };
-		DA3C5E821D709305003F5358 /* MCreateItemDetailPropertyItemInstagram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemInstagram.swift; sourceTree = "<group>"; };
+		DA3C5E821D709305003F5358 /* MCreateItemDetailPropertyItemTextInstagram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemTextInstagram.swift; sourceTree = "<group>"; };
 		DA3C5E841D70930F003F5358 /* MCreateItemDetailPropertyItemHashtag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemHashtag.swift; sourceTree = "<group>"; };
 		DA3C5E861D70931A003F5358 /* MCreateItemDetailPropertyItemVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemVideo.swift; sourceTree = "<group>"; };
 		DA42AE571D6FEF680082F43A /* MCreateItemDetailPropertyPowers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyPowers.swift; sourceTree = "<group>"; };
@@ -486,10 +486,10 @@
 				DA42AE591D6FF02D0082F43A /* MCreateItemDetailPropertyItemTextPower.swift */,
 				DA3C5E7E1D7092F2003F5358 /* MCreateItemDetailPropertyItemTextFacebook.swift */,
 				DA3C5E801D7092FB003F5358 /* MCreateItemDetailPropertyItemTextTwitter.swift */,
+				DA3C5E821D709305003F5358 /* MCreateItemDetailPropertyItemTextInstagram.swift */,
 				DA155AE61D6C9D89000C8C85 /* MCreateItemDetailPropertyItemStatus.swift */,
 				DA155AF41D6C9DC9000C8C85 /* MCreateItemDetailPropertyItemStarted.swift */,
 				DA1912301D6DEE1E001F6F3A /* MCreateItemDetailPropertyItemImage.swift */,
-				DA3C5E821D709305003F5358 /* MCreateItemDetailPropertyItemInstagram.swift */,
 				DA3C5E841D70930F003F5358 /* MCreateItemDetailPropertyItemHashtag.swift */,
 				DA3C5E861D70931A003F5358 /* MCreateItemDetailPropertyItemVideo.swift */,
 				DA11A9A51D74DAAF002921E6 /* MCreateItemDetailPropertyItemAction.swift */,
@@ -1289,7 +1289,7 @@
 				DA3C5E851D70930F003F5358 /* MCreateItemDetailPropertyItemHashtag.swift in Sources */,
 				DA65BBCF1D72490500DA8440 /* VGandallerDetailCellSocial.swift in Sources */,
 				DA13F3721D6B450F008AF28A /* FDatabaseModelNews.swift in Sources */,
-				DA3C5E831D709305003F5358 /* MCreateItemDetailPropertyItemInstagram.swift in Sources */,
+				DA3C5E831D709305003F5358 /* MCreateItemDetailPropertyItemTextInstagram.swift in Sources */,
 				DA13F3771D6B450F008AF28A /* FDatabaseModelNewsVideo.swift in Sources */,
 				DAA6A3C11D69184300F2565B /* CategoryNSNotification.swift in Sources */,
 				DAA6A3CA1D69184300F2565B /* CMainParent.swift in Sources */,
