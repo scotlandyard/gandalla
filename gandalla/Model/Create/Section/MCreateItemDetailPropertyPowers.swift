@@ -9,12 +9,30 @@ class MCreateItemDetailPropertyPowers:MCreateItemDetailProperty
     {
         let name:String = NSLocalizedString("MCreateItemDetailPropertyPowers_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellText.reusableIdentifier()
-        var items:[MCreateItemDetailPropertyItem] = []
+        var items:[MCreateItemDetailPropertyItemPower] = []
         
         for fPower:FDatabaseModelGandallerPower in fModel.powers
         {
             let itemPower:MCreateItemDetailPropertyItemPower = MCreateItemDetailPropertyItemPower(gandallerId:gandallerId, fPower:fPower)
             items.append(itemPower)
+        }
+        
+        items.sortInPlace()
+        { (itemA, itemB) -> Bool in
+            
+            let before:Bool
+            let notificationA:String? = itemA.fPower!.powerNotification
+            
+            if notificationA == nil
+            {
+                before = false
+            }
+            else
+            {
+                before = true
+            }
+            
+            return before
         }
         
         super.init(name:name, reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, items:items, addAvailable:kAddAvailable)
