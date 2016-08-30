@@ -9,11 +9,11 @@ class MCreateItemDetailPropertyPowers:MCreateItemDetailProperty
     {
         let name:String = NSLocalizedString("MCreateItemDetailPropertyPowers_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellText.reusableIdentifier()
-        var items:[MCreateItemDetailPropertyItemPower] = []
+        var items:[MCreateItemDetailPropertyItemTextPower] = []
         
         for fPower:FDatabaseModelGandallerPower in fModel.powers
         {
-            let itemPower:MCreateItemDetailPropertyItemPower = MCreateItemDetailPropertyItemPower(gandallerId:gandallerId, fPower:fPower)
+            let itemPower:MCreateItemDetailPropertyItemTextPower = MCreateItemDetailPropertyItemTextPower(fPower:fPower, gandallerId:gandallerId)
             items.append(itemPower)
         }
         
