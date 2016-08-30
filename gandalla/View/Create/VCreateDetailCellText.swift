@@ -10,7 +10,6 @@ class VCreateDetailCellText:VCreateDetailCell
         backgroundColor = UIColor.whiteColor()
         
         let color:UIColor = UIColor.blackColor()
-        
         let field:UITextField = UITextField()
         field.translatesAutoresizingMaskIntoConstraints = false
         field.clipsToBounds = true
