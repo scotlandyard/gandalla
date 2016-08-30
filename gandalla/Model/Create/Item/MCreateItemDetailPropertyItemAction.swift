@@ -31,8 +31,7 @@ class MCreateItemDetailPropertyItemAction:MCreateItemDetailPropertyItem
     func action()
     {
         let alert:UIAlertController = UIAlertController(
-            title:
-            "",
+            title:NSLocalizedString("MCreateItemDetailPropertyItemAction_title", comment:""),
             message:
             title,
             preferredStyle:UIAlertControllerStyle.ActionSheet)

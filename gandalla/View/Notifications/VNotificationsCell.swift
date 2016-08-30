@@ -68,7 +68,7 @@ class VNotificationsCell:UICollectionViewCell
         }
         else
         {
-            label.textColor = UIColor.complement()
+            label.textColor = UIColor(white:0.3, alpha:1)
             backgroundColor = UIColor.clearColor()
         }
     }
@@ -78,5 +78,6 @@ class VNotificationsCell:UICollectionViewCell
     func config(model:MNotificationsItem)
     {
         label.text = model.title
+        hover()
     }
 }

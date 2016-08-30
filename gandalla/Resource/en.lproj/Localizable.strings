@@ -1,4 +1,8 @@
 "CCreate_gandallerCreated"="Gandaller created!";
+"CNotifications_title"="Execute?";
+"CNotifications_actionDo"="Do";
+"CNotifications_actionDone"="Done";
+"CNotifications_actionCancel"="Cancel";
 
 "VCreateHeader_button"="Add Gandaller";
 "VCreateDetailCellStatus_itemActive"="Active";
@@ -33,6 +37,7 @@
 "MCreateItemDetailPropertyItemAction_actionDo"="Do";
 "MCreateItemDetailPropertyItemAction_actionCancel"="Cancel";
 "MCreateItemDetailPropertyItemAction_done"="Done";
+"MCreateItemDetailPropertyItemAction_title"="Action?";
 "MGandallerDetail_titlePowers"="Super powers";
 "MGandallerDetail_titleHashtags"="Hashtags";
 "MGandallerDetail_titleVideos"="Videos";

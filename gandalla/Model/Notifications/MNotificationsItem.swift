@@ -10,4 +10,10 @@ class MNotificationsItem
         self.title = title
         self.notificationType = notificationType
     }
+    
+    //MARK: public
+    
+    func executeAction(controller:CNotifications)
+    {
+    }
 }
