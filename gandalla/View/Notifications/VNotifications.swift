@@ -3,7 +3,6 @@ import UIKit
 class VNotifications:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CNotifications!
-    weak var collection:UICollectionView!
     private let kInterLine:CGFloat = 1
     private let kCellHeight:CGFloat = 50
     private let kCollectionBottom:CGFloat = 40
@@ -19,7 +18,7 @@ class VNotifications:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         let headerHeight:CGFloat = controller.parent.kBarHeight
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSizeMake(0, headerHeight)
+        flow.headerReferenceSize = CGSizeZero
         flow.footerReferenceSize = CGSizeZero
         flow.sectionInset = UIEdgeInsetsMake(0, 0, kCollectionBottom, 0)
         flow.minimumLineSpacing = kInterLine
@@ -45,7 +44,6 @@ class VNotifications:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
             UICollectionElementKindSectionHeader,
             withReuseIdentifier:
             VCreateHeader.reusableIdentifier())
-        self.collection = collection
         
         addSubview(collection)
         
