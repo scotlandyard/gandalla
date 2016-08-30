@@ -1,9 +1,12 @@
-//
-//  MNotificationsItemPicture.swift
-//  gandalla
-//
-//  Created by zero on 8/30/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class MNotificationsItemPicture:MNotificationsItem
+{
+    init()
+    {
+        let notificationType:FDatabaseModelNews.FDatabaseModelNewsType = FDatabaseModelNews.FDatabaseModelNewsType.Picture
+        let title:String = NSLocalizedString("MNotificationsItemPicture_title", comment:"")
+        
+        super.init(title:title, notificationType:notificationType)
+    }
+}
