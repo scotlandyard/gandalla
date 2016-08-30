@@ -3,6 +3,7 @@ import UIKit
 class VCreateDetailCellText:VCreateDetailCell
 {
     weak var field:UITextField!
+    weak var buttonRemove:UIButton!
     
     override init(frame:CGRect)
     {
@@ -26,10 +27,20 @@ class VCreateDetailCellText:VCreateDetailCell
         field.clearButtonMode = UITextFieldViewMode.Never
         self.field = field
         
+        let buttonRemove:UIButton = UIButton()
+        buttonRemove.translatesAutoresizingMaskIntoConstraints = false
+        buttonRemove.setImage(UIImage(named:"createListRemove"), forState:UIControlState.Normal)
+        buttonRemove.imageView?.contentMode = UIViewContentMode.Center
+        buttonRemove.imageView?.clipsToBounds = true
+        buttonRemove.addTarget(self, action:#selector(self.actionRemove(sender:)), forControlEvents:UIControlEvents.TouchUpInside)
+        self.buttonRemove = buttonRemove
+        
         addSubview(field)
+        addSubview(buttonRemove)
         
         let views:[String:AnyObject] = [
-            "field":field]
+            "field":field,
+            "buttonRemove":buttonRemove]
         
         let metrics:[String:AnyObject] = [:]
         
@@ -43,10 +54,27 @@ class VCreateDetailCellText:VCreateDetailCell
             options:[],
             metrics:metrics,
             views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[buttonRemove(50)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[buttonRemove]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: actions
+    
+    func actionRemove(sender button:UIButton)
+    {
+        
     }
 }
