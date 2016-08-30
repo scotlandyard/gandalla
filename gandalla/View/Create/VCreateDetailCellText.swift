@@ -6,7 +6,9 @@ class VCreateDetailCellText:VCreateDetailCell, UITextFieldDelegate
     weak var field:UITextField!
     weak var buttonRemove:UIButton!
     weak var layoutButtonRemoveWidth:NSLayoutConstraint!
+    weak var layoutFieldMargin:NSLayoutConstraint!
     private let kButtonRemoveWidth:CGFloat = 50
+    private let kFieldMargin:CGFloat = 10
     
     override init(frame:CGRect)
     {
@@ -49,7 +51,12 @@ class VCreateDetailCellText:VCreateDetailCell, UITextFieldDelegate
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[buttonRemove]-10-[field]-10-|",
+            "H:[field]-10-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[buttonRemove]",
             options:[],
             metrics:metrics,
             views:views))
@@ -72,8 +79,17 @@ class VCreateDetailCellText:VCreateDetailCell, UITextFieldDelegate
             attribute:NSLayoutAttribute.NotAnAttribute,
             multiplier:1,
             constant:0)
+        layoutFieldMargin = NSLayoutConstraint(
+            item:field,
+            attribute:NSLayoutAttribute.Left,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:buttonRemove,
+            attribute:NSLayoutAttribute.Right,
+            multiplier:1,
+            constant:0)
         
         addConstraint(layoutButtonRemoveWidth)
+        addConstraint(layoutFieldMargin)
     }
     
     required init?(coder:NSCoder)
@@ -85,6 +101,7 @@ class VCreateDetailCellText:VCreateDetailCell, UITextFieldDelegate
     
     func actionRemove(sender button:UIButton)
     {
+        UIApplication.sharedApplication().keyWindow?.endEditing(true)
         model?.remove()
     }
     
@@ -115,10 +132,12 @@ class VCreateDetailCellText:VCreateDetailCell, UITextFieldDelegate
         if able
         {
             layoutButtonRemoveWidth.constant = kButtonRemoveWidth
+            layoutFieldMargin.constant = 0
         }
         else
         {
             layoutButtonRemoveWidth.constant = 0
+            layoutFieldMargin.constant = kFieldMargin
         }
     }
 }
