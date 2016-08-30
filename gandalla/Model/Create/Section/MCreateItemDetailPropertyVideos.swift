@@ -9,11 +9,11 @@ class MCreateItemDetailPropertyVideos:MCreateItemDetailProperty
     {
         let name:String = NSLocalizedString("MCreateItemDetailPropertyVideos_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellText.reusableIdentifier()
-        var items:[MCreateItemDetailPropertyItemVideo] = []
+        var items:[MCreateItemDetailPropertyItemTextVideo] = []
         
         for fVideo:FDatabaseModelGandallerVideo in fModel.videos
         {
-            let itemVideo:MCreateItemDetailPropertyItemVideo = MCreateItemDetailPropertyItemVideo(gandallerId:gandallerId, fVideo:fVideo)
+            let itemVideo:MCreateItemDetailPropertyItemTextVideo = MCreateItemDetailPropertyItemTextVideo(fVideo:fVideo, gandallerId:gandallerId)
             items.append(itemVideo)
         }
         
@@ -21,7 +21,7 @@ class MCreateItemDetailPropertyVideos:MCreateItemDetailProperty
         { (itemA, itemB) -> Bool in
             
             let before:Bool
-            let notificationA:String? = itemA.fVideo!.videoNotification
+            let notificationA:String? = itemA.fVideo.videoNotification
             
             if notificationA == nil
             {
