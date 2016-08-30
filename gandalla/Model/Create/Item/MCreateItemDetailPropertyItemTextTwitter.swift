@@ -2,7 +2,7 @@ import UIKit
 
 class MCreateItemDetailPropertyItemTextTwitter:MCreateItemDetailPropertyItemText
 {
-    var fSocial:FDatabaseModelGandallerSocial?
+    let fSocial:FDatabaseModelGandallerSocial
     private let kRemoveAble:Bool = false
     
     init(fSocial:FDatabaseModelGandallerSocial, gandallerId:String)

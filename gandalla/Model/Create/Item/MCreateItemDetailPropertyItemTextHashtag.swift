@@ -2,7 +2,7 @@ import UIKit
 
 class MCreateItemDetailPropertyItemTextHashtag:MCreateItemDetailPropertyItemText
 {
-    var fHashtag:FDatabaseModelGandallerSocialHashtag?
+    let fHashtag:FDatabaseModelGandallerSocialHashtag
     private let kPlaceholder:String = ""
     private let kRemoveAble:Bool = false
     
