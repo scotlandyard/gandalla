@@ -9,11 +9,11 @@ class MCreateItemDetailPropertyHashtags:MCreateItemDetailProperty
     {
         let name:String = NSLocalizedString("MCreateItemDetailPropertyHashtags_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellText.reusableIdentifier()
-        var items:[MCreateItemDetailPropertyItemHashtag] = []
+        var items:[MCreateItemDetailPropertyItemTextHashtag] = []
         
         for fHashtag:FDatabaseModelGandallerSocialHashtag in fModel.social.hashtags
         {
-            let itemHashtag:MCreateItemDetailPropertyItemHashtag = MCreateItemDetailPropertyItemHashtag(gandallerId:gandallerId, fHashtag:fHashtag)
+            let itemHashtag:MCreateItemDetailPropertyItemTextHashtag = MCreateItemDetailPropertyItemTextHashtag(fHashtag:fHashtag, gandallerId:gandallerId)
             items.append(itemHashtag)
         }
         
@@ -21,8 +21,8 @@ class MCreateItemDetailPropertyHashtags:MCreateItemDetailProperty
         { (itemA, itemB) -> Bool in
             
             let before:Bool
-            let tagA:String = itemA.fHashtag!.tag
-            let tagB:String = itemB.fHashtag!.tag
+            let tagA:String = itemA.fHashtag.tag
+            let tagB:String = itemB.fHashtag.tag
             
             if tagA.isEmpty
             {
