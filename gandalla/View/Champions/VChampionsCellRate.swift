@@ -10,7 +10,7 @@ class VChampionsCellRate:UIView
     private let kLineBorderWidth:CGFloat = 30
     private let kLineBaseWidth:CGFloat = 28
     private let kLineForeWidth:CGFloat = 26
-    private let kMargin:CGFloat = 32
+    private let kMargin:CGFloat = 38
     private let kDeg90:CGFloat = 1.5708
     
     init()
@@ -18,7 +18,7 @@ class VChampionsCellRate:UIView
         rateDeg = 0
         colorBorder = UIColor.blackColor()
         colorBackground = UIColor(white:0.2, alpha:1)
-        colorForeground = UIColor.complement()
+        colorForeground = UIColor.main()
         
         super.init(frame:CGRectZero)
         userInteractionEnabled = false
@@ -63,15 +63,15 @@ class VChampionsCellRate:UIView
         CGContextDrawPath(context, CGPathDrawingMode.Stroke)
         CGContextSetLineWidth(context, kLineForeWidth)
         CGContextSetStrokeColorWithColor(context, colorForeground.CGColor)
-        CGContextAddArc(context, width_2, height_2, radius, rateDeg, 0, 1)
+        CGContextAddArc(context, width_2, height_2, radius, kDeg90, rateDeg, 1)
         CGContextDrawPath(context, CGPathDrawingMode.Stroke)
     }
     
     //MARK: public
     
-    func count(percentage:CGFloat)
+    func count(percentage:Double)
     {
-        let ratio:CGFloat = kDeg90 * percentage
+        let ratio:CGFloat = kDeg90 * CGFloat(percentage)
         rateDeg = kDeg90 - ratio
         setNeedsDisplay()
     }

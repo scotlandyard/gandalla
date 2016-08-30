@@ -10,6 +10,7 @@ class MChampions
         
         let countKey:String = FDatabaseModelLike.FDatabaseModelLikeKey.Count.rawValue
         let jsonKeys:[String] = Array(json.keys)
+        var maxCount:Int = 0
         
         for jsonKey:String in jsonKeys
         {
@@ -21,10 +22,24 @@ class MChampions
             {
                 if modelGandaller!.fModel.status == FDatabaseModelGandaller.FDatabaseModelGandallerStatus.Active
                 {
+                    if count > maxCount
+                    {
+                        maxCount = count
+                    }
+                    
                     let item:MChampionsItem = MChampionsItem(modelGandaller:modelGandaller!, count:count)
                     items.append(item)
                 }
             }
+        }
+        
+        let doubleMaxCount:Double = Double(maxCount)
+        
+        for item:MChampionsItem in items
+        {
+            let itemCount:Double = Double(item.count)
+            let percentge:Double = itemCount / doubleMaxCount
+            item.percentage = percentge
         }
         
         items.sortInPlace

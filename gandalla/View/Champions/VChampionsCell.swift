@@ -24,8 +24,8 @@ class VChampionsCell:UICollectionViewCell
         image.clipsToBounds = true
         image.contentMode = UIViewContentMode.ScaleAspectFill
         image.layer.cornerRadius = kImageSize / 2.0
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.complement().CGColor
+        image.layer.borderWidth = 4
+        image.layer.borderColor = UIColor.blackColor().CGColor
         self.image = image
         
         let rate:VChampionsCellRate = VChampionsCellRate()
@@ -202,6 +202,6 @@ class VChampionsCell:UICollectionViewCell
     {
         self.model = model
         placeImage()
-//        rate.count(model.count)
+        rate.count(model.percentage)
     }
 }
