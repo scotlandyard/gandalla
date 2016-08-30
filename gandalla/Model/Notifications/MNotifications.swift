@@ -6,6 +6,16 @@ class MNotifications
     
     init()
     {
-        items = []
+        let itemSocial:MNotificationsItemSocial = MNotificationsItemSocial()
+        let itemPicture:MNotificationsItemPicture = MNotificationsItemPicture()
+        let itemPower:MNotificationsItemPower = MNotificationsItemPower()
+        let itemVideo:MNotificationsItemVideo = MNotificationsItemVideo()
+        
+        items = [
+            itemSocial,
+            itemPicture,
+            itemPower,
+            itemVideo
+        ]
     }
 }
