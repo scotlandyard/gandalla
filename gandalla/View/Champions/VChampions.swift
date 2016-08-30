@@ -6,8 +6,7 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
     weak var collection:UICollectionView!
     weak var spinner:VMainLoader?
     weak var pageControl:UIPageControl!
-    private let kPageControlBottom:Int = 50
-    private let kCollectionBottom:CGFloat = 40
+    private let kPageControlBottom:Int = 30
     private let kMaxChampions:Int = 3
     
     convenience init(controller:CChampions)
@@ -47,21 +46,33 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.backgroundColor = UIColor.clearColor()
         pageControl.currentPageIndicatorTintColor = UIColor.complement()
-        pageControl.pageIndicatorTintColor = UIColor.whiteColor()
+        pageControl.pageIndicatorTintColor = UIColor(white:0.94, alpha:1)
         pageControl.addTarget(self, action:#selector(self.actionPageSelected(sender:)), forControlEvents:UIControlEvents.ValueChanged)
         pageControl.hidden = true
         self.pageControl = pageControl
+        
+        let label:UILabel = UILabel()
+        label.userInteractionEnabled = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = NSTextAlignment.Center
+        label.backgroundColor = UIColor.clearColor()
+        label.font = UIFont.bold(12)
+        label.textColor = UIColor.blackColor()
+        label.text = NSLocalizedString("VChampions_title", comment:"")
         
         let spinner:VMainLoader = VMainLoader()
         self.spinner = spinner
         
         addSubview(collection)
+        addSubview(label)
+        addSubview(pageControl)
         addSubview(spinner)
         
         let views:[String:AnyObject] = [
             "collection":collection,
             "spinner":spinner,
-            "pageControl":pageControl]
+            "pageControl":pageControl,
+            "label":label]
         
         let metrics:[String:AnyObject] = [
         "pageControlBottom":kPageControlBottom]
@@ -82,7 +93,12 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[pageControl(pageControlBottom)]-0-|",
+            "H:|-0-[label]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[label(14)]-0-[pageControl(pageControlBottom)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

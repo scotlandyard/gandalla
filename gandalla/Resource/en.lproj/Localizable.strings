@@ -15,6 +15,7 @@
 "VGandallerDetailCellLike_label"="Disagree with this gandalla";
 "VGandallerDetailCellLike_liked"="Gandalla marked!";
 "VLikedHeader_labelEmpty"="Here you will find the gandallas you mark";
+"VChampions_title"="Gandallometer";
 
 "MCreateItem_noName"="-";
 "MCreateItemDetailPropertyStatus_name"="Status";
