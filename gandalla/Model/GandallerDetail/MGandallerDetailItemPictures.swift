@@ -31,7 +31,7 @@ class MGandallerDetailItemPictures:MGandallerDetailItem
             
             if imageStatus == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
             {
-                let imageId:String = fImage.imageId!
+                let imageId:String = fImage.imageId
                 let imageItem:MGandallerDetailItemPicturesItem = MGandallerDetailItemPicturesItem(gandallerId:gandallerId, imageId:imageId)
                 items.append(imageItem)
             }

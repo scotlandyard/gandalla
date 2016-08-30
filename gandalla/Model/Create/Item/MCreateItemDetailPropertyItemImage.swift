@@ -121,6 +121,11 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
         }
     }
     
+    private func performRemove()
+    {
+        controller.removeImage(fImage)
+    }
+    
     //MARK: public
     
     func editImage()
@@ -146,10 +151,7 @@ class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImageP
             UIAlertActionStyle.Default)
         { [weak self] (action) in
             
-            if self != nil
-            {
-                self!.controller.removeImage(self!)
-            }
+            self?.performRemove()
         }
         
         let actionCancel:UIAlertAction = UIAlertAction(

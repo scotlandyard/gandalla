@@ -34,7 +34,7 @@ class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
             let before:Bool
             let profileA:Bool = itemA.profileImage
             let profileB:Bool = itemB.profileImage
-            let notificationA:String? = itemA.fImage!.imageNotification
+            let notificationA:String? = itemA.fImage.imageNotification
             
             if profileA
             {

@@ -21,7 +21,7 @@ class MCreateItemDetailPropertyPowers:MCreateItemDetailProperty
         { (itemA, itemB) -> Bool in
             
             let before:Bool
-            let notificationA:String? = itemA.fPower!.powerNotification
+            let notificationA:String? = itemA.fPower.powerNotification
             
             if notificationA == nil
             {
