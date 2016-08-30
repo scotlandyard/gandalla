@@ -38,6 +38,7 @@ class MCreateItemDetailPropertyItemHashtag:MCreateItemDetailPropertyItem, UIText
             {
                 if self!.fHashtag != nil
                 {
+                    self!.fHashtag!.tag = newTag
                     let hashtagId:String = self!.fHashtag!.hashtagId!
                     let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
                     let propertySocial:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Social.rawValue

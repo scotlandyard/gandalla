@@ -7,13 +7,13 @@ class VGandallerDetailCellHashtag:VGandallerDetailCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        userInteractionEnabled = false
+        backgroundColor = UIColor.whiteColor()
         
         let label:UILabel = UILabel()
         label.userInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clearColor()
-        label.font = UIFont.bold(20)
+        label.font = UIFont.bold(17)
         label.textColor = UIColor.complement()
         self.label = label
         

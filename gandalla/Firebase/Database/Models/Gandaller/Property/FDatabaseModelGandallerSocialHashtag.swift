@@ -2,7 +2,7 @@ import Foundation
 
 class FDatabaseModelGandallerSocialHashtag
 {
-    let tag:String
+    var tag:String
     var hashtagId:String?
     
     init()
