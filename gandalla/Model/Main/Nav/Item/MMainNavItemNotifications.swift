@@ -11,7 +11,7 @@ class MMainNavItemNotifications:MMainNavItem
     
     override func controller() -> UIViewController
     {
-        let create:CCreate = CCreate()
+        let create:CNotifications = CNotifications()
         
         return create
     }
