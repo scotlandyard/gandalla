@@ -3,6 +3,7 @@ import UIKit
 class VNotifications:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CNotifications!
+    weak var collection:UICollectionView!
     private let kInterLine:CGFloat = 1
     private let kCellHeight:CGFloat = 50
     private let kCollectionBottom:CGFloat = 40
@@ -20,7 +21,7 @@ class VNotifications:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSizeZero
         flow.footerReferenceSize = CGSizeZero
-        flow.sectionInset = UIEdgeInsetsMake(0, 0, kCollectionBottom, 0)
+        flow.sectionInset = UIEdgeInsetsMake(headerHeight, 0, kCollectionBottom, 0)
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.Vertical
@@ -35,15 +36,10 @@ class VNotifications:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         collection.delegate = self
         collection.dataSource = self
         collection.registerClass(
-            VCreateCell.self,
+            VNotificationsCell.self,
             forCellWithReuseIdentifier:
-            VCreateCell.reusableIdentifier())
-        collection.registerClass(
-            VCreateHeader.self,
-            forSupplementaryViewOfKind:
-            UICollectionElementKindSectionHeader,
-            withReuseIdentifier:
-            VCreateHeader.reusableIdentifier())
+            VNotificationsCell.reusableIdentifier())
+        self.collection = collection
         
         addSubview(collection)
         
@@ -72,9 +68,9 @@ class VNotifications:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     //MARK: private
     
-    private func modelAtIndex(index:NSIndexPath) -> MCreateItem
+    private func modelAtIndex(index:NSIndexPath) -> MNotificationsItem
     {
-        let item:MCreateItem = controller.model.items[index.item]
+        let item:MNotificationsItem = controller.model.items[index.item]
         
         return item
     }
@@ -106,35 +102,21 @@ class VNotifications:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         return count
     }
     
-    func collectionView(collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, atIndexPath indexPath:NSIndexPath) -> UICollectionReusableView
-    {
-        let header:VCreateHeader = collectionView.dequeueReusableSupplementaryViewOfKind(
-            kind,
-            withReuseIdentifier:
-            VCreateHeader.reusableIdentifier(),
-            forIndexPath:indexPath) as! VCreateHeader
-        
-        header.config(controller)
-        
-        return header
-    }
-    
     func collectionView(collectionView:UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
     {
-        let item:MCreateItem = modelAtIndex(indexPath)
-        let cell:VCreateCell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            VCreateCell.reusableIdentifier(),
+        let item:MNotificationsItem = modelAtIndex(indexPath)
+        let cell:VNotificationsCell = collectionView.dequeueReusableCellWithReuseIdentifier(
+            VNotificationsCell.reusableIdentifier(),
             forIndexPath:
-            indexPath) as! VCreateCell
-        item.config(cell)
+            indexPath) as! VNotificationsCell
+        cell.config(item)
         
         return cell
     }
     
     func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
     {
-        let item:MCreateItem = modelAtIndex(indexPath)
-        item.selected(controller)
+        controller.selectedNotification(indexPath)
         
         dispatch_after(
             dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)),
