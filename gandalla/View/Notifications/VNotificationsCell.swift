@@ -8,7 +8,6 @@ class VNotificationsCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.whiteColor()
         
         let label:UILabel = UILabel()
         label.backgroundColor = UIColor.clearColor()
@@ -16,7 +15,6 @@ class VNotificationsCell:UICollectionViewCell
         label.userInteractionEnabled = false
         label.textAlignment = NSTextAlignment.Center
         label.font = UIFont.bold(14)
-        label.textColor = UIColor.complement()
         self.label = label
         
         addSubview(label)
@@ -41,6 +39,38 @@ class VNotificationsCell:UICollectionViewCell
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override var selected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var highlighted:Bool
+        {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: public
+    
+    func hover()
+    {
+        if selected || highlighted
+        {
+            label.textColor = UIColor.whiteColor()
+            backgroundColor = UIColor.complement()
+        }
+        else
+        {
+            label.textColor = UIColor.complement()
+            backgroundColor = UIColor.clearColor()
+        }
     }
     
     //MARK: public
