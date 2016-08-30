@@ -3,10 +3,12 @@ import UIKit
 class MCreateItemDetailPropertyItemText:MCreateItemDetailPropertyItem
 {
     let placeholder:String
+    var text:String
     
-    init(placeholder:String)
+    init(placeholder:String, text:String)
     {
         self.placeholder = placeholder
+        self.text = text
         super.init()
     }
     
@@ -16,34 +18,15 @@ class MCreateItemDetailPropertyItemText:MCreateItemDetailPropertyItem
         
         let cellText:VCreateDetailCellText = cell as! VCreateDetailCellText
         cellText.field.resignFirstResponder()
-        cellText.field.delegate = self
-        cellText.field.text = name
+        cellText.model = self
+        cellText.field.text = text
         cellText.field.placeholder = placeholder
     }
     
-    //MARK: field del
+    //MARK: public
     
-    func textFieldDidEndEditing(textField:UITextField)
+    func changedText(text:String)
     {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
-        { [weak self] in
-            
-            if self != nil
-            {
-                let name:String = textField.text!
-                self!.name = name
-                let gandallerId:String = self!.controller.model.gandaller.gandallerId
-                let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Name.rawValue
-                
-                FMain.sharedInstance.database.updateProperty(FDatabase.FDatabaseReference.Gandaller, childId:gandallerId, property:property, value:name)
-            }
-        }
-    }
-    
-    func textFieldShouldReturn(textField:UITextField) -> Bool
-    {
-        textField.resignFirstResponder()
-        
-        return true
+        self.text = text
     }
 }

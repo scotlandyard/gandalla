@@ -1,7 +1,8 @@
 import UIKit
 
-class VCreateDetailCellText:VCreateDetailCell
+class VCreateDetailCellText:VCreateDetailCell, UITextFieldDelegate
 {
+    weak var model:MCreateItemDetailPropertyItemText?
     weak var field:UITextField!
     weak var buttonRemove:UIButton!
     
@@ -76,5 +77,25 @@ class VCreateDetailCellText:VCreateDetailCell
     func actionRemove(sender button:UIButton)
     {
         
+    }
+    
+    //MARK: field del
+    
+    func textFieldDidEndEditing(textField:UITextField)
+    {
+        let newText:String =  textField.text!
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            self?.model?.changedText(newText)
+        }
+    }
+    
+    func textFieldShouldReturn(textField:UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        
+        return true
     }
 }
