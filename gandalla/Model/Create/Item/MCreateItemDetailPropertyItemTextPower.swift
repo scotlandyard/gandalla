@@ -21,7 +21,7 @@ class MCreateItemDetailPropertyItemTextPower:MCreateItemDetailPropertyItemText
         let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
         let propertyPowers:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Powers.rawValue
         let propertyPowerName:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.PowerName.rawValue
-        let notificationId:String? = fPower!.powerNotification
+        let notificationId:String? = fPower.powerNotification
         
         FMain.sharedInstance.database.updateSubProperty(
             reference,
@@ -39,7 +39,7 @@ class MCreateItemDetailPropertyItemTextPower:MCreateItemDetailPropertyItemText
             let newsId:String = FMain.sharedInstance.database.createChild(
                 FDatabase.FDatabaseReference.News,
                 json:newsJson)
-            fPower!.powerNotification = newsId
+            fPower.powerNotification = newsId
             
             FMain.sharedInstance.database.updateSubProperty(
                 reference,

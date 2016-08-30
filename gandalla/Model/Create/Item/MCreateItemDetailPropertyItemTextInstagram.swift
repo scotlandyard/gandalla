@@ -16,7 +16,7 @@ class MCreateItemDetailPropertyItemTextInstagram:MCreateItemDetailPropertyItemTe
     {
         super.changedText(text)
         
-        fSocial?.instagram = text
+        fSocial.instagram = text
         let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
         let subProperty:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Social.rawValue
         let subChild:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.SocialInstagram.rawValue

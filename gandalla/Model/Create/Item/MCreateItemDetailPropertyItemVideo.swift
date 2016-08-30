@@ -3,7 +3,7 @@ import UIKit
 class MCreateItemDetailPropertyItemVideo:MCreateItemDetailPropertyItem, UITextFieldDelegate
 {
     let gandallerId:String
-    var fVideo:FDatabaseModelGandallerVideo
+    let fVideo:FDatabaseModelGandallerVideo
     let placeholder:String
     
     init(gandallerId:String, fVideo:FDatabaseModelGandallerVideo)

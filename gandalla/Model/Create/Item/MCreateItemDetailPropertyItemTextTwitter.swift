@@ -16,7 +16,7 @@ class MCreateItemDetailPropertyItemTextTwitter:MCreateItemDetailPropertyItemText
     {
         super.changedText(text)
         
-        fSocial?.twitter = text
+        fSocial.twitter = text
         let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
         let subProperty:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Social.rawValue
         let subChild:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.SocialTwitter.rawValue
