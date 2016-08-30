@@ -63,12 +63,21 @@ class CCreateDetail:CMainController
         }
     }
     
+    private func startLoading()
+    {
+        viewDetail.showLoading()
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector:#selector(self.notifiedGandallerUpdated(sender:)),
+            name:NSNotification.NSNotificationName.GandallersLoaded.rawValue,
+            object:nil)
+    }
+    
     //MARK: public
     
     func addImage()
     {
-        viewDetail.showLoading()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+        startLoading()
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
@@ -92,8 +101,7 @@ class CCreateDetail:CMainController
     
     func addPower()
     {
-        viewDetail.showLoading()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+        startLoading()
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
@@ -117,8 +125,7 @@ class CCreateDetail:CMainController
     
     func addHashtag()
     {
-        viewDetail.showLoading()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+        startLoading()
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
@@ -144,8 +151,7 @@ class CCreateDetail:CMainController
     
     func addVideo()
     {
-        viewDetail.showLoading()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+        startLoading()
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
@@ -169,8 +175,7 @@ class CCreateDetail:CMainController
     
     func removeImage(fImage:FDatabaseModelGandallerImage)
     {
-        viewDetail.showLoading()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+        startLoading()
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
@@ -214,8 +219,7 @@ class CCreateDetail:CMainController
     
     func makeProfilePicture(imageId:String)
     {
-        viewDetail.showLoading()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+        startLoading()
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
@@ -239,7 +243,7 @@ class CCreateDetail:CMainController
     {
         if fImage.status == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Waiting
         {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+            startLoading()
             
             let gandallerId:String = model.gandaller.gandallerId
             let imageId:String = fImage.imageId
@@ -279,8 +283,7 @@ class CCreateDetail:CMainController
     
     func removePower(fPower:FDatabaseModelGandallerPower)
     {
-        viewDetail.showLoading()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+        startLoading()
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
@@ -314,8 +317,7 @@ class CCreateDetail:CMainController
     
     func removeHashtag(fHashtag:FDatabaseModelGandallerSocialHashtag)
     {
-        viewDetail.showLoading()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+        startLoading()
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
         { [weak self] in
@@ -340,36 +342,35 @@ class CCreateDetail:CMainController
     
     func removeVideo(fVideo:FDatabaseModelGandallerVideo)
     {
-        /*viewDetail.showLoading()
-         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
-         
-         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
-         { [weak self] in
-         
-         if self != nil
-         {
-         let notificationId:String? = fPower.powerNotification
-         
-         if notificationId != nil
-         {
-         let newsReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.News
-         
-         FMain.sharedInstance.database.deleteChild(
-         newsReference,
-         childId:notificationId!)
-         }
-         
-         let parentReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
-         let childId:String = self!.model.gandaller.gandallerId
-         let powerId:String = fPower.powerId
-         let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Powers.rawValue
-         
-         FMain.sharedInstance.database.deleteSubChild(
-         parentReference,
-         childId:childId,
-         property:property,
-         subChildId:powerId)
-         }
-         }*/
+        startLoading()
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+        { [weak self] in
+            
+            if self != nil
+            {
+                let notificationId:String? = fVideo.videoNotification
+                
+                if notificationId != nil
+                {
+                    let newsReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.News
+                    
+                    FMain.sharedInstance.database.deleteChild(
+                        newsReference,
+                        childId:notificationId!)
+                }
+                
+                let parentReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
+                let childId:String = self!.model.gandaller.gandallerId
+                let videoId:String = fVideo.videoId
+                let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Videos.rawValue
+                
+                FMain.sharedInstance.database.deleteSubChild(
+                    parentReference,
+                    childId:childId,
+                    property:property,
+                    subChildId:videoId)
+            }
+        }
     }
 }
