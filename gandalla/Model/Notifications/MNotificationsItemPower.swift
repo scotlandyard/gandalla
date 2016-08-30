@@ -1,9 +1,12 @@
-//
-//  MNotificationsItemPower.swift
-//  gandalla
-//
-//  Created by zero on 8/30/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class MNotificationsItemPower:MNotificationsItem
+{
+    init()
+    {
+        let notificationType:FDatabaseModelNews.FDatabaseModelNewsType = FDatabaseModelNews.FDatabaseModelNewsType.Power
+        let title:String = NSLocalizedString("MNotificationsItemPower_title", comment:"")
+        
+        super.init(title:title, notificationType:notificationType)
+    }
+}
