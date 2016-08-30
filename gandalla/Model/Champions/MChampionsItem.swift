@@ -2,12 +2,14 @@ import Foundation
 
 class MChampionsItem
 {
-    let percentage:Double
+    let count:Int
+    var percentage:Double
     weak var modelGandaller:MGandallerItem!
     
-    init(modelGandaller:MGandallerItem, percentage:Double)
+    init(modelGandaller:MGandallerItem, count:Int)
     {
-        self.percentage = percentage
+        self.count = count
         self.modelGandaller = modelGandaller
+        percentage = 0
     }
 }
