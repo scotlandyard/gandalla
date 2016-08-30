@@ -32,4 +32,9 @@ class MCreateItemDetailPropertyItemTextHashtag:MCreateItemDetailPropertyItemText
             subPropertyId:hashtagIdName,
             value:text)
     }
+    
+    override func performRemove()
+    {
+        controller.removeHashtag(fHashtag)
+    }
 }

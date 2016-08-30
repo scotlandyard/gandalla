@@ -315,7 +315,7 @@ class CCreateDetail:CMainController
         }
     }
     
-    func removeHashtag(fPower:FDatabaseModelGandallerSocialHashtag)
+    func removeHashtag(fHashtag:FDatabaseModelGandallerSocialHashtag)
     {
         /*viewDetail.showLoading()
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
@@ -348,5 +348,40 @@ class CCreateDetail:CMainController
                     subChildId:powerId)
             }
         }*/
+    }
+    
+    func removeVideo(fVideo:FDatabaseModelGandallerVideo)
+    {
+        /*viewDetail.showLoading()
+         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(self.notifiedGandallerUpdated(sender:)), name:NSNotification.NSNotificationName.GandallersLoaded.rawValue, object:nil)
+         
+         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0))
+         { [weak self] in
+         
+         if self != nil
+         {
+         let notificationId:String? = fPower.powerNotification
+         
+         if notificationId != nil
+         {
+         let newsReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.News
+         
+         FMain.sharedInstance.database.deleteChild(
+         newsReference,
+         childId:notificationId!)
+         }
+         
+         let parentReference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
+         let childId:String = self!.model.gandaller.gandallerId
+         let powerId:String = fPower.powerId
+         let property:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Powers.rawValue
+         
+         FMain.sharedInstance.database.deleteSubChild(
+         parentReference,
+         childId:childId,
+         property:property,
+         subChildId:powerId)
+         }
+         }*/
     }
 }

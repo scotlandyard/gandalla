@@ -3,7 +3,7 @@ import Foundation
 class FDatabaseModelGandallerVideo
 {
     var videoId:String
-    let url:String
+    var url:String
     var videoNotification:String?
     private let kVideoId:String = ""
     private let kEmpty:String = ""
