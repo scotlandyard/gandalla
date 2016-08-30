@@ -37,3 +37,7 @@
 "MGandallerDetail_titleHashtags"="Hashtags";
 "MGandallerDetail_titleVideos"="Videos";
 "MGandallerDetail_titleSocial"="Networks";
+"MCreateItemDetailPropertyItemText_title"="Remove?";
+"MCreateItemDetailPropertyItemText_actionDo"="Do";
+"MCreateItemDetailPropertyItemText_actionDone"="Done";
+"MCreateItemDetailPropertyItemText_actionCancel"="Cancel";

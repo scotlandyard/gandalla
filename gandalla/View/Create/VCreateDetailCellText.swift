@@ -85,7 +85,7 @@ class VCreateDetailCellText:VCreateDetailCell, UITextFieldDelegate
     
     func actionRemove(sender button:UIButton)
     {
-        
+        model?.remove()
     }
     
     //MARK: field del

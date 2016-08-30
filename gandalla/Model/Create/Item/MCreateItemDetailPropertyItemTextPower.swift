@@ -4,7 +4,7 @@ class MCreateItemDetailPropertyItemTextPower:MCreateItemDetailPropertyItemText
 {
     let gandallerId:String
     var fPower:FDatabaseModelGandallerPower?
-    private let kRemoveAble:Bool = false
+    private let kRemoveAble:Bool = true
     
     init(fPower:FDatabaseModelGandallerPower, gandallerId:String)
     {
@@ -63,6 +63,14 @@ class MCreateItemDetailPropertyItemTextPower:MCreateItemDetailPropertyItemText
                     property:propertyNotificationPower,
                     value:text)
             }
+        }
+    }
+    
+    override func performRemove()
+    {
+        if fPower != nil
+        {
+            controller.removePower(fPower!)
         }
     }
 }
