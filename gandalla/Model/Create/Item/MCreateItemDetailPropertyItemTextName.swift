@@ -4,13 +4,14 @@ class MCreateItemDetailPropertyItemTextName:MCreateItemDetailPropertyItemText
 {
     weak var fModel:FDatabaseModelGandaller?
     let gandallerId:String
+    private let kRemoveAble:Bool = false
     
     init(fModel:FDatabaseModelGandaller, gandallerId:String)
     {
         self.fModel = fModel
         self.gandallerId = gandallerId
         let gandallerName:String = fModel.name
-        super.init(placeholder:"", text:gandallerName)
+        super.init(placeholder:"", text:gandallerName, removeAble:kRemoveAble)
     }
     
     override func changedText(text:String)

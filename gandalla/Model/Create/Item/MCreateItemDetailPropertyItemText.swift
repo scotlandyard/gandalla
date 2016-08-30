@@ -2,13 +2,15 @@ import UIKit
 
 class MCreateItemDetailPropertyItemText:MCreateItemDetailPropertyItem
 {
+    let removeAble:Bool
     let placeholder:String
     var text:String
     
-    init(placeholder:String, text:String)
+    init(placeholder:String, text:String, removeAble:Bool)
     {
         self.placeholder = placeholder
         self.text = text
+        self.removeAble = removeAble
         super.init()
     }
     
@@ -21,6 +23,7 @@ class MCreateItemDetailPropertyItemText:MCreateItemDetailPropertyItem
         cellText.model = self
         cellText.field.text = text
         cellText.field.placeholder = placeholder
+        cellText.removeAble(removeAble)
     }
     
     //MARK: public

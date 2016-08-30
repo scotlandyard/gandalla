@@ -5,6 +5,8 @@ class VCreateDetailCellText:VCreateDetailCell, UITextFieldDelegate
     weak var model:MCreateItemDetailPropertyItemText?
     weak var field:UITextField!
     weak var buttonRemove:UIButton!
+    weak var layoutButtonRemoveWidth:NSLayoutConstraint!
+    private let kButtonRemoveWidth:CGFloat = 50
     
     override init(frame:CGRect)
     {
@@ -26,6 +28,7 @@ class VCreateDetailCellText:VCreateDetailCell, UITextFieldDelegate
         field.spellCheckingType = UITextSpellCheckingType.No
         field.autocapitalizationType = UITextAutocapitalizationType.None
         field.clearButtonMode = UITextFieldViewMode.Never
+        field.delegate = self
         self.field = field
         
         let buttonRemove:UIButton = UIButton()
@@ -46,7 +49,7 @@ class VCreateDetailCellText:VCreateDetailCell, UITextFieldDelegate
         let metrics:[String:AnyObject] = [:]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-10-[field]-10-|",
+            "H:|-0-[buttonRemove]-10-[field]-10-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -56,15 +59,21 @@ class VCreateDetailCellText:VCreateDetailCell, UITextFieldDelegate
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[buttonRemove(50)]",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[buttonRemove]-0-|",
             options:[],
             metrics:metrics,
             views:views))
+        
+        layoutButtonRemoveWidth = NSLayoutConstraint(
+            item:buttonRemove,
+            attribute:NSLayoutAttribute.Width,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.NotAnAttribute,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutButtonRemoveWidth)
     }
     
     required init?(coder:NSCoder)
@@ -97,5 +106,19 @@ class VCreateDetailCellText:VCreateDetailCell, UITextFieldDelegate
         textField.resignFirstResponder()
         
         return true
+    }
+    
+    //MARK: public
+    
+    func removeAble(able:Bool)
+    {
+        if able
+        {
+            layoutButtonRemoveWidth.constant = kButtonRemoveWidth
+        }
+        else
+        {
+            layoutButtonRemoveWidth.constant = 0
+        }
     }
 }
