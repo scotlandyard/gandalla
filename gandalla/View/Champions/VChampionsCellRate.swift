@@ -3,19 +3,21 @@ import UIKit
 class VChampionsCellRate:UIView
 {
     weak var label:UILabel!
-    let colorBorder:UIColor
-    let colorBackground:UIColor
-    let colorForeground:UIColor
+    private var rateDeg:CGFloat
+    private let colorBorder:UIColor
+    private let colorBackground:UIColor
+    private let colorForeground:UIColor
     private let kLineBorderWidth:CGFloat = 30
     private let kLineBaseWidth:CGFloat = 28
     private let kLineForeWidth:CGFloat = 26
     private let kMargin:CGFloat = 32
-    private let deg90:CGFloat = 1.5708
+    private let kDeg90:CGFloat = 1.5708
     
     init()
     {
-        colorBorder = UIColor(white:0.9, alpha:1)
-        colorBackground = UIColor.collectionBackground()
+        rateDeg = 0
+        colorBorder = UIColor.blackColor()
+        colorBackground = UIColor(white:0.2, alpha:1)
         colorForeground = UIColor.complement()
         
         super.init(frame:CGRectZero)
@@ -53,20 +55,24 @@ class VChampionsCellRate:UIView
         CGContextSetLineCap(context, CGLineCap.Round)
         CGContextSetLineWidth(context, kLineBorderWidth)
         CGContextSetStrokeColorWithColor(context, colorBorder.CGColor)
-        CGContextAddArc(context, width_2, height_2, radius, deg90, 0, 1)
+        CGContextAddArc(context, width_2, height_2, radius, kDeg90, 0, 1)
         CGContextDrawPath(context, CGPathDrawingMode.Stroke)
         CGContextSetLineWidth(context, kLineBaseWidth)
         CGContextSetStrokeColorWithColor(context, colorBackground.CGColor)
-        CGContextAddArc(context, width_2, height_2, radius, deg90, 0, 1)
+        CGContextAddArc(context, width_2, height_2, radius, kDeg90, 0, 1)
         CGContextDrawPath(context, CGPathDrawingMode.Stroke)
-        
-        CGContextSetStrokeColorWithColor(context, colorBackground.CGColor)
+        CGContextSetLineWidth(context, kLineForeWidth)
+        CGContextSetStrokeColorWithColor(context, colorForeground.CGColor)
+        CGContextAddArc(context, width_2, height_2, radius, rateDeg, 0, 1)
+        CGContextDrawPath(context, CGPathDrawingMode.Stroke)
     }
     
     //MARK: public
     
     func count(percentage:CGFloat)
     {
-        
+        let ratio:CGFloat = kDeg90 * percentage
+        rateDeg = kDeg90 - ratio
+        setNeedsDisplay()
     }
 }
