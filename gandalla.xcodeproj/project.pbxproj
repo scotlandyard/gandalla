@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA11A9A61D74DAAF002921E6 /* MCreateItemDetailPropertyItemAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11A9A51D74DAAF002921E6 /* MCreateItemDetailPropertyItemAction.swift */; };
+		DA11A9A81D751920002921E6 /* MCreateItemDetailPropertyItemText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11A9A71D751920002921E6 /* MCreateItemDetailPropertyItemText.swift */; };
 		DA13F35C1D6B3F19008AF28A /* MMainNavItemGandallers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F35B1D6B3F19008AF28A /* MMainNavItemGandallers.swift */; };
 		DA13F3721D6B450F008AF28A /* FDatabaseModelNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F36A1D6B450F008AF28A /* FDatabaseModelNews.swift */; };
 		DA13F3731D6B450F008AF28A /* FDatabaseModelNewsJoined.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13F36B1D6B450F008AF28A /* FDatabaseModelNewsJoined.swift */; };
@@ -197,6 +198,7 @@
 		7071DB846720A600ABE48F7F /* Pods-gandalla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gandalla.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gandalla/Pods-gandalla.debug.xcconfig"; sourceTree = "<group>"; };
 		BB6363C319D194C1D235EF34 /* Pods_gandalla.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gandalla.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA11A9A51D74DAAF002921E6 /* MCreateItemDetailPropertyItemAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemAction.swift; sourceTree = "<group>"; };
+		DA11A9A71D751920002921E6 /* MCreateItemDetailPropertyItemText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemText.swift; sourceTree = "<group>"; };
 		DA13F35B1D6B3F19008AF28A /* MMainNavItemGandallers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainNavItemGandallers.swift; sourceTree = "<group>"; };
 		DA13F36A1D6B450F008AF28A /* FDatabaseModelNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelNews.swift; sourceTree = "<group>"; };
 		DA13F36B1D6B450F008AF28A /* FDatabaseModelNewsJoined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelNewsJoined.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				DA155AE41D6C9D89000C8C85 /* MCreateItemDetailPropertyItem.swift */,
+				DA11A9A71D751920002921E6 /* MCreateItemDetailPropertyItemText.swift */,
 				DA155AE51D6C9D89000C8C85 /* MCreateItemDetailPropertyItemName.swift */,
 				DA155AE61D6C9D89000C8C85 /* MCreateItemDetailPropertyItemStatus.swift */,
 				DA155AF41D6C9DC9000C8C85 /* MCreateItemDetailPropertyItemStarted.swift */,
@@ -1339,6 +1342,7 @@
 				DABF04811D70F3B100012C4C /* VGandallersCell.swift in Sources */,
 				DA13F3731D6B450F008AF28A /* FDatabaseModelNewsJoined.swift in Sources */,
 				DAA6A3C61D69184300F2565B /* CategoryUIViewController.swift in Sources */,
+				DA11A9A81D751920002921E6 /* MCreateItemDetailPropertyItemText.swift in Sources */,
 				DA65BBD51D7273B900DA8440 /* VGandallerDetailCellPower.swift in Sources */,
 				DA65BBD71D7273E700DA8440 /* MGandallerDetailItemPower.swift in Sources */,
 				DA1912331D6E0CF3001F6F3A /* FDatabaseModelGandallerImageWaiting.swift in Sources */,
