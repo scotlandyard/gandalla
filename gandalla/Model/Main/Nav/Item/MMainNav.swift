@@ -9,25 +9,25 @@ class MMainNav
     {
         var items:[MMainNavItem] = []
         
-        let itemLiked:MMainNavItem = MMainNavItem.Liked(items.count)
+        let itemLiked:MMainNavItemLiked = MMainNavItemLiked(index:items.count)
         items.append(itemLiked)
         
-        let itemNews:MMainNavItem = MMainNavItem.News(items.count)
+        let itemNews:MMainNavItemNews = MMainNavItemNews(index:items.count)
         items.append(itemNews)
         
-        let itemGandallers:MMainNavItem = MMainNavItem.Gandallers(items.count)
+        let itemGandallers:MMainNavItemGandallers = MMainNavItemGandallers(index:items.count)
         items.append(itemGandallers)
 
-        let itemChampions:MMainNavItem = MMainNavItem.Champions(items.count)
+        let itemChampions:MMainNavItem = MMainNavItemChampions(index:items.count)
         items.append(itemChampions)
         
         #if DEBUG
             
-            let itemCreate:MMainNavItem = MMainNavItem.Create(items.count)
+            let itemCreate:MMainNavItemCreate = MMainNavItemCreate(index:items.count)
             items.append(itemCreate)
             
-            let itemNotifications:MMainNavItem = MMainNavItem.Create(items.count)
-            items.append(itemCreate)
+            let itemNotifications:MMainNavItemNotifications = MMainNavItemNotifications(index:items.count)
+            items.append(itemNotifications)
             
         #endif
         
