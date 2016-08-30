@@ -16,7 +16,6 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
         backgroundColor = UIColor.whiteColor()
         translatesAutoresizingMaskIntoConstraints = false
         
-        let collectionTop:CGFloat = controller.parent.kBarHeight
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSizeZero
         flow.footerReferenceSize = CGSizeZero
