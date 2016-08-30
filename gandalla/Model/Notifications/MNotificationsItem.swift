@@ -3,9 +3,9 @@ import Foundation
 class MNotificationsItem
 {
     let title:String
-    let notificationType:FDatabaseModelNews.FDatabaseModelNewsKey
+    let notificationType:FDatabaseModelNews.FDatabaseModelNewsType
     
-    init(title:String, notificationType:FDatabaseModelNews.FDatabaseModelNewsKey)
+    init(title:String, notificationType:FDatabaseModelNews.FDatabaseModelNewsType)
     {
         self.title = title
         self.notificationType = notificationType

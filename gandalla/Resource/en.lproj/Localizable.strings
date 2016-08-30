@@ -41,3 +41,7 @@
 "MCreateItemDetailPropertyItemText_actionDo"="Do";
 "MCreateItemDetailPropertyItemText_actionDone"="Done";
 "MCreateItemDetailPropertyItemText_actionCancel"="Cancel";
+"MNotificationsItemSocial_title"="Remove Social";
+"MNotificationsItemPicture_title"="Remove Picture";
+"MNotificationsItemPower_title"="Remove Power";
+"MNotificationsItemVideo_title"="Remove Video";

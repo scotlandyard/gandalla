@@ -1,9 +1,12 @@
-//
-//  MNotificationsItemSocial.swift
-//  gandalla
-//
-//  Created by zero on 8/30/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class MNotificationsItemSocial:MNotificationsItem
+{
+    init()
+    {
+        let notificationType:FDatabaseModelNews.FDatabaseModelNewsType = FDatabaseModelNews.FDatabaseModelNewsType.Social
+        let title:String = NSLocalizedString("MNotificationsItemSocial_title", comment:"")
+        
+        super.init(title:title, notificationType:notificationType)
+    }
+}
