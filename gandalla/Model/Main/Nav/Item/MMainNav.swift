@@ -26,6 +26,9 @@ class MMainNav
             let itemCreate:MMainNavItem = MMainNavItem.Create(items.count)
             items.append(itemCreate)
             
+            let itemNotifications:MMainNavItem = MMainNavItem.Create(items.count)
+            items.append(itemCreate)
+            
         #endif
         
         self.items = items
