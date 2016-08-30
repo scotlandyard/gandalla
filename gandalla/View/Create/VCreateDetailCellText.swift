@@ -16,7 +16,7 @@ class VCreateDetailCellText:VCreateDetailCell
         field.clipsToBounds = true
         field.backgroundColor = UIColor.clearColor()
         field.borderStyle = UITextBorderStyle.None
-        field.font = UIFont.bold(17)
+        field.font = UIFont.bold(15)
         field.textColor = color
         field.tintColor = color
         field.returnKeyType = UIReturnKeyType.Next
