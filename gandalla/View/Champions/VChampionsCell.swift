@@ -10,7 +10,7 @@ class VChampionsCell:UICollectionViewCell
     weak var layoutRateTop:NSLayoutConstraint!
     weak var layoutRateLeft:NSLayoutConstraint!
     private let kImageSize:CGFloat = 180
-    private let kRateSize:CGFloat = 270
+    private let kRateSize:CGFloat = 220
     
     override init(frame:CGRect)
     {
@@ -31,8 +31,8 @@ class VChampionsCell:UICollectionViewCell
         let rate:VChampionsCellRate = VChampionsCellRate()
         self.rate = rate
         
-        addSubview(image)
         addSubview(rate)
+        addSubview(image)
         
         let views:[String:AnyObject] = [
             "image":image,

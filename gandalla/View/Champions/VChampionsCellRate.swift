@@ -3,16 +3,19 @@ import UIKit
 class VChampionsCellRate:UIView
 {
     weak var label:UILabel!
+    let colorBorder:UIColor
     let colorBackground:UIColor
     let colorForeground:UIColor
-    private let kLineBaseWidth:CGFloat = 10
-    private let kLineForeWidth:CGFloat = 9
-    private let kMargin:CGFloat = 7
+    private let kLineBorderWidth:CGFloat = 30
+    private let kLineBaseWidth:CGFloat = 28
+    private let kLineForeWidth:CGFloat = 26
+    private let kMargin:CGFloat = 32
     private let deg90:CGFloat = 1.5708
     
     init()
     {
-        colorBackground = UIColor(white:0.9, alpha:1)
+        colorBorder = UIColor(white:0.9, alpha:1)
+        colorBackground = UIColor.collectionBackground()
         colorForeground = UIColor.complement()
         
         super.init(frame:CGRectZero)
@@ -47,11 +50,13 @@ class VChampionsCellRate:UIView
         }
         
         radius = (diameter - kMargin) / 2.0
-        
-        CGContextSetStrokeColorWithColor(context, colorBackground.CGColor)
-        CGContextSetLineWidth(context, kLineBaseWidth)
         CGContextSetLineCap(context, CGLineCap.Round)
-        CGContextMoveToPoint(context, radius, height)
+        CGContextSetLineWidth(context, kLineBorderWidth)
+        CGContextSetStrokeColorWithColor(context, colorBorder.CGColor)
+        CGContextAddArc(context, width_2, height_2, radius, deg90, 0, 1)
+        CGContextDrawPath(context, CGPathDrawingMode.Stroke)
+        CGContextSetLineWidth(context, kLineBaseWidth)
+        CGContextSetStrokeColorWithColor(context, colorBackground.CGColor)
         CGContextAddArc(context, width_2, height_2, radius, deg90, 0, 1)
         CGContextDrawPath(context, CGPathDrawingMode.Stroke)
         
