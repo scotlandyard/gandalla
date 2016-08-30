@@ -4,7 +4,7 @@ class MCreateItemDetailPropertyItemTextHashtag:MCreateItemDetailPropertyItemText
 {
     let fHashtag:FDatabaseModelGandallerSocialHashtag
     private let kPlaceholder:String = ""
-    private let kRemoveAble:Bool = false
+    private let kRemoveAble:Bool = true
     
     init(fHashtag:FDatabaseModelGandallerSocialHashtag, gandallerId:String)
     {
