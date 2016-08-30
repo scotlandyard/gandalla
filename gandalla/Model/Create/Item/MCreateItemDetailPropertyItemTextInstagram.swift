@@ -11,17 +11,17 @@ class MCreateItemDetailPropertyItemTextInstagram:MCreateItemDetailPropertyItemTe
         self.fSocial = fSocial
         self.gandallerId = gandallerId
         let placeholder:String = NSLocalizedString("MCreateItemDetailPropertyItemInstagram_placeholder", comment:"")
-        super.init(placeholder:placeholder, text:fSocial.insta, removeAble:kRemoveAble)
+        super.init(placeholder:placeholder, text:fSocial.instagram, removeAble:kRemoveAble)
     }
     
     override func changedText(text:String)
     {
         super.changedText(text)
         
-        fSocial?.twitter = text
+        fSocial?.instagram = text
         let reference:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.Gandaller
         let subProperty:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.Social.rawValue
-        let subChild:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.SocialTwitter.rawValue
+        let subChild:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.SocialInstagram.rawValue
         let property:String = "\(subProperty)/\(subChild)"
         
         FMain.sharedInstance.database.updateProperty(
