@@ -3,7 +3,7 @@ import UIKit
 class MCreateItemDetailPropertyItemTextPower:MCreateItemDetailPropertyItemText
 {
     var fPower:FDatabaseModelGandallerPower?
-    let kPlaceholder:String = ""
+    private let kPlaceholder:String = ""
     private let kRemoveAble:Bool = true
     
     init(fPower:FDatabaseModelGandallerPower, gandallerId:String)

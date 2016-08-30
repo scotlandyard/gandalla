@@ -2,8 +2,8 @@ import UIKit
 
 class MCreateItemDetailPropertyItemTextHashtag:MCreateItemDetailPropertyItemText
 {
-    let gandallerId:String
     var fSocial:FDatabaseModelGandallerSocial?
+    private let kPlaceholder:String = ""
     private let kRemoveAble:Bool = false
     
     init(fSocial:FDatabaseModelGandallerSocial, gandallerId:String)
