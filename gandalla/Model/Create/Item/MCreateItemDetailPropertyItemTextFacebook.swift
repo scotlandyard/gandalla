@@ -2,16 +2,14 @@ import UIKit
 
 class MCreateItemDetailPropertyItemTextFacebook:MCreateItemDetailPropertyItemText
 {
-    let gandallerId:String
     var fSocial:FDatabaseModelGandallerSocial?
     private let kRemoveAble:Bool = false
     
     init(fSocial:FDatabaseModelGandallerSocial, gandallerId:String)
     {
         self.fSocial = fSocial
-        self.gandallerId = gandallerId
         let placeholder:String = NSLocalizedString("MCreateItemDetailPropertyItemFacebook_placeholder", comment:"")
-        super.init(placeholder:placeholder, text:fSocial.facebook, removeAble:kRemoveAble)
+        super.init(gandallerId:gandallerId, placeholder:placeholder, text:fSocial.facebook, removeAble:kRemoveAble)
     }
     
     override func changedText(text:String)

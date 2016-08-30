@@ -2,15 +2,14 @@ import UIKit
 
 class MCreateItemDetailPropertyItemTextPower:MCreateItemDetailPropertyItemText
 {
-    let gandallerId:String
     var fPower:FDatabaseModelGandallerPower?
+    let kPlaceholder:String = ""
     private let kRemoveAble:Bool = true
     
     init(fPower:FDatabaseModelGandallerPower, gandallerId:String)
     {
         self.fPower = fPower
-        self.gandallerId = gandallerId
-        super.init(placeholder:"", text:fPower.name, removeAble:kRemoveAble)
+        super.init(gandallerId:gandallerId, placeholder:kPlaceholder, text:fPower.name, removeAble:kRemoveAble)
     }
     
     override func changedText(text:String)
