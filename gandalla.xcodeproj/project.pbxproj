@@ -183,6 +183,8 @@
 		DADA163E1D75EB13008D7F78 /* MMainNavItemNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA163D1D75EB13008D7F78 /* MMainNavItemNotifications.swift */; };
 		DADA16411D75EC9A008D7F78 /* CNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA16401D75EC9A008D7F78 /* CNotifications.swift */; };
 		DADA16441D75ECEF008D7F78 /* VNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA16431D75ECEF008D7F78 /* VNotifications.swift */; };
+		DADA16471D75EDB4008D7F78 /* MNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA16461D75EDB4008D7F78 /* MNotifications.swift */; };
+		DADA16491D75EDC8008D7F78 /* MNotificationsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA16481D75EDC8008D7F78 /* MNotificationsItem.swift */; };
 		E4B7B97FC5CC4CDDD05C1E52 /* Pods_gandalla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB6363C319D194C1D235EF34 /* Pods_gandalla.framework */; };
 /* End PBXBuildFile section */
 
@@ -379,6 +381,8 @@
 		DADA163D1D75EB13008D7F78 /* MMainNavItemNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainNavItemNotifications.swift; sourceTree = "<group>"; };
 		DADA16401D75EC9A008D7F78 /* CNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNotifications.swift; sourceTree = "<group>"; };
 		DADA16431D75ECEF008D7F78 /* VNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNotifications.swift; sourceTree = "<group>"; };
+		DADA16461D75EDB4008D7F78 /* MNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNotifications.swift; sourceTree = "<group>"; };
+		DADA16481D75EDC8008D7F78 /* MNotificationsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNotificationsItem.swift; sourceTree = "<group>"; };
 		DADAB9651D6912AE002637E8 /* gandalla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gandalla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADAB97C1D6912AE002637E8 /* test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -822,6 +826,7 @@
 		DAA6A3921D69184300F2565B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DADA16451D75EDA9008D7F78 /* Notifications */,
 				DA65BC051D73E85900DA8440 /* Liked */,
 				DA65BBF41D73AED600DA8440 /* Champions */,
 				DA65BBB91D72382900DA8440 /* GandallerDetail */,
@@ -1059,6 +1064,15 @@
 			path = Notifications;
 			sourceTree = "<group>";
 		};
+		DADA16451D75EDA9008D7F78 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				DADA16461D75EDB4008D7F78 /* MNotifications.swift */,
+				DADA16481D75EDC8008D7F78 /* MNotificationsItem.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		DADAB95C1D6912AE002637E8 = {
 			isa = PBXGroup;
 			children = (
@@ -1280,8 +1294,10 @@
 				DA65BBEB1D72FD3700DA8440 /* VGandallerDetailCellPicturesCell.swift in Sources */,
 				DA13F37C1D6B55CD008AF28A /* VCreateHeader.swift in Sources */,
 				DA155AFF1D6CBA89000C8C85 /* MGandallerItem.swift in Sources */,
+				DADA16491D75EDC8008D7F78 /* MNotificationsItem.swift in Sources */,
 				DA3C5E811D7092FB003F5358 /* MCreateItemDetailPropertyItemTextTwitter.swift in Sources */,
 				DA42AE5A1D6FF02D0082F43A /* MCreateItemDetailPropertyItemTextPower.swift in Sources */,
+				DADA16471D75EDB4008D7F78 /* MNotifications.swift in Sources */,
 				DA65BBDF1D72BEA100DA8440 /* MGandallerDetailItemLike.swift in Sources */,
 				DAA6A3CE1D69184300F2565B /* DManagerSaver.swift in Sources */,
 				DAA6A3E01D69184300F2565B /* MMainTransitionReplace.swift in Sources */,
