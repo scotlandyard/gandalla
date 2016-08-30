@@ -2,12 +2,14 @@ import UIKit
 
 class MCreateItemDetailPropertyItemText:MCreateItemDetailPropertyItem
 {
+    let gandallerId:String
     let removeAble:Bool
     let placeholder:String
     var text:String
     
-    init(placeholder:String, text:String, removeAble:Bool)
+    init(gandallerId:String, placeholder:String, text:String, removeAble:Bool)
     {
+        self.gandallerId = gandallerId
         self.placeholder = placeholder
         self.text = text
         self.removeAble = removeAble
