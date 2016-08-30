@@ -50,7 +50,7 @@ class VNotificationsCell:UICollectionViewCell
     }
     
     override var highlighted:Bool
-        {
+    {
         didSet
         {
             hover()

@@ -6,7 +6,6 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
     weak var collection:UICollectionView!
     weak var spinner:VMainLoader?
     private let kCollectionBottom:CGFloat = 40
-    private let kCellHeight:CGFloat = 300
     private let kMaxChampions:Int = 3
     
     convenience init(controller:CChampions)
@@ -21,10 +20,10 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSizeZero
         flow.footerReferenceSize = CGSizeZero
-        flow.sectionInset = UIEdgeInsetsMake(collectionTop, 0, kCollectionBottom, 0)
+        flow.sectionInset = UIEdgeInsetsZero
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
-        flow.scrollDirection = UICollectionViewScrollDirection.Vertical
+        flow.scrollDirection = UICollectionViewScrollDirection.Horizontal
         
         let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
         collection.backgroundColor = UIColor.clearColor()
@@ -32,7 +31,8 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
         collection.clipsToBounds = true
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
-        collection.alwaysBounceVertical = true
+        collection.alwaysBounceHorizontal = true
+        collection.pagingEnabled = true
         collection.delegate = self
         collection.dataSource = self
         collection.registerClass(
@@ -113,8 +113,7 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
     
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
-        let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSizeMake(width, kCellHeight)
+        let size:CGSize = collectionView.bounds.size
         
         return size
     }
