@@ -2,7 +2,7 @@ import UIKit
 
 class MCreateItemDetailPropertyItemImage:MCreateItemDetailPropertyItem, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
-    weak var fImage:FDatabaseModelGandallerImage?
+    var fImage:FDatabaseModelGandallerImage?
     weak var cellImage:VCreateDetailCellImage?
     var image:UIImage?
     let profileImage:Bool
