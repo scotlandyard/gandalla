@@ -32,9 +32,10 @@ class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
         { (itemA, itemB) -> Bool in
             
             let before:Bool
-            let imageIdA:String? = itemA.fImage?.imageId
+            let notificationA:String? = itemA.fImage?.imageNotification
+            let notificationB:String? = itemB.fImage?.imageNotification
             
-            if imageIdA == nil
+            if notificationA == nil
             {
                 before = false
             }
