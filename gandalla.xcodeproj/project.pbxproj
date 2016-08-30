@@ -181,6 +181,7 @@
 		DAD713EC1D6A5CE7007ABB0C /* MMainNavItemChampions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713EB1D6A5CE7007ABB0C /* MMainNavItemChampions.swift */; };
 		DAD713EF1D6A5F47007ABB0C /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713EE1D6A5F47007ABB0C /* MUser.swift */; };
 		DADA163E1D75EB13008D7F78 /* MMainNavItemNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA163D1D75EB13008D7F78 /* MMainNavItemNotifications.swift */; };
+		DADA16411D75EC9A008D7F78 /* CNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA16401D75EC9A008D7F78 /* CNotifications.swift */; };
 		E4B7B97FC5CC4CDDD05C1E52 /* Pods_gandalla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB6363C319D194C1D235EF34 /* Pods_gandalla.framework */; };
 /* End PBXBuildFile section */
 
@@ -375,6 +376,7 @@
 		DAD713EB1D6A5CE7007ABB0C /* MMainNavItemChampions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainNavItemChampions.swift; sourceTree = "<group>"; };
 		DAD713EE1D6A5F47007ABB0C /* MUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
 		DADA163D1D75EB13008D7F78 /* MMainNavItemNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainNavItemNotifications.swift; sourceTree = "<group>"; };
+		DADA16401D75EC9A008D7F78 /* CNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNotifications.swift; sourceTree = "<group>"; };
 		DADAB9651D6912AE002637E8 /* gandalla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gandalla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADAB97C1D6912AE002637E8 /* test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -739,6 +741,7 @@
 		DAA6A37E1D69184300F2565B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DADA163F1D75EC90008D7F78 /* Notifications */,
 				DA65BBFD1D73E71700DA8440 /* Liked */,
 				DA65BBEE1D739AE500DA8440 /* Champions */,
 				DABF04731D70EE9000012C4C /* Gandallers */,
@@ -1035,6 +1038,14 @@
 				DAD713EE1D6A5F47007ABB0C /* MUser.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		DADA163F1D75EC90008D7F78 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				DADA16401D75EC9A008D7F78 /* CNotifications.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		DADAB95C1D6912AE002637E8 = {
@@ -1340,6 +1351,7 @@
 				DAA5800D1D6D1A1C00EC941A /* MNewsItem.swift in Sources */,
 				DA92217A1D691BAA006323FE /* FDatabase.swift in Sources */,
 				DAA6A3CD1D69184300F2565B /* DManagerModelGandalla.swift in Sources */,
+				DADA16411D75EC9A008D7F78 /* CNotifications.swift in Sources */,
 				DA9221791D691BAA006323FE /* FAnalytics.swift in Sources */,
 				DA155AF31D6C9D89000C8C85 /* MCreateItemDetailPropertyStatus.swift in Sources */,
 				DABF04701D70DAD800012C4C /* VCreateDetailCellAction.swift in Sources */,
