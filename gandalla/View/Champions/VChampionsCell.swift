@@ -122,12 +122,20 @@ class VChampionsCell:UICollectionViewCell
     {
         let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
-        let remainX:CGFloat = width - (kImageSize + KRateMarginLeft + kRateSize)
-        let remainY:CGFloat = height - kImageSize
-        let marginX:CGFloat = remainX / 2.0
-        let marginY:CGFloat = remainY / 2.0
-        layoutImageTop.constant = marginY
-        layoutImageLeft.constant = marginX
+        
+        let remainImageX:CGFloat = width - kImageSize
+        let remainImageY:CGFloat = height - kImageSize
+        let marginImageX:CGFloat = remainImageX / 2.0
+        let marginImageY:CGFloat = remainImageY / 2.0
+        layoutImageTop.constant = marginImageY
+        layoutImageLeft.constant = marginImageX
+        
+        let remainRateX:CGFloat = width - kRateSize
+        let remainRateY:CGFloat = height - kRateSize
+        let marginRateX:CGFloat = remainRateX / 2.0
+        let marginRateY:CGFloat = remainRateY / 2.0
+        layoutRateTop.constant = marginRateY
+        layoutRateLeft.constant = marginRateX
         
         super.layoutSubviews()
     }
