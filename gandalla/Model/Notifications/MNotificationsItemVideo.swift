@@ -1,9 +1,12 @@
-//
-//  MNotificationsItemVideo.swift
-//  gandalla
-//
-//  Created by zero on 8/30/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class MNotificationsItemVideo:MNotificationsItem
+{
+    init()
+    {
+        let notificationType:FDatabaseModelNews.FDatabaseModelNewsType = FDatabaseModelNews.FDatabaseModelNewsType.Video
+        let title:String = NSLocalizedString("MNotificationsItemVideo_title", comment:"")
+        
+        super.init(title:title, notificationType:notificationType)
+    }
+}
