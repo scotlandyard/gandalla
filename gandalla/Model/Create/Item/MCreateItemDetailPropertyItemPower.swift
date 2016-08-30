@@ -53,37 +53,34 @@ class MCreateItemDetailPropertyItemPower:MCreateItemDetailPropertyItem, UITextFi
                         subPropertyId:propertyPowerName,
                         value:newName)
                     
-                    if !newName.isEmpty
+                    if notificationId == nil
                     {
-                        if notificationId == nil
-                        {
-                            let propertyPowerNotification:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.PowerNotification.rawValue
-                            let news:FDatabaseModelNews = FDatabaseModelNewsPower(gandallerId:self!.gandallerId, power:newName)
-                            let newsJson:[String:AnyObject] = news.modelJson()
-                            let newsId:String = FMain.sharedInstance.database.createChild(
-                                FDatabase.FDatabaseReference.News,
-                                json:newsJson)
-                            self!.fPower!.powerNotification = newsId
-                            
-                            FMain.sharedInstance.database.updateSubProperty(
-                                reference,
-                                childId:self!.gandallerId,
-                                property:propertyPowers,
-                                subChildId:powerId,
-                                subPropertyId:propertyPowerNotification,
-                                value:newsId)
-                        }
-                        else
-                        {
-                            let referenceNotification:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.News
-                            let propertyNotificationPower:String = FDatabaseModelNews.FDatabaseModelNewsKey.Power.rawValue
-                            
-                            FMain.sharedInstance.database.updateProperty(
-                                referenceNotification,
-                                childId:notificationId!,
-                                property:propertyNotificationPower,
-                                value:newName)
-                        }
+                        let propertyPowerNotification:String = FDatabaseModelGandaller.FDatabaseModelGandallerKey.PowerNotification.rawValue
+                        let news:FDatabaseModelNews = FDatabaseModelNewsPower(gandallerId:self!.gandallerId, power:newName)
+                        let newsJson:[String:AnyObject] = news.modelJson()
+                        let newsId:String = FMain.sharedInstance.database.createChild(
+                            FDatabase.FDatabaseReference.News,
+                            json:newsJson)
+                        self!.fPower!.powerNotification = newsId
+                        
+                        FMain.sharedInstance.database.updateSubProperty(
+                            reference,
+                            childId:self!.gandallerId,
+                            property:propertyPowers,
+                            subChildId:powerId,
+                            subPropertyId:propertyPowerNotification,
+                            value:newsId)
+                    }
+                    else
+                    {
+                        let referenceNotification:FDatabase.FDatabaseReference = FDatabase.FDatabaseReference.News
+                        let propertyNotificationPower:String = FDatabaseModelNews.FDatabaseModelNewsKey.Power.rawValue
+                        
+                        FMain.sharedInstance.database.updateProperty(
+                            referenceNotification,
+                            childId:notificationId!,
+                            property:propertyNotificationPower,
+                            value:newName)
                     }
                 }
             }
