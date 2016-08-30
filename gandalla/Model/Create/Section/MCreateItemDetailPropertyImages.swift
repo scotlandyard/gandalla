@@ -10,7 +10,7 @@ class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
         let name:String = NSLocalizedString("MCreateItemDetailPropertyImages_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellImage.reusableIdentifier()
         let profileImageId:String? = fModel.profileImage
-        var items:[MCreateItemDetailPropertyItem] = []
+        var items:[MCreateItemDetailPropertyItemImage] = []
         
         for fImage:FDatabaseModelGandallerImage in fModel.images
         {
@@ -26,6 +26,24 @@ class MCreateItemDetailPropertyImages:MCreateItemDetailProperty
             
             let itemImage:MCreateItemDetailPropertyItemImage = MCreateItemDetailPropertyItemImage(gandallerId:gandallerId, fImage:fImage, profileImage:profileImage)
             items.append(itemImage)
+        }
+        
+        items.sortInPlace()
+        { (itemA, itemB) -> Bool in
+            
+            let before:Bool
+            let imageIdA:String? = itemA.fImage?.imageId
+            
+            if imageIdA == nil
+            {
+                before = false
+            }
+            else
+            {
+                before = true
+            }
+            
+            return before
         }
         
         super.init(name:name, reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, items:items, addAvailable:kAddAvailable)
