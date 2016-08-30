@@ -2,16 +2,14 @@ import UIKit
 
 class MCreateItemDetailPropertyItemTextHashtag:MCreateItemDetailPropertyItemText
 {
-    var fSocial:FDatabaseModelGandallerSocial?
+    var fHashtag:FDatabaseModelGandallerSocialHashtag?
     private let kPlaceholder:String = ""
     private let kRemoveAble:Bool = false
     
-    init(fSocial:FDatabaseModelGandallerSocial, gandallerId:String)
+    init(fHashtag:FDatabaseModelGandallerSocialHashtag, gandallerId:String)
     {
-        self.fSocial = fSocial
-        self.gandallerId = gandallerId
-        let placeholder:String = NSLocalizedString("MCreateItemDetailPropertyItemInstagram_placeholder", comment:"")
-        super.init(placeholder:placeholder, text:fSocial.instagram, removeAble:kRemoveAble)
+        self.fHashtag = fHashtag
+        super.init(gandallerId:gandallerId, placeholder:kPlaceholder, text:fSocial.instagram, removeAble:kRemoveAble)
     }
     
     override func changedText(text:String)

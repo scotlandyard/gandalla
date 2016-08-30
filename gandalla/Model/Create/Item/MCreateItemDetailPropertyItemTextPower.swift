@@ -2,7 +2,7 @@ import UIKit
 
 class MCreateItemDetailPropertyItemTextPower:MCreateItemDetailPropertyItemText
 {
-    var fPower:FDatabaseModelGandallerPower?
+    let fPower:FDatabaseModelGandallerPower
     private let kPlaceholder:String = ""
     private let kRemoveAble:Bool = true
     
