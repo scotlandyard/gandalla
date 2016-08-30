@@ -2,13 +2,16 @@ import Foundation
 
 class FDatabaseModelGandallerPower
 {
+    var powerId:String
     var name:String
     var powerNotification:String?
-    var powerId:String?
+    private let kPowerId:String = ""
+    private let kEmpty:String = ""
     
     init()
     {
-        name = ""
+        name = kEmpty
+        powerId = kPowerId
     }
     
     init(json:[String:AnyObject], powerId:String)

@@ -2,13 +2,16 @@ import Foundation
 
 class FDatabaseModelGandallerVideo
 {
+    var videoId:String
     let url:String
     var videoNotification:String?
-    var videoId:String?
+    private let kVideoId:String = ""
+    private let kEmpty:String = ""
     
     init()
     {
-        url = ""
+        url = kEmpty
+        videoId = kVideoId
     }
     
     init(json:[String:AnyObject], videoId:String)
