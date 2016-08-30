@@ -22,14 +22,27 @@ class MCreateItemDetailPropertyPowers:MCreateItemDetailProperty
             
             let before:Bool
             let notificationA:String? = itemA.fPower.powerNotification
+            let notificationB:String? = itemB.fPower.powerNotification
+            let powerA:String = itemA.fPower.name
             
             if notificationA == nil
             {
                 before = false
             }
-            else
+            else if notificationB == nil
             {
                 before = true
+            }
+            else
+            {
+                if powerA.isEmpty
+                {
+                    before = false
+                }
+                else
+                {
+                    before = true
+                }
             }
             
             return before
