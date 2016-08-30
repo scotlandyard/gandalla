@@ -7,10 +7,11 @@ class MCreateItemDetailPropertyName:MCreateItemDetailProperty
     
     override init(gandallerId:String, fModel:FDatabaseModelGandaller)
     {
-        let gandallerName:String = fModel.name
         let name:String = NSLocalizedString("MCreateItemDetailPropertyName_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellText.reusableIdentifier()
-        let itemName:MCreateItemDetailPropertyItemName = MCreateItemDetailPropertyItemName(name:gandallerName)
+        let itemName:MCreateItemDetailPropertyItemTextName = MCreateItemDetailPropertyItemTextName(
+            fModel:fModel,
+            gandallerId:gandallerId)
         let items:[MCreateItemDetailPropertyItem] = [
             itemName
         ]

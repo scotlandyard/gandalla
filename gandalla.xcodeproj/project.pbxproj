@@ -39,7 +39,7 @@
 		DA155AEC1D6C9D89000C8C85 /* MCreateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA155AE11D6C9D89000C8C85 /* MCreateItem.swift */; };
 		DA155AED1D6C9D89000C8C85 /* MCreateItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA155AE21D6C9D89000C8C85 /* MCreateItemDetail.swift */; };
 		DA155AEE1D6C9D89000C8C85 /* MCreateItemDetailPropertyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA155AE41D6C9D89000C8C85 /* MCreateItemDetailPropertyItem.swift */; };
-		DA155AEF1D6C9D89000C8C85 /* MCreateItemDetailPropertyItemName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA155AE51D6C9D89000C8C85 /* MCreateItemDetailPropertyItemName.swift */; };
+		DA155AEF1D6C9D89000C8C85 /* MCreateItemDetailPropertyItemTextName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA155AE51D6C9D89000C8C85 /* MCreateItemDetailPropertyItemTextName.swift */; };
 		DA155AF01D6C9D89000C8C85 /* MCreateItemDetailPropertyItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA155AE61D6C9D89000C8C85 /* MCreateItemDetailPropertyItemStatus.swift */; };
 		DA155AF11D6C9D89000C8C85 /* MCreateItemDetailProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA155AE81D6C9D89000C8C85 /* MCreateItemDetailProperty.swift */; };
 		DA155AF21D6C9D89000C8C85 /* MCreateItemDetailPropertyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA155AE91D6C9D89000C8C85 /* MCreateItemDetailPropertyName.swift */; };
@@ -229,7 +229,7 @@
 		DA155AE11D6C9D89000C8C85 /* MCreateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItem.swift; sourceTree = "<group>"; };
 		DA155AE21D6C9D89000C8C85 /* MCreateItemDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetail.swift; sourceTree = "<group>"; };
 		DA155AE41D6C9D89000C8C85 /* MCreateItemDetailPropertyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItem.swift; sourceTree = "<group>"; };
-		DA155AE51D6C9D89000C8C85 /* MCreateItemDetailPropertyItemName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemName.swift; sourceTree = "<group>"; };
+		DA155AE51D6C9D89000C8C85 /* MCreateItemDetailPropertyItemTextName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemTextName.swift; sourceTree = "<group>"; };
 		DA155AE61D6C9D89000C8C85 /* MCreateItemDetailPropertyItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyItemStatus.swift; sourceTree = "<group>"; };
 		DA155AE81D6C9D89000C8C85 /* MCreateItemDetailProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailProperty.swift; sourceTree = "<group>"; };
 		DA155AE91D6C9D89000C8C85 /* MCreateItemDetailPropertyName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemDetailPropertyName.swift; sourceTree = "<group>"; };
@@ -482,7 +482,7 @@
 			children = (
 				DA155AE41D6C9D89000C8C85 /* MCreateItemDetailPropertyItem.swift */,
 				DA11A9A71D751920002921E6 /* MCreateItemDetailPropertyItemText.swift */,
-				DA155AE51D6C9D89000C8C85 /* MCreateItemDetailPropertyItemName.swift */,
+				DA155AE51D6C9D89000C8C85 /* MCreateItemDetailPropertyItemTextName.swift */,
 				DA155AE61D6C9D89000C8C85 /* MCreateItemDetailPropertyItemStatus.swift */,
 				DA155AF41D6C9DC9000C8C85 /* MCreateItemDetailPropertyItemStarted.swift */,
 				DA1912301D6DEE1E001F6F3A /* MCreateItemDetailPropertyItemImage.swift */,
@@ -1262,7 +1262,7 @@
 				DAA6A3E01D69184300F2565B /* MMainTransitionReplace.swift in Sources */,
 				DA92217B1D691BAA006323FE /* FDatabaseModel.swift in Sources */,
 				DAD713EC1D6A5CE7007ABB0C /* MMainNavItemChampions.swift in Sources */,
-				DA155AEF1D6C9D89000C8C85 /* MCreateItemDetailPropertyItemName.swift in Sources */,
+				DA155AEF1D6C9D89000C8C85 /* MCreateItemDetailPropertyItemTextName.swift in Sources */,
 				DAD713E21D6A1361007ABB0C /* MMainNavPosNormal.swift in Sources */,
 				DA65BBD91D727AD800DA8440 /* MGandallerDetailItemTitle.swift in Sources */,
 				DA65BBFA1D73AF7700DA8440 /* VChampionsCell.swift in Sources */,
