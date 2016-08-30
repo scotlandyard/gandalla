@@ -182,6 +182,7 @@
 		DAD713EF1D6A5F47007ABB0C /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD713EE1D6A5F47007ABB0C /* MUser.swift */; };
 		DADA163E1D75EB13008D7F78 /* MMainNavItemNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA163D1D75EB13008D7F78 /* MMainNavItemNotifications.swift */; };
 		DADA16411D75EC9A008D7F78 /* CNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA16401D75EC9A008D7F78 /* CNotifications.swift */; };
+		DADA16441D75ECEF008D7F78 /* VNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA16431D75ECEF008D7F78 /* VNotifications.swift */; };
 		E4B7B97FC5CC4CDDD05C1E52 /* Pods_gandalla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB6363C319D194C1D235EF34 /* Pods_gandalla.framework */; };
 /* End PBXBuildFile section */
 
@@ -377,6 +378,7 @@
 		DAD713EE1D6A5F47007ABB0C /* MUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
 		DADA163D1D75EB13008D7F78 /* MMainNavItemNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainNavItemNotifications.swift; sourceTree = "<group>"; };
 		DADA16401D75EC9A008D7F78 /* CNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNotifications.swift; sourceTree = "<group>"; };
+		DADA16431D75ECEF008D7F78 /* VNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNotifications.swift; sourceTree = "<group>"; };
 		DADAB9651D6912AE002637E8 /* gandalla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gandalla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADAB97C1D6912AE002637E8 /* test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -897,6 +899,7 @@
 		DAA6A3AF1D69184300F2565B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DADA16421D75ECE3008D7F78 /* Notifications */,
 				DA65BC001D73E79500DA8440 /* Liked */,
 				DA65BBF11D739CBF00DA8440 /* Champions */,
 				DA65BBB61D72375700DA8440 /* GandallerDetail */,
@@ -1044,6 +1047,14 @@
 			isa = PBXGroup;
 			children = (
 				DADA16401D75EC9A008D7F78 /* CNotifications.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		DADA16421D75ECE3008D7F78 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				DADA16431D75ECEF008D7F78 /* VNotifications.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -1367,6 +1378,7 @@
 				DAD713E11D6A1361007ABB0C /* MMainNavPos.swift in Sources */,
 				DA65BBF01D739AEE00DA8440 /* CChampions.swift in Sources */,
 				DA65BBFF1D73E74600DA8440 /* CLiked.swift in Sources */,
+				DADA16441D75ECEF008D7F78 /* VNotifications.swift in Sources */,
 				DAD713E41D6A1361007ABB0C /* MMainNavItemState.swift in Sources */,
 				DA9221881D6A0B0D006323FE /* CNews.swift in Sources */,
 				DAA580151D6D2BD900EC941A /* VNewsCellPower.swift in Sources */,
