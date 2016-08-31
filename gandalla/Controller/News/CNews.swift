@@ -68,7 +68,8 @@ class CNews:CMainController
             
             if self != nil
             {
-                self!.listenHandler = FMain.sharedInstance.database.listenParent(FDatabase.FDatabaseReference.News)
+                self!.listenHandler = FMain.sharedInstance.database.listenParent(
+                    FDatabase.FDatabaseReference.News)
                 { [weak self] (snapshot) in
                     
                     let json:[String:[String:AnyObject]]? = snapshot.value as? [String:[String:AnyObject]]
