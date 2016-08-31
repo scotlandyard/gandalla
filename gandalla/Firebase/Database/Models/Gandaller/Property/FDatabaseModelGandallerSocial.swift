@@ -6,13 +6,14 @@ class FDatabaseModelGandallerSocial
     var twitter:String
     var instagram:String
     var hashtags:[FDatabaseModelGandallerSocialHashtag]
+    private let kEmpty:String = ""
     
     init()
     {
         hashtags = []
-        facebook = ""
-        twitter = ""
-        instagram = ""
+        facebook = kEmpty
+        twitter = kEmpty
+        instagram = kEmpty
     }
     
     init(json:[String:AnyObject]?)
@@ -45,9 +46,9 @@ class FDatabaseModelGandallerSocial
         }
         else
         {
-            facebook = ""
-            twitter = ""
-            instagram = ""
+            facebook = kEmpty
+            twitter = kEmpty
+            instagram = kEmpty
         }
     }
     

@@ -1,4 +1,8 @@
 "CCreate_gandallerCreated"="Gandaller created!";
+"CNotifications_title"="Execute?";
+"CNotifications_actionDo"="Do";
+"CNotifications_actionDone"="Done";
+"CNotifications_actionCancel"="Cancel";
 
 "VCreateHeader_button"="Add Gandaller";
 "VCreateDetailCellStatus_itemActive"="Active";
@@ -11,6 +15,7 @@
 "VGandallerDetailCellLike_label"="Disagree with this gandalla";
 "VGandallerDetailCellLike_liked"="Gandalla marked!";
 "VLikedHeader_labelEmpty"="Here you will find the gandallas you mark";
+"VChampions_title"="Gandallometer";
 
 "MCreateItem_noName"="-";
 "MCreateItemDetailPropertyStatus_name"="Status";
@@ -33,7 +38,16 @@
 "MCreateItemDetailPropertyItemAction_actionDo"="Do";
 "MCreateItemDetailPropertyItemAction_actionCancel"="Cancel";
 "MCreateItemDetailPropertyItemAction_done"="Done";
+"MCreateItemDetailPropertyItemAction_title"="Action?";
 "MGandallerDetail_titlePowers"="Super powers";
 "MGandallerDetail_titleHashtags"="Hashtags";
 "MGandallerDetail_titleVideos"="Videos";
 "MGandallerDetail_titleSocial"="Networks";
+"MCreateItemDetailPropertyItemText_title"="Remove?";
+"MCreateItemDetailPropertyItemText_actionDo"="Do";
+"MCreateItemDetailPropertyItemText_actionDone"="Done";
+"MCreateItemDetailPropertyItemText_actionCancel"="Cancel";
+"MNotificationsItemSocial_title"="Remove Social";
+"MNotificationsItemPicture_title"="Remove Picture";
+"MNotificationsItemPower_title"="Remove Power";
+"MNotificationsItemVideo_title"="Remove Video";

@@ -23,6 +23,7 @@ class MGandallerDetailItemPictures:MGandallerDetailItem
         }
         
         let gandallerId:String = modelGandaller.gandallerId
+        let profileImageId:String? = modelGandaller.fModel.profileImage
         var items:[MGandallerDetailItemPicturesItem] = []
         
         for fImage:FDatabaseModelGandallerImage in modelGandaller.fModel.images
@@ -31,10 +32,38 @@ class MGandallerDetailItemPictures:MGandallerDetailItem
             
             if imageStatus == FDatabaseModelGandallerImage.FDatabaseModelGandallerImageStatus.Ready
             {
-                let imageId:String = fImage.imageId!
-                let imageItem:MGandallerDetailItemPicturesItem = MGandallerDetailItemPicturesItem(gandallerId:gandallerId, imageId:imageId)
+                let profileImage:Bool
+                let imageId:String = fImage.imageId
+                
+                if profileImageId == imageId
+                {
+                    profileImage = true
+                }
+                else
+                {
+                    profileImage = false
+                }
+                
+                let imageItem:MGandallerDetailItemPicturesItem = MGandallerDetailItemPicturesItem(gandallerId:gandallerId, imageId:imageId, profileImage:profileImage)
                 items.append(imageItem)
             }
+        }
+        
+        items.sortInPlace()
+        { (itemA, itemB) -> Bool in
+            
+            let before:Bool
+            
+            if itemA.profileImage
+            {
+                before = true
+            }
+            else
+            {
+                before = false
+            }
+            
+            return before
         }
         
         self.items = items

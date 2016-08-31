@@ -8,7 +8,7 @@ class FDatabaseModelGandallerImage
         case Ready
     }
     
-    var imageId:String?
+    var imageId:String
     var imageNotification:String?
     let status:FDatabaseModelGandallerImageStatus
     
@@ -41,7 +41,7 @@ class FDatabaseModelGandallerImage
         return image
     }
     
-    init(imageId:String?, status:FDatabaseModelGandallerImageStatus)
+    init(imageId:String, status:FDatabaseModelGandallerImageStatus)
     {
         self.imageId = imageId
         self.status = status

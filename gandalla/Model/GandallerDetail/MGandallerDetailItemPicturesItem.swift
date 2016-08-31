@@ -4,12 +4,14 @@ class MGandallerDetailItemPicturesItem
 {
     let imageId:String
     let gandallerId:String
+    let profileImage:Bool
     var imageBinary:UIImage?
     
-    init(gandallerId:String, imageId:String)
+    init(gandallerId:String, imageId:String, profileImage:Bool)
     {
         self.gandallerId = gandallerId
         self.imageId = imageId
+        self.profileImage = profileImage
         
         getImage()
     }

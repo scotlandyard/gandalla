@@ -77,34 +77,4 @@ class VGandallerDetailCellVideo:VGandallerDetailCell
         label.text = url
         hover()
     }
-    
-    override var selected:Bool
-    {
-        didSet
-        {
-            hover()
-        }
-    }
-    
-    override var highlighted:Bool
-    {
-        didSet
-        {
-            hover()
-        }
-    }
-    
-    //MARK: private
-    
-    private func hover()
-    {
-        if selected || highlighted
-        {
-            alpha = 0.2
-        }
-        else
-        {
-            alpha = 1
-        }
-    }
 }

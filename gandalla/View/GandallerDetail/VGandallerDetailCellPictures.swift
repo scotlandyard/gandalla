@@ -104,8 +104,8 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
     {
         modelPictures = model as? MGandallerDetailItemPictures
         pageControl.numberOfPages = modelPictures!.items.count
-        
         collection.reloadData()
+        hover()
     }
     
     override func layoutSubviews()
@@ -189,5 +189,10 @@ class VGandallerDetailCellPictures:VGandallerDetailCell, UICollectionViewDataSou
         cell.config(item)
         
         return cell
+    }
+    
+    func collectionView(collectionView:UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
+    {
+        collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally, animated:true)
     }
 }

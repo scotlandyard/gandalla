@@ -5,8 +5,8 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
     weak var controller:CChampions!
     weak var collection:UICollectionView!
     weak var spinner:VMainLoader?
-    private let kCollectionBottom:CGFloat = 40
-    private let kCellHeight:CGFloat = 300
+    weak var pageControl:UIPageControl!
+    private let kPageControlBottom:Int = 30
     private let kMaxChampions:Int = 3
     
     convenience init(controller:CChampions)
@@ -17,14 +17,13 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
         backgroundColor = UIColor.whiteColor()
         translatesAutoresizingMaskIntoConstraints = false
         
-        let collectionTop:CGFloat = controller.parent.kBarHeight
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSizeZero
         flow.footerReferenceSize = CGSizeZero
-        flow.sectionInset = UIEdgeInsetsMake(collectionTop, 0, kCollectionBottom, 0)
+        flow.sectionInset = UIEdgeInsetsZero
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
-        flow.scrollDirection = UICollectionViewScrollDirection.Vertical
+        flow.scrollDirection = UICollectionViewScrollDirection.Horizontal
         
         let collection:UICollectionView = UICollectionView(frame:CGRectZero, collectionViewLayout:flow)
         collection.backgroundColor = UIColor.clearColor()
@@ -32,7 +31,8 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
         collection.clipsToBounds = true
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
-        collection.alwaysBounceVertical = true
+        collection.alwaysBounceHorizontal = true
+        collection.pagingEnabled = true
         collection.delegate = self
         collection.dataSource = self
         collection.registerClass(
@@ -42,17 +42,40 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
         collection.hidden = true
         self.collection = collection
         
+        let pageControl:UIPageControl = UIPageControl()
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.backgroundColor = UIColor.clearColor()
+        pageControl.currentPageIndicatorTintColor = UIColor.complement()
+        pageControl.pageIndicatorTintColor = UIColor(white:0.94, alpha:1)
+        pageControl.addTarget(self, action:#selector(self.actionPageSelected(sender:)), forControlEvents:UIControlEvents.ValueChanged)
+        pageControl.hidden = true
+        self.pageControl = pageControl
+        
+        let label:UILabel = UILabel()
+        label.userInteractionEnabled = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = NSTextAlignment.Center
+        label.backgroundColor = UIColor.clearColor()
+        label.font = UIFont.bold(12)
+        label.textColor = UIColor.blackColor()
+        label.text = NSLocalizedString("VChampions_title", comment:"")
+        
         let spinner:VMainLoader = VMainLoader()
         self.spinner = spinner
         
         addSubview(collection)
+        addSubview(label)
+        addSubview(pageControl)
         addSubview(spinner)
         
         let views:[String:AnyObject] = [
             "collection":collection,
-            "spinner":spinner]
+            "spinner":spinner,
+            "pageControl":pageControl,
+            "label":label]
         
-        let metrics:[String:AnyObject] = [:]
+        let metrics:[String:AnyObject] = [
+        "pageControlBottom":kPageControlBottom]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|-0-[collection]-0-|",
@@ -61,6 +84,21 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[collection]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[pageControl]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[label]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[label(14)]-0-[pageControl(pageControlBottom)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -82,6 +120,15 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
         super.layoutSubviews()
     }
     
+    //MARK: actions
+    
+    func actionPageSelected(sender pageControl:UIPageControl)
+    {
+        let selected:Int = pageControl.currentPage
+        let indexPath:NSIndexPath = NSIndexPath(forItem:selected, inSection:0)
+        collection.scrollToItemAtIndexPath(indexPath, atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally, animated:true)
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:NSIndexPath) -> MChampionsItem
@@ -98,9 +145,15 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
         dispatch_async(dispatch_get_main_queue())
         { [weak self] in
             
-            self?.spinner?.removeFromSuperview()
-            self?.collection.reloadData()
-            self?.collection.hidden = false
+            if self != nil
+            {
+                self!.spinner?.removeFromSuperview()
+                self!.collection.reloadData()
+                self!.collection.hidden = false
+                self!.pageControl.currentPage = 0
+                self!.pageControl.numberOfPages = self!.kMaxChampions
+                self!.pageControl.hidden = false
+            }
         }
     }
     
@@ -108,13 +161,21 @@ class VChampions:UIView, UICollectionViewDelegate, UICollectionViewDataSource, U
     
     func scrollViewDidScroll(scrollView:UIScrollView)
     {
-        controller.parent.scrollDidScroll(scrollView)
+        let scrollX:CGFloat = scrollView.contentOffset.x
+        let totalX:CGFloat = scrollView.center.x + scrollX
+        let point:CGPoint = CGPointMake(totalX, 1)
+        let index:NSIndexPath? = collection.indexPathForItemAtPoint(point)
+        
+        if index != nil
+        {
+            let item:Int = index!.item
+            pageControl.currentPage = item
+        }
     }
     
     func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
     {
-        let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSizeMake(width, kCellHeight)
+        let size:CGSize = collectionView.bounds.size
         
         return size
     }

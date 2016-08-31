@@ -7,7 +7,7 @@ class VGandallerDetailCellPower:VGandallerDetailCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor.whiteColor()
+        backgroundColor = UIColor(white:0.94, alpha:1)
         userInteractionEnabled = false
         
         let label:UILabel = UILabel()
@@ -15,7 +15,7 @@ class VGandallerDetailCellPower:VGandallerDetailCell
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clearColor()
         label.font = UIFont.regular(15)
-        label.textColor = UIColor(white:0.4, alpha:1)
+        label.textColor = UIColor(white:0.18, alpha:1)
         label.numberOfLines = 2
         self.label = label
         
@@ -62,5 +62,6 @@ class VGandallerDetailCellPower:VGandallerDetailCell
         let modelPower:MGandallerDetailItemPower = model as! MGandallerDetailItemPower
         let power:String = modelPower.power
         label.text = power
+        hover()
     }
 }

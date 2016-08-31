@@ -90,6 +90,7 @@ class VGandallerDetailCellLike:VGandallerDetailCell
         labelCounter.hidden = true
         let gandallerId:String = modelLike.modelGandaller.gandallerId
         seekGandallerDb(gandallerId)
+        hover()
     }
     
     //MARK: actions

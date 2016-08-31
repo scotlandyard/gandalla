@@ -46,5 +46,6 @@ class VGandallerDetailCellProfile:VGandallerDetailCell
         let modelProfile:MGandallerDetailItemProfile = model as! MGandallerDetailItemProfile
         let gandallerName:String = modelProfile.modelGandaller.fModel.name
         label.text = gandallerName
+        hover()
     }
 }

@@ -13,7 +13,35 @@ class VGandallerDetailCell:UICollectionViewCell
         fatalError()
     }
     
+    override var selected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var highlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
     //MARK: public
+    
+    func hover()
+    {
+        if selected || highlighted
+        {
+            alpha = 0.2
+        }
+        else
+        {
+            alpha = 1
+        }
+    }
     
     func config(model:MGandallerDetailItem)
     {

@@ -34,7 +34,7 @@ class FDatabaseModelGandaller:FDatabaseModel
     
     let status:FDatabaseModelGandallerStatus
     let created:NSTimeInterval
-    let name:String
+    var name:String
     let profileImage:String?
     let social:FDatabaseModelGandallerSocial
     let images:[FDatabaseModelGandallerImage]

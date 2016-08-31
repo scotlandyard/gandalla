@@ -7,10 +7,10 @@ class VChampionsCell:UICollectionViewCell
     weak var model:MChampionsItem?
     weak var layoutImageTop:NSLayoutConstraint!
     weak var layoutImageLeft:NSLayoutConstraint!
+    weak var layoutRateTop:NSLayoutConstraint!
+    weak var layoutRateLeft:NSLayoutConstraint!
     private let kImageSize:CGFloat = 180
-    private let kRateSize:CGFloat = 130
-    private let KRateMarginLeft:CGFloat = -65
-    private let KRateMarginBottom:CGFloat = 30
+    private let kRateSize:CGFloat = 220
     
     override init(frame:CGRect)
     {
@@ -24,15 +24,15 @@ class VChampionsCell:UICollectionViewCell
         image.clipsToBounds = true
         image.contentMode = UIViewContentMode.ScaleAspectFill
         image.layer.cornerRadius = kImageSize / 2.0
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.complement().CGColor
+        image.layer.borderWidth = 4
+        image.layer.borderColor = UIColor.blackColor().CGColor
         self.image = image
         
         let rate:VChampionsCellRate = VChampionsCellRate()
         self.rate = rate
         
-        addSubview(image)
         addSubview(rate)
+        addSubview(image)
         
         let views:[String:AnyObject] = [
             "image":image,
@@ -40,22 +40,25 @@ class VChampionsCell:UICollectionViewCell
         
         let metrics:[String:AnyObject] = [
             "imageSize":kImageSize,
-            "rateSize":kRateSize,
-            "rateMarginLeft":KRateMarginLeft,
-            "rateMarginBottom":KRateMarginBottom]
+            "rateSize":kRateSize]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[image(imageSize)]-(rateMarginLeft)-[rate(rateSize)]",
+            "H:[rate(rateSize)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[rate(rateSize)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:[image(imageSize)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:[image(imageSize)]",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[rate(rateSize)]-(rateMarginBottom)-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -76,9 +79,27 @@ class VChampionsCell:UICollectionViewCell
             attribute:NSLayoutAttribute.Left,
             multiplier:1,
             constant:0)
+        layoutRateTop = NSLayoutConstraint(
+            item:rate,
+            attribute:NSLayoutAttribute.Top,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Top,
+            multiplier:1,
+            constant:0)
+        layoutRateLeft = NSLayoutConstraint(
+            item:rate,
+            attribute:NSLayoutAttribute.Left,
+            relatedBy:NSLayoutRelation.Equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.Left,
+            multiplier:1,
+            constant:0)
         
         addConstraint(layoutImageTop)
         addConstraint(layoutImageLeft)
+        addConstraint(layoutRateTop)
+        addConstraint(layoutRateLeft)
         
         NSNotificationCenter.defaultCenter().addObserver(
             self,
@@ -101,12 +122,20 @@ class VChampionsCell:UICollectionViewCell
     {
         let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
-        let remainX:CGFloat = width - (kImageSize + KRateMarginLeft + kRateSize)
-        let remainY:CGFloat = height - kImageSize
-        let marginX:CGFloat = remainX / 2.0
-        let marginY:CGFloat = remainY / 2.0
-        layoutImageTop.constant = marginY
-        layoutImageLeft.constant = marginX
+        
+        let remainImageX:CGFloat = width - kImageSize
+        let remainImageY:CGFloat = height - kImageSize
+        let marginImageX:CGFloat = remainImageX / 2.0
+        let marginImageY:CGFloat = remainImageY / 2.0
+        layoutImageTop.constant = marginImageY
+        layoutImageLeft.constant = marginImageX
+        
+        let remainRateX:CGFloat = width - kRateSize
+        let remainRateY:CGFloat = height - kRateSize
+        let marginRateX:CGFloat = remainRateX / 2.0
+        let marginRateY:CGFloat = remainRateY / 2.0
+        layoutRateTop.constant = marginRateY
+        layoutRateLeft.constant = marginRateX
         
         super.layoutSubviews()
     }
@@ -173,6 +202,6 @@ class VChampionsCell:UICollectionViewCell
     {
         self.model = model
         placeImage()
-        rate.count(model.count)
+        rate.count(model.percentage)
     }
 }

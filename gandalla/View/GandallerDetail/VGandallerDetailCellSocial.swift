@@ -62,5 +62,6 @@ class VGandallerDetailCellSocial:VGandallerDetailCell
         let modelSocial:MGandallerDetailItemSocial = model as! MGandallerDetailItemSocial
         label.text = modelSocial.title
         icon.image = UIImage(named:modelSocial.icon)
+        hover()
     }
 }

@@ -3,59 +3,28 @@ import UIKit
 class VChampionsCellRate:UIView
 {
     weak var label:UILabel!
+    private var rateDeg:CGFloat
+    private let colorBorder:UIColor
+    private let colorBackground:UIColor
+    private let colorForeground:UIColor
+    private let kLineBorderWidth:CGFloat = 30
+    private let kLineBaseWidth:CGFloat = 28
+    private let kLineForeWidth:CGFloat = 26
+    private let kMargin:CGFloat = 38
+    private let kDeg90:CGFloat = 1.5708
     
     init()
     {
+        rateDeg = 0
+        colorBorder = UIColor.blackColor()
+        colorBackground = UIColor(white:0.2, alpha:1)
+        colorForeground = UIColor.main()
+        
         super.init(frame:CGRectZero)
         userInteractionEnabled = false
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        
-        let image:UIImageView = UIImageView()
-        image.userInteractionEnabled = false
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.clipsToBounds = true
-        image.contentMode = UIViewContentMode.Center
-        image.image = UIImage(named:"championsRate")
-        
-        let label:UILabel = UILabel()
-        label.userInteractionEnabled = false
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clearColor()
-        label.font = UIFont.numeric(28)
-        label.textColor = UIColor.whiteColor()
-        label.textAlignment = NSTextAlignment.Center
-        self.label = label
-        
-        addSubview(image)
-        addSubview(label)
-        
-        let views:[String:AnyObject] = [
-            "image":image,
-            "label":label]
-        
-        let metrics:[String:AnyObject] = [:]
-        
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-0-[image]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[image]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|-7-[label]-15-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-0-[label]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
+        backgroundColor = UIColor.clearColor()
     }
     
     required init?(coder:NSCoder)
@@ -63,13 +32,47 @@ class VChampionsCellRate:UIView
         fatalError()
     }
     
+    override func drawRect(rect:CGRect)
+    {
+        let width:CGFloat = rect.maxX
+        let height:CGFloat = rect.maxY
+        let width_2:CGFloat = width / 2.0
+        let height_2:CGFloat = height / 2.0
+        let diameter:CGFloat
+        let radius:CGFloat
+        let context:CGContext? = UIGraphicsGetCurrentContext()
+        
+        if width < height
+        {
+            diameter = width
+        }
+        else
+        {
+            diameter = height
+        }
+        
+        radius = (diameter - kMargin) / 2.0
+        CGContextSetLineCap(context, CGLineCap.Round)
+        CGContextSetLineWidth(context, kLineBorderWidth)
+        CGContextSetStrokeColorWithColor(context, colorBorder.CGColor)
+        CGContextAddArc(context, width_2, height_2, radius, kDeg90, 0, 1)
+        CGContextDrawPath(context, CGPathDrawingMode.Stroke)
+        CGContextSetLineWidth(context, kLineBaseWidth)
+        CGContextSetStrokeColorWithColor(context, colorBackground.CGColor)
+        CGContextAddArc(context, width_2, height_2, radius, kDeg90, 0, 1)
+        CGContextDrawPath(context, CGPathDrawingMode.Stroke)
+        CGContextSetLineWidth(context, kLineForeWidth)
+        CGContextSetStrokeColorWithColor(context, colorForeground.CGColor)
+        CGContextAddArc(context, width_2, height_2, radius, kDeg90, rateDeg, 1)
+        CGContextDrawPath(context, CGPathDrawingMode.Stroke)
+    }
+    
     //MARK: public
     
-    func count(likes:Int)
+    func count(percentage:Double)
     {
-        let formatter:NSNumberFormatter = NSNumberFormatter()
-        formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        let countString:String = formatter.stringFromNumber(likes)!
-        label.text = countString
+        let ratio:CGFloat = kDeg90 * CGFloat(percentage)
+        rateDeg = kDeg90 - ratio
+        setNeedsDisplay()
     }
 }

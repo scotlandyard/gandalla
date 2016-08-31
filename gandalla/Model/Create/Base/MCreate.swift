@@ -28,7 +28,29 @@ class MCreate
         items.sortInPlace
         { (itemA, itemB) -> Bool in
             
-            let before:Bool = itemA.gandaller.fModel.created > itemB.gandaller.fModel.created
+            let before:Bool
+            let nameA:String = itemA.gandaller.fModel.name
+            let nameB:String = itemB.gandaller.fModel.name
+            let comparisonResult:NSComparisonResult = nameA.compare(
+                nameB,
+                options:NSStringCompareOptions.CaseInsensitiveSearch,
+                range:nil,
+                locale:nil)
+                
+            switch comparisonResult
+            {
+                case NSComparisonResult.OrderedAscending, NSComparisonResult.OrderedSame:
+                
+                    before = true
+                    
+                    break
+                
+                case NSComparisonResult.OrderedDescending:
+                
+                    before = false
+                    
+                    break
+            }
             
             return before
         }

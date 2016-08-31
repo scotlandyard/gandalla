@@ -7,41 +7,6 @@ class MMainNavItem
     private(set) var state:MMainNavItemState
     weak var cell:VMainBarCell?
     
-    class func News(index:Int) -> MMainNavItem
-    {
-        let item:MMainNavItem = MMainNavItemNews(index:index)
-        
-        return item
-    }
-    
-    class func Create(index:Int) -> MMainNavItem
-    {
-        let item:MMainNavItem = MMainNavItemCreate(index:index)
-        
-        return item
-    }
-    
-    class func Liked(index:Int) -> MMainNavItem
-    {
-        let item:MMainNavItem = MMainNavItemLiked(index:index)
-        
-        return item
-    }
-    
-    class func Champions(index:Int) -> MMainNavItem
-    {
-        let item:MMainNavItem = MMainNavItemChampions(index:index)
-        
-        return item
-    }
-    
-    class func Gandallers(index:Int) -> MMainNavItem
-    {
-        let item:MMainNavItem = MMainNavItemGandallers(index:index)
-        
-        return item
-    }
-    
     init(image:String, index:Int)
     {
         self.image = image

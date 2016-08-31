@@ -9,12 +9,55 @@ class MCreateItemDetailPropertyHashtags:MCreateItemDetailProperty
     {
         let name:String = NSLocalizedString("MCreateItemDetailPropertyHashtags_name", comment:"")
         let reusableIdentifier:String = VCreateDetailCellText.reusableIdentifier()
-        var items:[MCreateItemDetailPropertyItem] = []
+        var items:[MCreateItemDetailPropertyItemTextHashtag] = []
         
         for fHashtag:FDatabaseModelGandallerSocialHashtag in fModel.social.hashtags
         {
-            let itemHashtag:MCreateItemDetailPropertyItemHashtag = MCreateItemDetailPropertyItemHashtag(gandallerId:gandallerId, fHashtag:fHashtag)
+            let itemHashtag:MCreateItemDetailPropertyItemTextHashtag = MCreateItemDetailPropertyItemTextHashtag(fHashtag:fHashtag, gandallerId:gandallerId)
             items.append(itemHashtag)
+        }
+        
+        items.sortInPlace()
+        { (itemA, itemB) -> Bool in
+            
+            let before:Bool
+            let tagA:String = itemA.fHashtag.tag
+            let tagB:String = itemB.fHashtag.tag
+            
+            if tagA.isEmpty
+            {
+                before = false
+            }
+            else if tagB.isEmpty
+            {
+                before = true
+            }
+            else
+            {
+                let comparisonResult:NSComparisonResult = tagA.compare(
+                    tagB,
+                    options:NSStringCompareOptions.CaseInsensitiveSearch,
+                    range:nil,
+                    locale:nil)
+                
+                switch comparisonResult
+                {
+                    case NSComparisonResult.OrderedAscending, NSComparisonResult.OrderedSame:
+                    
+                        before = true
+                        
+                        break
+                    
+                    case NSComparisonResult.OrderedDescending:
+                    
+                        before = false
+                        
+                        break
+                }
+                
+            }
+            
+            return before
         }
         
         super.init(name:name, reusableIdentifier:reusableIdentifier, cellHeight:kCellHeight, items:items, addAvailable:kAddAvailable)
