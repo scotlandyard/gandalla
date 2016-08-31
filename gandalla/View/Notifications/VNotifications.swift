@@ -92,6 +92,20 @@ class VNotifications:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         return item
     }
     
+    //MARK: public
+    
+    func showLoading()
+    {
+        collection.hidden = true
+        spinner.startAnimating()
+    }
+    
+    func hideLoading()
+    {
+        collection.hidden = false
+        spinner.stopAnimating()
+    }
+    
     //MARK: col del
     
     func scrollViewDidScroll(scrollView:UIScrollView)
