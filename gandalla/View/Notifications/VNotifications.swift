@@ -4,6 +4,7 @@ class VNotifications:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
 {
     weak var controller:CNotifications!
     weak var collection:UICollectionView!
+    weak var spinner:VMainLoader!
     private let kInterLine:CGFloat = 1
     private let kCellHeight:CGFloat = 50
     private let kCollectionBottom:CGFloat = 40
@@ -15,6 +16,10 @@ class VNotifications:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.collectionBackground()
         self.controller = controller
+        
+        let spinner:VMainLoader = VMainLoader()
+        spinner.stopAnimating()
+        self.spinner = spinner
         
         let headerHeight:CGFloat = controller.parent.kBarHeight
         
@@ -42,9 +47,11 @@ class VNotifications:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
         self.collection = collection
         
         addSubview(collection)
+        addSubview(spinner)
         
         let views:[String:AnyObject] = [
-            "collection":collection]
+            "collection":collection,
+            "spinner":spinner]
         
         let metrics:[String:AnyObject] = [:]
         
@@ -55,6 +62,16 @@ class VNotifications:UIView, UICollectionViewDelegate, UICollectionViewDataSourc
             views:views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-0-[collection]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-0-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|-0-[spinner]-0-|",
             options:[],
             metrics:metrics,
             views:views))
